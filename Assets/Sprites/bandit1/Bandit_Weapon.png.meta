@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 972d61bda772629449368661a3d0569c
+guid: efd9ae9f7e42436449c94761722814c3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7083197668918603558
-    second: Bandit_Idle_1_0
+      213: -8436374777687368572
+    second: Bandit_Weapon_0
   - first:
-      213: -8245427181103864884
-    second: Bandit_Idle_1_1
+      213: 5938892631541447624
+    second: Bandit_Weapon_1
   - first:
-      213: 7716672746788110293
-    second: Bandit_Idle_1_2
+      213: 8463906910846834400
+    second: Bandit_Weapon_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,67 +119,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bandit_Idle_1_2
+      name: Bandit_Weapon_2
       rect:
         serializedVersion: 2
         x: 22
-        y: 5
+        y: 4
         width: 5
-        height: 11
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 4ec6ab3398605b04f8c365f6c0ee0fdc
-      internalID: 7716672746788110293
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bandit_Idle_1_0
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 5
-        width: 5
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ac5048d75120be849a6573c8a73c8261
-      internalID: -7083197668918603558
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bandit_Idle_1_1
-      rect:
-        serializedVersion: 2
-        x: 11
-        y: 0
-        width: 10
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aa96f39663781834aa56e96f1a07bc77
-      internalID: -8245427181103864884
+      spriteID: 0e6dff0ed76d57570800000000000000
+      internalID: 8463906910846834400
       vertices: []
       indices: 
       edges: []
@@ -188,7 +144,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 6ac65411dfe8435478c8c3f403e3dc26
+    spriteID: 0fa8e3fac68e32a4eb44b6112ed14219
     internalID: 0
     vertices: []
     indices: 
@@ -198,9 +154,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Bandit_Idle_1_0: -7083197668918603558
-      Bandit_Idle_1_1: -8245427181103864884
-      Bandit_Idle_1_2: 7716672746788110293
+      Bandit_Weapon_2: 8463906910846834400
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

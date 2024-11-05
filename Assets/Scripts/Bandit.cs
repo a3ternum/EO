@@ -13,27 +13,22 @@ public class Bandit : Enemy
 
         damage = 10;
         attackSpeed = 0.5f;
+        speed = 1f;
+
+        chaseScript.setSpeed(speed);
     }
 
-    public void takeDamage(float damage)
+    public override void enemyAttack()
     {
-        if (health > 0)
-        {
-            health -= damage;
-
-            if (health <= 0)
-            {
-                die();
-            }
-        }
+        base.enemyAttack();
 
     }
 
-    public void enemyAttack()
+    public override void takeDamage(float damage)
     {
-
-
+        base.takeDamage(damage);
     }
+
 
     // Update is called once per frame
     protected override void Update()

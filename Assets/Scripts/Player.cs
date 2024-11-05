@@ -30,6 +30,11 @@ public class Player : Creature
         combat.playerAttack();
     }
 
+    public override void takeDamage(float damage)
+    {
+        base.takeDamage(damage);
+    }
+
     void FixedUpdate()
     {
         movement.movePlayer();

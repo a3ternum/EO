@@ -7,8 +7,9 @@ public class Creature : MonoBehaviour
     public float health;
     public float damage;
     public float attackSpeed;
-
+    public float speed;
     public GameObject healthBarPrefab; 
+
     protected HealthBar healthBarComponent;
     private GameObject healthBarObject;
     private Canvas canvas;
@@ -56,4 +57,18 @@ public class Creature : MonoBehaviour
         Destroy(healthBarObject);
         Destroy(healthBarComponent);
     }
+
+    public virtual void takeDamage(float damage)
+    {
+        if (health > 0)
+        {
+            health -= damage;
+
+            if (health <= 0)
+            {
+                die();
+            }
+        }
+    }
+
 }

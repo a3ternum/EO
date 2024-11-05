@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class weapon : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     private Transform weaponLocation;
-    public GameObject windSlashPrefab; 
+    public GameObject playerProjectile; 
 
     
     public void Attack() // Attack method (shooting logic)
@@ -16,7 +15,7 @@ public class weapon : MonoBehaviour
 
 
         // spawn wind slash
-        Instantiate(windSlashPrefab, weaponLocation.position, weaponLocation.rotation);
+        Instantiate(playerProjectile, weaponLocation.position, weaponLocation.rotation);
 
         // shoot projectile
 

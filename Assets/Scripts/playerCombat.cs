@@ -2,16 +2,12 @@ using UnityEngine;
 
 public class playerCombat : MonoBehaviour
 {
-    public Animator animator;
     public Transform firePoint;
     public Transform playerTransform;
     public float weaponDistance = 0.5f;
 
     public weapon currentWeapon;
 
-    public LayerMask enemyLayers;
-
-    // Update is called once per frame
     public void playerAttack()
     {
         if (Input.GetMouseButtonDown(0))
