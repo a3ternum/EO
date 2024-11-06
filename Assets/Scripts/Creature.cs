@@ -8,11 +8,14 @@ public class Creature : MonoBehaviour
     public float damage;
     public float attackSpeed;
     public float speed;
-    public GameObject healthBarPrefab; 
+    public GameObject healthBarPrefab;
 
     protected HealthBar healthBarComponent;
+    protected float nextAttackTime = 0f;
+
     private GameObject healthBarObject;
     private Canvas canvas;
+    
 
     protected virtual void Start()
     {
@@ -31,21 +34,18 @@ public class Creature : MonoBehaviour
             Debug.LogError("World Space Canvas not found. Make sure there's a canvas set to World Space.");
             return;
         }
-        
+
         healthBarObject.transform.SetParent(canvas.transform, false); // set the health bar object as a child of the canvas
         healthBarObject.transform.position += new Vector3(0, 0.6f, 0); // set the position of the health bar above the creature
     }
 
-    protected virtual void Update()
-    {
-        UpdateHealthBar();
-    }
+  
     protected void UpdateHealthBar()
     {
         if (healthBarComponent != null)
         {
             healthBarComponent.setHealth(health); // update health value
-       
+
             healthBarObject.transform.position = transform.position + new Vector3(0, 0.6f, 0); // move healthbar to creature position
 
         }
@@ -71,4 +71,8 @@ public class Creature : MonoBehaviour
         }
     }
 
+    protected virtual void Update()
+    {
+        UpdateHealthBar();
+    }
 }

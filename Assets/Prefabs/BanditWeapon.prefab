@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 4272335317424494275}
   - component: {fileID: 2771213713839727148}
   - component: {fileID: 6497329702007125048}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BanditWeapon
-  m_TagString: Untagged
+  m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,7 +105,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 5389000207fc0414c8b1499cd985e26c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -155,7 +155,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.05, y: 0.13}
+    oldSize: {x: 0.11, y: 0.05}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -176,4 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  projectileDamage: 0
   rb: {fileID: 4272335317424494275}
+  destroyPlayerProjectiles: 0
+  destructable: 0

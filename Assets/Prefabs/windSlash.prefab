@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5323112304182488822}
   - component: {fileID: 3758851181075118264}
   - component: {fileID: 3127742322670247230}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: windSlash
-  m_TagString: Untagged
+  m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,4 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  projectileDamage: 0
   rb: {fileID: 5323112304182488822}
+  destroyEnemyProjectiles: 0
+  destructable: 0

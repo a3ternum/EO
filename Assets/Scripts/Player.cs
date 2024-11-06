@@ -4,12 +4,12 @@ public class Player : Creature
 {
     private playerMovement movement;
     private playerCombat combat;
-
+    private playerExperience experience;
     void Awake()
     {
         movement = GetComponent<playerMovement>();
         combat = GetComponent<playerCombat>();
-
+        experience = GetComponent<playerExperience>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,6 +20,7 @@ public class Player : Creature
         health = 100;
         damage = 10;
         attackSpeed = 1;
+        nextAttackTime = 0;
     }
 
     // Update is called once per frame
@@ -27,8 +28,23 @@ public class Player : Creature
     {
         base.Update();
         movement.setMovement();
-        combat.playerAttack();
+
+        if (combat.attackInput() & Time.time >= nextAttackTime)
+        {
+            combat.playerAttack();
+            nextAttackTime = Time.time + 1f / attackSpeed;
+        }
+
+        experience.Update();
     }
+
+    public void gainExperience(float experienceGained)
+    {
+        experience.gainExperience(experienceGained);
+    }
+
+
+
 
     public override void takeDamage(float damage)
     {

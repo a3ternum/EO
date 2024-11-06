@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class playerCombat : MonoBehaviour
@@ -9,9 +10,7 @@ public class playerCombat : MonoBehaviour
     public weapon currentWeapon;
 
     public void playerAttack()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
+    {  
             // rotate firePoint to face mouse position
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = 0;
@@ -29,10 +28,11 @@ public class playerCombat : MonoBehaviour
             firePoint.transform.rotation = Quaternion.Euler(0, 0, angle);
 
             currentWeapon.Attack();
-            
-        }
+    }
 
-
+    public Boolean attackInput()
+    {
+        return Input.GetMouseButton(0) || Input.GetMouseButtonDown(0);
     }
 
 

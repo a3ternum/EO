@@ -122,12 +122,12 @@ TextureImporter:
       name: Bandit_Weapon_2
       rect:
         serializedVersion: 2
-        x: 22
-        y: 4
-        width: 5
-        height: 13
+        x: 5
+        y: 5
+        width: 11
+        height: 5
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -154,6 +154,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      Bandit_Weapon_0: 733742828
+      Bandit_Weapon_1: 1015554014
       Bandit_Weapon_2: 8463906910846834400
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

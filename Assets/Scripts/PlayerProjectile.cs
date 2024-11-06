@@ -1,21 +1,25 @@
 using UnityEngine;
 
-public class EnemyProjectile : MonoBehaviour
+public class PlayerProjectile : MonoBehaviour
 {
     public float speed;
     public float projectileDamage;
     public Rigidbody2D rb;
 
-    public bool destroyPlayerProjectiles = false;
-    public bool destructable = true;
+    public bool destroyEnemyProjectiles = false;
+    public bool destructable = false;
 
+    private bool destroyProjectile = true;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb.linearVelocity = transform.right * speed;
+       
     }
 
     public void OnTriggerEnter2D(Collider2D hitInfo)
     {
+        
         // float damage should be turned into a list later, with the damage values being one for each element.
 
         int playerLayer = LayerMask.NameToLayer("Player");
@@ -24,6 +28,7 @@ public class EnemyProjectile : MonoBehaviour
         int enemyProjectileLayer = LayerMask.NameToLayer("EnemyProjectile");
         int playerProjectileLayer = LayerMask.NameToLayer("PlayerProjectile");
 
+        Debug.Log("objects hit layer is: " + hitInfo.gameObject.layer);
         // if we hit enemy
         if (hitInfo.gameObject.layer == enemyLayer)
         {
@@ -54,19 +59,28 @@ public class EnemyProjectile : MonoBehaviour
             hitPlayer(hitInfo);
         }
 
-        Destroy(gameObject);
+        if (destroyProjectile)
+        {
+            Destroy(gameObject);
+        }
+        
 
     }
 
     protected void hitEnemy(Collider2D hitInfo)
     {
-        return;  // ignore enemy collisions
+        Bandit enemy = hitInfo.GetComponent<Bandit>();
+        // need to find out how much damage the player does
+        enemy.takeDamage(projectileDamage);
+        
     }
 
     protected void hitPlayer(Collider2D hitInfo)
     {
         Player player = hitInfo.GetComponent<Player>();
-        player.takeDamage(projectileDamage);
+
+        // ignore player collision for now.
+        destroyProjectile = false;
     }
 
     protected void hitTerrain(Collider2D hitInfo)
@@ -74,21 +88,22 @@ public class EnemyProjectile : MonoBehaviour
         // richochet off wall logic here
     }
 
-    protected void hitEnemyProjectile(Collider2D hitInfo)
+    protected void hitEnemyProjectile(Collider2D hitInfo) 
     {
-        return; // ignore enemy projectile collisions
+        EnemyProjectile enemyProjectile = hitInfo.GetComponent<EnemyProjectile>();
+
+        // check if enemy projectile is destructable.
+        if (destroyEnemyProjectiles && enemyProjectile.destructable)
+        {
+            Destroy(hitInfo.gameObject);
+        }
+        destroyProjectile = false;
     }
 
     protected void hitPlayerProjectile(Collider2D hitInfo)
     {
-        PlayerProjectile playerProjectile = hitInfo.GetComponent<PlayerProjectile>();
-
-        if (destroyPlayerProjectiles && playerProjectile.destructable)
-        {
-            Destroy(hitInfo.gameObject);
-            return;
-        }
-        return;
+        // nothing happens
+        destroyProjectile = false;
     }
 
 }

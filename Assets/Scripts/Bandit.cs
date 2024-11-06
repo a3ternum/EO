@@ -14,6 +14,7 @@ public class Bandit : Enemy
         damage = 10;
         attackSpeed = 0.5f;
         speed = 1f;
+        experienceValue = 100f;
 
         chaseScript.setSpeed(speed);
     }
