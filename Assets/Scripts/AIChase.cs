@@ -1,16 +1,42 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AIChase : MonoBehaviour
 {
+    enum State
+    {
+        CHASE,
+        IDLE,
+        KEEP_DISTANCE,
+        FLEE
+    }
+
     public Player player;
     public float speed;
 
     private float distance;
 
+    private NavMeshAgent agent;
+    private Rigidbody2D rb;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
         
+        if (agent == null)
+        {
+            Debug.LogError("NavMeshAgent component missing from this game object!");
+        }
+        // Optional: Set agent properties for 2D navigation
+        agent.updateRotation = false;  // Avoid rotating on the Z-axis
+        agent.updateUpAxis = false;    // Allow 2D top-down navigation
+
+        rb = GetComponent<Rigidbody2D>();
+        if (rb == null)
+        {
+            Debug.LogError("Rigidbody2D component missing from this game object!");
+        }
     }
 
     public void setSpeed(float newSpeed)
@@ -27,9 +53,15 @@ public class AIChase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distance = Vector2.Distance(transform.position, player.transform.position);
-        Vector2 direction = (player.transform.position - transform.position).normalized;
+        Vector3 currentPosition = transform.position;
+        agent.transform.position = new Vector3(currentPosition.x, currentPosition.y, 0);
 
-        transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
+        transform.rotation = Quaternion.identity;
+
+        if (player != null)
+        {
+            agent.SetDestination(player.transform.position);
+        }
     }
+
 }

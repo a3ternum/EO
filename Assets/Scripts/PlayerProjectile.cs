@@ -5,6 +5,7 @@ public class PlayerProjectile : MonoBehaviour
     public float speed;
     public float projectileDamage;
     public Rigidbody2D rb;
+    public int pierce; // value to track how many enemies our object is allowed to pass through before being destroyed
 
     public bool destroyEnemyProjectiles = false;
     public bool destructable = false;
@@ -28,7 +29,6 @@ public class PlayerProjectile : MonoBehaviour
         int enemyProjectileLayer = LayerMask.NameToLayer("EnemyProjectile");
         int playerProjectileLayer = LayerMask.NameToLayer("PlayerProjectile");
 
-        Debug.Log("objects hit layer is: " + hitInfo.gameObject.layer);
         // if we hit enemy
         if (hitInfo.gameObject.layer == enemyLayer)
         {
@@ -72,6 +72,8 @@ public class PlayerProjectile : MonoBehaviour
         Bandit enemy = hitInfo.GetComponent<Bandit>();
         // need to find out how much damage the player does
         enemy.takeDamage(projectileDamage);
+
+        destroyProjectile = true;
         
     }
 
@@ -86,6 +88,7 @@ public class PlayerProjectile : MonoBehaviour
     protected void hitTerrain(Collider2D hitInfo)
     {
         // richochet off wall logic here
+        destroyProjectile = true;
     }
 
     protected void hitEnemyProjectile(Collider2D hitInfo) 
@@ -93,11 +96,14 @@ public class PlayerProjectile : MonoBehaviour
         EnemyProjectile enemyProjectile = hitInfo.GetComponent<EnemyProjectile>();
 
         // check if enemy projectile is destructable.
-        if (destroyEnemyProjectiles && enemyProjectile.destructable)
+        if (destructable && enemyProjectile.destroyPlayerProjectiles)
         {
-            Destroy(hitInfo.gameObject);
+            destroyProjectile = true;
         }
-        destroyProjectile = false;
+        else
+        {
+            destroyProjectile = false;
+        }
     }
 
     protected void hitPlayerProjectile(Collider2D hitInfo)
