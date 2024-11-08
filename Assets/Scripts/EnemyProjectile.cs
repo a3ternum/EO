@@ -3,12 +3,12 @@ using UnityEngine;
 public class EnemyProjectile : MonoBehaviour
 {
     public float speed;
-    public float projectileDamage;
     public Rigidbody2D rb;
 
-    public bool destroyPlayerProjectiles = false;
     public bool destructable = true;
 
+    private bool destroyProjectile = true;
+    private Enemy enemy;
     void Start()
     {
         rb.linearVelocity = transform.right * speed;
@@ -54,41 +54,53 @@ public class EnemyProjectile : MonoBehaviour
             hitPlayer(hitInfo);
         }
 
-        Destroy(gameObject);
+        if (destroyProjectile)
+        {
+            Destroy(gameObject);
+        }
+        
 
+    }
+
+    public void setParentEnemy(Enemy parent)
+    {
+        enemy = parent;
     }
 
     protected void hitEnemy(Collider2D hitInfo)
     {
-        return;  // ignore enemy collisions
+        destroyProjectile = false; // ignore enemy collisions
     }
 
     protected void hitPlayer(Collider2D hitInfo)
     {
         Player player = hitInfo.GetComponent<Player>();
-        player.takeDamage(projectileDamage);
+        player.takeDamage(enemy.damage);
+        destroyProjectile = true;
     }
 
     protected void hitTerrain(Collider2D hitInfo)
     {
+        destroyProjectile = true;
         // richochet off wall logic here
     }
 
     protected void hitEnemyProjectile(Collider2D hitInfo)
     {
-        return; // ignore enemy projectile collisions
+
+        destroyProjectile = false; // ignore enemy projectile collisions
     }
 
     protected void hitPlayerProjectile(Collider2D hitInfo)
     {
         PlayerProjectile playerProjectile = hitInfo.GetComponent<PlayerProjectile>();
 
-        if (destroyPlayerProjectiles && playerProjectile.destructable)
+        if (destructable && playerProjectile.destroyEnemyProjectiles)
         {
-            Destroy(hitInfo.gameObject);
+            destroyProjectile = true;
             return;
         }
-        return;
+        destroyProjectile = false;
     }
 
 }

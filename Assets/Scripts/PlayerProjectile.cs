@@ -96,14 +96,12 @@ public class PlayerProjectile : MonoBehaviour
         EnemyProjectile enemyProjectile = hitInfo.GetComponent<EnemyProjectile>();
 
         // check if enemy projectile is destructable.
-        if (destructable && enemyProjectile.destroyPlayerProjectiles)
+        if (destructable)
         {
             destroyProjectile = true;
+            return;
         }
-        else
-        {
-            destroyProjectile = false;
-        }
+        destroyProjectile = false;
     }
 
     protected void hitPlayerProjectile(Collider2D hitInfo)
