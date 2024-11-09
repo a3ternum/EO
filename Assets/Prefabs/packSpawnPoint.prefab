@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f4ad41bdf12f6745a2b435557de4c26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 4550344663077544401, guid: f6748512f9ff5ba42b572400e1723d9e, type: 3}
+  enemy: {fileID: 3738342823073885407, guid: 12577d2e1336d34459b9e601ea9d2742, type: 3}
   packSize: 5
   spawnRadius: 1.5

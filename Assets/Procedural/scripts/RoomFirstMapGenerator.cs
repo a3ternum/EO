@@ -20,6 +20,10 @@ public class RoomFirstMapGenerator : SimpleRandomWalkMapGenerator
     [SerializeField]
     private bool randomWalkRooms = false;
 
+    [Range(1, 3)]
+    [SerializeField]
+    private int corridorBrushSize = 1;
+
     protected override void RunProceduralGeneration()
     {
         CreateRooms();
@@ -48,6 +52,19 @@ public class RoomFirstMapGenerator : SimpleRandomWalkMapGenerator
             roomCenters.Add((Vector2Int)Vector3Int.RoundToInt(room.center));
         }
         HashSet<Vector2Int> corridors = ConnectRooms(roomCenters);
+
+        if (corridorBrushSize == 2)
+        { 
+            corridors = IncreaseCorridorSizeByOne(corridors);
+            floor.UnionWith(corridors);
+        }
+
+        if (corridorBrushSize == 3)
+        {
+            corridors = IncreaseCorridorBrush3By3(corridors);
+            floor.UnionWith(corridors);
+        }
+
         floor.UnionWith(corridors);
 
         tileMapVisualizer.ClearMap();
@@ -161,6 +178,72 @@ public class RoomFirstMapGenerator : SimpleRandomWalkMapGenerator
             }
         }
         return floor;
+    }
+
+    public HashSet<Vector2Int> IncreaseCorridorSizeByOne(HashSet<Vector2Int> corridor)
+    {
+        HashSet<Vector2Int> newCorridor = new HashSet<Vector2Int>();
+        Vector2Int previousDirection = Vector2Int.zero;
+        List<Vector2Int> corridorList = new List<Vector2Int>(corridor);  // Convert to List to enable indexing
+
+        for (int i = 1; i < corridorList.Count; i++)
+        {
+            Vector2Int directionFromCell = corridorList[i] - corridorList[i - 1];
+
+            if (previousDirection != Vector2Int.zero && directionFromCell != previousDirection)
+            {
+                // handle corner
+                for (int x = -1; x < 2; x++)
+                {
+                    for (int y = -1; y < 2; y++)
+                    {
+                        newCorridor.Add(corridorList[i - 1] + new Vector2Int(x, y));
+                    }
+                }
+                previousDirection = directionFromCell;
+            }
+            else
+            {
+                // add a single cell in the direction + 90 degrees
+                Vector2Int newCorridorTileOffset = GetDirection90From(directionFromCell);
+                newCorridor.Add(corridorList[i - 1]);
+                newCorridor.Add(corridorList[i - 1] + newCorridorTileOffset);
+            }
+
+            previousDirection = directionFromCell;
+        }
+        return newCorridor;
+    }
+
+    public HashSet<Vector2Int> IncreaseCorridorBrush3By3(HashSet<Vector2Int> corridor)
+    {
+        HashSet<Vector2Int> newCorridor = new HashSet<Vector2Int>();
+        List<Vector2Int> corridorList = new List<Vector2Int>(corridor);  // Convert to List to enable indexing
+
+        for (int i = 1; i < corridorList.Count; i++)
+        {
+            for (int x = -1; x < 2; x++)
+            {
+                for (int y = -1; y < 2; y++)
+                {
+                    newCorridor.Add(corridorList[i - 1] + new Vector2Int(x, y));
+                }
+            }
+        }
+        return newCorridor;
+    }
+
+      private Vector2Int GetDirection90From(Vector2Int direction)
+    {
+        if (direction == Vector2Int.up)
+            return Vector2Int.right;
+        if (direction == Vector2Int.right)
+            return Vector2Int.down;
+        if (direction == Vector2Int.down)
+            return Vector2Int.left;
+        if (direction == Vector2Int.left)
+            return Vector2Int.up;
+        return Vector2Int.zero;
     }
 
 }
