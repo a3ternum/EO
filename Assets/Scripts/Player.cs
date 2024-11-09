@@ -5,6 +5,7 @@ public class Player : Creature
     private playerMovement movement;
     private playerCombat combat;
     private playerExperience experience;
+
     void Awake()
     {
         movement = GetComponent<playerMovement>();
@@ -50,6 +51,23 @@ public class Player : Creature
     {
         base.takeDamage(damage);
     }
+
+    protected override void die()
+    {
+        Canvas canvas = FindFirstObjectByType<Canvas>();
+        RespawnMenu respawnMenu = canvas.GetComponentInChildren<RespawnMenu>(true);
+        if (respawnMenu != null)
+        {
+            respawnMenu.ShowRespawnMenu();
+        }
+        else
+        {
+            Debug.LogError("RespawnMenu not found in the scene!");
+        }
+
+        base.die();
+    }
+
 
     void FixedUpdate()
     {

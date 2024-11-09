@@ -73,7 +73,7 @@ public class Enemy : Creature
 
     public virtual void enemyAttack()
     {
-
+       
         // get direction vector from the enemy to the player's position
         Vector3 direction = (player.transform.position - firepoint.position).normalized;
 
@@ -104,7 +104,7 @@ public class Enemy : Creature
 
     protected void checkAttackRange()
     {
-       
+
         if (Vector3.Distance(transform.position, player.transform.position) <= attackRange)
         {
             inAttackRange = true;
@@ -113,21 +113,23 @@ public class Enemy : Creature
         {
             inAttackRange = false;
         }
-  
+
     }
 
-    
+
 
     protected override void Update()
     {
         base.Update();
-        checkAttackRange();
-
-        if (Time.time >= nextAttackTime && inAttackRange)
+        if (player != null)
         {
-            enemyAttack();
-            nextAttackTime = Time.time + 1f / attackSpeed;
-        }
+            checkAttackRange();
 
+            if (Time.time >= nextAttackTime && inAttackRange)
+            {
+                enemyAttack();
+                nextAttackTime = Time.time + 1f / attackSpeed;
+            }
+        }
     }
 }

@@ -51,7 +51,7 @@ public class Creature : MonoBehaviour
         }
     }
 
-    protected void die()
+    protected virtual void die()
     {
         Destroy(gameObject);
         Destroy(healthBarObject);

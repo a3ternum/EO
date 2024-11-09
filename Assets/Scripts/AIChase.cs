@@ -46,14 +46,13 @@ public class AIChase : MonoBehaviour
 
     private void DetermineEnemyState()
     {
-
-        if (distance <= thisEnemy.chaseRange && distance >= thisEnemy.chaseDistance)
-        {
-            thisEnemy.AIState = Enemy.State.CHASE;
-        }
-        else if (distance > thisEnemy.chaseRange)
+        if (distance > thisEnemy.chaseRange || player == null)
         {
             thisEnemy.AIState = Enemy.State.IDLE;
+        }
+        else if (distance <= thisEnemy.chaseRange && distance >= thisEnemy.chaseDistance)
+        {
+            thisEnemy.AIState = Enemy.State.CHASE;
         }
         else if (distance < thisEnemy.minimumDistance)
         {
@@ -76,8 +75,10 @@ public class AIChase : MonoBehaviour
         rotation.eulerAngles = new Vector3(0, rotation.eulerAngles.y, 0);
         transform.rotation = rotation;
 
-        distance = Vector3.Distance(player.transform.position, transform.position);
-
+        if (player != null)
+        {
+            distance = Vector3.Distance(player.transform.position, transform.position);
+        }
         DetermineEnemyState();
 
         if (player != null && thisEnemy.AIState == Enemy.State.CHASE) // mob chases enemy.
