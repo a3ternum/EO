@@ -24,12 +24,25 @@ public class RoomFirstMapGenerator : SimpleRandomWalkMapGenerator
     [SerializeField]
     private int corridorBrushSize = 1;
 
-    protected override void RunProceduralGeneration()
+
+    private HashSet<Vector2Int> floorPositions;
+
+    public override void RunProceduralGeneration()
     {
-        CreateRooms();
+        floorPositions = CreateRooms();
+        // spawn player
+        mapGenerator.playerSpawnManager.GenerateSpawn(startPosition);
+
+        // bake navmesh
+        mapGenerator.navMeshManager.GenerateSurface();
+
+        // spawn mobs on the floor
+        mapGenerator.enemySpawnManager.GenerateSpawns(floorPositions, new List<Vector2Int>(), new List<Vector2Int>(), "RoomsFirst");
+
     }
 
-    private void CreateRooms()
+    // maybe turn list into hashset if order doesn't matter
+    private HashSet<Vector2Int> CreateRooms()
     {
         var roomsList = ProceduralGenerationAlgo.BinarySpacePartitioning(new BoundsInt((Vector3Int)startPosition, 
             new Vector3Int(mapWidth, mapHeight, 0)), minRoomWidth, minRoomHeight);
@@ -71,6 +84,7 @@ public class RoomFirstMapGenerator : SimpleRandomWalkMapGenerator
         tileMapVisualizer.PaintFloorTiles(floor);
         WallGenerator.CreateWalls(floor, tileMapVisualizer);
 
+        return floor;
     }
 
     private HashSet<Vector2Int> CreateSimpleRooms(List<BoundsInt> roomsList)

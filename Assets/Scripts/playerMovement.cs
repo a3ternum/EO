@@ -15,13 +15,13 @@ public class playerMovement : MonoBehaviour
 
     private void Awake()
     {
-
+        animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
+        
     }
 
     public void setMovement()

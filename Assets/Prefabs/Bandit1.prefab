@@ -279,10 +279,10 @@ MonoBehaviour:
   weaponDistance: 0.5
   projectile: {fileID: 6497329702007125048, guid: dc33d4097d2955240b0e34e7de4ba0c3, type: 3}
   firepoint: {fileID: 7132535949917529454}
-  attackRange: 10
-  chaseDistance: 8
-  minimumDistance: 5
-  chaseRange: 15
+  attackRange: 6
+  chaseDistance: 6
+  minimumDistance: 3
+  chaseRange: 8
   timeInChase: 0
   hasLOS: 0
   isRangedMob: 1

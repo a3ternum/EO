@@ -18,7 +18,7 @@ public class EnemySpawnManager : MonoBehaviour
             case "RandomWalk":
                 SpawnRandomlyOnFloor(floorTiles, playerStartPosition, minPlayerDistance, minSpawnDistance);
                 break;
-            case "RoomFirst":
+            case "RoomsFirst":
                 SpawnInRooms(roomCenters);
                 SpawnInCorridors(corridorTiles);
                 break;
@@ -48,6 +48,7 @@ public class EnemySpawnManager : MonoBehaviour
         }
     }
 
+    // update these methods to spawn enemies in rooms and corridors properly
     private void SpawnInRooms(List<Vector2Int> roomCenters)
     {
         foreach (var roomCenter in roomCenters)

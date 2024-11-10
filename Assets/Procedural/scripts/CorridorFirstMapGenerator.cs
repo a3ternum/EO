@@ -18,13 +18,24 @@ public class CorridorFirstMapGenerator : SimpleRandomWalkMapGenerator
     [SerializeField]
     private int corridorBrushSize = 1;
 
+    private HashSet<Vector2Int> floorPositions;
 
-    protected override void RunProceduralGeneration()
+    public override void RunProceduralGeneration()
     {
-        CorridorFirstGeneration();
+        floorPositions = CorridorFirstGeneration();
+
+        // spawn player
+        mapGenerator.playerSpawnManager.GenerateSpawn(startPosition);
+
+        // bake navmesh
+        mapGenerator.navMeshManager.GenerateSurface();
+
+        // spawn mobs on the floor
+        mapGenerator.enemySpawnManager.GenerateSpawns(floorPositions, new List<Vector2Int>(), new List<Vector2Int>(), "CorridorFirst");
+
     }
 
-    private void CorridorFirstGeneration()
+    private HashSet<Vector2Int> CorridorFirstGeneration()
     {
         HashSet<Vector2Int> floorPositions = new HashSet<Vector2Int>();
         HashSet<Vector2Int> potentialRoomPositions = new HashSet<Vector2Int>();
@@ -55,9 +66,10 @@ public class CorridorFirstMapGenerator : SimpleRandomWalkMapGenerator
             }
         }
 
-
         tileMapVisualizer.PaintFloorTiles(floorPositions);
         WallGenerator.CreateWalls(floorPositions, tileMapVisualizer);
+
+        return floorPositions;
     }
 
     private List<List<Vector2Int>> CreateCorridors(HashSet<Vector2Int> floorPositions, HashSet<Vector2Int> potentialRoomPositions)

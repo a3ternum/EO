@@ -16,5 +16,5 @@ public abstract class AbstractMapGenerator : MonoBehaviour
         RunProceduralGeneration();
     }
 
-    protected abstract void RunProceduralGeneration();
+    public abstract void RunProceduralGeneration();
 }

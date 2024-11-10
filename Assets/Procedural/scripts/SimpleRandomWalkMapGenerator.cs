@@ -10,18 +10,23 @@ public class SimpleRandomWalkMapGenerator : AbstractMapGenerator
     protected SimpleRandomWalkData randomWalkParameters;
 
     [SerializeField]
-    private EnemySpawnManager enemySpawnManager;    
+    protected MapGenerator mapGenerator;
 
-
-    protected override void RunProceduralGeneration()
+    public override void RunProceduralGeneration()
     {
         HashSet<Vector2Int> floorPositions = RunRandomWalk(randomWalkParameters, startPosition);
         tileMapVisualizer.ClearMap();
         tileMapVisualizer.PaintFloorTiles(floorPositions);
         WallGenerator.CreateWalls(floorPositions, tileMapVisualizer);
 
+        // spawn player
+        mapGenerator.playerSpawnManager.GenerateSpawn(startPosition);
+
+        // bake navmesh
+        mapGenerator.navMeshManager.GenerateSurface();
+
         // spawn mobs on the floor
-        enemySpawnManager.GenerateSpawns(floorPositions, new List<Vector2Int>(), new List<Vector2Int>(), "RandomWalk");
+        mapGenerator.enemySpawnManager.GenerateSpawns(floorPositions, new List<Vector2Int>(), new List<Vector2Int>(), "RandomWalk");
     }
 
     protected HashSet<Vector2Int> RunRandomWalk(SimpleRandomWalkData randomWalkParameters, Vector2Int position)

@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 5cad306a08ccb5f47ba563644969e1ce
+  - enabled: 1
+    path: Assets/Scenes/Hideout.unity
+    guid: f6c30b36bbcb7794ea49dd617935c718
+  - enabled: 1
+    path: Assets/Scenes/ProceduralMap.unity
+    guid: bef4c22b7824fee4bafeebf09a1b4a28
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
