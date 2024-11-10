@@ -215,6 +215,7 @@ MonoBehaviour:
   wallDiagonalCornerDownRight: {fileID: 11400000, guid: 3ec886a8653cbad48b4c8fa398305ec5, type: 2}
   wallDiagonalCornerUpLeft: {fileID: 11400000, guid: 2a4dd01742055dc4e848e6516f251fec, type: 2}
   wallDiagonalCornerUpRight: {fileID: 11400000, guid: f2f5034101f31604e8eca91ad4ffeb61, type: 2}
+  voidTile: {fileID: 11400000, guid: 400d67353579fc740b53c415057c2ccd, type: 2}
 --- !u!4 &89709538
 Transform:
   m_ObjectHideFlags: 0
@@ -672,9 +673,9 @@ GameObject:
   - component: {fileID: 795177199}
   - component: {fileID: 795177198}
   - component: {fileID: 795177197}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

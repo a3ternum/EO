@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.InputSystem;
 
-public class playerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public Transform playerTransform;
     public float movespeed = 5f;
@@ -11,7 +11,7 @@ public class playerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private bool lookingRight = true;
     private Animator animator;
-
+    private GameManager gameManager;  // Reference to GameManager
 
     private void Awake()
     {
@@ -21,10 +21,22 @@ public class playerMovement : MonoBehaviour
 
     private void Start()
     {
-        
+        gameManager = GameManager.Instance;
     }
 
-    public void setMovement()
+    private void CheckRecall()
+    {
+        if (Input.GetMouseButton(1))
+        {
+            Debug.Log("Recalling");
+            if (gameManager != null && gameManager.isInMap)
+            {
+                gameManager.ReturnToHideout();
+            }
+        }    
+    }
+
+        public void setMovement()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
@@ -57,5 +69,9 @@ public class playerMovement : MonoBehaviour
         rb.MovePosition(rb.position + movement * movespeed * Time.fixedDeltaTime);
     }
 
-
+    public void Update()
+    {
+        setMovement();
+        CheckRecall();
+    }
 }

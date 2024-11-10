@@ -15,9 +15,11 @@ public class SimpleRandomWalkMapGenerator : AbstractMapGenerator
     public override void RunProceduralGeneration()
     {
         HashSet<Vector2Int> floorPositions = RunRandomWalk(randomWalkParameters, startPosition);
-        tileMapVisualizer.ClearMap();
-        tileMapVisualizer.PaintFloorTiles(floorPositions);
-        WallGenerator.CreateWalls(floorPositions, tileMapVisualizer);
+        tileMapVisualizer.ClearMap(); // clear the map before painting floor tiles
+        tileMapVisualizer.PaintFloorTiles(floorPositions); // paint the floor tiles
+        WallGenerator.CreateWalls(floorPositions, tileMapVisualizer); // create walls around the floor tiles
+        // the area surrounding the tilemap is empty. 
+        // inside CreateWalls, we have a method that paints the surrounding tiles with void tiles (these have a collider)
 
         // spawn player
         mapGenerator.playerSpawnManager.GenerateSpawn(startPosition);

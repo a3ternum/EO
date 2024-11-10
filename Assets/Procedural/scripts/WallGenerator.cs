@@ -4,13 +4,18 @@ using UnityEngine;
 
 public static class WallGenerator 
 {
+    private static int fillRange = 30;
     public static void CreateWalls(HashSet<Vector2Int> floorPositions, TilemapVisualizer tilemapVisualizer)
     {
         var basicWallPositions = FindWallsInDirections(floorPositions, Direction2D.cardinalDirectionsList);
-        var cornerWallPosition = FindWallsInDirections(floorPositions, Direction2D.diagonalDirectionsList);
+        var cornerWallPositions = FindWallsInDirections(floorPositions, Direction2D.diagonalDirectionsList);
         
         CreateBasicWalls(tilemapVisualizer, basicWallPositions, floorPositions);
-        CreateCornerWalls(tilemapVisualizer, cornerWallPosition, floorPositions);
+        CreateCornerWalls(tilemapVisualizer, cornerWallPositions, floorPositions);
+
+        HashSet<Vector2Int> wallPositions = basicWallPositions;
+        wallPositions.UnionWith(cornerWallPositions);
+        PaintSurroundingVoidTiles(tilemapVisualizer, floorPositions, wallPositions);
     }
 
     private static void CreateBasicWalls(TilemapVisualizer tilemapVisualizer, HashSet<Vector2Int> basicWallPositions, HashSet<Vector2Int> floorPositions)
@@ -52,7 +57,6 @@ public static class WallGenerator
                     neighboursBinaryType += "0";
                 }
             }
-
             tilemapVisualizer.PaintSingleCornerWall(position, neighboursBinaryType);
         }
     }
@@ -73,5 +77,41 @@ public static class WallGenerator
             }
         }
         return wallPositions;
+    }
+
+    private static void PaintSurroundingVoidTiles(TilemapVisualizer tilemapVisualizer, HashSet<Vector2Int> floorTiles, HashSet<Vector2Int> wallTiles)
+    {
+        
+        // Step 1: Calculate the minimum and maximum x and y values from floorTiles
+        int minX = int.MaxValue;
+        int maxX = int.MinValue;
+        int minY = int.MaxValue;
+        int maxY = int.MinValue;
+
+        foreach (var position in floorTiles)
+        {
+            if (position.x < minX) minX = position.x;
+            if (position.x > maxX) maxX = position.x;
+            if (position.y < minY) minY = position.y;
+            if (position.y > maxY) maxY = position.y;
+        }
+
+        // Step 2: Expand the bounds by fillRange
+        minX -= fillRange;
+        maxX += fillRange;
+        minY -= fillRange;
+        maxY += fillRange;
+
+        for (int x = minX; x < maxX; x++)
+        {
+            for (int y = minY; y < maxY; y++)
+            {
+                Vector2Int position = new Vector2Int(x, y);
+                if (!floorTiles.Contains(position) && !wallTiles.Contains(position))
+                {  
+                    tilemapVisualizer.PaintSingleVoidTile(position);
+                }
+            }
+        }
     }
 }

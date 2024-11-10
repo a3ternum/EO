@@ -10,9 +10,10 @@ public class TilemapVisualizer : MonoBehaviour
     [SerializeField]
     private TileBase floorTile, wallTop, wallSideRight, wallSideLeft, wallSideBottom, wallFull,
         wallInnerCornerDownLeft, wallInnerCornerDownRight,
-        wallDiagonalCornerDownLeft, wallDiagonalCornerDownRight, wallDiagonalCornerUpLeft, wallDiagonalCornerUpRight;
+        wallDiagonalCornerDownLeft, wallDiagonalCornerDownRight, wallDiagonalCornerUpLeft, wallDiagonalCornerUpRight,
+        voidTile;
 
- 
+    private int fillRange = 30;
 
     internal void PaintSingleBasicWall(Vector2Int position, string binaryType)
     {
@@ -73,6 +74,10 @@ public class TilemapVisualizer : MonoBehaviour
         {
             tile = wallFull;
         }
+        else if (WallTypesHelper.wallBottomEightDirections.Contains(typeAsInt))
+        {
+            tile = wallSideBottom;
+        }
 
         if (tile != null)
         {
@@ -106,4 +111,10 @@ public class TilemapVisualizer : MonoBehaviour
         wallTilemap.ClearAllTiles();
     }
 
+    internal void PaintSingleVoidTile(Vector2Int position) 
+    {
+        var tilePosition = wallTilemap.WorldToCell((Vector3Int)position);
+        wallTilemap.SetTile(tilePosition, voidTile);
+
+    }
 }

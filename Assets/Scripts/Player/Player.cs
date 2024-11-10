@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class Player : Creature
 {
-    private playerMovement movement;
-    private playerCombat combat;
-    private playerExperience experience;
+    private PlayerMovement movement;
+    private PlayerCombat combat;
+    private PlayerExperience experience;
+
+    public PlayerData playerData;
 
     void Awake()
     {
-        movement = GetComponent<playerMovement>();
-        combat = GetComponent<playerCombat>();
-        experience = GetComponent<playerExperience>();
+        movement = GetComponent<PlayerMovement>();
+        combat = GetComponent<PlayerCombat>();
+        experience = GetComponent<PlayerExperience>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,9 +20,9 @@ public class Player : Creature
     {
         base.Start();
 
-        health = 100;
-        damage = 10;
-        attackSpeed = 1;
+        health = playerData.health;
+        damage = playerData.damage;
+        attackSpeed = playerData.attackSpeed;
         nextAttackTime = 0;
     }
 
@@ -28,9 +30,9 @@ public class Player : Creature
     protected override void Update()
     {
         base.Update();
-        movement.setMovement();
+        movement.Update();
 
-        if (combat.attackInput() & Time.time >= nextAttackTime)
+        if (combat.attackInput() & Time.time >= nextAttackTime) // maybe this should be in the combat script
         {
             combat.playerAttack();
             nextAttackTime = Time.time + 1f / attackSpeed;

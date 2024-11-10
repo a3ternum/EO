@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : Creature
@@ -41,6 +42,11 @@ public class Enemy : Creature
     // Each of these states will have a different behavior
     // Chase, Flee, Patrol, Circle, etc
 
+    private IEnumerator FindPlayerWithDelay()
+    {
+        yield return new WaitForEndOfFrame(); // Small delay to allow instantiation
+        player = FindFirstObjectByType<Player>();
+    }
 
     protected override void Start()
     {
@@ -48,7 +54,7 @@ public class Enemy : Creature
 
         AIState = State.IDLE;
         base.Start();
-        player = FindFirstObjectByType<Player>();
+        StartCoroutine(FindPlayerWithDelay());
         chaseScript = gameObject.AddComponent<AIChase>();
         chaseScript.setPlayer(FindFirstObjectByType<Player>());
 
@@ -67,6 +73,7 @@ public class Enemy : Creature
             {
                 die();
                 player.gainExperience(experienceValue);
+               
             }
         }
     }

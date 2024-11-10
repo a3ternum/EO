@@ -11,8 +11,11 @@ public class EnemySpawnManager : MonoBehaviour
     [SerializeField] private int minPlayerDistance = 10;
     [SerializeField] private float spawnProbability = 0.05f;
 
+    private HashSet<Vector2Int> floorPositions;
+
     public void GenerateSpawns(HashSet<Vector2Int> floorTiles, List<Vector2Int> roomCenters, List<Vector2Int> corridorTiles, string mapType)
     {
+        floorPositions = floorTiles;
         switch (mapType)
         {
             case "RandomWalk":

@@ -14,19 +14,29 @@ public class PackSpawn : MonoBehaviour
 
     private void Start()
     {
-        packSize = Random.Range(1, 5);
+        packSize = Random.Range(1, packSize);
         spawnPack();
     }
 
     public void spawnPack()
     {
+        int attempts = 0;
         for (int i = 0; i < packSize; i++)
         {
-            Vector2 spawnPosition = new Vector2(transform.position.x + Random.Range(-spawnRadius, spawnRadius), transform.position.y + Random.Range(-spawnRadius, spawnRadius));
-            Instantiate(enemy, spawnPosition, Quaternion.identity);
-
+            // spawn the enemy at a random position within the spawn radius
+            // if spawn location is not valid, try again
+            bool invalidSpawnPosition = true;
             
-
+            while (invalidSpawnPosition && attempts<100)
+            {
+                attempts += 1;
+                Vector2 spawnPosition = new Vector2(transform.position.x + Random.Range(-spawnRadius, spawnRadius), transform.position.y + Random.Range(-spawnRadius, spawnRadius));
+                if (Physics2D.OverlapCircle(spawnPosition, 0.1f) == null)
+                {
+                    invalidSpawnPosition = false;
+                    Instantiate(enemy, spawnPosition, Quaternion.identity);
+                }
+            }
             
         }
     }

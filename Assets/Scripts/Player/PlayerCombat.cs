@@ -1,11 +1,13 @@
 using System;
 using UnityEngine;
 
-public class playerCombat : MonoBehaviour
+public class PlayerCombat : MonoBehaviour
 {
     public Transform firePoint;
     public Transform playerTransform;
     public float weaponDistance = 0.5f;
+
+
 
     public weapon currentWeapon;
 

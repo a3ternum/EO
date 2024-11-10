@@ -166,7 +166,7 @@ Transform:
   m_GameObject: {fileID: 7804159836222857309}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.49, y: -8.46, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -370,6 +370,7 @@ MonoBehaviour:
   attackSpeed: 1
   speed: 0
   healthBarPrefab: {fileID: 5048146370649816984, guid: a64d9cc6ea5e5954292229dd20f9a416, type: 3}
+  playerData: {fileID: 11400000, guid: 90b90c15d87ec7e4a8bfddbc9dd928a0, type: 2}
 --- !u!114 &3752318977666380600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,8 +384,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expTable: {fileID: 11400000, guid: 3ee958b364d7f48448ab45588d7ec6a9, type: 2}
-  totalExperience: 0
-  experience: 0
-  level: 0
-  experienceToNextLevel: 0
-  availableSkillPoints: 0
