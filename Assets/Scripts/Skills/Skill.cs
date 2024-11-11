@@ -25,16 +25,21 @@ public abstract class Skill : MonoBehaviour
     
     private float cooldownTimer; // the cooldown timer of the skill
 
-    public virtual void ActivateSkill(float currentMana) // this method will be used to activate the skill
+    protected virtual void Start()
     {
-        if (CanActivate(currentMana))
+
+    }
+
+    public virtual void ActivateSkill() // this method will be used to activate the skill
+    {
+        if (CanActivate())
         {
-            OnActivate(currentMana);
+            OnActivate();
         }
     }
-    public virtual bool CanActivate(float currentMana) // this method will be used to check if the skill can be used
+    public virtual bool CanActivate() // this method will be used to check if the skill can be used
     {
-        if ((currentMana >= manaCost) && (cooldownTimer <= 0))
+        if ((user.mana >= manaCost) && (cooldownTimer <= 0))
         {
             return true;
         }
@@ -51,11 +56,11 @@ public abstract class Skill : MonoBehaviour
         quality++;
         // Increase other properties if necessary (like damage, cooldown reduction)
     }
-    public virtual void OnActivate(float currentMana)
+    public virtual void OnActivate()
     // This method will handle common tasks performed upon activation, like setting the cooldown timer,
     // updating the mana pool, and any general pre-activation setup.
     {
-        currentMana = Mathf.Max(currentMana - manaCost, 0);
+        user.mana = Mathf.Max(user.mana - manaCost, 0);
         cooldownTimer = 1/attackSpeed;
     }                                 
     public abstract float CalculateDamage();

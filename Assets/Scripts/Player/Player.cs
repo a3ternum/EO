@@ -42,7 +42,6 @@ public class Player : Creature
 
         if (combat.attackInput() & Time.time >= nextAttackTime) // maybe this should be in the combat script
         {
-            Debug.Log("player position is" + transform.position);
             combat.playerAttack();
             nextAttackTime = Time.time + 1f / attackSpeed;
         }

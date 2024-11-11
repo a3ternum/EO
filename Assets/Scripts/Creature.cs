@@ -9,6 +9,7 @@ public class Creature : MonoBehaviour
     public float damage;
     public float attackSpeed;
     public float speed;
+    public float mana;
 
     public bool damagedRecently = false;
 

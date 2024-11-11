@@ -26,7 +26,7 @@ public void playerAttack()
 
         if (activeSkill != null)
         {
-            activeSkill.ActivateSkill(10);
+            activeSkill.ActivateSkill();
         }
         else 
         {

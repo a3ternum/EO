@@ -250,9 +250,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fb02b592692dfb47bbfebec23b82679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 5674628598914044775, guid: f88f4cd80ea8f534784eacffc252d221, type: 3}
+  player: {fileID: 4255957249915089235, guid: 4708c2209a32e8e4097c80320534d957, type: 3}
   playerData: {fileID: 11400000, guid: 90b90c15d87ec7e4a8bfddbc9dd928a0, type: 2}
-  playerSpawnManager: {fileID: 0}
+  playerSpawnManager: {fileID: 4058866425551163455, guid: c91d25d8e077b7146aa5be034a26bd5e, type: 3}
   isInMap: 0
 --- !u!4 &518840174
 Transform:

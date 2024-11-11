@@ -19,8 +19,12 @@ public class HeavyStrike : MeleeAttackSingleTarget
     }
    
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
+
+        hitRange = 1f; // set hitrange for heavy strike
+
         int skillLevel = 0;
         if (heavyStrikeSkillData == null)
         {
@@ -37,20 +41,19 @@ public class HeavyStrike : MeleeAttackSingleTarget
         return base.CalculateDamage();
     }
 
-    public override void ActivateSkill(float currentMana)
+    public override void ActivateSkill()
     {
-        Debug.Log("skill damage is:" + CalculateDamage());
-        base.ActivateSkill(currentMana);
+        base.ActivateSkill();
     }
 
-    protected override Enemy FindTargetInRange()
+    protected override List<Enemy> FindTargetInRange()
     {
         return base.FindTargetInRange();
     }
 
-    protected override void ApplyDamageAndEffects(Enemy target)
+    protected override void ApplyDamageAndEffects(List<Enemy> targets)
     {
-        base.ApplyDamageAndEffects(target);
+        base.ApplyDamageAndEffects(targets);
     }
 
 

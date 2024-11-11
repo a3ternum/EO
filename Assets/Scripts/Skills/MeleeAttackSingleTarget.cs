@@ -1,27 +1,62 @@
+using NUnit.Framework;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MeleeAttackSingleTarget : MeleeAttack
 {
-    protected GameObject target { get; set; }
-    
+    protected GameObject ourWeapon;
+    private Vector2 originalHitLocation;
+    protected GameObject targets { get; set; }
 
-    public override void ActivateSkill(float currentMana)
+    protected override void Start()
     {
-        Debug.Log("Activating Skill");
-        Enemy target = FindTargetInRange();
-        if (CanActivate(currentMana) && target != null)
+        base.Start();
+        ourWeapon = transform.Find("firePoint/Weapon")?.gameObject;
+        if (ourWeapon != null)
         {
-            PlayAttackAnimation();
-            Debug.Log("damage is " + CalculateDamage() + " and target is " + target);
-            ApplyDamageAndEffects(target);
+            animator = ourWeapon.GetComponent<Animator>();
+            if (animator == null)
+            {
+                Debug.LogError("Animator component not found on " + gameObject.name);
+            }
+        }
+        else
+        {
+            Debug.LogError("Weapon object not found on " + gameObject.name);
+        }
+        
+    }
+        
 
-            OnActivate(currentMana);
+    public override void ActivateSkill()
+    {
+        List<Enemy> targets = FindTargetInRange();
+        if (CanActivate() && targets != null && targets.Count > 0)
+        {
+            originalHitLocation = targets[0].transform.position; // Store the original hit location
+            StartCoroutine(AttackCoroutine());
+            // check if target is still within range of the original hit location
+            if (Vector2.Distance(targets[0].transform.position, originalHitLocation) <= range)
+            {
+                ApplyDamageAndEffects(targets);
+            }
+            else
+            {
+                if (targets.Count > 1)
+                {
+                    ApplyDamageAndEffects(targets.GetRange(1, targets.Count - 1));
+                }  
+            }
+
+            OnActivate();
         }
     }
 
-    // rewrite later to also allow enemy mobs to use this method
-
-    protected virtual Enemy FindTargetInRange() 
+    // perhaps refactor to allow enemies to also use this method. So that they can find the player within range
+    // do this by checking for creature inheritance. if user is a player then use this method.
+    // if user is a enemy, use different method.
+    protected virtual List<Enemy> FindTargetInRange() 
     {
         // raycast should be shot out in direction of mouse 
         Vector2 targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -29,6 +64,7 @@ public class MeleeAttackSingleTarget : MeleeAttack
         // find all enemies within range
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(user.transform.position, range);
         Enemy closestEnemy = null;
+        List<Enemy> targetsList = new List<Enemy>();
         float closestDistance = float.MaxValue;
 
         foreach (var collider in hitColliders)
@@ -47,17 +83,19 @@ public class MeleeAttackSingleTarget : MeleeAttack
                 }
             }
         }
-        return closestEnemy;
+        if (closestEnemy != null)
+        {
+            targetsList.Add(closestEnemy);
+        }
+        return targetsList;
     }
 
-
-
-
-    protected virtual void ApplyDamageAndEffects(Enemy target) 
+    protected override void ApplyDamageAndEffects(List<Enemy> targets) 
     {
-        if (target != null)
+        if (targets != null && targets.Count > 0)
         {
-            Debug.Log("Applying damage to target" + CalculateDamage());
+            foreach(var target in targets)
+            {
             target.TakeDamage(CalculateDamage());
 
             //Rigidbody targetRb = target.GetComponent<Rigidbody>();
@@ -68,8 +106,11 @@ public class MeleeAttackSingleTarget : MeleeAttack
             //}
 
             TriggerHitEffect(target.transform.position);
+            }
         }
     }
+
+    
 
 
 }

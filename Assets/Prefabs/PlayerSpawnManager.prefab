@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &651114747605232871
+--- !u!1 &2286732348341635271
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3062789533254302602}
-  - component: {fileID: 2309715994748723447}
+  - component: {fileID: 5799867242938573876}
+  - component: {fileID: 4058866425551163455}
   m_Layer: 0
-  m_Name: HeavyStrike
+  m_Name: PlayerSpawnManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3062789533254302602
+--- !u!4 &5799867242938573876
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 651114747605232871}
+  m_GameObject: {fileID: 2286732348341635271}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.2201982, y: 6.7693496, z: -0.85809934}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2309715994748723447
+--- !u!114 &4058866425551163455
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 651114747605232871}
+  m_GameObject: {fileID: 2286732348341635271}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d28abe38d1d8a5d46994f035c955c2c5, type: 3}
+  m_Script: {fileID: 11500000, guid: 99d54ca15870c3d4aa4de1a90078b412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillIcon: {fileID: 902773042312827701, guid: 578897a2f2fefb849af4ee968aa91118, type: 3}
-  animator: {fileID: 1857793982534062529, guid: 2ab00f7ed7e2f7544bb15674b7732324, type: 3}
-  animationDuration: 1
+  playerPrefab: {fileID: 7804159836222857309, guid: f88f4cd80ea8f534784eacffc252d221, type: 3}
