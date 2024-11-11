@@ -369,8 +369,10 @@ MonoBehaviour:
   damage: 10
   attackSpeed: 1
   speed: 0
+  damagedRecently: 0
   healthBarPrefab: {fileID: 5048146370649816984, guid: a64d9cc6ea5e5954292229dd20f9a416, type: 3}
   playerData: {fileID: 11400000, guid: 90b90c15d87ec7e4a8bfddbc9dd928a0, type: 2}
+  activeSkill: {fileID: 2309715994748723447, guid: bf817d4769d162f4b8766faaacbd2380, type: 3}
 --- !u!114 &3752318977666380600
 MonoBehaviour:
   m_ObjectHideFlags: 0

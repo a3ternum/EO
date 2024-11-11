@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyProjectile : MonoBehaviour
 {
-    public float speed;
+    public float speed; // base speed of the projectile
     public Rigidbody2D rb;
 
     public bool destructable = true;
@@ -75,7 +75,7 @@ public class EnemyProjectile : MonoBehaviour
     protected void hitPlayer(Collider2D hitInfo)
     {
         Player player = hitInfo.GetComponent<Player>();
-        player.takeDamage(enemy.damage);
+        player.TakeDamage(enemy.damage);
         destroyProjectile = true;
     }
 

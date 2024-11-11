@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Enemy : Creature
 {
@@ -17,14 +18,18 @@ public class Enemy : Creature
     public EnemyProjectile projectile;
     public Transform firepoint;
 
-    
-    
+
+    public float packAggroRadius = 5f;
+
     public float attackRange = 10f; // attack range of the enemy
     public float chaseDistance = 8f; // enemy will chase until this distance is reached.
     public float minimumDistance = 5f; // enemy will keep this distance from the player
     public float chaseRange = 15f; // chase range of the enemy (from where the enemy will start chasing the player)
+    public float chaseRangeIfDamagedRecently = 30f; // chase range of the enemy if he is attacked (from where the enemy will start chasing the player)
     public float timeInChase = 0f; // how long the enemy has been chasing the player in seconds
     public bool hasLOS; // has line of sight to the player
+
+
 
     protected AIChase chaseScript;
     protected Player player;
@@ -63,19 +68,27 @@ public class Enemy : Creature
         firepoint.position = this.transform.position + Vector3.right * weaponDistance;
     }
 
-    public override void takeDamage(float damage)
+    public override void TakeDamage(float damage, float time = 4)
     {
         if (health > 0)
         {
             health -= damage;
-
+            damagedRecently = true;
+            StartCoroutine(ResetDamagedRecently(time));
             if (health <= 0)
             {
-                die();
+                Die();
                 player.gainExperience(experienceValue);
-               
+                
             }
         }
+    }
+
+    protected override IEnumerator ResetDamagedRecently(float time)
+    {
+        yield return new WaitForSeconds(time);
+        damagedRecently = false;
+
     }
 
     public virtual void enemyAttack()

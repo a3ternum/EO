@@ -36,9 +36,7 @@ public class RespawnMenu : MonoBehaviour
 
     public void RespawnPlayer()
     {
-        // load the scene with index 0
-        Debug.Log("loading scene 0");
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("HideoutScene");
     }
 
     public void QuitGame()

@@ -7,12 +7,29 @@ public class PlayerCombat : MonoBehaviour
     public Transform playerTransform;
     public float weaponDistance = 0.5f;
 
-
-
     public weapon currentWeapon;
 
-    public void playerAttack()
+    private Attack activeSkill;
+
+    void start()
+    {
+
+    }
+
+    public void SetActiveSkill(Attack skill)
+    {
+        activeSkill = skill;
+    }
+
+public void playerAttack()
     {  
+
+        if (activeSkill != null)
+        {
+            activeSkill.ActivateSkill(10);
+        }
+        else 
+        {
             // rotate firePoint to face mouse position
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = 0;
@@ -30,6 +47,7 @@ public class PlayerCombat : MonoBehaviour
             firePoint.transform.rotation = Quaternion.Euler(0, 0, angle);
 
             currentWeapon.Attack();
+        }
     }
 
     public Boolean attackInput()

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 // this is a template class for all creatures in the game
@@ -8,6 +9,9 @@ public class Creature : MonoBehaviour
     public float damage;
     public float attackSpeed;
     public float speed;
+
+    public bool damagedRecently = false;
+
     public GameObject healthBarPrefab;
 
     protected HealthBar healthBarComponent;
@@ -51,24 +55,31 @@ public class Creature : MonoBehaviour
         }
     }
 
-    protected virtual void die()
+    protected virtual void Die()
     {
         Destroy(gameObject);
         Destroy(healthBarObject);
         Destroy(healthBarComponent);
     }
 
-    public virtual void takeDamage(float damage)
+    public virtual void TakeDamage(float damage, float time = 4)
     {
         if (health > 0)
         {
             health -= damage;
-
+            damagedRecently = true;
+            StartCoroutine(ResetDamagedRecently(time));
             if (health <= 0)
             {
-                die();
+                Die();
             }
         }
+    }
+    protected virtual IEnumerator ResetDamagedRecently(float time)
+    {
+        yield return new WaitForSeconds(time);
+        damagedRecently = false;
+        
     }
 
     protected virtual void Update()

@@ -13,7 +13,7 @@ public class TilemapVisualizer : MonoBehaviour
         wallDiagonalCornerDownLeft, wallDiagonalCornerDownRight, wallDiagonalCornerUpLeft, wallDiagonalCornerUpRight,
         voidTile;
 
-    private int fillRange = 30;
+
 
     internal void PaintSingleBasicWall(Vector2Int position, string binaryType)
     {

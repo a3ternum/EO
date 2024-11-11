@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 1103486293918970081}
   m_Layer: 3
   m_Name: Bandit1
-  m_TagString: enemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -273,16 +273,19 @@ MonoBehaviour:
   health: 50
   damage: 10
   attackSpeed: 0.5
-  speed: 1
+  speed: 100
+  damagedRecently: 0
   healthBarPrefab: {fileID: 5048146370649816984, guid: a64d9cc6ea5e5954292229dd20f9a416, type: 3}
   AIState: 0
   weaponDistance: 0.5
   projectile: {fileID: 6497329702007125048, guid: dc33d4097d2955240b0e34e7de4ba0c3, type: 3}
   firepoint: {fileID: 7132535949917529454}
+  packAggroRadius: 5
   attackRange: 6
   chaseDistance: 6
-  minimumDistance: 3
-  chaseRange: 8
+  minimumDistance: 0
+  chaseRange: 10
+  chaseRangeIfDamagedRecently: 30
   timeInChase: 0
   hasLOS: 0
   isRangedMob: 1

@@ -8,6 +8,9 @@ public class Player : Creature
 
     public PlayerData playerData;
 
+    [SerializeField]
+    private Skill activeSkill = null;
+
     void Awake()
     {
         movement = GetComponent<PlayerMovement>();
@@ -24,6 +27,11 @@ public class Player : Creature
         damage = playerData.damage;
         attackSpeed = playerData.attackSpeed;
         nextAttackTime = 0;
+
+
+        activeSkill = gameObject.AddComponent<HeavyStrike>();
+        activeSkill.user = this;
+        combat.SetActiveSkill((Attack)activeSkill);
     }
 
     // Update is called once per frame
@@ -34,6 +42,7 @@ public class Player : Creature
 
         if (combat.attackInput() & Time.time >= nextAttackTime) // maybe this should be in the combat script
         {
+            Debug.Log("player position is" + transform.position);
             combat.playerAttack();
             nextAttackTime = Time.time + 1f / attackSpeed;
         }
@@ -49,12 +58,12 @@ public class Player : Creature
 
 
 
-    public override void takeDamage(float damage)
+    public override void TakeDamage(float damage, float time = 4)
     {
-        base.takeDamage(damage);
+        base.TakeDamage(damage, time);
     }
 
-    protected override void die()
+    protected override void Die()
     {
         Canvas canvas = FindFirstObjectByType<Canvas>();
         RespawnMenu respawnMenu = canvas.GetComponentInChildren<RespawnMenu>(true);
@@ -67,7 +76,7 @@ public class Player : Creature
             Debug.LogError("RespawnMenu not found in the scene!");
         }
 
-        base.die();
+        base.Die();
     }
 
 

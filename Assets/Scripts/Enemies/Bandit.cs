@@ -13,7 +13,7 @@ public class Bandit : Enemy
 
         damage = 10;
         attackSpeed = 0.5f;
-        speed = 1f;
+        speed = 10f;
         experienceValue = 100f;
 
         chaseScript.setSpeed(speed);
@@ -25,9 +25,9 @@ public class Bandit : Enemy
 
     }
 
-    public override void takeDamage(float damage)
+    public override void TakeDamage(float damage, float time = 4)
     {
-        base.takeDamage(damage);
+        base.TakeDamage(damage, time);
     }
 
 

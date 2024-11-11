@@ -71,7 +71,7 @@ public class PlayerProjectile : MonoBehaviour
     {
         Bandit enemy = hitInfo.GetComponent<Bandit>();
         // need to find out how much damage the player does
-        enemy.takeDamage(projectileDamage);
+        enemy.TakeDamage(projectileDamage);
 
         destroyProjectile = true;
         
