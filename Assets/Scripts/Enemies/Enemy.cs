@@ -14,10 +14,6 @@ public class Enemy : Creature
     }
     public State AIState;
 
-    public float weaponDistance = 0.5f;
-    public EnemyProjectile projectile;
-    public Transform firepoint;
-
 
     public float packAggroRadius = 5f;
 
@@ -36,9 +32,6 @@ public class Enemy : Creature
     protected float experienceValue = 100f;
 
     protected Boolean inAttackRange = false;
-
-    [SerializeField]
-    private bool isRangedMob = true;
 
 
 
@@ -91,29 +84,9 @@ public class Enemy : Creature
     // rewrite completely to use skills instead of random attack.
     public virtual void enemyAttack()
     {
-        if (isRangedMob)
+        if (activeSkill != null)
         {
-            // get direction vector from the enemy to the player's position
-            Vector3 direction = (player.transform.position - firepoint.position).normalized;
-
-            // calculate the angle between the enemy and the player's position
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-            // change firepoint position
-            firepoint.position = this.transform.position + direction * weaponDistance;
-
-            // rotate the firepoint to face character
-            firepoint.transform.rotation = Quaternion.Euler(0, 0, angle);
-            EnemyProjectile enemyProjectile = Instantiate(projectile, firepoint.position, firepoint.rotation);
-            enemyProjectile.setParentEnemy(this);
-        }
-        else // mob is melee
-        {
-            // we let mob use heavyStrike;
-            if (activeSkill != null) 
-            { 
             activeSkill.ActivateSkill();
-            }
         }
     }
 

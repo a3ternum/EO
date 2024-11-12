@@ -10,7 +10,7 @@ public class Creature : MonoBehaviour
     public float attackSpeed;
     public float speed;
     public float mana;
-
+    public int additionalProjectiles = 0;
     public bool damagedRecently = false;
 
     public GameObject healthBarPrefab;
@@ -29,7 +29,6 @@ public class Creature : MonoBehaviour
         if (activeSkill != null)
         {
             System.Type skillType = activeSkill.GetType();
-            Debug.Log("skill type is: " + skillType);
             activeSkill = (Skill)gameObject.AddComponent(skillType);
             activeSkill.user = this;
         }

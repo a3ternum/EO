@@ -275,13 +275,11 @@ MonoBehaviour:
   attackSpeed: 0.5
   speed: 100
   mana: 0
+  additionalProjectiles: 0
   damagedRecently: 0
   healthBarPrefab: {fileID: 5048146370649816984, guid: a64d9cc6ea5e5954292229dd20f9a416, type: 3}
-  activeSkill: {fileID: 6594220455102797157, guid: 9f29fc94852b3694fa082918aa7fbc14, type: 3}
+  activeSkill: {fileID: 6539871157614773703, guid: 6d1d72511c110644c8153582e5cc5b8e, type: 3}
   AIState: 0
-  weaponDistance: 0.5
-  projectile: {fileID: 6497329702007125048, guid: dc33d4097d2955240b0e34e7de4ba0c3, type: 3}
-  firepoint: {fileID: 7132535949917529454}
   packAggroRadius: 5
   attackRange: 6
   chaseDistance: 6
@@ -290,7 +288,6 @@ MonoBehaviour:
   chaseRangeIfDamagedRecently: 30
   timeInChase: 0
   hasLOS: 0
-  isRangedMob: 1
 --- !u!50 &7836120420846127898
 Rigidbody2D:
   serializedVersion: 5

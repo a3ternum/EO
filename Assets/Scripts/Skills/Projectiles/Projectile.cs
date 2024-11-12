@@ -4,23 +4,28 @@ using System.Collections.Generic;
 
 public class Projectile : MonoBehaviour
 {
-    public float speed;
-    public float duration;
-    public float tickRate;
-    public float damage;
-    private Dictionary<Enemy, float> lastHitTime;
+    private Creature user;
+    private float speed;
+    private float duration;
+    private float tickRate;
+    private float damage;
+    private Dictionary<Creature, float> lastHitTime;
     private Vector2 direction;
 
     private int enemyLayer;
     private int terrainLayer;
     private int playerLayer;
+    private Skill skill;
 
-    private void Awake()
+    protected bool destroyOnHit = true;
+    
+    
+    protected virtual void Awake()
     {
-        lastHitTime = new Dictionary<Enemy, float>();
+        lastHitTime = new Dictionary<Creature, float>();
     }
 
-    public void Initialize(Vector2 direction, float speed, float duration, float tickRate, float damage, int enemyLayer, int terrainLayer, int playerLayer)
+    public void Initialize(Vector2 direction, float speed, float duration, float tickRate, float damage, int enemyLayer, int terrainLayer, int playerLayer, Skill skillThatFiredProjectile)
     {
         this.direction = direction;
         this.speed = speed;
@@ -30,6 +35,8 @@ public class Projectile : MonoBehaviour
         this.enemyLayer = enemyLayer;
         this.terrainLayer = terrainLayer;
         this.playerLayer = playerLayer;
+        this.skill = skillThatFiredProjectile;
+        this.user = skill.user;
         StartCoroutine(MoveAndHandleCollisions());
     }
 
@@ -40,21 +47,35 @@ public class Projectile : MonoBehaviour
         {
             transform.position += (Vector3)direction.normalized * speed * Time.deltaTime;
 
-            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, GetComponent<CircleCollider2D>().radius);
-            List<Enemy> targetsList = new List<Enemy>();
+            Collider2D[] hitColliders = GetHitColliders();
+            List<Creature> targetsList = new List<Creature>();
 
             foreach (var hitCollider in hitColliders)
             {
-               
-                if (hitCollider.gameObject.layer == enemyLayer)
+                Creature creature = hitCollider.GetComponent<Creature>();
+                if (creature != null)
                 {
-                    Enemy enemy = hitCollider.GetComponent<Enemy>();
-                    if (enemy != null)
+                    bool isEnemyTarget = (hitCollider.gameObject.layer == enemyLayer && user is Player);
+                    bool isPlayerTarget = (hitCollider.gameObject.layer == playerLayer && user is Enemy);
+                    //Debug.Log(isEnemyTarget || isPlayerTarget);
+                    if (isEnemyTarget || isPlayerTarget)
                     {
-                        if (!lastHitTime.ContainsKey(enemy) || Time.time - lastHitTime[enemy] >= tickRate)
+                        if (!lastHitTime.ContainsKey(creature) || Time.time - lastHitTime[creature] >= tickRate)
                         {
-                            targetsList.Add(enemy);
-                            lastHitTime[enemy] = Time.time;
+                            // make sure target is on screen before adding it to the list
+                            if (IsTargetOnScreen(creature))
+                            {
+                                targetsList.Add(creature);
+                                lastHitTime[creature] = Time.time;
+
+                                if (destroyOnHit)
+                                {
+
+                                    skill.ApplyDamageAndEffects(targetsList);
+                                    Destroy(gameObject);
+                                    yield break; // Exit the coroutine as the projectile is destroyed
+                                }
+                            }
                         }
                     }
                 }
@@ -62,31 +83,37 @@ public class Projectile : MonoBehaviour
                 {
                     // Destroy the projectile if it hits terrain
                     Destroy(gameObject);
-                    yield return null;
-                }
-                else if (hitCollider.gameObject.layer == playerLayer)
-                {
-                    // Do nothing
+                    yield break; // Exit the coroutine as the projectile is destroyed
                 }
             }
 
-            ApplyDamageAndEffects(targetsList);
-
+            skill.ApplyDamageAndEffects(targetsList);
+            
             elapsedTime += Time.deltaTime;
             yield return null;
         }
         Destroy(gameObject);
     }
-
-    private void ApplyDamageAndEffects(List<Enemy> targets)
+    private Collider2D[] GetHitColliders()
     {
-        if (targets != null && targets.Count > 0)
+        Collider2D collider = GetComponent<Collider2D>();
+        if (collider is CircleCollider2D circleCollider)
         {
-            foreach (var target in targets)
-            {
-                target.TakeDamage(damage);
-                // Trigger hit effect if needed
-            }
+            return Physics2D.OverlapCircleAll(transform.position, circleCollider.radius);
         }
+        else if (collider is BoxCollider2D boxCollider)
+        {
+            return Physics2D.OverlapBoxAll(transform.position, boxCollider.size, 0f);
+        }
+        else
+        {
+            Debug.LogWarning("Unsupported collider type on projectile.");
+            return new Collider2D[0];
+        }
+    }
+    private bool IsTargetOnScreen(Creature target)
+    {
+        Vector3 screenPoint = Camera.main.WorldToViewportPoint(target.transform.position);
+        return screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
     }
 }

@@ -37,25 +37,9 @@ public class HeavyStrike : MeleeAttackSingleTarget
         manaCost = heavyStrikeSkillData.manaCostPerLevel[skillLevel];
     }
 
-    public override float CalculateDamage()
-    {
-        return base.CalculateDamage();
-    }
 
-    public override void ActivateSkill()
-    {
-        base.ActivateSkill();
-    }
 
-    protected override List<Creature> FindTargetInRange()
-    {
-        return base.FindTargetInRange();
-    }
 
-    protected override void ApplyDamageAndEffects(List<Creature> targets)
-    {
-        base.ApplyDamageAndEffects(targets);
-    }
 
 
 }

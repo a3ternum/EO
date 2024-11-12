@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 public class RageVortex : MeleeAttackArea
 {
-    public float projectileSpeed = 3f;
-    public GameObject vortex;
+    public VortexProjectile vortex;
 
     private SkillData rageVortexSkillData;
+
 
 
     protected override void Awake() // Initialize heavy strike skill data
@@ -16,7 +16,7 @@ public class RageVortex : MeleeAttackArea
         skillName = "Rage Vortex";
 
         // Load the vortex prefab from the Resources folder
-        vortex = Resources.Load<GameObject>("vortex");
+        vortex = Resources.Load<VortexProjectile>("vortex");
 
         if (vortex == null)
         {
@@ -31,8 +31,8 @@ public class RageVortex : MeleeAttackArea
         rageVortexSkillData.castTimePerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
         rageVortexSkillData.durationPerLevel = new List<float> { 3f, 4f, 5f, 6f, 7f };
         rageVortexSkillData.tickRatePerLevel = new List<float>() { 0.6f, 0.58f, 0.56f, 0.54f, 0.52f };
+        rageVortexSkillData.projectileSpeedPerLevel = new List<float> { 5f, 5.2f, 5.4f, 5.6f, 5.8f };
 
-        
     }
 
 
@@ -54,6 +54,7 @@ public class RageVortex : MeleeAttackArea
         castTime = rageVortexSkillData.castTimePerLevel[skillLevel];
         duration = rageVortexSkillData.durationPerLevel[skillLevel];
         tickRate = rageVortexSkillData.tickRatePerLevel[skillLevel];
+        projectileSpeed = rageVortexSkillData.projectileSpeedPerLevel[skillLevel];
     }
 
 
@@ -65,75 +66,12 @@ public class RageVortex : MeleeAttackArea
         {
             StartCoroutine(AttackCoroutine());
             OnActivate();
-            //StartCoroutine(AoEColliderRoutine());
             LaunchProjectile();
         }
     }
 
-    protected override IEnumerator AoEColliderRoutine()
-    {
-        // Create a vortex GameObject
-        GameObject newVortex = Instantiate(vortex, user.transform.position, Quaternion.identity);
-        CircleCollider2D collider = newVortex.AddComponent<CircleCollider2D>();
-        collider.isTrigger = true;
 
-        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - user.transform.position;
-
-        float elapsedTime = 0f;
-        while (elapsedTime < duration)
-        {
-            // move the vortex
-            newVortex.transform.position += (Vector3)direction.normalized * projectileSpeed * Time.deltaTime;
-
-            // check for collisions
-            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(newVortex.transform.position, collider.radius);
-            List<Creature> targetsList = new List<Creature>();
-
-            foreach (var hitCollider in hitColliders)
-            {
-                if (user is Player)
-                {
-                    if (collider.gameObject.layer == enemyLayer)
-                    {
-                        Creature enemy = hitCollider.GetComponent<Creature>();
-                        if (enemy != null)
-                        {
-                            if (!lastHitTime.ContainsKey(enemy) || Time.time - lastHitTime[enemy] >= tickRate)
-                            {
-                                targetsList.Add(enemy);
-                                lastHitTime[enemy] = Time.time;
-                            }
-
-                        }
-                    }
-                }
-                if (user is Enemy)
-                {
-                    if (collider.gameObject.layer == playerLayer)
-                    {
-                        Creature player = hitCollider.GetComponent<Creature>();
-                        if (player != null)
-                        {
-                            if (!lastHitTime.ContainsKey(player) || Time.time - lastHitTime[player] >= tickRate)
-                            {
-                                targetsList.Add(player);
-                                lastHitTime[player] = Time.time;
-                            }
-                        }
-                    }
-
-                }
-                // Apply damage to all enemies in range
-                ApplyDamageAndEffects(targetsList);
-
-                elapsedTime += Time.deltaTime;
-                yield return null;
-            }
-            Destroy(newVortex);
-        }
-    }
-
-    protected override void ApplyDamageAndEffects(List<Creature> targets)
+    public override void ApplyDamageAndEffects(List<Creature> targets)
     {
         if (targets != null && targets.Count > 0)
         {
@@ -147,10 +85,8 @@ public class RageVortex : MeleeAttackArea
 
     private void LaunchProjectile()
     {
-        GameObject newVortex = Instantiate(vortex, user.transform.position, Quaternion.identity);
-        
-        VortexProjectile projectile = newVortex.GetComponent<VortexProjectile>();
+        VortexProjectile projectile = Instantiate(vortex, user.transform.position, Quaternion.identity);
         Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - user.transform.position;
-        projectile.Initialize(direction, projectileSpeed, duration, tickRate, damage, enemyLayer, terrainLayer, playerLayer);
+        projectile.Initialize(direction, projectileSpeed, duration, tickRate, damage, enemyLayer, terrainLayer, playerLayer, this);
     }
 }

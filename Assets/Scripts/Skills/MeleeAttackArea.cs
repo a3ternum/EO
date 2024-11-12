@@ -31,7 +31,7 @@ public class MeleeAttackArea : MeleeAttack
     // if user is a enemy, use different method.
  
 
-    protected override void ApplyDamageAndEffects(List<Creature> targets)
+    public override void ApplyDamageAndEffects(List<Creature> targets)
     {
         if (targets != null && targets.Count > 0)
         {

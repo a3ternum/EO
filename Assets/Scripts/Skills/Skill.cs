@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 // This becomes the parent class for every skill in the game.
-public abstract class Skill : MonoBehaviour
+public class Skill : MonoBehaviour
 {
     // skills have the following properties:
     public Creature user { get; set; } // the user of the skill
@@ -22,6 +22,9 @@ public abstract class Skill : MonoBehaviour
     public bool isReady { get; protected set; } // boolean to indicate whether skill can be used right now 
     public float manaCost { get; protected set; } // the mana cost of the skill
     public float range { get; protected set; } // the range of the skill
+    public float projectileSpeed { get; protected set; } // the speed of the projectile
+    public float radius { get; protected set; } // the radius of the skill
+    public int pierceCount { get; protected set; } // the number of enemies the skill can pierce
     public int enemyLayer { get; protected set; } // the layer mask of the enemy
     public int terrainLayer { get; protected set; } // the layer mask of the terrain
     public int playerLayer { get; protected set; } // the layer mask of the player
@@ -77,7 +80,13 @@ public abstract class Skill : MonoBehaviour
         user.mana = Mathf.Max(user.mana - manaCost, 0);
         cooldownTimer = 1/attackSpeed;
     }                                 
-    public abstract float CalculateDamage();
+    public virtual float CalculateDamage()
+    {
+        return damage; // this method will be used to calculate the damage of the skill
+       // this method will become far more complex as we add more mechanics and add the players stats
+       // note that final damage calculation is computed in the creature that receives the damage.
+
+    }
 
     public virtual void UpdateCooldown(float deltaTime) //A method to manage the cooldown timer. This could be called in Update() to reduce the cooldown timer over time.
     {
@@ -99,7 +108,7 @@ public abstract class Skill : MonoBehaviour
         UpdateCooldown(Time.deltaTime);
     }
 
-    protected virtual void ApplyDamageAndEffects(List<Creature> targets)
+    public virtual void ApplyDamageAndEffects(List<Creature> targets)
     {
         if (targets != null && targets.Count > 0)
         {

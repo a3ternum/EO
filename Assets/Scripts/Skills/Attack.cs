@@ -11,45 +11,29 @@ public class Attack : Skill
     // - range: the maximum distance the attack can reach
     public Animator animator;
     public float animationDuration;
+
+    protected GameObject creatureWeapon;
+    protected GameObject targets { get; set; }
+    protected Vector2 originalHitLocation;
+
     protected override void Start()
     {
         base.Start();
-        
-    }
-    public override void ActivateSkill()
-    {
-        base.ActivateSkill();
-    }
+        creatureWeapon = transform.Find("firePoint/Weapon")?.gameObject;
+        if (creatureWeapon != null)
+        {
+            animator = creatureWeapon.GetComponent<Animator>();
+            if (animator == null)
+            {
+                Debug.LogWarning("Animator component not found on " + gameObject.name);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Weapon object not found on " + gameObject.name);
+        }
 
-    public override bool CanActivate()
-    {
-        return base.CanActivate();
     }
-
-    public override void LevelUp()
-    {
-        base.LevelUp();
-    }
-
-    public override void UpgradeSkill()
-    {
-        base.UpgradeSkill();
-    }
-
-    public override void OnActivate()
-    {
-       base.OnActivate();
-    }
-
-    public override float CalculateDamage()
-    {
-        return damage;
-    }
-    public override void UpdateCooldown(float deltaTime)
-    {
-        base.UpdateCooldown(deltaTime);
-    }
-
   
     protected IEnumerator AttackCoroutine()
     {

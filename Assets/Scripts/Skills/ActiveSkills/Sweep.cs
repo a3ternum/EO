@@ -38,23 +38,5 @@ public class Sweep : MeleeAttackArea
         manaCost = sweepSkillData.manaCostPerLevel[skillLevel];
     }
 
-    public override float CalculateDamage()
-    {
-        return base.CalculateDamage();
-    }
 
-    public override void ActivateSkill()
-    {
-        base.ActivateSkill();
-    }
-
-    protected override void ApplyDamageAndEffects(List<Creature> targets)
-    {
-        base.ApplyDamageAndEffects(targets);
-    }
-
-    protected override List<Creature> AoECollider()
-    {
-        return base.AoECollider();
-    }
 }

@@ -6,25 +6,6 @@ using UnityEngine;
 public class MeleeAttackSingleTarget : MeleeAttack
 {
 
-    protected override void Start()
-    {
-        base.Start();
-        ourWeapon = transform.Find("firePoint/Weapon")?.gameObject;
-        if (ourWeapon != null)
-        {
-            animator = ourWeapon.GetComponent<Animator>();
-            if (animator == null)
-            {
-                Debug.LogError("Animator component not found on " + gameObject.name);
-            }
-        }
-        else
-        {
-            Debug.LogError("Weapon object not found on " + gameObject.name);
-        }
-        
-    }
-        
 
     public override void ActivateSkill()
     {
