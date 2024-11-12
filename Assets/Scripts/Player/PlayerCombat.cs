@@ -3,50 +3,25 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    public Transform firePoint;
-    public Transform playerTransform;
-    public float weaponDistance = 0.5f;
+    private Skill activeSkill;
 
-    public weapon currentWeapon;
-
-    private Attack activeSkill;
-
-    void start()
-    {
-
-    }
-
-    public void SetActiveSkill(Attack skill)
+    public void SetActiveSkill(Skill skill)
     {
         activeSkill = skill;
     }
 
-public void playerAttack()
-    {  
-
+    public void playerAttack()
+    {
+        Debug.Log("trying attack");
         if (activeSkill != null)
         {
+            Debug.Log("active skill detected" + activeSkill.skillName);
             activeSkill.ActivateSkill();
         }
-        else 
+        else
         {
-            // rotate firePoint to face mouse position
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0;
-
-            // get direction vector from the character to mouse position
-            Vector3 direction = (mousePosition - firePoint.position).normalized;
-
-            // calculate the angle between the character and the mouse position
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-            // change firepoint position
-            firePoint.position = playerTransform.position + direction * weaponDistance;
-
-            // rotate the weapon to have pummel face character
-            firePoint.transform.rotation = Quaternion.Euler(0, 0, angle);
-
-            currentWeapon.Attack();
+            Debug.Log("no active skill");
+            // implement basic attack?
         }
     }
 

@@ -9,13 +9,24 @@ public class Player : Creature
     public PlayerData playerData;
 
     [SerializeField]
-    private Skill activeSkill = null;
+    private Skill activeSkill;
 
     void Awake()
     {
         movement = GetComponent<PlayerMovement>();
         combat = GetComponent<PlayerCombat>();
         experience = GetComponent<PlayerExperience>();
+
+        if (activeSkill != null)
+        {
+            System.Type skillType = activeSkill.GetType();
+            Debug.Log("skill type is: " + skillType);
+            activeSkill = (Skill)gameObject.AddComponent(skillType);
+        }
+        else
+        {
+            Debug.LogError("active skill is not assigned");
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,10 +39,9 @@ public class Player : Creature
         attackSpeed = playerData.attackSpeed;
         nextAttackTime = 0;
 
-
-        activeSkill = gameObject.AddComponent<HeavyStrike>();
         activeSkill.user = this;
-        combat.SetActiveSkill((Attack)activeSkill);
+        Debug.Log("activeSkill: " + activeSkill.skillName);
+        combat.SetActiveSkill(activeSkill);
     }
 
     // Update is called once per frame

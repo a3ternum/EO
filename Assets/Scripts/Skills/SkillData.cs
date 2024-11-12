@@ -11,5 +11,6 @@ public class SkillData : ScriptableObject
     public List<float> rangePerLevel;
     public List<float> castTimePerLevel;
     public List<float> durationPerLevel;
-    
+    public List<float> tickRatePerLevel;
+
 }

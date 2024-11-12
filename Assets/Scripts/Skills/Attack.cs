@@ -11,7 +11,6 @@ public class Attack : Skill
     // - range: the maximum distance the attack can reach
     public Animator animator;
     public float animationDuration;
-    protected float hitRange = 1f;
     protected override void Start()
     {
         base.Start();
@@ -58,25 +57,24 @@ public class Attack : Skill
     }
     protected IEnumerator AttackCoroutine()
     {
+        OnActivate();
         float playerAttackSpeed = user.attackSpeed;
         animationDuration = CalculateAnimationDuration(playerAttackSpeed, attackSpeed);
-
-        OnActivate();
-        Debug.Log("setting attack trigger");
-        Debug.Log("animator is " + animator);
-        animator.SetTrigger("Attack"); // Play the attack animation
+        
+        if (animator!= null) // play animation only if attack has an animation
+        {
+            animator.speed = attackSpeed * playerAttackSpeed; // Set the animation speed based on the player's attack speed and the attack's attack speed
+            animator.SetTrigger("Attack"); // Play the attack animation
+        }
         yield return new WaitForSeconds(animationDuration);
-        Debug.Log("setting attack finished trigger");
-        animator.SetTrigger("AttackFinished"); // Finish the attack animation
+        if (animator != null)
+        {
+            animator.SetTrigger("AttackFinished"); // Finish the attack animation
+            
+        }
 
 
 
-    }
-
-    public virtual void PlayAttackAnimation()
-    {
-        // This method will be used to play the attack animation.
-        // to be implemented in child classes
     }
 
     private float CalculateAnimationDuration(float playerAttackSpeed, float attackSpeed)

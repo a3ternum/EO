@@ -26,9 +26,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckRecall()
     {
-        if (Input.GetMouseButton(1))
+        if (Input.GetKeyDown(KeyCode.B))
         {
-            Debug.Log("Recalling");
             if (gameManager != null && gameManager.isInMap)
             {
                 gameManager.ReturnToHideout();

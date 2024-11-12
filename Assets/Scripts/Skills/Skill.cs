@@ -15,19 +15,25 @@ public abstract class Skill : MonoBehaviour
     public float castTime { get; protected set; } // the cast time of the skill
     public float attackSpeed { get; protected set; } // the base attack speed of the skill
     public float duration { get; protected set; } // the duration of the skill
+    public float tickRate { get; protected set; } // the tick rate of the skill
     public int quality { get; protected set; } // the quality of the skill
     public bool isReady { get; protected set; } // boolean to indicate whether skill can be used right now 
     public float manaCost { get; protected set; } // the mana cost of the skill
     public float range { get; protected set; } // the range of the skill
-                                               // 
+    public int enemyLayer { get; protected set; } // the layer mask of the enemy
+    public int terrainLayer { get; protected set; } // the layer mask of the terrain
+    public int playerLayer { get; protected set; } // the layer mask of the player
+
     [SerializeField]
     private Sprite skillIcon; // the icon of the skill to display in UI.
     
-    private float cooldownTimer; // the cooldown timer of the skill
+    private float cooldownTimer = 0; // the cooldown timer of the skill
 
     protected virtual void Start()
     {
-
+        enemyLayer = LayerMask.NameToLayer("Enemy");
+        terrainLayer = LayerMask.NameToLayer("Terrain");
+        playerLayer = LayerMask.NameToLayer("Player");
     }
 
     public virtual void ActivateSkill() // this method will be used to activate the skill
@@ -83,7 +89,6 @@ public abstract class Skill : MonoBehaviour
     {
         // Update the cooldown timer
         UpdateCooldown(Time.deltaTime);
-
     }
 
 

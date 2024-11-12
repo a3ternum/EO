@@ -8,12 +8,13 @@ public class HeavyStrike : MeleeAttackSingleTarget
 
     private void Awake() // Initialize heavy strike skill data
     {
+        skillName = "Heavy Strike";
         heavyStrikeSkillData = ScriptableObject.CreateInstance<SkillData>();
 
         heavyStrikeSkillData.damagePerLevel = new List<float> { 10f, 20f, 30f, 40f, 50f };
         heavyStrikeSkillData.manaCostPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
-        heavyStrikeSkillData.attackSpeedPerLevel = new List<float> { 1f, 1.1f, 1.2f, 1.3f, 1.4f };
-        heavyStrikeSkillData.rangePerLevel = new List<float>{2f, 2.4f, 2.6f, 2.8f, 3f};
+        heavyStrikeSkillData.attackSpeedPerLevel = new List<float> { 3f, 1.1f, 1.2f, 1.3f, 1.4f };
+        heavyStrikeSkillData.rangePerLevel = new List<float>{4f, 4.4f, 4.6f, 4.8f, 5f};
         heavyStrikeSkillData.castTimePerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
         heavyStrikeSkillData.durationPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
     }
@@ -23,7 +24,6 @@ public class HeavyStrike : MeleeAttackSingleTarget
     {
         base.Start();
 
-        hitRange = 1f; // set hitrange for heavy strike
 
         int skillLevel = 0;
         if (heavyStrikeSkillData == null)
