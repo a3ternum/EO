@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class MeleeAttackArea : Attack
+public class MeleeAttackArea : MeleeAttack
 {
 
     protected override void Start()
@@ -56,34 +56,27 @@ public class MeleeAttackArea : Attack
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(user.transform.position, range);
         List<Creature> targetsList = new List<Creature>();
 
-        if (user is Player)
+
+        foreach (var collider in hitColliders)
         {
-            foreach (var collider in hitColliders)
+            if (collider.gameObject.layer == enemyLayer && user is Player)
             {
-                if (collider.gameObject.layer == enemyLayer)
+                Creature enemy = collider.GetComponent<Creature>();
+                if (enemy != null)
                 {
-                    Creature enemy = collider.GetComponent<Creature>();
-                    if (enemy != null)
-                    {
-                        targetsList.Add(enemy);
-                    }
+                    targetsList.Add(enemy);
+                }
+            }
+            else if (collider.gameObject.layer == playerLayer && user is Enemy)
+            {
+                Creature player = collider.GetComponent<Creature>();
+                if (player != null)
+                {
+                    targetsList.Add(player);
                 }
             }
         }
-        else if (user is Enemy)
-        {
-            foreach (var collider in hitColliders)
-            {
-                if (collider.gameObject.layer == playerLayer)
-                {
-                    Creature player = collider.GetComponent<Creature>();
-                    if (player != null)
-                    {
-                        targetsList.Add(player);
-                    }
-                }
-            }
-        }
+        
         return targetsList;
     } 
 

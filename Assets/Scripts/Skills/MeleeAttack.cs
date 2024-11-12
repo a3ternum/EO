@@ -44,38 +44,32 @@ public abstract class MeleeAttack : Attack
 
         foreach (var collider in hitColliders)
         {
-            if (user is Player)
+            if (collider.gameObject.layer == enemyLayer && user is Player)
             {
-                if (collider.gameObject.layer == enemyLayer)
+                Creature enemy = collider.GetComponent<Creature>();
+                if (enemy != null)
                 {
-                    Creature enemy = collider.GetComponent<Creature>();
-                    if (enemy != null)
+                    float distanceToTarget = Vector2.Distance(targetPosition, enemy.transform.position);
+                    if (distanceToTarget < closestDistance)
                     {
-                        float distanceToTarget = Vector2.Distance(targetPosition, enemy.transform.position);
-                        if (distanceToTarget < closestDistance)
-                        {
-                            closestDistance = distanceToTarget;
-                            closestTarget = enemy;
-                        }
+                        closestDistance = distanceToTarget;
+                        closestTarget = enemy;
                     }
                 }
             }
-            else if (user is Enemy)
+            else if (collider.gameObject.layer == playerLayer && user is Enemy)
             {
-                if (collider.gameObject.layer == playerLayer)
+                Creature player = collider.GetComponent<Creature>();
+                if (player != null)
                 {
-                    Creature player = collider.GetComponent<Creature>();
-                    if (player != null)
+                    float distanceToTarget = Vector2.Distance(targetPosition, player.transform.position);
+                    if (distanceToTarget < closestDistance)
                     {
-                        float distanceToTarget = Vector2.Distance(targetPosition, player.transform.position);
-                        if (distanceToTarget < closestDistance)
-                        {
-                            closestDistance = distanceToTarget;
-                            closestTarget = player;
-                        }
+                        closestDistance = distanceToTarget;
+                        closestTarget = player;
                     }
                 }
-            }
+            }   
         }
         if (closestTarget != null)
         {

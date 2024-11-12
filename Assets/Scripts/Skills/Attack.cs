@@ -50,11 +50,7 @@ public class Attack : Skill
         base.UpdateCooldown(deltaTime);
     }
 
-    public virtual void TriggerHitEffect(Vector3 position)
-    {
-        // This method will be used to trigger a visual effect when the attack hits a target.
-        // to be implemented in child classes
-    }
+  
     protected IEnumerator AttackCoroutine()
     {
         OnActivate();
@@ -82,25 +78,5 @@ public class Attack : Skill
         // This method will calculate the duration of the attack animation based on the player's attack speed and the attack's attack speed.
         // to be implemented in child classes
         return playerAttackSpeed * attackSpeed;
-    }
-
-    protected virtual void ApplyDamageAndEffects(List<Creature> targets)
-    {
-
-        if (targets != null)
-        {
-            foreach (var target in targets)
-            {
-                target.TakeDamage(CalculateDamage());
-
-                //Rigidbody targetRb = target.GetComponent<Rigidbody>();
-                //if (targetRb != null)
-                //{
-                //    Vector3 knockbackDir = (target.transform.position - transform.position).normalized;
-                //    targetRb.AddForce(knockbackDir * KnockbackForce, ForceMode.Impulse);
-                //}
-                TriggerHitEffect(target.transform.position);
-            }
-        }
     }
 }

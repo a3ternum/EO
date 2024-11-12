@@ -55,25 +55,7 @@ public class MeleeAttackSingleTarget : MeleeAttack
     // do this by checking for creature inheritance. if user is a player then use this method.
     // if user is a enemy, use different method.
   
-    protected override void ApplyDamageAndEffects(List<Creature> targets) 
-    {
-        if (targets != null && targets.Count > 0)
-        {
-            foreach(var target in targets)
-            {
-            target.TakeDamage(CalculateDamage());
-
-            //Rigidbody targetRb = target.GetComponent<Rigidbody>();
-            //if (targetRb != null)
-            //{
-            //    Vector3 knockbackDir = (target.transform.position - transform.position).normalized;
-            //    targetRb.AddForce(knockbackDir * KnockbackForce, ForceMode.Impulse);
-            //}
-
-            TriggerHitEffect(target.transform.position);
-            }
-        }
-    }
+    
 
     
 

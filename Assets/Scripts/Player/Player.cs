@@ -8,26 +8,15 @@ public class Player : Creature
 
     public PlayerData playerData;
 
-    [SerializeField]
-    private Skill activeSkill;
-
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         movement = GetComponent<PlayerMovement>();
         combat = GetComponent<PlayerCombat>();
         experience = GetComponent<PlayerExperience>();
 
-        if (activeSkill != null)
-        {
-            System.Type skillType = activeSkill.GetType();
-            Debug.Log("skill type is: " + skillType);
-            activeSkill = (Skill)gameObject.AddComponent(skillType);
-            activeSkill.user = this;
-        }
-        else
-        {
-            Debug.LogError("active skill is not assigned");
-        }
+        
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -20,7 +20,24 @@ public class Creature : MonoBehaviour
 
     private GameObject healthBarObject;
     private Canvas canvas;
-    
+
+    [SerializeField]
+    protected Skill activeSkill;
+
+    protected virtual void Awake()
+    {
+        if (activeSkill != null)
+        {
+            System.Type skillType = activeSkill.GetType();
+            Debug.Log("skill type is: " + skillType);
+            activeSkill = (Skill)gameObject.AddComponent(skillType);
+            activeSkill.user = this;
+        }
+        else
+        {
+            Debug.LogError("active skill is not assigned");
+        }
+    }
 
     protected virtual void Start()
     {

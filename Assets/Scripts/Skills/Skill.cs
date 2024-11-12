@@ -99,5 +99,29 @@ public abstract class Skill : MonoBehaviour
         UpdateCooldown(Time.deltaTime);
     }
 
+    protected virtual void ApplyDamageAndEffects(List<Creature> targets)
+    {
+        if (targets != null && targets.Count > 0)
+        {
+            foreach (var target in targets)
+            {
+                target.TakeDamage(CalculateDamage());
+
+                //Rigidbody targetRb = target.GetComponent<Rigidbody>();
+                //if (targetRb != null)
+                //{
+                //    Vector3 knockbackDir = (target.transform.position - transform.position).normalized;
+                //    targetRb.AddForce(knockbackDir * KnockbackForce, ForceMode.Impulse);
+                //}
+
+                TriggerHitEffect(target.transform.position);
+            }
+        }
+    }
+
+    protected virtual void TriggerHitEffect(Vector3 position)
+    {
+
+    }
 
 }
