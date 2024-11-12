@@ -12,15 +12,12 @@ public class PlayerCombat : MonoBehaviour
 
     public void playerAttack()
     {
-        Debug.Log("trying attack");
         if (activeSkill != null)
         {
-            Debug.Log("active skill detected" + activeSkill.skillName);
             activeSkill.ActivateSkill();
         }
         else
         {
-            Debug.Log("no active skill");
             // implement basic attack?
         }
     }

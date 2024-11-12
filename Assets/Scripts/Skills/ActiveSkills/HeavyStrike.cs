@@ -6,8 +6,9 @@ public class HeavyStrike : MeleeAttackSingleTarget
 {
     private SkillData heavyStrikeSkillData;
 
-    private void Awake() // Initialize heavy strike skill data
+    protected override void Awake() // Initialize heavy strike skill data
     {
+        base.Awake();
         skillName = "Heavy Strike";
         heavyStrikeSkillData = ScriptableObject.CreateInstance<SkillData>();
 
@@ -46,12 +47,12 @@ public class HeavyStrike : MeleeAttackSingleTarget
         base.ActivateSkill();
     }
 
-    protected override List<Enemy> FindTargetInRange()
+    protected override List<Creature> FindTargetInRange()
     {
         return base.FindTargetInRange();
     }
 
-    protected override void ApplyDamageAndEffects(List<Enemy> targets)
+    protected override void ApplyDamageAndEffects(List<Creature> targets)
     {
         base.ApplyDamageAndEffects(targets);
     }

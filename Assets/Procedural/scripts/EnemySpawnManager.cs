@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class EnemySpawnManager : MonoBehaviour
 {
-    [SerializeField] private GameObject packSpawnPoint;
+    [SerializeField] private PackSpawn packSpawn;
     [SerializeField] private int minSpawnDistance = 3;
     [SerializeField] private int packDensity = 1;
     [SerializeField] private Vector2Int playerStartPosition = Vector2Int.zero;
@@ -12,6 +12,12 @@ public class EnemySpawnManager : MonoBehaviour
     [SerializeField] private float spawnProbability = 0.05f;
 
     private HashSet<Vector2Int> floorPositions;
+
+    private void Start()
+    {
+        // set packSpawn parameters
+        // this will later depend on things like map Quality, map density etc
+    }
 
     public void GenerateSpawns(HashSet<Vector2Int> floorTiles, List<Vector2Int> roomCenters, List<Vector2Int> corridorTiles, string mapType)
     {
@@ -44,7 +50,7 @@ public class EnemySpawnManager : MonoBehaviour
                 if (Random.value < spawnProbability * packDensity)
                 {
                     spawnPoints.Add(tile);
-                    SpawnEnemyPack(tile, packSpawnPoint);
+                    SpawnEnemyPack(tile, packSpawn);
                 }
                 
             }
@@ -57,7 +63,7 @@ public class EnemySpawnManager : MonoBehaviour
         foreach (var roomCenter in roomCenters)
         {
             Vector2Int spawnPoint = roomCenter + new Vector2Int(Random.Range(-1, 1), Random.Range(-1, 1));
-            SpawnEnemyPack(spawnPoint, packSpawnPoint);
+            SpawnEnemyPack(spawnPoint, packSpawn);
         }
     }
 
@@ -69,7 +75,7 @@ public class EnemySpawnManager : MonoBehaviour
             if (IsFarEnoughFromOthers(tile, spawnPoints, minSpawnDistance))
             {
                 spawnPoints.Add(tile);
-                SpawnEnemyPack(tile, packSpawnPoint);
+                SpawnEnemyPack(tile, packSpawn);
             }
         }
     }
@@ -91,8 +97,18 @@ public class EnemySpawnManager : MonoBehaviour
         return Vector2Int.Distance(point, position) > minDistance;
     }
 
-    private void SpawnEnemyPack(Vector2Int position, GameObject packSpawn)
-    { 
-        Instantiate(packSpawn, new Vector3(position.x, position.y, 0), Quaternion.identity);   
+    private void SpawnEnemyPack(Vector2Int position, PackSpawn packSpawn)
+    {
+        Vector3 spawnPosition = new Vector3(position.x, position.y, 0); 
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(spawnPosition, out hit, 1.0f, NavMesh.AllAreas))
+        {
+            Instantiate(packSpawn, new Vector3(position.x, position.y, 0), Quaternion.identity);
+        }
+        else
+        {
+            Debug.LogWarning("spawn point is out of navMeshSurface");
+        }
+
     }
 }

@@ -9,10 +9,10 @@ public class RageVortex : MeleeAttackArea
 
     private SkillData rageVortexSkillData;
 
-    private Dictionary<Enemy, float> lastHitTime;
 
-    private void Awake() // Initialize heavy strike skill data
+    protected override void Awake() // Initialize heavy strike skill data
     {
+        base.Awake();
         skillName = "Rage Vortex";
 
         // Load the vortex prefab from the Resources folder
@@ -32,7 +32,7 @@ public class RageVortex : MeleeAttackArea
         rageVortexSkillData.durationPerLevel = new List<float> { 3f, 4f, 5f, 6f, 7f };
         rageVortexSkillData.tickRatePerLevel = new List<float>() { 0.6f, 0.58f, 0.56f, 0.54f, 0.52f };
 
-        lastHitTime = new Dictionary<Enemy, float>();
+        
     }
 
 
@@ -87,34 +87,53 @@ public class RageVortex : MeleeAttackArea
 
             // check for collisions
             Collider2D[] hitColliders = Physics2D.OverlapCircleAll(newVortex.transform.position, collider.radius);
-            List<Enemy> targetsList = new List<Enemy>();
+            List<Creature> targetsList = new List<Creature>();
 
             foreach (var hitCollider in hitColliders)
             {
-                if (hitCollider.CompareTag("Enemy"))
+                if (user is Player)
                 {
-                    Enemy enemy = hitCollider.GetComponent<Enemy>();
-                    if (enemy != null)
+                    if (collider.gameObject.layer == enemyLayer)
                     {
-                        if (!lastHitTime.ContainsKey(enemy) || Time.time - lastHitTime[enemy] >= tickRate)
+                        Creature enemy = hitCollider.GetComponent<Creature>();
+                        if (enemy != null)
                         {
-                            targetsList.Add(enemy);
-                            lastHitTime[enemy] = Time.time;
+                            if (!lastHitTime.ContainsKey(enemy) || Time.time - lastHitTime[enemy] >= tickRate)
+                            {
+                                targetsList.Add(enemy);
+                                lastHitTime[enemy] = Time.time;
+                            }
+
                         }
-                        
                     }
                 }
-            }
-            // Apply damage to all enemies in range
-            ApplyDamageAndEffects(targetsList);
+                if (user is Enemy)
+                {
+                    if (collider.gameObject.layer == playerLayer)
+                    {
+                        Creature player = hitCollider.GetComponent<Creature>();
+                        if (player != null)
+                        {
+                            if (!lastHitTime.ContainsKey(player) || Time.time - lastHitTime[player] >= tickRate)
+                            {
+                                targetsList.Add(player);
+                                lastHitTime[player] = Time.time;
+                            }
+                        }
+                    }
 
-            elapsedTime += Time.deltaTime;
-            yield return null;
+                }
+                // Apply damage to all enemies in range
+                ApplyDamageAndEffects(targetsList);
+
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+            Destroy(newVortex);
         }
-        Destroy(newVortex);
     }
 
-    protected override void ApplyDamageAndEffects(List<Enemy> targets)
+    protected override void ApplyDamageAndEffects(List<Creature> targets)
     {
         if (targets != null && targets.Count > 0)
         {

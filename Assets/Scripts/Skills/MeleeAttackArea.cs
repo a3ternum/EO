@@ -15,13 +15,12 @@ public class MeleeAttackArea : Attack
 
     public override void ActivateSkill()
     {
-        List<Enemy> targets = FindTargetInRange();
         bool canActivate = CanActivate();
         if (canActivate)
         {
             StartCoroutine(AttackCoroutine());
             OnActivate();
-            List<Enemy> targetsList = AoECollider();
+            List<Creature> targetsList = AoECollider();
             ApplyDamageAndEffects(targetsList);
         }
 
@@ -30,41 +29,9 @@ public class MeleeAttackArea : Attack
     // perhaps refactor to allow enemies to also use this method. So that they can find the player within range
     // do this by checking for creature inheritance. if user is a player then use this method.
     // if user is a enemy, use different method.
-    protected virtual List<Enemy> FindTargetInRange()
-    {
-        // raycast should be shot out in direction of mouse 
-        Vector2 targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+ 
 
-        // find all enemies within range
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(user.transform.position, range);
-        Enemy closestEnemy = null;
-        List<Enemy> targetsList = new List<Enemy>();
-        float closestDistance = float.MaxValue;
-
-        foreach (var collider in hitColliders)
-        {
-            if (collider.CompareTag("Enemy"))
-            {
-                Enemy enemy = collider.GetComponent<Enemy>();
-                if (enemy != null)
-                {
-                    float distanceToTarget = Vector2.Distance(targetPosition, enemy.transform.position);
-                    if (distanceToTarget < closestDistance)
-                    {
-                        closestDistance = distanceToTarget;
-                        closestEnemy = enemy;
-                    }
-                }
-            }
-        }
-        if (closestEnemy != null)
-        {
-            targetsList.Add(closestEnemy);
-        }
-        return targetsList;
-    }
-
-    protected override void ApplyDamageAndEffects(List<Enemy> targets)
+    protected override void ApplyDamageAndEffects(List<Creature> targets)
     {
         if (targets != null && targets.Count > 0)
         {
@@ -84,18 +51,36 @@ public class MeleeAttackArea : Attack
         }
     }
 
-    protected virtual List<Enemy> AoECollider()
+    protected virtual List<Creature> AoECollider()
     {
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(user.transform.position, range);
-        List<Enemy> targetsList = new List<Enemy>();
+        List<Creature> targetsList = new List<Creature>();
 
-        foreach (var collider in hitColliders) {
-            if (collider.CompareTag("Enemy"))
+        if (user is Player)
+        {
+            foreach (var collider in hitColliders)
             {
-                Enemy enemy = collider.GetComponent<Enemy>();
-                if (enemy != null)
+                if (collider.gameObject.layer == enemyLayer)
                 {
-                    targetsList.Add(enemy);
+                    Creature enemy = collider.GetComponent<Creature>();
+                    if (enemy != null)
+                    {
+                        targetsList.Add(enemy);
+                    }
+                }
+            }
+        }
+        else if (user is Enemy)
+        {
+            foreach (var collider in hitColliders)
+            {
+                if (collider.gameObject.layer == playerLayer)
+                {
+                    Creature player = collider.GetComponent<Creature>();
+                    if (player != null)
+                    {
+                        targetsList.Add(player);
+                    }
                 }
             }
         }
@@ -109,5 +94,9 @@ public class MeleeAttackArea : Attack
             yield return null;
         }
     }
-    
+
+    // optional method for AoE skills that require a target to be selected
+   
+
+
 }

@@ -12,7 +12,6 @@ public class NavMeshManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("assigning navMeshSurface");
         navMeshSurface = navMeshSurfaceObject.GetComponent<NavMeshSurface>();
         if (navMeshSurface == null)
         {
@@ -20,7 +19,7 @@ public class NavMeshManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("NavMeshSurface is:" + navMeshSurface);
+
         }
     }
 

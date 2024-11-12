@@ -28,7 +28,7 @@ public class MeleeAttackSingleTarget : MeleeAttack
 
     public override void ActivateSkill()
     {
-        List<Enemy> targets = FindTargetInRange();
+        List<Creature> targets = FindTargetInRange();
         bool canActivate = CanActivate();
         StartCoroutine(AttackCoroutine());
         if (canActivate && targets != null && targets.Count > 0)
@@ -54,41 +54,8 @@ public class MeleeAttackSingleTarget : MeleeAttack
     // perhaps refactor to allow enemies to also use this method. So that they can find the player within range
     // do this by checking for creature inheritance. if user is a player then use this method.
     // if user is a enemy, use different method.
-    protected virtual List<Enemy> FindTargetInRange() 
-    {
-        // raycast should be shot out in direction of mouse 
-        Vector2 targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        // find all enemies within range
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(user.transform.position, range);
-        Enemy closestEnemy = null;
-        List<Enemy> targetsList = new List<Enemy>();
-        float closestDistance = float.MaxValue;
-
-        foreach (var collider in hitColliders)
-        {
-            if (collider.CompareTag("Enemy"))
-            {
-                Enemy enemy = collider.GetComponent<Enemy>();
-                if (enemy != null)
-                {
-                    float distanceToTarget = Vector2.Distance(targetPosition, enemy.transform.position);
-                    if (distanceToTarget < closestDistance)
-                    {
-                        closestDistance = distanceToTarget;
-                        closestEnemy = enemy;
-                    }
-                }
-            }
-        }
-        if (closestEnemy != null)
-        {
-            targetsList.Add(closestEnemy);
-        }
-        return targetsList;
-    }
-
-    protected override void ApplyDamageAndEffects(List<Enemy> targets) 
+  
+    protected override void ApplyDamageAndEffects(List<Creature> targets) 
     {
         if (targets != null && targets.Count > 0)
         {

@@ -274,6 +274,7 @@ MonoBehaviour:
   damage: 10
   attackSpeed: 0.5
   speed: 100
+  mana: 0
   damagedRecently: 0
   healthBarPrefab: {fileID: 5048146370649816984, guid: a64d9cc6ea5e5954292229dd20f9a416, type: 3}
   AIState: 0

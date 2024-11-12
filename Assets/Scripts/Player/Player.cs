@@ -22,6 +22,7 @@ public class Player : Creature
             System.Type skillType = activeSkill.GetType();
             Debug.Log("skill type is: " + skillType);
             activeSkill = (Skill)gameObject.AddComponent(skillType);
+            activeSkill.user = this;
         }
         else
         {
@@ -39,7 +40,7 @@ public class Player : Creature
         attackSpeed = playerData.attackSpeed;
         nextAttackTime = 0;
 
-        activeSkill.user = this;
+        
         Debug.Log("activeSkill: " + activeSkill.skillName);
         combat.SetActiveSkill(activeSkill);
     }

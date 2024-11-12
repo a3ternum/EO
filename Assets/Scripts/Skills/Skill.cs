@@ -1,6 +1,8 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
+using System.Collections;
+using System.Collections.Generic;
 
 // This becomes the parent class for every skill in the game.
 public abstract class Skill : MonoBehaviour
@@ -24,11 +26,17 @@ public abstract class Skill : MonoBehaviour
     public int terrainLayer { get; protected set; } // the layer mask of the terrain
     public int playerLayer { get; protected set; } // the layer mask of the player
 
+    public Dictionary<Creature, float> lastHitTime { get; protected set; }
+
     [SerializeField]
     private Sprite skillIcon; // the icon of the skill to display in UI.
     
     private float cooldownTimer = 0; // the cooldown timer of the skill
 
+    protected virtual void Awake()
+    {
+        lastHitTime = new Dictionary<Creature, float>();
+    }
     protected virtual void Start()
     {
         enemyLayer = LayerMask.NameToLayer("Enemy");

@@ -84,7 +84,7 @@ public class Attack : Skill
         return playerAttackSpeed * attackSpeed;
     }
 
-    protected virtual void ApplyDamageAndEffects(List<Enemy> targets)
+    protected virtual void ApplyDamageAndEffects(List<Creature> targets)
     {
 
         if (targets != null)

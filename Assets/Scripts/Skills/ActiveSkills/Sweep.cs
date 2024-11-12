@@ -6,8 +6,9 @@ public class Sweep : MeleeAttackArea
 {
     private SkillData sweepSkillData;
 
-    private void Awake() // Initialize heavy strike skill data
+    protected override void Awake() // Initialize heavy strike skill data
     {
+        base.Awake();
         skillName = "Sweep";
 
         sweepSkillData = ScriptableObject.CreateInstance<SkillData>();
@@ -47,12 +48,12 @@ public class Sweep : MeleeAttackArea
         base.ActivateSkill();
     }
 
-    protected override void ApplyDamageAndEffects(List<Enemy> targets)
+    protected override void ApplyDamageAndEffects(List<Creature> targets)
     {
         base.ApplyDamageAndEffects(targets);
     }
 
-    protected override List<Enemy> AoECollider()
+    protected override List<Creature> AoECollider()
     {
         return base.AoECollider();
     }
