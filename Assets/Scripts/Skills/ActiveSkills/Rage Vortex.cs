@@ -77,19 +77,6 @@ public class RageVortex : MeleeAttackArea
         }
     }
 
-
-    public override void ApplyDamageAndEffects(List<Creature> targets)
-    {
-        if (targets != null && targets.Count > 0)
-        {
-            foreach (var target in targets)
-            {
-                target.TakeDamage(CalculateDamage());
-                TriggerHitEffect(target.transform.position);
-            }
-        }
-    }
-
     private void LaunchProjectile()
     {
         VortexProjectile projectile = Instantiate(vortex, user.transform.position, Quaternion.identity);

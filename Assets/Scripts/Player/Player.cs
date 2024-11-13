@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class Player : Creature
 {
@@ -7,6 +8,9 @@ public class Player : Creature
     private PlayerExperience playerExperience;
 
     public PlayerStats playerStats;
+
+    public float currentMaxMana;
+    public float currentMana;
 
     protected override void Awake()
     {
@@ -21,16 +25,23 @@ public class Player : Creature
 
     protected virtual void InitializePlayerStats()
     {
-        currentHealth = playerStats.baseHealth;
+        currentMaxHealth = (playerStats.healthBase + playerStats.healthFlat +
+            (playerStats.strength * playerStats.strengthIncreases) / 10 * 2) *
+            playerStats.healthIncreases * playerStats.healthMoreMultipliers;
+        currentHealthRegen = (playerStats.healthRegenBase + playerStats.healthRegenFlat) * playerStats.healthRegenIncreases * playerStats.healthRegenMoreMultipliers;
         currentArmour = playerStats.armourBase * playerStats.armourIncreases;
         currentEvasion = playerStats.evasionBase * playerStats.evasionIncreases;
         currentPhysicalDamageReduction = playerStats.physicalDamageReduction;
-        currentAttackSpeed = playerStats.baseAttackSpeed;
-        currentCastSpeed = playerStats.baseCastSpeed;
-        currentMovementSpeed = playerStats.baseMovementSpeed;
+        currentAttackSpeed = playerStats.attackSpeedBase;
+        currentCastSpeed = playerStats.castSpeedBase;
+        currentMovementSpeed = playerStats.movementSpeedBase;
         currentAdditionalProjectiles = playerStats.additionalProjectiles;
         currentResistances = playerStats.resistances;
+        currentEvadeChance = (playerStats.evadeChanceBase + playerStats.evadeChanceFlat)*playerStats.evadeChanceIncreases;
+        currentBlockChance = (playerStats.blockChanceBase + playerStats.blockChanceBase)*playerStats.blockChanceIncreases;
+        currentMaxMana = (playerStats.manaBase + playerStats.manaFlat) * playerStats.manaIncreases * playerStats.manaMoreMultipliers;
 
+        currentHealth = currentMaxHealth;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -43,20 +54,7 @@ public class Player : Creature
         playerCombat.SetActiveSkill(activeSkill);
     }
 
-    // Update is called once per frame
-    protected override void Update()
-    {
-        base.Update();
-        playerMovement.Update();
-
-        if (playerCombat.attackInput() & Time.time >= nextAttackTime) // maybe this should be in the playerCombat script
-        {
-            playerCombat.playerAttack();
-            nextAttackTime = Time.time + 1f / currentAttackSpeed;
-        }
-
-        playerExperience.Update();
-    }
+  
 
     public void gainExperience(float playerExperienceGained)
     {
@@ -65,11 +63,6 @@ public class Player : Creature
 
 
 
-
-    public override void TakeDamage(float[] damage, float time = 4)
-    {
-        base.TakeDamage(damage, time);
-    }
 
     protected override void Die()
     {
@@ -87,6 +80,54 @@ public class Player : Creature
         base.Die();
     }
 
+    protected void UpdateStats()
+    {
+        currentMaxHealth = (playerStats.healthBase + playerStats.healthFlat + 
+            (playerStats.strength * playerStats.strengthIncreases)/10 * 2) * 
+            playerStats.healthIncreases * playerStats.healthMoreMultipliers;
+
+        currentHealthRegen = (playerStats.healthRegenBase + playerStats.healthRegenFlat) * playerStats.healthRegenIncreases * playerStats.healthRegenMoreMultipliers;
+        currentArmour = playerStats.armourBase * playerStats.armourIncreases;
+        currentEvasion = playerStats.evasionBase * playerStats.evasionIncreases;
+        currentPhysicalDamageReduction = playerStats.physicalDamageReduction;
+        currentAttackSpeed = playerStats.attackSpeedBase;
+        currentCastSpeed = playerStats.castSpeedBase;
+        currentMovementSpeed = playerStats.movementSpeedBase * playerStats.movementSpeedIncreases;
+        currentAdditionalProjectiles = playerStats.additionalProjectiles;
+        currentResistances = playerStats.resistances;
+        currentEvadeChance = (playerStats.evadeChanceBase + playerStats.evadeChanceFlat) * playerStats.evadeChanceIncreases;
+        currentBlockChance = (playerStats.blockChanceBase + playerStats.blockChanceBase) * playerStats.blockChanceIncreases;
+        currentMaxMana = (playerStats.manaBase + playerStats.manaFlat) * playerStats.manaIncreases * playerStats.manaMoreMultipliers;
+        currentCriticalStrikeChance = (playerStats.criticalStrikeChanceBase + playerStats.criticalStrikeChanceFlat) * playerStats.criticalStrikeChanceIncreases;
+        currentCriticalStrikeMultiplier = (playerStats.criticalStrikeMultiplierBase + playerStats.criticalStrikeMultiplierFlat) * playerStats.criticalStrikeMultiplierIncreases;
+
+
+        currentIgniteChance = playerStats.igniteChanceBase + playerStats.igniteChanceFlat;
+        currentChillChance = playerStats.chillChanceBase + playerStats.chillChanceFlat;
+        currentFreezeChance = playerStats.freezeChanceBase + playerStats.freezeChanceFlat;
+        currentShockChance = playerStats.shockChanceBase + playerStats.shockChanceFlat;
+
+
+    }
+    // Update is called once per frame
+    protected override void Update()
+    {
+        base.Update();
+        playerMovement.Update();
+
+        if (playerCombat.attackInput() & Time.time >= nextAttackTime) // maybe this should be in the playerCombat script
+        {
+            playerCombat.playerAttack();
+            nextAttackTime = Time.time + 1f / currentAttackSpeed;
+        }
+
+        playerExperience.Update();
+        UpdateStats();
+
+        currentHealth += currentHealthRegen * Time.deltaTime;
+        currentMana = Math.Min(currentMana, currentMaxMana);
+
+    }
 
     void FixedUpdate()
     {

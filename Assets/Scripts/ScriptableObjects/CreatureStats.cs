@@ -19,18 +19,28 @@ public class CreatureStats : ScriptableObject
     public float physicalDamageReduction; // percentage physical damage reduction.
                                           // To be applied after physical damage reduction from armour is calculated
 
+    public float evadeChanceBase;
+    public float evadeChanceFlat;
+    public float evadeChanceIncreases;
+    public float blockChanceBase;
+    public float blockChanceFlat;
+    public float blockChanceIncreases;
+
     public float[] resistances; // array to hold  (fire, cold, lightning, chaos)
     public float[] maximumResistances;
 
     public float healthBase;
-    public float healthFlatIncreases;
+    public float healthFlat;
     public float healthIncreases; // percentage health increases
     public float healthMoreMultipliers; // percentage health more multipliers
 
-    public float manaBase;
-    public float manaFlatIncreases;
-    public float manaIncreases; // percentage mana increases
-    public float manaMoreMultipliers; // percentage mana more multipliers
+    public float healthRegenBase; // base health regen
+    public float healthRegenFlat; // additional flat health regen
+    public float healthRegenIncreases; // percentage health regen increases
+    public float healthRegenMoreMultipliers; // percentage health regen more multipliers
+
+
+
 
     public float[] damageFlat = new float[5]; // array to hold flat damage increases
     public float[] damageIncreases; // array to hold 'increased damage' multipliers
@@ -42,24 +52,42 @@ public class CreatureStats : ScriptableObject
     public float accuracyMoreMultipliers;
 
     public float attackSpeedBase;
+    public float attackSpeedFlat;
     public float attackSpeedIncreases;
     public float attackSpeedMoreMultipliers;
 
     public float castSpeedBase;
+    public float castSpeedFlat;
     public float castSpeedIncreases;
     public float castSpeedMoreMultipliers;
 
     public float criticalStrikeChanceBase;
+    public float criticalStrikeChanceFlat;
     public float criticalStrikeChanceIncreases;
-    public float criticalStrikeMultiplier;
 
+    public float criticalStrikeMultiplierBase;
+    public float criticalStrikeMultiplierFlat;
+    public float criticalStrikeMultiplierIncreases;
 
-    public float baseMovementSpeed;
+    public float igniteChanceBase;
+    public float igniteChanceFlat;
+
+    public float chillChanceBase;
+    public float chillChanceFlat;
+
+    public float freezeChanceBase;
+    public float freezeChanceFlat;
+
+    public float shockChanceBase;
+    public float shockChanceFlat;
+
+    public float movementSpeedBase;
+    public float movementSpeedIncreases;
 
     public int additionalProjectiles;
-    public float areaOfEffectIncreases;
     public float projectileSpeedIncreases;
-    public float movementSpeedIncreases;
+
+    public float areaOfEffectIncreases;
 
 
     public void Start()
@@ -96,19 +124,26 @@ public class CreatureStats : ScriptableObject
         armourIncreases = 1f;
         evasionIncreases = 1f;
 
+        evadeChanceBase = 0;
+        evadeChanceFlat = 0;
+        evadeChanceIncreases = 1;
+        blockChanceBase = 0;
+        blockChanceFlat = 0;
+        blockChanceIncreases = 1;
+
         resistances = new float[4];
         maximumResistances = new float[4];
         physicalDamageReduction = 0;
 
         healthBase = 100;
-        healthFlatIncreases = 0;
+        healthFlat = 0;
         healthIncreases = 1;
         healthMoreMultipliers = 1;
 
-        manaBase = 100;
-        manaFlatIncreases = 0;
-        manaFlatIncreases = 1;
-        manaMoreMultipliers = 1;
+        healthRegenBase = 0;
+        healthRegenFlat = 0;
+        healthRegenIncreases = 1;
+        healthRegenMoreMultipliers = 1;
 
         damageFlat = new float[5];
         damageIncreases = Enumerable.Repeat(1f, 5).ToArray(); ;
@@ -120,22 +155,39 @@ public class CreatureStats : ScriptableObject
         accuracyMoreMultipliers = 1;
 
         attackSpeedBase = 1;
+        attackSpeedFlat = 0;
         attackSpeedIncreases = 1;
         attackSpeedMoreMultipliers = 1;
 
         castSpeedBase = 1;
+        castSpeedFlat = 0;
         castSpeedIncreases = 1;
         castSpeedMoreMultipliers = 1;
 
-        criticalStrikeChancebase = 0.05f;
+        criticalStrikeChanceBase = 0.05f;
+        criticalStrikeChanceFlat = 0;
         criticalStrikeChanceIncreases = 1;
-        criticalStrikeMultiplier = 1;
+        criticalStrikeMultiplierBase = 1;
+        criticalStrikeMultiplierFlat = 0;
+        criticalStrikeMultiplierIncreases = 1;
+
+        igniteChanceBase = 0;
+        igniteChanceFlat = 0;
+        chillChanceBase = 0;
+        chillChanceFlat = 0;
+        freezeChanceBase = 0;
+        freezeChanceFlat = 0;
+        shockChanceBase = 0;
+        shockChanceFlat = 0;
 
         movementSpeedBase = 1;
+        movementSpeedIncreases = 1;
 
         additionalProjectiles = 0;
-        areaOfEffectIncreases = 1;
         projectileSpeedIncreases = 1;
-        movementSpeedIncreases = 1;
+
+        areaOfEffectIncreases = 1;
+
+
 }
 }

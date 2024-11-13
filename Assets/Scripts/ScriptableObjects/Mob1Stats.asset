@@ -13,10 +13,16 @@ MonoBehaviour:
   m_Name: Mob1Stats
   m_EditorClassIdentifier: 
   armourBase: 0
-  evasionBase: 0
+  evasionBase: 1000
   armourIncreases: 1
   evasionIncreases: 1
   physicalDamageReduction: 0
+  evadeChanceBase: 0
+  evadeChanceFlat: 0
+  evadeChanceIncreases: 0
+  blockChanceBase: 0
+  blockChanceFlat: 0
+  blockChanceIncreases: 0
   resistances:
   - 0
   - 0
@@ -27,11 +33,11 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  baseHealth: 100
+  healthBase: 50
   healthFlatIncreases: 0
   healthIncreases: 1
   healthMoreMultipliers: 1
-  baseMana: 100
+  manaBase: 0
   manaFlatIncreases: 1
   manaIncreases: 0
   manaMoreMultipliers: 1
@@ -42,7 +48,7 @@ MonoBehaviour:
   - 0
   - 0
   damageIncreases:
-  - 0.1
+  - 1
   - 1
   - 1
   - 1
@@ -53,17 +59,21 @@ MonoBehaviour:
   - 1
   - 1
   - 1
-  baseAttackSpeed: 1
+  accuracyBase: 0
+  accuracyFlat: 0
+  accuracyIncreases: 0
+  accuracyMoreMultipliers: 0
+  attackSpeedBase: 1
   attackSpeedIncreases: 1
   attackSpeedMoreMultipliers: 1
-  baseCastSpeed: 1
+  castSpeedBase: 0
   castSpeedIncreases: 1
   castSpeedMoreMultipliers: 1
-  baseCriticalStrikeChance: 0.05
-  criticalStrikeChance: 1
+  criticalStrikeChanceBase: 0
+  criticalStrikeChanceIncreases: 0
   criticalStrikeMultiplier: 1
-  baseMovementSpeed: 1
-  additionalProjectiles: 0
-  areaOfEffectIncreases: 1
-  projectileSpeedIncreases: 1
+  movementSpeedBase: 1
   movementSpeedIncreases: 1
+  additionalProjectiles: 0
+  projectileSpeedIncreases: 1
+  areaOfEffectIncreases: 1

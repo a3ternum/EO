@@ -39,7 +39,6 @@ public class MapGenerator : MonoBehaviour
         switch (generationType)
         {
             case GenerationType.RandomWalk:
-                Debug.Log("running random walk");
                 randomWalkMapGenerator.RunProceduralGeneration();
                 break;
             case GenerationType.CorridorFirst:

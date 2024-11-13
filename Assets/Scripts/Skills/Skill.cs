@@ -59,11 +59,20 @@ public class Skill : MonoBehaviour
     {
         if (user is Player)
         {
-            if ((user.currentMana >= manaCost) && (cooldownTimer <= 0))
+            Player player = user.GetComponent<Player>();
+            if (player != null)
             {
-                return true;
-            }
+                if ((player.currentMana >= manaCost) && (cooldownTimer <= 0))
+                {
+                    return true;
+                }
             return false;
+            }
+            else
+            {
+                Debug.LogError("Player is null");
+                return false;
+            }
         }
         else if (user is Enemy)
         {
@@ -97,7 +106,8 @@ public class Skill : MonoBehaviour
     {
         if (user is Player)
         {
-            user.currentMana = Mathf.Max(user.currentMana - manaCost, 0);
+            Player player = user.GetComponent<Player>();
+            player.currentMana = Mathf.Max(player.currentMana - manaCost, 0);
         }
         cooldownTimer = 1/attackSpeed;
     }
@@ -144,15 +154,11 @@ public virtual void UpdateCooldown(float deltaTime) //A method to manage the coo
         {
             foreach (var target in targets)
             {
-                target.TakeDamage(CalculateDamage());
-
-                //Rigidbody targetRb = target.GetComponent<Rigidbody>();
-                //if (targetRb != null)
-                //{
-                //    Vector3 knockbackDir = (target.transform.position - transform.position).normalized;
-                //    targetRb.AddForce(knockbackDir * KnockbackForce, ForceMode.Impulse);
-                //}
-
+                //supply our damage and accuracy. Later we will add more parameters
+                // such as elemental penetration, phys overwhelm, enemy block mitigation etc
+                // this way we can make sure that certain abilities cannot be blocked or evaded/missed
+                // in particular we want spells to be unevasible so we will override this method in the spell class
+                target.TakeDamage(CalculateDamage(), user); 
                 TriggerHitEffect(target.transform.position);
             }
         }

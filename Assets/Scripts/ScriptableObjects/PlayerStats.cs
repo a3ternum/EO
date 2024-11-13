@@ -11,6 +11,16 @@ public class PlayerStats : CreatureStats
     public int availableSkillPoints;
     public int totalSkillPoints;
 
+    public float manaBase;
+    public float manaFlat;
+    public float manaIncreases; // percentage mana increases
+    public float manaMoreMultipliers; // percentage mana more multipliers
+
+    public float manaRegenBase;
+    public float manaRegenFlat;
+    public float manaRegenIncreases;
+    public float manaRegenMoreMultipliers;
+
     public int intelligence;
     public int strength;
     public int dexterity;
@@ -39,6 +49,16 @@ public class PlayerStats : CreatureStats
         availableSkillPoints = 0;
         totalSkillPoints = 0;
 
+        manaBase = 100;
+        manaFlat = 0;
+        manaIncreases = 1;
+        manaMoreMultipliers = 1;
+
+        manaRegenBase = 5;
+        manaRegenFlat = 0;
+        manaRegenIncreases = 1;
+        manaRegenMoreMultipliers = 1;
+
         intelligence = 10;
         strength = 10;
         dexterity = 10;
@@ -47,7 +67,7 @@ public class PlayerStats : CreatureStats
         dexterityIncreases = 1;
 
         manaBase = 200;
-        manaFlatIncreases = 0;
+        manaFlat = 0;
         manaIncreases = 1;
         manaMoreMultipliers = 1;
     }
