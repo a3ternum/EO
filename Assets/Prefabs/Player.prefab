@@ -216,10 +216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e74be35c206c4f42816fa804aa3da8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 3296520773413650219}
-  playerTransform: {fileID: 8096138923509247757}
-  weaponDistance: 0.7
-  currentWeapon: {fileID: 2804757691342968950, guid: 2ab00f7ed7e2f7544bb15674b7732324, type: 3}
 --- !u!114 &4255957249915089235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,15 +228,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa4ae6c6b141ec4449e3bf4fbe95044c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 500
-  damage: 10
-  attackSpeed: 1
-  speed: 1
-  mana: 0
+  creatureStats: {fileID: 11400000, guid: 90b90c15d87ec7e4a8bfddbc9dd928a0, type: 2}
+  currentHealth: 0
+  currentMana: 0
+  currentAttackSpeed: 0
+  currentMovementSpeed: 0
+  currentAdditionalProjectiles: 0
   damagedRecently: 0
   healthBarPrefab: {fileID: 5048146370649816984, guid: a64d9cc6ea5e5954292229dd20f9a416, type: 3}
-  playerData: {fileID: 11400000, guid: 90b90c15d87ec7e4a8bfddbc9dd928a0, type: 2}
   activeSkill: {fileID: 6594220455102797157, guid: 9f29fc94852b3694fa082918aa7fbc14, type: 3}
+  playerStats: {fileID: 11400000, guid: 90b90c15d87ec7e4a8bfddbc9dd928a0, type: 2}
 --- !u!114 &4738503750529208588
 MonoBehaviour:
   m_ObjectHideFlags: 0

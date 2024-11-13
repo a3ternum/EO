@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
     private float speed;
     private float duration;
     private float tickRate;
-    private float damage;
+    private float[] damage;
     private Dictionary<Creature, float> lastHitTime;
     private Vector2 direction;
 
@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour
         lastHitTime = new Dictionary<Creature, float>();
     }
 
-    public void Initialize(Vector2 direction, float speed, float duration, float tickRate, float damage, int enemyLayer, int terrainLayer, int playerLayer, Skill skillThatFiredProjectile)
+    public void Initialize(Vector2 direction, float speed, float duration, float tickRate, float[] damage, int enemyLayer, int terrainLayer, int playerLayer, Skill skillThatFiredProjectile)
     {
         this.direction = direction;
         this.speed = speed;

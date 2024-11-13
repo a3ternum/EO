@@ -5,7 +5,7 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "skillData", menuName = "Skill Data")]
 public class SkillData : ScriptableObject
 {
-    public List<float> damagePerLevel;
+    public List<float[]> damagePerLevel;
     public List<float> castTimePerLevel;
     public List<float> attackSpeedPerLevel;
     public List<float> durationPerLevel;

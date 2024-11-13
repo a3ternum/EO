@@ -38,7 +38,7 @@ public class Attack : Skill
     protected IEnumerator AttackCoroutine()
     {
         OnActivate();
-        float playerAttackSpeed = user.attackSpeed;
+        float playerAttackSpeed = user.currentAttackSpeed;
         animationDuration = CalculateAnimationDuration(playerAttackSpeed, attackSpeed);
         
         if (animator!= null) // play animation only if attack has an animation

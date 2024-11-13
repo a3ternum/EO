@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70edb627699eeb84ebc1da39e69a704d, type: 3}
+  m_Name: playerStats
+  m_EditorClassIdentifier: 
+  armourBase: 400
+  evasionBase: 0
+  armourIncreases: 1
+  evasionIncreases: 0
+  physicalDamageReduction: 0
+  resistances:
+  - 0
+  - 0
+  - 0
+  - 0
+  maximumResistances: []
+  baseHealth: 200
+  healthFlatIncreases: 0
+  healthIncreases: 0
+  healthMoreMultipliers: 0
+  baseMana: 500
+  manaFlatIncreases: 0
+  manaIncreases: 0
+  manaMoreMultipliers: 0
+  damageFlat:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  damageIncreases:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  damageMoreMultipliers:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  baseAttackSpeed: 1
+  attackSpeedIncreases: 0
+  attackSpeedMoreMultipliers: 0
+  baseCastSpeed: 0
+  castSpeedIncreases: 0
+  castSpeedMoreMultipliers: 0
+  baseCriticalStrikeChance: 0
+  criticalStrikeChance: 0
+  criticalStrikeMultiplier: 0
+  baseMovementSpeed: 3
+  additionalProjectiles: 0
+  areaOfEffectIncreases: 0
+  projectileSpeedIncreases: 0
+  movementSpeedIncreases: 0
+  experience: 0
+  totalExperience: 0
+  level: 0
+  availableSkillPoints: 0
+  totalSkillPoints: 0
+  intelligence: 0
+  strength: 0
+  dexterity: 0
+  intelligenceIncreases: 0
+  strengthIncreases: 0
+  dexterityIncreases: 0
+  intelligenceMoreMultipliers: 0
+  strengthMoreMultipliers: 0
+  dexterityMoreMultipliers: 0

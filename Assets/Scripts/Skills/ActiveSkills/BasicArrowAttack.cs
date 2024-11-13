@@ -29,7 +29,14 @@ public class BasicArrowAttack : RangedAttack
         //    Debug.LogError("basicArrow prefab not found in Resources folder!");
         //}
         basicArrowSkillData = ScriptableObject.CreateInstance<SkillData>();
-        basicArrowSkillData.damagePerLevel = new List<float> { 10f, 20f, 30f, 40f, 50f };
+        basicArrowSkillData.damagePerLevel = new List<float[]>
+        {
+            new float[] { 10f, 0f, 0f, 0f, 0f },
+            new float[] { 20f, 0f, 0f, 0f, 0f },
+            new float[] { 30f, 0f, 0f, 0f, 0f },
+            new float[] { 40f, 0f, 0f, 0f, 0f },
+            new float[] { 50f, 0f, 0f, 0f, 0f }
+        };
         basicArrowSkillData.manaCostPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
         basicArrowSkillData.attackSpeedPerLevel = new List<float> { 3f, 1.1f, 1.2f, 1.3f, 1.4f };
         basicArrowSkillData.rangePerLevel = new List<float> { 3f, 3.4f, 3.6f, 3.8f, 4f };

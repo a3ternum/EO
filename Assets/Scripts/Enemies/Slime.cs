@@ -6,16 +6,13 @@ public class Slime : Enemy
     {
         base.Start();
 
-        health = 25;
-        healthBarComponent.setMaxHealth(health);
-        healthBarComponent.setHealth(health);
+        healthBarComponent.setMaxHealth(currentHealth);
+        healthBarComponent.setHealth(currentHealth);
 
-        damage = 5;
-        attackSpeed = 0.5f;
-        speed = 10f;
+        
         experienceValue = 50f;
 
-        chaseScript.setSpeed(speed);
+        chaseScript.setSpeed(currentMovementSpeed);
     }
 
     public override void enemyAttack()
@@ -24,7 +21,7 @@ public class Slime : Enemy
 
     }
 
-    public override void TakeDamage(float damage, float time = 4)
+    public override void TakeDamage(float[] damage, float time = 4)
     {
         base.TakeDamage(damage, time);
     }

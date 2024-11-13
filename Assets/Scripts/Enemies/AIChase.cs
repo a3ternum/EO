@@ -148,7 +148,7 @@ public class AIChase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        setSpeed(thisEnemy.speed); // set speed of the agent (mob)
+        setSpeed(thisEnemy.currentMovementSpeed); // set speed of the agent (mob)
 
 
         Vector3 currentPosition = transform.position;

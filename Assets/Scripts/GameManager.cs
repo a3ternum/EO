@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     private Player player;
 
     [SerializeField]
-    private PlayerData playerData;
+    private PlayerStats playerStats;
 
     [SerializeField]
     private PlayerSpawnManager playerSpawnManager;
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        playerData.resetPlayerData();
+        playerStats.resetPlayerData();
         Instantiate(player, new Vector3(0, 0, 0), Quaternion.identity);
     }
 

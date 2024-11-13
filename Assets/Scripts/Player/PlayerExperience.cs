@@ -5,7 +5,7 @@ public class PlayerExperience : MonoBehaviour
     public ExpTable expTable;
 
     private Player player;
-    private PlayerData playerData;
+    private PlayerStats playerStats;
 
     private float totalExperience;
     private float experience;
@@ -18,14 +18,14 @@ public class PlayerExperience : MonoBehaviour
     void Start()
     {
         player = GetComponent<Player>();
-        playerData = player.playerData;
+        playerStats = player.playerStats;
 
-        totalExperience = playerData.totalExperience;
-        experience = playerData.experience;
-        level = playerData.level;
+        totalExperience = playerStats.totalExperience;
+        experience = playerStats.experience;
+        level = playerStats.level;
         experienceToNextLevel = expTable.experienceRequirementsPerLevel[level];
-        availableSkillPoints = playerData.availableSkillPoints;
-        totalSkillPoints = playerData.totalSkillPoints;
+        availableSkillPoints = playerStats.availableSkillPoints;
+        totalSkillPoints = playerStats.totalSkillPoints;
     }
 
     public void LevelUp()
@@ -54,11 +54,11 @@ public class PlayerExperience : MonoBehaviour
     public void Update()
     {
         UpdateLevel();
-        // update the player data scriptable object
-        player.playerData.level = level;
-        player.playerData.experience = experience;
-        player.playerData.totalExperience = totalExperience;
-        player.playerData.availableSkillPoints = availableSkillPoints;
-        player.playerData.totalSkillPoints = totalSkillPoints;
+        // update the playerStats scriptable object
+        player.playerStats.level = level;
+        player.playerStats.experience = experience;
+        player.playerStats.totalExperience = totalExperience;
+        player.playerStats.availableSkillPoints = availableSkillPoints;
+        player.playerStats.totalSkillPoints = totalSkillPoints;
     }
 }

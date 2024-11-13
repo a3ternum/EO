@@ -3,7 +3,8 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using System.Collections;
 using System.Collections.Generic;
-
+using System.Linq;
+using System;
 // This becomes the parent class for every skill in the game.
 public class Skill : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class Skill : MonoBehaviour
     public string skillDescription { get; protected set; } // the description of the skill
     public int skillLevel { get; protected set; } // the level of the skill, 
     public string[] skillTags { get; protected set; } // the tags of the skill (e.g. "Fire", "Ice", "Melee")
-    public float damage { get; protected set; } // the damage of the skill
+    public float[] damage { get; protected set; } // the damage of the skill
     public float castTime { get; protected set; } // the cast time of the skill
     public float attackSpeed { get; protected set; } // the base attack speed of the skill
     public float duration { get; protected set; } // the duration of the skill
@@ -56,11 +57,28 @@ public class Skill : MonoBehaviour
     }
     public virtual bool CanActivate() // this method will be used to check if the skill can be used
     {
-        if ((user.mana >= manaCost) && (cooldownTimer <= 0))
+        if (user is Player)
         {
-            return true;
+            if ((user.currentMana >= manaCost) && (cooldownTimer <= 0))
+            {
+                return true;
+            }
+            return false;
         }
-        return false;
+        else if (user is Enemy)
+        {
+            if ((cooldownTimer <= 0))
+            {
+                return true;
+            }
+            return false;
+        }
+        else
+        {
+            Debug.LogError("User is not a Player or an Enemy");
+            return false;
+        }
+        
     }
 
     public virtual void LevelUp() // this method will be used to level up the skill
@@ -77,18 +95,30 @@ public class Skill : MonoBehaviour
     // This method will handle common tasks performed upon activation, like setting the cooldown timer,
     // updating the mana pool, and any general pre-activation setup.
     {
-        user.mana = Mathf.Max(user.mana - manaCost, 0);
+        if (user is Player)
+        {
+            user.currentMana = Mathf.Max(user.currentMana - manaCost, 0);
+        }
         cooldownTimer = 1/attackSpeed;
-    }                                 
-    public virtual float CalculateDamage()
+    }
+    public virtual float[] CalculateDamage()
     {
-        return damage; // this method will be used to calculate the damage of the skill
-       // this method will become far more complex as we add more mechanics and add the players stats
-       // note that final damage calculation is computed in the creature that receives the damage.
+        // its important to calculate the final damage combining both the skills attributes and the creatures attributes 
+        // inside one method because they should interact multiplicatively
+        // later we will add support gems that add more multipliers to the damage calculation
 
+        float[] finalDamage = new float[5];
+
+        float[] baseDamage = ElementWiseMultiply(ElementWiseAdd(damage, user.creatureStats.damageFlat), user.creatureStats.damageIncreases);
+        finalDamage = ElementWiseMultiply(baseDamage, user.creatureStats.damageMoreMultipliers);
+
+        // this method will be used to calculate the damage of the skill
+        // this method will become far more complex as we add more mechanics and add the players stats
+        // note that final damage calculation is computed in the creature that receives the damage.
+        return finalDamage;
     }
 
-    public virtual void UpdateCooldown(float deltaTime) //A method to manage the cooldown timer. This could be called in Update() to reduce the cooldown timer over time.
+public virtual void UpdateCooldown(float deltaTime) //A method to manage the cooldown timer. This could be called in Update() to reduce the cooldown timer over time.
     {
         if (cooldownTimer > 0)
         {
@@ -133,4 +163,38 @@ public class Skill : MonoBehaviour
 
     }
 
+    public static float[] ElementWiseMultiply(float[] array1, float[] array2) // array multiplication 
+    {
+        if (array1.Length != array2.Length)
+        {
+            throw new ArgumentException("Arrays must be of the same length");
+        }
+
+        return array1.Zip(array2, (a, b) => a * b).ToArray();
+    }
+
+    public static float[] AddScalarToArray(float[] array, float scalar)
+    {
+        float[] result = new float[array.Length];
+        for (int i = 0; i < array.Length; i++)
+        {
+            result[i] = array[i] + scalar;
+        }
+        return result;
+    }
+
+    public static float[] ElementWiseAdd(float[] array1, float[] array2)
+    {
+        if (array1.Length != array2.Length)
+        {
+            throw new ArgumentException("Arrays must be of the same length");
+        }
+
+        float[] result = new float[array1.Length];
+        for (int i = 0; i < array1.Length; i++)
+        {
+            result[i] = array1[i] + array2[i];
+        }
+        return result;
+    }
 }

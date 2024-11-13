@@ -2,62 +2,71 @@ using UnityEngine;
 
 public class Player : Creature
 {
-    private PlayerMovement movement;
-    private PlayerCombat combat;
-    private PlayerExperience experience;
+    private PlayerMovement playerMovement;
+    private PlayerCombat playerCombat;
+    private PlayerExperience playerExperience;
 
-    public PlayerData playerData;
+    public PlayerStats playerStats;
 
     protected override void Awake()
     {
         base.Awake();
 
-        movement = GetComponent<PlayerMovement>();
-        combat = GetComponent<PlayerCombat>();
-        experience = GetComponent<PlayerExperience>();
+        playerMovement = GetComponent<PlayerMovement>();
+        playerCombat = GetComponent<PlayerCombat>();
+        playerExperience = GetComponent<PlayerExperience>();
 
         
+    }
+
+    protected virtual void InitializePlayerStats()
+    {
+        currentHealth = playerStats.baseHealth;
+        currentArmour = playerStats.armourBase * playerStats.armourIncreases;
+        currentEvasion = playerStats.evasionBase * playerStats.evasionIncreases;
+        currentPhysicalDamageReduction = playerStats.physicalDamageReduction;
+        currentAttackSpeed = playerStats.baseAttackSpeed;
+        currentCastSpeed = playerStats.baseCastSpeed;
+        currentMovementSpeed = playerStats.baseMovementSpeed;
+        currentAdditionalProjectiles = playerStats.additionalProjectiles;
+        currentResistances = playerStats.resistances;
+
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
     {
-        base.Start();
+        InitializePlayerStats();
 
-        health = playerData.health;
-        damage = playerData.damage;
-        attackSpeed = playerData.attackSpeed;
-        nextAttackTime = 0;
+        InitializeHealthBar(); // initialize health bar
 
-        
-        Debug.Log("activeSkill: " + activeSkill.skillName);
-        combat.SetActiveSkill(activeSkill);
+        playerCombat.SetActiveSkill(activeSkill);
     }
 
     // Update is called once per frame
     protected override void Update()
     {
         base.Update();
-        movement.Update();
+        playerMovement.Update();
 
-        if (combat.attackInput() & Time.time >= nextAttackTime) // maybe this should be in the combat script
+        if (playerCombat.attackInput() & Time.time >= nextAttackTime) // maybe this should be in the playerCombat script
         {
-            combat.playerAttack();
-            nextAttackTime = Time.time + 1f / attackSpeed;
+            playerCombat.playerAttack();
+            nextAttackTime = Time.time + 1f / currentAttackSpeed;
         }
 
-        experience.Update();
+        playerExperience.Update();
     }
 
-    public void gainExperience(float experienceGained)
+    public void gainExperience(float playerExperienceGained)
     {
-        experience.gainExperience(experienceGained);
+        playerExperience.gainExperience(playerExperienceGained);
     }
 
 
 
 
-    public override void TakeDamage(float damage, float time = 4)
+    public override void TakeDamage(float[] damage, float time = 4)
     {
         base.TakeDamage(damage, time);
     }
@@ -81,6 +90,6 @@ public class Player : Creature
 
     void FixedUpdate()
     {
-        movement.movePlayer();
+        playerMovement.movePlayer();
     }
 }

@@ -7,16 +7,14 @@ public class Bandit : Enemy
     {
         base.Start();
 
-        health = 50;
-        healthBarComponent.setMaxHealth(health);
-        healthBarComponent.setHealth(health);
+        
+        healthBarComponent.setMaxHealth(currentHealth);
+        healthBarComponent.setHealth(currentHealth);
 
-        damage = 10;
-        attackSpeed = 0.5f;
-        speed = 10f;
+        
         experienceValue = 100f;
 
-        chaseScript.setSpeed(speed);
+        chaseScript.setSpeed(currentMovementSpeed);
     }
 
     public override void enemyAttack()
@@ -25,7 +23,7 @@ public class Bandit : Enemy
 
     }
 
-    public override void TakeDamage(float damage, float time = 4)
+    public override void TakeDamage(float[] damage, float time = 4)
     {
         base.TakeDamage(damage, time);
     }

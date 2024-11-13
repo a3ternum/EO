@@ -27,7 +27,7 @@ public class RangedAttack : Attack
 
     protected virtual void LaunchProjectiles()
     {
-        int totalProjectiles = 1 + additionalProjectiles + user.additionalProjectiles;
+        int totalProjectiles = 1 + additionalProjectiles + user.currentAdditionalProjectiles;
         float angleStep = 30f;
         float startAngle = -angleStep * (totalProjectiles - 1) / 2;
         Vector2 directionToTarget = GetDirectionToTarget();

@@ -58,20 +58,10 @@ public class Enemy : Creature
 
     }
 
-    public override void TakeDamage(float damage, float time = 4)
+    protected override void Die()
     {
-        if (health > 0)
-        {
-            health -= damage;
-            damagedRecently = true;
-            StartCoroutine(ResetDamagedRecently(time));
-            if (health <= 0)
-            {
-                Die();
-                player.gainExperience(experienceValue);
-                
-            }
-        }
+        base.Die();
+        player.gainExperience(experienceValue);
     }
 
     protected override IEnumerator ResetDamagedRecently(float time)
@@ -121,7 +111,7 @@ public class Enemy : Creature
             if (Time.time >= nextAttackTime && inAttackRange)
             {
                 enemyAttack();
-                nextAttackTime = Time.time + 1f / attackSpeed;
+                nextAttackTime = Time.time + 1f / currentAttackSpeed;
             }
         }
     }

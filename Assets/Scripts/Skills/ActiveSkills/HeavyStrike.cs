@@ -12,7 +12,14 @@ public class HeavyStrike : MeleeAttackSingleTarget
         skillName = "Heavy Strike";
         heavyStrikeSkillData = ScriptableObject.CreateInstance<SkillData>();
 
-        heavyStrikeSkillData.damagePerLevel = new List<float> { 10f, 20f, 30f, 40f, 50f };
+        heavyStrikeSkillData.damagePerLevel = new List<float[]>
+        {
+            new float[] { 10f, 0f, 0f, 0f, 0f },
+            new float[] { 20f, 0f, 0f, 0f, 0f },
+            new float[] { 30f, 0f, 0f, 0f, 0f },
+            new float[] { 40f, 0f, 0f, 0f, 0f },
+            new float[] { 50f, 0f, 0f, 0f, 0f }
+        };
         heavyStrikeSkillData.manaCostPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
         heavyStrikeSkillData.attackSpeedPerLevel = new List<float> { 3f, 1.1f, 1.2f, 1.3f, 1.4f };
         heavyStrikeSkillData.rangePerLevel = new List<float>{4f, 4.4f, 4.6f, 4.8f, 5f};

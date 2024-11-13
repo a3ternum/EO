@@ -47,4 +47,4 @@ MonoBehaviour:
   skillIcon: {fileID: 0}
   animator: {fileID: 0}
   animationDuration: 0
-  projectilePrefab: {fileID: 8114839082106818128, guid: e7209700d9d7ec64e9b6d6fee4fbea40, type: 3}
+  projectilePrefab: {fileID: 2101358615329051969, guid: e7209700d9d7ec64e9b6d6fee4fbea40, type: 3}
