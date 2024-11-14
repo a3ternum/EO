@@ -11,8 +11,8 @@ public class CreatureStats : ScriptableObject
     /// </summary>
 
 
-    public float armourBase; // flat armour value
-    public float evasionBase; // flat evasion value
+    public float armourFlat; // flat armour value
+    public float evasionFlat; // flat evasion value
 
     public float armourIncreases; // array to hold 'increased armour' multipliers
     public float evasionIncreases; // array to hold 'increased evasion' multipliers
@@ -87,6 +87,8 @@ public class CreatureStats : ScriptableObject
     public int additionalProjectiles;
     public float projectileSpeedIncreases;
 
+    public float projectileDamageIncreases;
+
     public float areaOfEffectIncreases;
 
 
@@ -116,20 +118,20 @@ public class CreatureStats : ScriptableObject
         
 
     }
-        public void resetCreatureData() // reset player to base stats
+    public void resetCreatureData() // reset player to base stats
     {
-        armourBase = 0;
-        evasionBase = 0;
+        armourFlat = 0;
+        evasionFlat = 0;
 
-        armourIncreases = 1f;
-        evasionIncreases = 1f;
+        armourIncreases = 0;
+        evasionIncreases = 0;
 
         evadeChanceBase = 0;
         evadeChanceFlat = 0;
-        evadeChanceIncreases = 1;
+        evadeChanceIncreases = 0;
         blockChanceBase = 0;
         blockChanceFlat = 0;
-        blockChanceIncreases = 1;
+        blockChanceIncreases = 0;
 
         resistances = new float[4];
         maximumResistances = new float[4];
@@ -137,27 +139,27 @@ public class CreatureStats : ScriptableObject
 
         healthBase = 100;
         healthFlat = 0;
-        healthIncreases = 1;
-        healthMoreMultipliers = 1;
+        healthIncreases = 0;
+        healthMoreMultipliers = 0;
 
         healthRegenBase = 0;
         healthRegenFlat = 0;
-        healthRegenIncreases = 1;
-        healthRegenMoreMultipliers = 1;
+        healthRegenIncreases = 0;
+        healthRegenMoreMultipliers = 0;
 
         damageFlat = new float[5];
-        damageIncreases = Enumerable.Repeat(1f, 5).ToArray(); ;
-        damageMoreMultipliers = Enumerable.Repeat(1f, 5).ToArray(); ;
+        damageIncreases = new float[5]; 
+        damageMoreMultipliers = new float[5]; 
 
         accuracyBase = 50;
         accuracyFlat = 0;
-        accuracyIncreases = 1;
-        accuracyMoreMultipliers = 1;
+        accuracyIncreases = 0;
+        accuracyMoreMultipliers = 0;
 
         attackSpeedBase = 1;
         attackSpeedFlat = 0;
-        attackSpeedIncreases = 1;
-        attackSpeedMoreMultipliers = 1;
+        attackSpeedIncreases = 0;
+        attackSpeedMoreMultipliers = 0;
 
         castSpeedBase = 1;
         castSpeedFlat = 0;
@@ -166,10 +168,10 @@ public class CreatureStats : ScriptableObject
 
         criticalStrikeChanceBase = 0.05f;
         criticalStrikeChanceFlat = 0;
-        criticalStrikeChanceIncreases = 1;
+        criticalStrikeChanceIncreases = 0;
         criticalStrikeMultiplierBase = 1;
         criticalStrikeMultiplierFlat = 0;
-        criticalStrikeMultiplierIncreases = 1;
+        criticalStrikeMultiplierIncreases = 0;
 
         igniteChanceBase = 0;
         igniteChanceFlat = 0;
@@ -181,13 +183,14 @@ public class CreatureStats : ScriptableObject
         shockChanceFlat = 0;
 
         movementSpeedBase = 1;
-        movementSpeedIncreases = 1;
+        movementSpeedIncreases = 0;
 
         additionalProjectiles = 0;
-        projectileSpeedIncreases = 1;
+        projectileSpeedIncreases = 0;
 
-        areaOfEffectIncreases = 1;
+        projectileDamageIncreases = 0;
 
+        areaOfEffectIncreases = 0;
 
-}
+    }
 }

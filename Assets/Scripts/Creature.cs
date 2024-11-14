@@ -87,26 +87,27 @@ public class Creature : MonoBehaviour
     protected virtual void Start()
     {
         InitializeCreatureStats(); // initializeCreature stats
-
+        currentHealth = currentMaxHealth;
         InitializeHealthBar(); // initialize health bar
     }
 
     protected virtual void InitializeCreatureStats()
     {
-        currentMaxHealth = (creatureStats.healthBase + creatureStats.healthFlat) * creatureStats.healthIncreases * creatureStats.healthMoreMultipliers;
-        currentArmour = creatureStats.armourBase * creatureStats.armourIncreases;
-        currentEvasion = creatureStats.evasionBase * creatureStats.evasionIncreases;
+        currentMaxHealth = (creatureStats.healthBase + creatureStats.healthFlat) * (1 + creatureStats.healthIncreases) * (1 + creatureStats.healthMoreMultipliers);
+        currentHealthRegen = (creatureStats.healthRegenBase + creatureStats.healthRegenFlat) * (1 + creatureStats.healthRegenIncreases) * (1 + creatureStats.healthRegenMoreMultipliers)
+            + currentMaxHealth * (creatureStats.healthRegenIncreases) * (1 + creatureStats.healthRegenMoreMultipliers);
+        currentArmour = creatureStats.armourFlat * (1 + creatureStats.armourIncreases);
+        currentEvasion = creatureStats.evasionFlat * (1 + creatureStats.evasionIncreases);
         currentPhysicalDamageReduction = creatureStats.physicalDamageReduction;
-        currentAttackSpeed = (creatureStats.attackSpeedBase + creatureStats.attackSpeedFlat) * creatureStats.attackSpeedIncreases * creatureStats.attackSpeedMoreMultipliers;
-        currentCastSpeed = (creatureStats.castSpeedBase + creatureStats.castSpeedFlat) * creatureStats.castSpeedIncreases * creatureStats.castSpeedMoreMultipliers;
-        currentMovementSpeed = creatureStats.movementSpeedBase * creatureStats.movementSpeedIncreases;
+        currentAttackSpeed = (creatureStats.attackSpeedBase + creatureStats.attackSpeedFlat) * (1 + creatureStats.attackSpeedIncreases) * (1 + creatureStats.attackSpeedMoreMultipliers);
+        currentCastSpeed = (creatureStats.castSpeedBase + creatureStats.castSpeedFlat) * (1 + creatureStats.castSpeedIncreases) * (1 + creatureStats.castSpeedMoreMultipliers);
+        currentMovementSpeed = creatureStats.movementSpeedBase * (1 + creatureStats.movementSpeedIncreases);
         currentAdditionalProjectiles = creatureStats.additionalProjectiles;
         currentResistances = creatureStats.resistances;
-        currentEvadeChance = (creatureStats.evadeChanceBase + creatureStats.evadeChanceFlat) * creatureStats.evadeChanceIncreases;
-        currentBlockChance = (creatureStats.blockChanceBase + creatureStats.blockChanceFlat) * creatureStats.blockChanceIncreases;
-        currentHealthRegen = (creatureStats.healthRegenBase + creatureStats.healthRegenFlat) * creatureStats.healthRegenIncreases * creatureStats.healthRegenMoreMultipliers;
-        currentCriticalStrikeChance = (creatureStats.criticalStrikeChanceBase + creatureStats.criticalStrikeChanceFlat) * creatureStats.criticalStrikeChanceIncreases;
-        currentCriticalStrikeMultiplier = (creatureStats.criticalStrikeMultiplierBase + creatureStats.criticalStrikeMultiplierFlat) * creatureStats.criticalStrikeMultiplierIncreases;
+        currentEvadeChance = (creatureStats.evadeChanceBase + creatureStats.evadeChanceFlat) * (1 + creatureStats.evadeChanceIncreases);
+        currentBlockChance = (creatureStats.blockChanceBase + creatureStats.blockChanceFlat) * (1 + creatureStats.blockChanceIncreases);
+        currentCriticalStrikeChance = (creatureStats.criticalStrikeChanceBase + creatureStats.criticalStrikeChanceFlat) * (1 + creatureStats.criticalStrikeChanceIncreases);
+        currentCriticalStrikeMultiplier = (creatureStats.criticalStrikeMultiplierBase + creatureStats.criticalStrikeMultiplierFlat) * (1 + creatureStats.criticalStrikeMultiplierIncreases);
 
         currentIgniteChance = creatureStats.igniteChanceBase + creatureStats.igniteChanceFlat;
         currentChillChance = creatureStats.chillChanceBase + creatureStats.chillChanceFlat;
@@ -114,7 +115,7 @@ public class Creature : MonoBehaviour
         currentShockChance = creatureStats.shockChanceBase + creatureStats.shockChanceFlat;
 
 
-        currentHealth = currentMaxHealth;
+        
     }
 
     protected void UpdateHealthBar()
@@ -282,20 +283,26 @@ public class Creature : MonoBehaviour
 
     protected virtual void UpdateStats()
     {
-        currentMaxHealth = (creatureStats.healthBase + creatureStats.healthFlat) * creatureStats.healthIncreases * creatureStats.healthMoreMultipliers;
-        currentHealthRegen = (creatureStats.healthRegenBase + creatureStats.healthRegenFlat) + currentMaxHealth * (creatureStats.healthRegenIncreases) * creatureStats.healthRegenMoreMultipliers;
-        currentArmour = creatureStats.armourBase * creatureStats.armourIncreases;
-        currentEvasion = creatureStats.evasionBase * creatureStats.evasionIncreases;
-        currentPhysicalDamageReduction = creatureStats.physicalDamageReduction;
-        currentAttackSpeed = (creatureStats.attackSpeedBase + creatureStats.attackSpeedFlat) * creatureStats.attackSpeedIncreases * creatureStats.attackSpeedMoreMultipliers;
-        currentCastSpeed = (creatureStats.castSpeedBase + creatureStats.castSpeedFlat) * creatureStats.castSpeedIncreases * creatureStats.castSpeedMoreMultipliers;
-        currentMovementSpeed = creatureStats.movementSpeedBase * creatureStats.movementSpeedIncreases;
-        currentAdditionalProjectiles = creatureStats.additionalProjectiles;
-        currentResistances = creatureStats.resistances;
-        currentEvadeChance = (creatureStats.evadeChanceBase + creatureStats.evadeChanceFlat) * creatureStats.evadeChanceIncreases;
-        currentBlockChance = (creatureStats.blockChanceBase + creatureStats.blockChanceFlat) * creatureStats.blockChanceIncreases;
-        currentCriticalStrikeChance = (creatureStats.criticalStrikeChanceBase + creatureStats.criticalStrikeChanceFlat) * creatureStats.criticalStrikeChanceIncreases;
-        currentCriticalStrikeMultiplier = (creatureStats.criticalStrikeMultiplierBase + creatureStats.criticalStrikeMultiplierFlat) * creatureStats.criticalStrikeMultiplierIncreases;
+        InitializeCreatureStats(); // check to see if rest of code is redundant
+        //currentMaxHealth = (creatureStats.healthBase + creatureStats.healthFlat) * (1+creatureStats.healthIncreases) * (1 + creatureStats.healthMoreMultipliers);
+        //currentHealthRegen = (creatureStats.healthRegenBase + creatureStats.healthRegenFlat) + currentMaxHealth * (creatureStats.healthRegenIncreases) * (creatureStats.healthRegenMoreMultipliers);
+        //currentArmour = creatureStats.armourFlat * (1 + creatureStats.armourIncreases);
+        //currentEvasion = creatureStats.evasionFlat * (1 + creatureStats.evasionIncreases);
+        //currentPhysicalDamageReduction = creatureStats.physicalDamageReduction;
+        //currentAttackSpeed = (creatureStats.attackSpeedBase + creatureStats.attackSpeedFlat) * (1 + creatureStats.attackSpeedIncreases) * (1 + creatureStats.attackSpeedMoreMultipliers);
+        //currentCastSpeed = (creatureStats.castSpeedBase + creatureStats.castSpeedFlat) * (1 + creatureStats.castSpeedIncreases) * (1 + creatureStats.castSpeedMoreMultipliers);
+        //currentMovementSpeed = creatureStats.movementSpeedBase * (1 + creatureStats.movementSpeedIncreases);
+        //currentAdditionalProjectiles = creatureStats.additionalProjectiles;
+        //currentResistances = creatureStats.resistances;
+        //currentEvadeChance = (creatureStats.evadeChanceBase + creatureStats.evadeChanceFlat) * (1 + creatureStats.evadeChanceIncreases);
+        //currentBlockChance = (creatureStats.blockChanceBase + creatureStats.blockChanceFlat) * (1 + creatureStats.blockChanceIncreases);
+        //currentCriticalStrikeChance = (creatureStats.criticalStrikeChanceBase + creatureStats.criticalStrikeChanceFlat) * (1 + creatureStats.criticalStrikeChanceIncreases);
+        //currentCriticalStrikeMultiplier = (creatureStats.criticalStrikeMultiplierBase + creatureStats.criticalStrikeMultiplierFlat) * (1 + creatureStats.criticalStrikeMultiplierIncreases);
+
+        //currentIgniteChance = creatureStats.igniteChanceBase + creatureStats.igniteChanceFlat;
+        //currentChillChance = creatureStats.chillChanceBase + creatureStats.chillChanceFlat;
+        //currentFreezeChance = creatureStats.freezeChanceBase + creatureStats.freezeChanceFlat;
+        //currentShockChance = creatureStats.shockChanceBase + creatureStats.shockChanceFlat;
 
         ApplyChillEffect();
         ApplyFreezeEffect();
@@ -457,6 +464,9 @@ public class Creature : MonoBehaviour
         }
     }
 
-
+    protected void OnApplicationQuit()
+    {  
+       creatureStats.resetCreatureData();
+    }    
 
 }

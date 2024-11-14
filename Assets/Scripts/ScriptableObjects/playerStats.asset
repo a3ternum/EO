@@ -12,35 +12,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70edb627699eeb84ebc1da39e69a704d, type: 3}
   m_Name: playerStats
   m_EditorClassIdentifier: 
-  armourBase: 10
+  armourBase: 0
   evasionBase: 0
   armourIncreases: 1
-  evasionIncreases: 0
+  evasionIncreases: 1
   physicalDamageReduction: 0
   evadeChanceBase: 0
   evadeChanceFlat: 0
-  evadeChanceIncreases: 0
+  evadeChanceIncreases: 1
   blockChanceBase: 0
   blockChanceFlat: 0
-  blockChanceIncreases: 0
+  blockChanceIncreases: 1
   resistances:
   - 0
   - 0
   - 0
   - 0
-  maximumResistances: []
+  maximumResistances:
+  - 0
+  - 0
+  - 0
+  - 0
   healthBase: 100
   healthFlat: 0
-  healthIncreases: 1
-  healthMoreMultipliers: 1
-  healthRegenBase: 2
+  healthIncreases: 0
+  healthMoreMultipliers: 0
+  healthRegenBase: 0
   healthRegenFlat: 0
   healthRegenIncreases: 0
   healthRegenMoreMultipliers: 0
   damageFlat:
   - 0
   - 0
-  - 15
+  - 0
   - 0
   - 0
   damageIncreases:
@@ -55,56 +59,56 @@ MonoBehaviour:
   - 1
   - 1
   - 1
-  accuracyBase: 0
+  accuracyBase: 50
   accuracyFlat: 0
-  accuracyIncreases: 0
-  accuracyMoreMultipliers: 0
-  attackSpeedBase: 2
+  accuracyIncreases: 1
+  accuracyMoreMultipliers: 1
+  attackSpeedBase: 1
   attackSpeedFlat: 0
   attackSpeedIncreases: 1
   attackSpeedMoreMultipliers: 1
-  castSpeedBase: 0
+  castSpeedBase: 1
   castSpeedFlat: 0
-  castSpeedIncreases: 0
-  castSpeedMoreMultipliers: 0
-  criticalStrikeChanceBase: 0
+  castSpeedIncreases: 1
+  castSpeedMoreMultipliers: 1
+  criticalStrikeChanceBase: 0.05
   criticalStrikeChanceFlat: 0
-  criticalStrikeChanceIncreases: 0
-  criticalStrikeMultiplierBase: 0
+  criticalStrikeChanceIncreases: 1
+  criticalStrikeMultiplierBase: 1
   criticalStrikeMultiplierFlat: 0
-  criticalStrikeMultiplierIncreases: 0
+  criticalStrikeMultiplierIncreases: 1
   igniteChanceBase: 0
   igniteChanceFlat: 0
   chillChanceBase: 0
   chillChanceFlat: 0
-  freezeChanceBase: 50
+  freezeChanceBase: 0
   freezeChanceFlat: 0
   shockChanceBase: 0
   shockChanceFlat: 0
-  movementSpeedBase: 3
-  movementSpeedIncreases: 0
+  movementSpeedBase: 1
+  movementSpeedIncreases: 1
   additionalProjectiles: 0
-  projectileSpeedIncreases: 0
-  areaOfEffectIncreases: 0
-  experience: 1790
-  totalExperience: 3550
-  level: 2
-  availableSkillPoints: 2
+  projectileSpeedIncreases: 1
+  areaOfEffectIncreases: 1
+  experience: 0
+  totalExperience: 0
+  level: 0
+  availableSkillPoints: 0
   totalSkillPoints: 0
-  manaBase: 0
+  manaBase: 200
   manaFlat: 0
-  manaIncreases: 0
-  manaMoreMultipliers: 0
-  manaRegenBase: 0
+  manaIncreases: 1
+  manaMoreMultipliers: 1
+  manaRegenBase: 5
   manaRegenFlat: 0
-  manaRegenIncreases: 0
-  manaRegenMoreMultipliers: 0
-  intelligence: 0
-  strength: 0
-  dexterity: 0
-  intelligenceIncreases: 0
-  strengthIncreases: 0
-  dexterityIncreases: 0
+  manaRegenIncreases: 1
+  manaRegenMoreMultipliers: 1
+  intelligence: 10
+  strength: 10
+  dexterity: 10
+  intelligenceIncreases: 1
+  strengthIncreases: 1
+  dexterityIncreases: 1
   intelligenceMoreMultipliers: 0
   strengthMoreMultipliers: 0
   dexterityMoreMultipliers: 0

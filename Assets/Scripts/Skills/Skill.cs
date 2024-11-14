@@ -118,9 +118,11 @@ public class Skill : MonoBehaviour
         // later we will add support gems that add more multipliers to the damage calculation
 
         float[] finalDamage = new float[5];
+        // we need an array of 5 ones using 
+        
 
-        float[] baseDamage = ElementWiseMultiply(ElementWiseAdd(damage, user.creatureStats.damageFlat), user.creatureStats.damageIncreases);
-        finalDamage = ElementWiseMultiply(baseDamage, user.creatureStats.damageMoreMultipliers);
+        float[] baseDamage = ElementWiseMultiply(ElementWiseAdd(damage, user.creatureStats.damageFlat), ElementWiseAdd(Enumerable.Repeat(1.0f, 5).ToArray(), user.creatureStats.damageIncreases));
+        finalDamage = ElementWiseMultiply(baseDamage, ElementWiseAdd(Enumerable.Repeat(1.0f, 5).ToArray(),user.creatureStats.damageMoreMultipliers));
 
         // this method will be used to calculate the damage of the skill
         // this method will become far more complex as we add more mechanics and add the players stats

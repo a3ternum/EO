@@ -51,24 +51,26 @@ public class PlayerStats : CreatureStats
 
         manaBase = 100;
         manaFlat = 0;
-        manaIncreases = 1;
-        manaMoreMultipliers = 1;
+        manaIncreases = 0;
+        manaMoreMultipliers = 0;
 
         manaRegenBase = 5;
         manaRegenFlat = 0;
-        manaRegenIncreases = 1;
-        manaRegenMoreMultipliers = 1;
+        manaRegenIncreases = 0;
+        manaRegenMoreMultipliers = 0;
 
         intelligence = 10;
         strength = 10;
         dexterity = 10;
-        intelligenceIncreases = 1;
-        strengthIncreases = 1;
-        dexterityIncreases = 1;
+        intelligenceIncreases = 0;
+        strengthIncreases = 0;
+        dexterityIncreases = 0;
 
         manaBase = 200;
         manaFlat = 0;
-        manaIncreases = 1;
-        manaMoreMultipliers = 1;
+        manaIncreases = 0;
+        manaMoreMultipliers = 0;
     }
+
+    
 }

@@ -272,7 +272,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creatureStats: {fileID: 11400000, guid: e18dd1744e8a6ff429591e501120b2aa, type: 2}
   currentHealth: 0
-  currentMana: 0
+  currentMaxHealth: 0
+  currentHealthRegen: 0
+  currentAccuracy: 0
   currentAttackSpeed: 0
   currentMovementSpeed: 0
   currentAdditionalProjectiles: 0
@@ -285,7 +287,7 @@ MonoBehaviour:
   chaseDistance: 6
   minimumDistance: 0
   chaseRange: 10
-  chaseRangeIfDamagedRecently: 30
+  chaseRangeIfDamagedRecently: 10
   timeInChase: 0
   hasLOS: 0
 --- !u!50 &7836120420846127898

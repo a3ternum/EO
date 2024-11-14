@@ -11,6 +11,10 @@ public class Player : Creature
 
     public float currentMaxMana;
     public float currentMana;
+    public float currentStrength;
+    public float currentIntelligence;
+    public float currentDexterity;
+
 
     protected override void Awake()
     {
@@ -25,29 +29,16 @@ public class Player : Creature
 
     protected virtual void InitializePlayerStats()
     {
-        currentMaxHealth = (playerStats.healthBase + playerStats.healthFlat +
-            (playerStats.strength * playerStats.strengthIncreases) / 10 * 2) *
-            playerStats.healthIncreases * playerStats.healthMoreMultipliers;
-        currentHealthRegen = (playerStats.healthRegenBase + playerStats.healthRegenFlat) * playerStats.healthRegenIncreases * playerStats.healthRegenMoreMultipliers;
-        currentArmour = playerStats.armourBase * playerStats.armourIncreases;
-        currentEvasion = playerStats.evasionBase * playerStats.evasionIncreases;
-        currentPhysicalDamageReduction = playerStats.physicalDamageReduction;
-        currentAttackSpeed = playerStats.attackSpeedBase;
-        currentCastSpeed = playerStats.castSpeedBase;
-        currentMovementSpeed = playerStats.movementSpeedBase;
-        currentAdditionalProjectiles = playerStats.additionalProjectiles;
-        currentResistances = playerStats.resistances;
-        currentEvadeChance = (playerStats.evadeChanceBase + playerStats.evadeChanceFlat)*playerStats.evadeChanceIncreases;
-        currentBlockChance = (playerStats.blockChanceBase + playerStats.blockChanceBase)*playerStats.blockChanceIncreases;
-        currentMaxMana = (playerStats.manaBase + playerStats.manaFlat) * playerStats.manaIncreases * playerStats.manaMoreMultipliers;
+        InitializeCreatureStats();
+        currentMaxMana = (playerStats.manaBase + playerStats.manaFlat) * (1 + playerStats.manaIncreases) * (1 + playerStats.manaMoreMultipliers);
 
-        currentHealth = currentMaxHealth;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
     {
         InitializePlayerStats();
+        currentHealth = currentMaxHealth;
 
         InitializeHealthBar(); // initialize health bar
 
@@ -82,30 +73,13 @@ public class Player : Creature
 
     protected void UpdateStats()
     {
-        currentMaxHealth = (playerStats.healthBase + playerStats.healthFlat + 
-            (playerStats.strength * playerStats.strengthIncreases)/10 * 2) * 
-            playerStats.healthIncreases * playerStats.healthMoreMultipliers;
-
-        currentHealthRegen = (playerStats.healthRegenBase + playerStats.healthRegenFlat) * playerStats.healthRegenIncreases * playerStats.healthRegenMoreMultipliers;
-        currentArmour = playerStats.armourBase * playerStats.armourIncreases;
-        currentEvasion = playerStats.evasionBase * playerStats.evasionIncreases;
-        currentPhysicalDamageReduction = playerStats.physicalDamageReduction;
-        currentAttackSpeed = playerStats.attackSpeedBase;
-        currentCastSpeed = playerStats.castSpeedBase;
-        currentMovementSpeed = playerStats.movementSpeedBase * playerStats.movementSpeedIncreases;
-        currentAdditionalProjectiles = playerStats.additionalProjectiles;
-        currentResistances = playerStats.resistances;
-        currentEvadeChance = (playerStats.evadeChanceBase + playerStats.evadeChanceFlat) * playerStats.evadeChanceIncreases;
-        currentBlockChance = (playerStats.blockChanceBase + playerStats.blockChanceBase) * playerStats.blockChanceIncreases;
+        base.UpdateStats();
+        currentStrength = playerStats.strength * (1 + playerStats.strengthIncreases) * (1 + playerStats.strengthMoreMultipliers);
+        currentIntelligence = playerStats.intelligence * (1 + playerStats.intelligenceIncreases) * (1 + playerStats.intelligenceMoreMultipliers);
+        currentDexterity = playerStats.dexterity * (1 + playerStats.dexterityIncreases) * (1 + playerStats.dexterityMoreMultipliers);
+        currentMaxHealth = (playerStats.healthBase + playerStats.healthFlat +
+            currentStrength / 10 * 2) * (1 + playerStats.healthIncreases) * (1 + playerStats.healthMoreMultipliers);
         currentMaxMana = (playerStats.manaBase + playerStats.manaFlat) * playerStats.manaIncreases * playerStats.manaMoreMultipliers;
-        currentCriticalStrikeChance = (playerStats.criticalStrikeChanceBase + playerStats.criticalStrikeChanceFlat) * playerStats.criticalStrikeChanceIncreases;
-        currentCriticalStrikeMultiplier = (playerStats.criticalStrikeMultiplierBase + playerStats.criticalStrikeMultiplierFlat) * playerStats.criticalStrikeMultiplierIncreases;
-
-
-        currentIgniteChance = playerStats.igniteChanceBase + playerStats.igniteChanceFlat;
-        currentChillChance = playerStats.chillChanceBase + playerStats.chillChanceFlat;
-        currentFreezeChance = playerStats.freezeChanceBase + playerStats.freezeChanceFlat;
-        currentShockChance = playerStats.shockChanceBase + playerStats.shockChanceFlat;
 
 
     }
@@ -132,5 +106,10 @@ public class Player : Creature
     void FixedUpdate()
     {
         playerMovement.movePlayer();
+    }
+
+    protected void OnApplicationQuit()
+    {
+        playerStats.resetPlayerData();
     }
 }

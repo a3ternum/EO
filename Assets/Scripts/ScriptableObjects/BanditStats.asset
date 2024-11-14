@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   armourBase: 0
   evasionBase: 0
-  armourIncreases: 1
-  evasionIncreases: 1
+  armourIncreases: 0
+  evasionIncreases: 0
   physicalDamageReduction: 0
   evadeChanceBase: 0
   evadeChanceFlat: 0
@@ -34,13 +34,13 @@ MonoBehaviour:
   - 0
   - 0
   healthBase: 100
-  healthFlatIncreases: 0
+  healthFlat: 0
   healthIncreases: 1
   healthMoreMultipliers: 1
-  manaBase: 0
-  manaFlatIncreases: 1
-  manaIncreases: 0
-  manaMoreMultipliers: 1
+  healthRegenBase: 0
+  healthRegenFlat: 0
+  healthRegenIncreases: 0
+  healthRegenMoreMultipliers: 0
   damageFlat:
   - 0
   - 0
@@ -48,30 +48,43 @@ MonoBehaviour:
   - 0
   - 0
   damageIncreases:
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   damageMoreMultipliers:
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  accuracyBase: 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  accuracyBase: 50
   accuracyFlat: 0
-  accuracyIncreases: 0
-  accuracyMoreMultipliers: 0
+  accuracyIncreases: 1
+  accuracyMoreMultipliers: 1
   attackSpeedBase: 1
+  attackSpeedFlat: 0
   attackSpeedIncreases: 1
   attackSpeedMoreMultipliers: 1
-  castSpeedBase: 0
+  castSpeedBase: 1
+  castSpeedFlat: 0
   castSpeedIncreases: 1
   castSpeedMoreMultipliers: 1
-  criticalStrikeChanceBase: 0
-  criticalStrikeChanceIncreases: 0
-  criticalStrikeMultiplier: 1
+  criticalStrikeChanceBase: 0.05
+  criticalStrikeChanceFlat: 0
+  criticalStrikeChanceIncreases: 1
+  criticalStrikeMultiplierBase: 1
+  criticalStrikeMultiplierFlat: 0
+  criticalStrikeMultiplierIncreases: 1
+  igniteChanceBase: 0
+  igniteChanceFlat: 0
+  chillChanceBase: 0
+  chillChanceFlat: 0
+  freezeChanceBase: 0
+  freezeChanceFlat: 0
+  shockChanceBase: 0
+  shockChanceFlat: 0
   movementSpeedBase: 1
   movementSpeedIncreases: 1
   additionalProjectiles: 0
