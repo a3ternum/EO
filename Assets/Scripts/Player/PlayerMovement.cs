@@ -37,9 +37,15 @@ public class PlayerMovement : MonoBehaviour
 
         public void setMovement()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
+        if (!enabled)
+        {
+            movement.x = 0; movement.y = 0;
+        }
+        else
+        {
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
+        }
         // Normalize the vector to prevent faster diagonal movement
         movement.Normalize();
 
@@ -70,7 +76,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void Update()
     {
+        
         setMovement();
         CheckRecall();
+        if (!enabled)
+        {
+            return; // Do not update if the player movement compoenent is disabled (due to being in skillTree)
+        }
+
+        
     }
 }

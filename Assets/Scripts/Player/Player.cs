@@ -71,7 +71,7 @@ public class Player : Creature
         base.Die();
     }
 
-    protected void UpdateStats()
+    protected override void UpdateStats()
     {
         base.UpdateStats();
         currentStrength = playerStats.strength * (1 + playerStats.strengthIncreases) * (1 + playerStats.strengthMoreMultipliers);
@@ -107,9 +107,23 @@ public class Player : Creature
     {
         playerMovement.movePlayer();
     }
+    public void EnablePlayerActions(bool enable)
+    {
+        if (playerMovement != null)
+        {
+            playerMovement.enabled = enable;
+        }
+        if (playerCombat != null)
+        {
+            playerCombat.enabled = enable;
+        }
+    }
 
-    protected void OnApplicationQuit()
+    protected override void OnApplicationQuit()
     {
         playerStats.resetPlayerData();
     }
+
+   
+
 }

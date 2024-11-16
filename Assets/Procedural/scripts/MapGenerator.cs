@@ -21,6 +21,8 @@ public class MapGenerator : MonoBehaviour
     public EnemySpawnManager enemySpawnManager;
     [SerializeField]
     public NavMeshManager navMeshManager;
+    [SerializeField]
+    public CanvasManager canvasManager;
 
     private SimpleRandomWalkMapGenerator randomWalkMapGenerator;
     private CorridorFirstMapGenerator corridorFirstMapGenerator;

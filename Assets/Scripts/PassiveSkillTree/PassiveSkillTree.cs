@@ -1,15 +1,43 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.InputSystem;
 
 public class PassiveSkillTree : MonoBehaviour
 {
+    public static PassiveSkillTree Instance { get; private set; }
+
     private Player player;
     public List<Node> nodes = new List<Node>();
     public Node startNode;
-    void Start()
+    private CanvasGroup canvasGroup;
+    private bool isSkillTreeVisible = false;
+    private Vector3 lastMousePosition;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        canvasGroup = GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+        {
+            canvasGroup = gameObject.AddComponent<CanvasGroup>();
+        }
+
+    }
+
+    private void Start()
     {
         FindPlayerWithDelay();
-        
+        SetSkillTreeVisibility(false);
     }
 
     private void FindPlayerWithDelay()
@@ -19,7 +47,7 @@ public class PassiveSkillTree : MonoBehaviour
     }
     private void FindPlayerAndInitializeTree()
     {
-        player = FindObjectOfType<Player>();
+        player = FindFirstObjectByType<Player>();
         if (player == null)
         {
             Debug.LogError("Player object not found in the scene.");
@@ -69,7 +97,8 @@ public class PassiveSkillTree : MonoBehaviour
         // Check if the node is connected to any selected node
         foreach (var n in nodes)
         {
-            if (n.ConnectedNodes.Contains(node) && !n.GetComponent<UnityEngine.UI.Button>().interactable)
+            if (n.ConnectedNodes.Contains(node) && !n.GetComponent<UnityEngine.UI.Button>().interactable 
+                && player.playerStats.availableSkillPoints > 0)
             {
                 return true;
             }
@@ -78,11 +107,60 @@ public class PassiveSkillTree : MonoBehaviour
     }
 
     private void SelectNode(Node node)
-    { 
+    {
+        // remove skill point
+        player.playerStats.availableSkillPoints--;
+        player.playerStats.totalSkillPoints++;
+        // Apply node effect
         node.ApplyEffect(player);
         // Mark node as selected (e.g., change button color)
         var button = node.GetComponent<UnityEngine.UI.Button>();
         button.interactable = false;
     }
 
+    public void OnDrag(PointerEventData eventData)
+    {
+        Vector3 delta = Input.mousePosition - lastMousePosition;
+        transform.position += delta;
+        lastMousePosition = Input.mousePosition;
+
+    }
+
+    private void ToggleSkillTree()
+    {
+        isSkillTreeVisible = !isSkillTreeVisible;
+        SetSkillTreeVisibility(isSkillTreeVisible);
+        if (player != null)
+        {
+            player.EnablePlayerActions(!isSkillTreeVisible);
+        }
+        if (isSkillTreeVisible)
+        {
+            transform.SetAsLastSibling(); // Bring the skill tree to the front
+        }
+        else
+        {
+            transform.SetAsFirstSibling(); // Send the skill tree to the back
+        }
+
+    }
+   
+    private void SetSkillTreeVisibility(bool isVisible)
+    {
+        canvasGroup.alpha = isVisible ? 1 : 0;
+        canvasGroup.interactable = isVisible;
+        canvasGroup.blocksRaycasts = isVisible;
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            ToggleSkillTree();
+        }
+
+        if (Input.GetMouseButtonDown(0) || isSkillTreeVisible)
+        {
+            lastMousePosition = Input.mousePosition;
+        }
+    }
 }

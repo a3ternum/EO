@@ -12,6 +12,10 @@ public class PlayerCombat : MonoBehaviour
 
     public void playerAttack()
     {
+        if (!enabled) // if the script is disabled, return
+        {
+            return;
+        }
         if (activeSkill != null)
         {
             activeSkill.ActivateSkill();

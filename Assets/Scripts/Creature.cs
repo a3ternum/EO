@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using System.Linq;
-using UnityEngine;
 // this is a template class for all creatures in the game
 
 public class Creature : MonoBehaviour
 {
     public CreatureStats creatureStats;
-
 
 
     public float currentHealth;
@@ -53,9 +51,10 @@ public class Creature : MonoBehaviour
 
     protected float nextAttackTime = 0f;
 
-    public GameObject healthBarPrefab;
+    protected GameObject healthBarPrefab;
+    protected GameObject ourHealthBarObject;
     protected HealthBar healthBarComponent;
-    private GameObject healthBarObject;
+
     private Canvas canvas;
 
     [SerializeField]
@@ -64,32 +63,6 @@ public class Creature : MonoBehaviour
     // Event to trigger stat updates
     public event Action OnStatsChanged;
 
-
-    
-    protected virtual void Awake()
-    {
-        if (activeSkill != null)
-        {
-            System.Type skillType = activeSkill.GetType();
-            activeSkill = (Skill)gameObject.AddComponent(skillType);
-            activeSkill.user = this;
-        }
-        else
-        {
-            Debug.LogError("active skill is not assigned");
-        }
-        entropyValue = UnityEngine.Random.Range(0, maxEntropy);
-
-        // Subscribe to the event
-        OnStatsChanged += UpdateStats;
-    }
-
-    protected virtual void Start()
-    {
-        InitializeCreatureStats(); // initializeCreature stats
-        currentHealth = currentMaxHealth;
-        InitializeHealthBar(); // initialize health bar
-    }
 
     protected virtual void InitializeCreatureStats()
     {
@@ -113,27 +86,88 @@ public class Creature : MonoBehaviour
         currentChillChance = creatureStats.chillChanceBase + creatureStats.chillChanceFlat;
         currentFreezeChance = creatureStats.freezeChanceBase + creatureStats.freezeChanceFlat;
         currentShockChance = creatureStats.shockChanceBase + creatureStats.shockChanceFlat;
-
-
-        
     }
+    public void SetCanvas(Canvas canvas)
+    {
+        Debug.Log("setting canvas");
+        this.canvas = canvas;
+        if (ourHealthBarObject != null)
+        {
+            ourHealthBarObject.transform.SetParent(canvas.transform, false);
+        }
+    }
+
+    protected virtual void InitializeHealthBar()
+    {
+        // instantiate the health bar prefab
+        ourHealthBarObject = Instantiate(healthBarPrefab, transform.position, Quaternion.identity);
+        healthBarComponent = ourHealthBarObject.GetComponent<HealthBar>();
+
+        // set the parent of the health bar to this creature
+        healthBarComponent.setParent(this);
+
+        healthBarComponent.setMaxHealth(currentHealth);
+
+        canvas = FindFirstObjectByType<Canvas>();
+        if (canvas == null || canvas.renderMode != RenderMode.WorldSpace)
+        {
+            Debug.LogError("World Space Canvas not found. Make sure there's a canvas set to World Space.");
+            return;
+        }
+
+        ourHealthBarObject.transform.SetParent(canvas.transform, false); // set the health bar object as a child of the canvas
+        ourHealthBarObject.transform.position += new Vector3(0, 0.6f, 0); // set the position of the health bar above the creature
+
+    }
+
+    protected virtual void Awake()
+    {
+        if (activeSkill != null)
+        {
+            System.Type skillType = activeSkill.GetType();
+            activeSkill = (Skill)gameObject.AddComponent(skillType);
+            activeSkill.user = this;
+        }
+        else
+        {
+            Debug.LogError("active skill is not assigned");
+        }
+
+        // Load the basic arrow prefab from the Resources folder
+        healthBarPrefab= Resources.Load<GameObject>("HealthBar");
+        if (healthBarPrefab == null)
+        {
+            Debug.LogError("HealthBar prefab not found in Resources folder!");
+        }
+
+        entropyValue = UnityEngine.Random.Range(0, maxEntropy);
+
+        // Subscribe to the event
+        OnStatsChanged += UpdateStats;
+    }
+
+    protected virtual void Start()
+    {
+        InitializeCreatureStats(); // initializeCreature stats
+        currentHealth = currentMaxHealth;
+        InitializeHealthBar(); // initialize health bar
+    }
+
+ 
 
     protected void UpdateHealthBar()
     {
         if (healthBarComponent != null)
         {
             healthBarComponent.setHealth(currentHealth); // update health value
-
-            healthBarObject.transform.position = transform.position + new Vector3(0, 0.6f, 0); // move healthbar to creature position
-
+            ourHealthBarObject.transform.position = transform.position + new Vector3(0, 0.6f, 0); // update health bar
         }
     }
 
     protected virtual void Die()
     {
+        Destroy(ourHealthBarObject);
         Destroy(gameObject);
-        Destroy(healthBarObject);
-        Destroy(healthBarComponent);
     }
 
     public virtual void TakeDamage(float[] damage, Creature attacker, float time = 4)
@@ -223,28 +257,6 @@ public class Creature : MonoBehaviour
 
     }
 
-    protected virtual void InitializeHealthBar()
-    {
-        // instantiate the health bar prefab
-        healthBarObject = Instantiate(healthBarPrefab, transform.position, Quaternion.identity);
-
-        healthBarComponent = healthBarObject.GetComponent<HealthBar>();
-        // set the parent of the health bar to this creature
-        healthBarComponent.setParent(this);
-
-        healthBarComponent.setMaxHealth(currentHealth);
-
-        canvas = FindFirstObjectByType<Canvas>();
-        if (canvas == null || canvas.renderMode != RenderMode.WorldSpace)
-        {
-            Debug.LogError("World Space Canvas not found. Make sure there's a canvas set to World Space.");
-            return;
-        }
-
-        healthBarObject.transform.SetParent(canvas.transform, false); // set the health bar object as a child of the canvas
-        healthBarObject.transform.position += new Vector3(0, 0.6f, 0); // set the position of the health bar above the creature
-
-    }
     protected virtual bool DoWeBlock(float blockChance)
     {
         if (UnityEngine.Random.Range(0, 100) < blockChance)
@@ -308,19 +320,6 @@ public class Creature : MonoBehaviour
         ApplyFreezeEffect();
     }
 
-    protected virtual void Update()
-    {
-        // inside the creature update method we will be performing an insane amount of parameter updates
-        // we are constantly checking for changes in the creature's stats and updating the corresponding stat accordingly.
-        UpdateStats();
-
-        // regen health based on health regen
-
-
-        currentHealth += currentHealthRegen * Time.deltaTime;
-        currentHealth = Math.Min(currentHealth, currentMaxHealth);
-        UpdateHealthBar();
-    }
 
     protected float IgniteDamage(float fireDamage)
     {
@@ -464,9 +463,22 @@ public class Creature : MonoBehaviour
         }
     }
 
-    protected void OnApplicationQuit()
+    protected virtual void OnApplicationQuit()
     {  
        creatureStats.resetCreatureData();
-    }    
+    }
 
+
+
+    protected virtual void Update()
+    {
+        // inside the creature update method we will be performing an insane amount of parameter updates
+        // we are constantly checking for changes in the creature's stats and updating the corresponding stat accordingly.
+        UpdateStats();
+
+        // regen health based on health regen
+        currentHealth += currentHealthRegen * Time.deltaTime;
+        currentHealth = Math.Min(currentHealth, currentMaxHealth);
+        UpdateHealthBar();
+    }
 }

@@ -297,7 +297,14 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DarkDungeon_0: -296336007603237974
+      DarkDungeon_1: 5866069513215255470
+      DarkDungeon_2: -7827098559198870169
+      DarkDungeon_3: -8533741793127865758
+      DarkDungeon_4: -794782425293295610
+      DarkDungeon_5: -7409080051305993162
+      DarkDungeon_6: -5768952343907969365
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -6,16 +6,10 @@ public class Bandit : Enemy
     protected override void Start()
     {
         base.Start();
-
-        
-        healthBarComponent.setMaxHealth(currentHealth);
-        healthBarComponent.setHealth(currentHealth);
-
         
         experienceValue = 100f;
 
         chaseScript.setSpeed(currentMovementSpeed);
     }
-
 
 }

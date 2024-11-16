@@ -6,17 +6,9 @@ public class Slime : Enemy
     {
         base.Start();
 
-        healthBarComponent.setMaxHealth(currentHealth);
-        healthBarComponent.setHealth(currentHealth);
-
-        
         experienceValue = 50f;
 
         chaseScript.setSpeed(currentMovementSpeed);
     }
 
-    protected void Update()
-    {
-        base.Update();
-    }
 }

@@ -58,14 +58,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4606908045521496030, guid: 6bcc5f0ef5a129b42be3755e24c27816, type: 3}
+  m_Sprite: {fileID: 4606908045521496030, guid: 2ab8f713d9e38da40a95f623adc4f39d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3737897332693287829, guid: 999f171e138047844920888c7042c9ec, type: 3}
+  m_Sprite: {fileID: 3737897332693287829, guid: c4f6bbbf3fd8c364198663f7505e603e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 6905707232978719810}
   - component: {fileID: 4775409542233338050}
   - component: {fileID: 174780857903619720}
+  - component: {fileID: 6221361301151289468}
   m_Layer: 5
   m_Name: Healthbar
   m_TagString: Untagged
@@ -285,6 +286,19 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   fill: {fileID: 1071180888806470626}
+  parent: {fileID: 0}
+--- !u!210 &6221361301151289468
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5048146370649816984}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_SortAtRoot: 0
 --- !u!1 &5405941850166769914
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.91372555, g: 0.3921569, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.0047169924, b: 0.013260524, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
