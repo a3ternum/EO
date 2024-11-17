@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2236955458264837437}
   - component: {fileID: 3660996664562140266}
   m_Layer: 0
-  m_Name: Vortex
+  m_Name: RageVortexProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class VortexProjectile : Projectile
+public class RageVortexProjectile : Projectile
 {
     protected override void Awake()
     {
@@ -8,7 +8,8 @@ public class VortexProjectile : Projectile
         destroyOnHit = false;
     }
 
+
     // vortexProjectile uses the exact same logic as Projectile class
     // so we don't need to add any additional code here
-    
+
 }

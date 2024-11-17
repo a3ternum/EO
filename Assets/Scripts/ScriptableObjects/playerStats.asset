@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70edb627699eeb84ebc1da39e69a704d, type: 3}
   m_Name: playerStats
   m_EditorClassIdentifier: 
-  armourBase: 0
-  evasionBase: 0
-  armourIncreases: 1
-  evasionIncreases: 1
+  armourFlat: 0
+  evasionFlat: 0
+  armourIncreases: 0
+  evasionIncreases: 0
   physicalDamageReduction: 0
   evadeChanceBase: 0
   evadeChanceFlat: 0
-  evadeChanceIncreases: 1
+  evadeChanceIncreases: 0
   blockChanceBase: 0
   blockChanceFlat: 0
-  blockChanceIncreases: 1
+  blockChanceIncreases: 0
   resistances:
   - 0
   - 0
@@ -48,35 +48,35 @@ MonoBehaviour:
   - 0
   - 0
   damageIncreases:
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   damageMoreMultipliers:
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   accuracyBase: 50
   accuracyFlat: 0
-  accuracyIncreases: 1
-  accuracyMoreMultipliers: 1
+  accuracyIncreases: 0
+  accuracyMoreMultipliers: 0
   attackSpeedBase: 1
   attackSpeedFlat: 0
-  attackSpeedIncreases: 1
-  attackSpeedMoreMultipliers: 1
+  attackSpeedIncreases: 0
+  attackSpeedMoreMultipliers: 0
   castSpeedBase: 1
   castSpeedFlat: 0
   castSpeedIncreases: 1
   castSpeedMoreMultipliers: 1
   criticalStrikeChanceBase: 0.05
   criticalStrikeChanceFlat: 0
-  criticalStrikeChanceIncreases: 1
+  criticalStrikeChanceIncreases: 0
   criticalStrikeMultiplierBase: 1
   criticalStrikeMultiplierFlat: 0
-  criticalStrikeMultiplierIncreases: 1
+  criticalStrikeMultiplierIncreases: 0
   igniteChanceBase: 0
   igniteChanceFlat: 0
   chillChanceBase: 0
@@ -86,10 +86,12 @@ MonoBehaviour:
   shockChanceBase: 0
   shockChanceFlat: 0
   movementSpeedBase: 1
-  movementSpeedIncreases: 1
+  movementSpeedIncreases: 0
   additionalProjectiles: 0
-  projectileSpeedIncreases: 1
-  areaOfEffectIncreases: 1
+  projectileSpeedIncreases: 0
+  projectileDamageIncreases: 0
+  areaOfEffectIncreases: 3
+  areaOfEffectDamageIncreases: 0
   experience: 0
   totalExperience: 0
   level: 0
@@ -97,18 +99,18 @@ MonoBehaviour:
   totalSkillPoints: 0
   manaBase: 200
   manaFlat: 0
-  manaIncreases: 1
-  manaMoreMultipliers: 1
+  manaIncreases: 0
+  manaMoreMultipliers: 0
   manaRegenBase: 5
   manaRegenFlat: 0
-  manaRegenIncreases: 1
-  manaRegenMoreMultipliers: 1
+  manaRegenIncreases: 0
+  manaRegenMoreMultipliers: 0
   intelligence: 10
   strength: 10
   dexterity: 10
-  intelligenceIncreases: 1
-  strengthIncreases: 1
-  dexterityIncreases: 1
+  intelligenceIncreases: 0
+  strengthIncreases: 0
+  dexterityIncreases: 0
   intelligenceMoreMultipliers: 0
   strengthMoreMultipliers: 0
   dexterityMoreMultipliers: 0

@@ -42,7 +42,7 @@ public class RangedAttack : Attack
             float rotationAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             projectile.transform.rotation = Quaternion.Euler(0, 0, rotationAngle);
 
-            projectile.Initialize(direction, projectileSpeed, duration, tickRate, damage, enemyLayer, terrainLayer, playerLayer, this);
+            projectile.Initialize(direction, this);
         }
     }
     private Vector2 GetDirectionToTarget()

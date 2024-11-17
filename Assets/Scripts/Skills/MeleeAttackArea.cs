@@ -8,8 +8,11 @@ using UnityEngine.SocialPlatforms;
 
 public class MeleeAttackArea : MeleeAttack
 {
+    protected float areaOfAttackIncrease;
+ 
     public override void ActivateSkill()
     {
+        areaOfAttackIncrease = user.creatureStats.areaOfEffectIncreases;
         bool canActivate = CanActivate();
         if (canActivate)
         {
@@ -23,7 +26,7 @@ public class MeleeAttackArea : MeleeAttack
  
     protected virtual List<Creature> AoECollider()
     {
-        radius = radius * (1 + user.creatureStats.areaOfEffectIncreases);
+        radius = radius * (1 + areaOfAttackIncrease);
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(user.transform.position, radius);
         List<Creature> targetsList = new List<Creature>();
 

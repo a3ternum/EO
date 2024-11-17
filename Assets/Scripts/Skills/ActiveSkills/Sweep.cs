@@ -6,7 +6,7 @@ public class Sweep : MeleeAttackArea
 {
     private SkillData sweepSkillData;
 
-    protected override void Awake() // Initialize heavy strike skill data
+    protected override void Awake() // Initialize Sweep skill data
     {
         base.Awake();
         skillName = "Sweep";
@@ -45,5 +45,5 @@ public class Sweep : MeleeAttackArea
         manaCost = sweepSkillData.manaCostPerLevel[skillLevel];
     }
 
-
+    // sweep overrides nothing because it uses the default implementation of MeleeAttackArea
 }

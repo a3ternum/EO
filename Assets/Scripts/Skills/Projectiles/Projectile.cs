@@ -4,10 +4,13 @@ using System.Collections.Generic;
 
 public class Projectile : MonoBehaviour
 {
-    private Creature user;
-    private float speed;
+    private float projectileSpeed;
+    private float radius;
     private float duration;
     private float tickRate;
+    private int pierceCount;
+
+
     private float[] damage;
     private Dictionary<Creature, float> lastHitTime;
     private Vector2 direction;
@@ -25,27 +28,46 @@ public class Projectile : MonoBehaviour
         lastHitTime = new Dictionary<Creature, float>();
     }
 
-    public void Initialize(Vector2 direction, float speed, float duration, float tickRate, float[] damage, int enemyLayer, int terrainLayer, int playerLayer, Skill skillThatFiredProjectile)
+    public virtual void Initialize(Vector2 direction, Skill skillThatFiredProjectile)
     {
-        this.direction = direction;
-        this.speed = speed;
-        this.duration = duration;
-        this.tickRate = tickRate;
-        this.damage = damage;
-        this.enemyLayer = enemyLayer;
-        this.terrainLayer = terrainLayer;
-        this.playerLayer = playerLayer;
         this.skill = skillThatFiredProjectile;
-        this.user = skill.user;
+
+        this.direction = direction;
+        this.projectileSpeed = skill.projectileSpeed;
+        this.radius = skill.radius * (1 + skill.user.creatureStats.areaOfEffectIncreases);
+
+        this.duration = skill.duration;
+        this.tickRate = skill.tickRate;
+        this.pierceCount = skill.pierceCount;
+        this.damage = skill.damage;
+        this.enemyLayer = skill.enemyLayer;
+        this.terrainLayer = skill.terrainLayer;
+        this.playerLayer = skill.playerLayer;
+
+      
+        // update scale of projectile object based on radius
+        Collider2D collider = GetComponent<Collider2D>();
+        if (collider is CircleCollider2D circleCollider)
+        {
+            circleCollider.radius = radius;
+        }
+        else if (collider is BoxCollider2D boxCollider)
+        {
+            boxCollider.size = new Vector2(radius, radius);
+        }
+        float radiusRescale = (radius / 0.5f) * (1 + skill.user.creatureStats.areaOfEffectIncreases);
+        transform.localScale = new Vector3(radiusRescale, radiusRescale, 1);
+
         StartCoroutine(MoveAndHandleCollisions());
     }
 
     private IEnumerator MoveAndHandleCollisions()
     {
+        int currentPierceCount = pierceCount;
         float elapsedTime = 0f;
         while (elapsedTime < duration)
         {
-            transform.position += (Vector3)direction.normalized * speed * Time.deltaTime;
+            transform.position += (Vector3)direction.normalized * projectileSpeed * Time.deltaTime;
 
             Collider2D[] hitColliders = GetHitColliders();
             List<Creature> targetsList = new List<Creature>();
@@ -55,8 +77,8 @@ public class Projectile : MonoBehaviour
                 Creature creature = hitCollider.GetComponent<Creature>();
                 if (creature != null)
                 {
-                    bool isEnemyTarget = (hitCollider.gameObject.layer == enemyLayer && user is Player);
-                    bool isPlayerTarget = (hitCollider.gameObject.layer == playerLayer && user is Enemy);
+                    bool isEnemyTarget = (hitCollider.gameObject.layer == enemyLayer && skill.user is Player);
+                    bool isPlayerTarget = (hitCollider.gameObject.layer == playerLayer && skill.user is Enemy);
                     //Debug.Log(isEnemyTarget || isPlayerTarget);
                     if (isEnemyTarget || isPlayerTarget)
                     {
@@ -68,12 +90,15 @@ public class Projectile : MonoBehaviour
                                 targetsList.Add(creature);
                                 lastHitTime[creature] = Time.time;
 
-                                if (destroyOnHit)
+                                if (destroyOnHit && currentPierceCount <= 0)
                                 {
-
                                     skill.ApplyDamageAndEffects(targetsList);
                                     Destroy(gameObject);
                                     yield break; // Exit the coroutine as the projectile is destroyed
+                                }
+                                else if (destroyOnHit && currentPierceCount > 0)
+                                {
+                                    currentPierceCount--;
                                 }
                             }
                         }
@@ -99,11 +124,11 @@ public class Projectile : MonoBehaviour
         Collider2D collider = GetComponent<Collider2D>();
         if (collider is CircleCollider2D circleCollider)
         {
-            return Physics2D.OverlapCircleAll(transform.position, circleCollider.radius);
+            return Physics2D.OverlapCircleAll(transform.position, circleCollider.radius * (1 + skill.user.creatureStats.areaOfEffectIncreases));
         }
         else if (collider is BoxCollider2D boxCollider)
         {
-            return Physics2D.OverlapBoxAll(transform.position, boxCollider.size, 0f);
+            return Physics2D.OverlapBoxAll(transform.position, boxCollider.size * (1 + skill.user.creatureStats.areaOfEffectIncreases), 0f);
         }
         else
         {

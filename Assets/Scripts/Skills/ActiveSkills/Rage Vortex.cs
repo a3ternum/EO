@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class RageVortex : MeleeAttackArea
 {
-    public VortexProjectile vortex;
+    public RageVortexProjectile vortex;
 
     private SkillData rageVortexSkillData;
 
@@ -16,7 +16,7 @@ public class RageVortex : MeleeAttackArea
         skillName = "Rage Vortex";
 
         // Load the vortex prefab from the Resources folder
-        vortex = Resources.Load<VortexProjectile>("vortex");
+        vortex = Resources.Load<RageVortexProjectile>("RageVortexProjectile");
 
         if (vortex == null)
         {
@@ -34,10 +34,10 @@ public class RageVortex : MeleeAttackArea
         };
         rageVortexSkillData.manaCostPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
         rageVortexSkillData.attackSpeedPerLevel = new List<float> { 3f, 1.1f, 1.2f, 1.3f, 1.4f };
-        rageVortexSkillData.radiusPerLevel = new List<float> { 3f, 3.4f, 3.6f, 3.8f, 4f };
+        rageVortexSkillData.radiusPerLevel = new List<float> { 0.5f, 0.5f, 0.5f, 0.5f, 0.5f };
         rageVortexSkillData.castTimePerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
         rageVortexSkillData.durationPerLevel = new List<float> { 3f, 4f, 5f, 6f, 7f };
-        rageVortexSkillData.tickRatePerLevel = new List<float>() { 0.6f, 0.58f, 0.56f, 0.54f, 0.52f };
+        rageVortexSkillData.tickRatePerLevel = new List<float>() { 0.2f, 0.58f, 0.56f, 0.54f, 0.52f };
         rageVortexSkillData.projectileSpeedPerLevel = new List<float> { 5f, 5.2f, 5.4f, 5.6f, 5.8f };
 
     }
@@ -79,8 +79,8 @@ public class RageVortex : MeleeAttackArea
 
     private void LaunchProjectile()
     {
-        VortexProjectile projectile = Instantiate(vortex, user.transform.position, Quaternion.identity);
+        RageVortexProjectile projectile = Instantiate(vortex, user.transform.position, Quaternion.identity);
         Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - user.transform.position;
-        projectile.Initialize(direction, projectileSpeed, duration, tickRate, damage, enemyLayer, terrainLayer, playerLayer, this);
+        projectile.Initialize(direction, this);
     }
 }
