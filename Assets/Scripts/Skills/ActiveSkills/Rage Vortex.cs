@@ -34,7 +34,7 @@ public class RageVortex : MeleeAttackArea
         };
         rageVortexSkillData.manaCostPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
         rageVortexSkillData.attackSpeedPerLevel = new List<float> { 3f, 1.1f, 1.2f, 1.3f, 1.4f };
-        rageVortexSkillData.rangePerLevel = new List<float> { 3f, 3.4f, 3.6f, 3.8f, 4f };
+        rageVortexSkillData.radiusPerLevel = new List<float> { 3f, 3.4f, 3.6f, 3.8f, 4f };
         rageVortexSkillData.castTimePerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
         rageVortexSkillData.durationPerLevel = new List<float> { 3f, 4f, 5f, 6f, 7f };
         rageVortexSkillData.tickRatePerLevel = new List<float>() { 0.6f, 0.58f, 0.56f, 0.54f, 0.52f };
@@ -55,7 +55,7 @@ public class RageVortex : MeleeAttackArea
             return;
         }
         damage = rageVortexSkillData.damagePerLevel[skillLevel];
-        range = rageVortexSkillData.rangePerLevel[skillLevel];
+        radius = rageVortexSkillData.radiusPerLevel[skillLevel];
         attackSpeed = rageVortexSkillData.attackSpeedPerLevel[skillLevel];
         manaCost = rageVortexSkillData.manaCostPerLevel[skillLevel];
         castTime = rageVortexSkillData.castTimePerLevel[skillLevel];

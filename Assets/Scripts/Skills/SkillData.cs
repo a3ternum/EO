@@ -5,15 +5,15 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "skillData", menuName = "Skill Data")]
 public class SkillData : ScriptableObject
 {
-    public List<float[]> damagePerLevel;
-    public List<float> castTimePerLevel;
-    public List<float> attackSpeedPerLevel;
-    public List<float> durationPerLevel;
-    public List<float> tickRatePerLevel;
-    public List<float> manaCostPerLevel;
-    public List<float> rangePerLevel;
-    public List<float> projectileSpeedPerLevel;
-    public List<float> radiusPerLevel;
-    public List<float> pierceCountPerLevel;
+    public List<float[]> damagePerLevel; // damage of skill
+    public List<float> castTimePerLevel; // how long it takes to cast the skill
+    public List<float> attackSpeedPerLevel; // how fast the skill can be used
+    public List<float> durationPerLevel; // how long the skill lasts
+    public List<float> tickRatePerLevel; // how often the skill deals damage
+    public List<float> manaCostPerLevel; // mana cost of skill
+    public List<float> strikeRangePerLevel; // strikeRange of skill
+    public List<float> projectileSpeedPerLevel; // how fast the projectile moves
+    public List<float> radiusPerLevel; // area of effect radius of skill
+    public List<float> pierceCountPerLevel; // how many enemies the skill can pierce
 
 }

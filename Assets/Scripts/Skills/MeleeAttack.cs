@@ -21,7 +21,7 @@ public abstract class MeleeAttack : Attack
         Vector2 targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         // find all enemies within range
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(user.transform.position, range);
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(user.transform.position, strikeRange);
         Creature closestTarget = null;
         List<Creature> targetsList = new List<Creature>();
         float closestDistance = float.MaxValue;

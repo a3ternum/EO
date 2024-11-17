@@ -23,7 +23,7 @@ public class Sweep : MeleeAttackArea
         };
         sweepSkillData.manaCostPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
         sweepSkillData.attackSpeedPerLevel = new List<float> { 3f, 1.1f, 1.2f, 1.3f, 1.4f };
-        sweepSkillData.rangePerLevel = new List<float> { 3f, 3.4f, 3.6f, 3.8f, 4f };
+        sweepSkillData.radiusPerLevel = new List<float> { 3f, 3.4f, 3.6f, 3.8f, 4f };
         sweepSkillData.castTimePerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
         sweepSkillData.durationPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
     }
@@ -40,7 +40,7 @@ public class Sweep : MeleeAttackArea
             return;
         }
         damage = sweepSkillData.damagePerLevel[skillLevel];
-        range = sweepSkillData.rangePerLevel[skillLevel];
+        radius = sweepSkillData.radiusPerLevel[skillLevel];
         attackSpeed = sweepSkillData.attackSpeedPerLevel[skillLevel];
         manaCost = sweepSkillData.manaCostPerLevel[skillLevel];
     }

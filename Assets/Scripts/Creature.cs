@@ -33,6 +33,9 @@ public class Creature : MonoBehaviour
     protected float currentFreezeChance;
     protected float currentShockChance;
 
+    protected float currentAreaOfEffectIncrease;
+    protected float currentAreaOfEffectDamageIncrease;
+
     protected bool isIgnited = false;
     protected bool isChilled = false;
     protected bool isFrozen = false;
@@ -43,6 +46,7 @@ public class Creature : MonoBehaviour
     protected float freezeDuration;
     protected float shockEffect;
 
+    
 
     public bool damagedRecently = false;
 
@@ -81,6 +85,8 @@ public class Creature : MonoBehaviour
         currentBlockChance = (creatureStats.blockChanceBase + creatureStats.blockChanceFlat) * (1 + creatureStats.blockChanceIncreases);
         currentCriticalStrikeChance = (creatureStats.criticalStrikeChanceBase + creatureStats.criticalStrikeChanceFlat) * (1 + creatureStats.criticalStrikeChanceIncreases);
         currentCriticalStrikeMultiplier = (creatureStats.criticalStrikeMultiplierBase + creatureStats.criticalStrikeMultiplierFlat) * (1 + creatureStats.criticalStrikeMultiplierIncreases);
+        currentAreaOfEffectIncrease = creatureStats.areaOfEffectIncreases;
+        currentAreaOfEffectDamageIncrease = creatureStats.areaOfEffectDamageIncreases;
 
         currentIgniteChance = creatureStats.igniteChanceBase + creatureStats.igniteChanceFlat;
         currentChillChance = creatureStats.chillChanceBase + creatureStats.chillChanceFlat;

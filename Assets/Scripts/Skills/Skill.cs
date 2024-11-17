@@ -22,7 +22,7 @@ public class Skill : MonoBehaviour
     public int quality { get; protected set; } // the quality of the skill
     public bool isReady { get; protected set; } // boolean to indicate whether skill can be used right now 
     public float manaCost { get; protected set; } // the mana cost of the skill
-    public float range { get; protected set; } // the range of the skill
+    public float strikeRange { get; protected set; } // the strike Range of the skill
     public float projectileSpeed { get; protected set; } // the speed of the projectile
     public float radius { get; protected set; } // the radius of the skill
     public int pierceCount { get; protected set; } // the number of enemies the skill can pierce
@@ -30,6 +30,7 @@ public class Skill : MonoBehaviour
     public int terrainLayer { get; protected set; } // the layer mask of the terrain
     public int playerLayer { get; protected set; } // the layer mask of the player
 
+    public HashSet<string> tags { get; protected set; } // the tags of the skill (e.g. "Fire", "Ice", "Melee")
     public Dictionary<Creature, float> lastHitTime { get; protected set; }
 
     [SerializeField]
@@ -204,5 +205,21 @@ public virtual void UpdateCooldown(float deltaTime) //A method to manage the coo
             result[i] = array1[i] + array2[i];
         }
         return result;
+    }
+
+
+    public void AddTag(string tag)
+    {
+        tags.Add(tag);
+    }
+
+    public void RemoveTag(string tag)
+    {
+        tags.Remove(tag);
+    }
+
+    public bool HasTag(string tag)
+    {
+        return tags.Contains(tag);
     }
 }

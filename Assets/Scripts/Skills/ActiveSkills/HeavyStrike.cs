@@ -22,7 +22,7 @@ public class HeavyStrike : MeleeAttackSingleTarget
         };
         heavyStrikeSkillData.manaCostPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
         heavyStrikeSkillData.attackSpeedPerLevel = new List<float> { 3f, 1.1f, 1.2f, 1.3f, 1.4f };
-        heavyStrikeSkillData.rangePerLevel = new List<float>{1f, 1f, 1f, 1f, 1f};
+        heavyStrikeSkillData.strikeRangePerLevel = new List<float>{1f, 1f, 1f, 1f, 1f};
         heavyStrikeSkillData.castTimePerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
         heavyStrikeSkillData.durationPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
     }
@@ -39,7 +39,7 @@ public class HeavyStrike : MeleeAttackSingleTarget
             return;
         }
         damage = heavyStrikeSkillData.damagePerLevel[skillLevel];
-        range = heavyStrikeSkillData.rangePerLevel[skillLevel];
+        strikeRange = heavyStrikeSkillData.strikeRangePerLevel[skillLevel];
         attackSpeed = heavyStrikeSkillData.attackSpeedPerLevel[skillLevel];
         manaCost = heavyStrikeSkillData.manaCostPerLevel[skillLevel];
     }

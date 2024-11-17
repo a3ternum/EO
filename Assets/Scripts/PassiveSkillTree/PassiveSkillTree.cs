@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.InputSystem;
 
-public class PassiveSkillTree : MonoBehaviour
+public class PassiveSkillTree : MonoBehaviour, IDragHandler, IBeginDragHandler
 {
     public static PassiveSkillTree Instance { get; private set; }
 
@@ -14,6 +14,9 @@ public class PassiveSkillTree : MonoBehaviour
     private CanvasGroup canvasGroup;
     private bool isSkillTreeVisible = false;
     private Vector3 lastMousePosition;
+    private float dragSensitivity = 0.05f; // Higher values make the skill tree move faster
+    
+    public RectTransform canvasBounds; // Define the bounds for the canvas movement
 
     private void Awake()
     {
@@ -58,7 +61,6 @@ public class PassiveSkillTree : MonoBehaviour
 
     private void InitializeSkillTree()
     {
-        Debug.Log("Initializing skill tree...");
         // Automatically find and add all nodes that are children of the PassiveSkillTree GameObject
         nodes.AddRange(GetComponentsInChildren<Node>());
 
@@ -118,14 +120,6 @@ public class PassiveSkillTree : MonoBehaviour
         button.interactable = false;
     }
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        Vector3 delta = Input.mousePosition - lastMousePosition;
-        transform.position += delta;
-        lastMousePosition = Input.mousePosition;
-
-    }
-
     private void ToggleSkillTree()
     {
         isSkillTreeVisible = !isSkillTreeVisible;
@@ -151,6 +145,26 @@ public class PassiveSkillTree : MonoBehaviour
         canvasGroup.interactable = isVisible;
         canvasGroup.blocksRaycasts = isVisible;
     }
+
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        lastMousePosition = Input.mousePosition;
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        Vector3 delta = (Input.mousePosition - lastMousePosition) * dragSensitivity;
+        Vector3 newPosition = transform.position + delta;
+
+        // Clamp the new position within the bounds
+        newPosition.x = Mathf.Clamp(newPosition.x, canvasBounds.rect.xMin, canvasBounds.rect.xMax);
+        newPosition.y = Mathf.Clamp(newPosition.y, canvasBounds.rect.yMin, canvasBounds.rect.yMax);
+
+        transform.position = newPosition;
+        lastMousePosition = Input.mousePosition;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))

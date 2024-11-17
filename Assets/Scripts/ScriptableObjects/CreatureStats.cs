@@ -90,6 +90,7 @@ public class CreatureStats : ScriptableObject
     public float projectileDamageIncreases;
 
     public float areaOfEffectIncreases;
+    public float areaOfEffectDamageIncreases;
 
 
     public void Start()
@@ -191,6 +192,6 @@ public class CreatureStats : ScriptableObject
         projectileDamageIncreases = 0;
 
         areaOfEffectIncreases = 0;
-
+        areaOfEffectDamageIncreases = 0;
     }
 }
