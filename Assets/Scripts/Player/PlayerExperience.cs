@@ -28,6 +28,9 @@ public class PlayerExperience : MonoBehaviour
         availableSkillPoints = playerStats.availableSkillPoints;
         totalSkillPoints = playerStats.totalSkillPoints;
 
+        player.experienceBarComponent.setMaxExperience(experienceToNextLevel);
+        player.experienceBarComponent.setExperience(experience);
+
     }
 
     public void LevelUp()

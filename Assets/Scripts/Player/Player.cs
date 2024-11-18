@@ -45,10 +45,22 @@ public class Player : Creature
             Debug.LogError("ExperienceBar prefab not found in Resources folder!");
         }
 
+       
+
         ourExperienceBarObject = Instantiate(experienceBarPrefab, transform.position, Quaternion.identity);
         experienceBarComponent = ourExperienceBarObject.GetComponent<ExperienceBar>();
+        experienceBarComponent.setParent(this);
 
-        experienceBarComponent.setParent((Player)this);
+        Canvas canvas = FindFirstObjectByType<Canvas>();
+        if (canvas == null || canvas.renderMode != RenderMode.WorldSpace)
+        {
+            Debug.LogError("World Space Canvas not found. Make sure there's a canvas set to World Space.");
+            return;
+        }
+
+        ourExperienceBarObject.transform.SetParent(canvas.transform, false);
+        ourExperienceBarObject.transform.position += new Vector3(0, -4f, 0); // set the position of the health bar above the creature
+
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
