@@ -57,6 +57,8 @@ public class Creature : MonoBehaviour
     protected GameObject ourHealthBarObject;
     protected HealthBar healthBarComponent;
 
+  
+
     private Canvas canvas;
 
     [SerializeField]
@@ -123,6 +125,9 @@ public class Creature : MonoBehaviour
         ourHealthBarObject.transform.position += new Vector3(0, 0.6f, 0); // set the position of the health bar above the creature
 
     }
+
+   
+
 
     protected virtual void Awake()
     {

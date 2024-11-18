@@ -21,13 +21,9 @@ public class BasicArrowAttack : RangedAttack
         }        
      
 
-        // Load the vortex prefab from the Resources folder
-        //basicArrow = Resources.Load<BasicArrowProjectile>("BasicArrow");
+        
+        tags = new HashSet<string> { "Projectile", "Physical" };
 
-        //if (basicArrow == null)
-        //{
-        //    Debug.LogError("basicArrow prefab not found in Resources folder!");
-        //}
         basicArrowSkillData = ScriptableObject.CreateInstance<SkillData>();
         basicArrowSkillData.damagePerLevel = new List<float[]>
         {

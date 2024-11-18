@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.U2D.Aseprite;
 
 public class Projectile : MonoBehaviour
 {
@@ -44,20 +45,21 @@ public class Projectile : MonoBehaviour
         this.terrainLayer = skill.terrainLayer;
         this.playerLayer = skill.playerLayer;
 
-      
-        // update scale of projectile object based on radius
-        Collider2D collider = GetComponent<Collider2D>();
-        if (collider is CircleCollider2D circleCollider)
+        if (skill.tags.Contains("Area"))
         {
-            circleCollider.radius = radius;
+            // update scale of projectile object based on radius
+            Collider2D collider = GetComponent<Collider2D>();
+            if (collider is CircleCollider2D circleCollider)
+            {
+                circleCollider.radius = radius;
+            }
+            else if (collider is BoxCollider2D boxCollider)
+            {
+                boxCollider.size = new Vector2(radius, radius);
+            }
+            float radiusRescale = (radius / 0.5f) * (1 + skill.user.creatureStats.areaOfEffectIncreases);
+            transform.localScale = new Vector3(radiusRescale, radiusRescale, 1);
         }
-        else if (collider is BoxCollider2D boxCollider)
-        {
-            boxCollider.size = new Vector2(radius, radius);
-        }
-        float radiusRescale = (radius / 0.5f) * (1 + skill.user.creatureStats.areaOfEffectIncreases);
-        transform.localScale = new Vector3(radiusRescale, radiusRescale, 1);
-
         StartCoroutine(MoveAndHandleCollisions());
     }
 

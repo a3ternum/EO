@@ -15,6 +15,9 @@ public class Player : Creature
     public float currentIntelligence;
     public float currentDexterity;
 
+    protected GameObject experienceBarPrefab;
+    protected GameObject ourExperienceBarObject;
+    public ExperienceBar experienceBarComponent;
 
     protected override void Awake()
     {
@@ -33,6 +36,20 @@ public class Player : Creature
         currentMaxMana = (playerStats.manaBase + playerStats.manaFlat) * (1 + playerStats.manaIncreases) * (1 + playerStats.manaMoreMultipliers);
 
     }
+    protected virtual void InitializeExperienceBar()
+    {
+        // load experience bar from the resources folder
+        experienceBarPrefab = Resources.Load<GameObject>("ExperienceBar");
+        if (experienceBarPrefab == null)
+        {
+            Debug.LogError("ExperienceBar prefab not found in Resources folder!");
+        }
+
+        ourExperienceBarObject = Instantiate(experienceBarPrefab, transform.position, Quaternion.identity);
+        experienceBarComponent = ourExperienceBarObject.GetComponent<ExperienceBar>();
+
+        experienceBarComponent.setParent((Player)this);
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
@@ -41,7 +58,7 @@ public class Player : Creature
         currentHealth = currentMaxHealth;
 
         InitializeHealthBar(); // initialize health bar
-
+        InitializeExperienceBar(); // initialize experience bar
         playerCombat.SetActiveSkill(activeSkill);
     }
 
@@ -126,28 +143,10 @@ public class Player : Creature
 
     
     
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (playerMovement.terrainLayer == collision.gameObject.layer)
-        {
-        }
-    }
 
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("Collision detected");
-        if (playerMovement.terrainLayer == collision.gameObject.layer)
-        {
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        Debug.Log("Collision exit detected");
-        if (playerMovement.terrainLayer == collision.gameObject.layer)
-        {
-        }
-    }
+
+    
 
 }

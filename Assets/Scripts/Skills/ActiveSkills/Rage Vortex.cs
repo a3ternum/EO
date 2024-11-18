@@ -24,6 +24,9 @@ public class RageVortex : MeleeAttackArea
         }
 
         rageVortexSkillData = ScriptableObject.CreateInstance<SkillData>();
+
+        tags = new HashSet<string> { "Area", "Physical", "Projectile" };
+
         rageVortexSkillData.damagePerLevel = new List<float[]>
         {
             new float[] { 10f, 0f, 0f, 0f, 0f },

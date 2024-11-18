@@ -14,6 +14,7 @@ public class PlayerExperience : MonoBehaviour
     private int availableSkillPoints;
     private int totalSkillPoints;
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,6 +27,7 @@ public class PlayerExperience : MonoBehaviour
         experienceToNextLevel = expTable.experienceRequirementsPerLevel[level];
         availableSkillPoints = playerStats.availableSkillPoints;
         totalSkillPoints = playerStats.totalSkillPoints;
+
     }
 
     public void LevelUp()
@@ -41,6 +43,8 @@ public class PlayerExperience : MonoBehaviour
             LevelUp();
             experience -= experienceToNextLevel;
             experienceToNextLevel = expTable.experienceRequirementsPerLevel[level-1];
+            player.experienceBarComponent.setMaxExperience(experienceToNextLevel);
+            player.experienceBarComponent.setExperience(experience);
         }
     }
     
@@ -48,9 +52,13 @@ public class PlayerExperience : MonoBehaviour
     {
         totalExperience += experienceGained;
         experience += experienceGained;
-    }
 
-    // Update is called once per frame
+        // update the experience bar
+        player.experienceBarComponent.setExperience(experience);
+
+    }
+    
+    // we can make this more efficient by updating the playerStats and calling UpdateLevel() only when the player gains experience.
     public void Update()
     {
         UpdateLevel();
