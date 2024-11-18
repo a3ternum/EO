@@ -242,12 +242,34 @@ MonoBehaviour:
   currentHealth: 0
   currentMaxHealth: 0
   currentHealthRegen: 0
+  currentArmour: 0
+  currentEvasion: 0
+  currentPhysicalDamageReduction: 0
   currentAccuracy: 0
   currentAttackSpeed: 0
+  currentCastSpeed: 0
   currentMovementSpeed: 0
   currentAdditionalProjectiles: 0
+  currentResistances: []
+  currentEvadeChance: 0
+  currentBlockChance: 0
+  currentCriticalStrikeChance: 0
+  currentCriticalStrikeMultiplier: 0
+  currentIgniteChance: 0
+  currentChillChance: 0
+  currentFreezeChance: 0
+  currentShockChance: 0
+  currentAreaOfEffectIncrease: 0
+  currentAreaOfEffectDamageIncrease: 0
+  isIgnited: 0
+  isChilled: 0
+  isFrozen: 0
+  isShocked: 0
+  igniteDamage: 0
+  chillEffect: 0
+  freezeDuration: 0
+  shockEffect: 0
   damagedRecently: 0
-  healthBarPrefab: {fileID: 5048146370649816984, guid: a64d9cc6ea5e5954292229dd20f9a416, type: 3}
   activeSkill: {fileID: 6539871157614773703, guid: 6d1d72511c110644c8153582e5cc5b8e, type: 3}
   AIState: 0
   packAggroRadius: 5
@@ -266,7 +288,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3738342823073885407}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

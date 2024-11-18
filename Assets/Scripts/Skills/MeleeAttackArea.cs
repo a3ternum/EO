@@ -8,7 +8,6 @@ using UnityEngine.SocialPlatforms;
 
 public class MeleeAttackArea : MeleeAttack
 {
-    protected float areaOfAttackIncrease;
  
     public override void ActivateSkill()
     {

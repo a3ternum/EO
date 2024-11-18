@@ -30,6 +30,8 @@ public class Skill : MonoBehaviour
     public int terrainLayer { get; protected set; } // the layer mask of the terrain
     public int playerLayer { get; protected set; } // the layer mask of the player
 
+    protected float areaOfAttackIncrease;
+
     public HashSet<string> tags { get; protected set; } // the tags of the skill (e.g. "Fire", "Ice", "Melee")
     public Dictionary<Creature, float> lastHitTime { get; protected set; }
 
@@ -42,11 +44,16 @@ public class Skill : MonoBehaviour
     {
         lastHitTime = new Dictionary<Creature, float>();
     }
+
+
     protected virtual void Start()
     {
         enemyLayer = LayerMask.NameToLayer("Enemy");
         terrainLayer = LayerMask.NameToLayer("Terrain");
         playerLayer = LayerMask.NameToLayer("Player");
+
+        areaOfAttackIncrease = user.currentAreaOfEffectIncrease;
+
     }
 
     public virtual void ActivateSkill() // this method will be used to activate the skill

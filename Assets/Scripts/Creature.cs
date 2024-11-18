@@ -9,44 +9,42 @@ public class Creature : MonoBehaviour
 {
     public CreatureStats creatureStats;
 
-
     public float currentHealth;
     public float currentMaxHealth;
     public float currentHealthRegen;
-    protected float currentArmour;
-    protected float currentEvasion;
-    protected float currentPhysicalDamageReduction;
+    public float currentArmour;
+    public float currentEvasion;
+    public float currentPhysicalDamageReduction;
     public float currentAccuracy;
     public float currentAttackSpeed;
-    protected float currentCastSpeed;
+    public float currentCastSpeed;
     public float currentMovementSpeed;
     public int currentAdditionalProjectiles;
-    protected float[] currentResistances;
-    protected float currentEvadeChance;
-    protected float currentBlockChance;
+    public float[] currentResistances;
+    public float currentEvadeChance;
+    public float currentBlockChance;
 
-    protected float currentCriticalStrikeChance;
-    protected float currentCriticalStrikeMultiplier;
+    public float currentCriticalStrikeChance;
+    public float currentCriticalStrikeMultiplier;
 
-    protected float currentIgniteChance;
-    protected float currentChillChance;
-    protected float currentFreezeChance;
-    protected float currentShockChance;
+    public float currentIgniteChance;
+    public float currentChillChance;
+    public float currentFreezeChance;
+    public float currentShockChance;
 
-    protected float currentAreaOfEffectIncrease;
-    protected float currentAreaOfEffectDamageIncrease;
+    public float currentAreaOfEffectIncrease;
+    public float currentAreaOfEffectDamageIncrease;
 
-    protected bool isIgnited = false;
-    protected bool isChilled = false;
-    protected bool isFrozen = false;
-    protected bool isShocked = false;
+    public bool isIgnited = false;
+    public bool isChilled = false;
+    public bool isFrozen = false;
+    public bool isShocked = false;
 
-    protected float igniteDamage;
-    protected float chillEffect;
-    protected float freezeDuration;
-    protected float shockEffect;
+    public float igniteDamage;
+    public float chillEffect;
+    public float freezeDuration;
+    public float shockEffect;
 
-    
 
     public bool damagedRecently = false;
 

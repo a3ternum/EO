@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
     private bool lookingRight = true;
     private Animator animator;
     private GameManager gameManager;  // Reference to GameManager
+    private bool isBlocked = false;
+
+    public int terrainLayer; // Layer of the terrain
 
     private void Awake()
     {
@@ -22,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         gameManager = GameManager.Instance;
+        terrainLayer = LayerMask.NameToLayer("Terrain");
     }
 
     private void CheckRecall()
@@ -70,9 +74,17 @@ public class PlayerMovement : MonoBehaviour
 
     public void movePlayer()
     {
-        //  move the character using rigidbody
-        rb.MovePosition(rb.position + movement * movespeed * Time.fixedDeltaTime);
+        Vector2 direction = new Vector2(movement.x, movement.y);
+        // Raycast to detect walls
+        RaycastHit2D hit = Physics2D.Raycast(rb.position, direction, 0.2f, 1 << terrainLayer);
+        if (hit.collider == null) // || hit.collider.gameObject.layer == terrainLayer
+        {    //  move the character using rigidbody
+            rb.MovePosition(rb.position + movement * movespeed * Time.fixedDeltaTime);
+        }
     }
+
+  
+
 
     public void Update()
     {
