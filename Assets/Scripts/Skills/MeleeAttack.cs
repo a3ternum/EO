@@ -6,7 +6,6 @@ public abstract class MeleeAttack : Attack
     // technically only setting isMelee is relevant here.
     private bool isMelee = true;
     public float KnockbackForce { get; protected set; }
-    public float Range { get; protected set; }
 
 
 

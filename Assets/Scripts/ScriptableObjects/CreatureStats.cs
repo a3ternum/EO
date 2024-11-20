@@ -92,7 +92,7 @@ public class CreatureStats : ScriptableObject
     public float areaOfEffectIncreases;
     public float areaOfEffectDamageIncreases;
 
-
+    public int strikeRangeFlat;
     public void Start()
     {
         if (damageFlat.Length == 0)
@@ -193,5 +193,7 @@ public class CreatureStats : ScriptableObject
 
         areaOfEffectIncreases = 0;
         areaOfEffectDamageIncreases = 0;
+
+        strikeRangeFlat = 0;
     }
 }

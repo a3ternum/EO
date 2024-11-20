@@ -11,9 +11,16 @@ public class MeleeAttackSingleTarget : MeleeAttack
     private float singleTargetRangeParameter = 0.2f; // tweak this value!!!!
     public override void ActivateSkill()
     {
+        StartCoroutine(ActivateSkillCoroutine());
+    }
+
+    protected IEnumerator ActivateSkillCoroutine()
+    {
         List<Creature> targets = FindTargetInRange();
         bool canActivate = CanActivate();
-        StartCoroutine(AttackCoroutine());
+        Debug.Log("Starting animation");
+        yield return StartCoroutine(AttackCoroutine());
+        Debug.Log("Ending animation");
         if (canActivate && targets != null && targets.Count > 0)
         {
             originalHitLocation = targets[0].transform.position; // Store the original hit location
@@ -21,12 +28,12 @@ public class MeleeAttackSingleTarget : MeleeAttack
             Collider2D targetCollider = targets[0].GetComponent<Collider2D>();
             if (targetCollider != null && targetCollider.OverlapPoint(originalHitLocation))
             {
+                Debug.Log("Applying damage and effects");
                 ApplyDamageAndEffects(targets);
             }
             else // check for new targets in original hit location and hit the first one
             {
-                
-                Collider2D[] hitColliders = Physics2D.OverlapCircleAll(originalHitLocation, singleTargetRangeParameter); 
+                Collider2D[] hitColliders = Physics2D.OverlapCircleAll(originalHitLocation, singleTargetRangeParameter);
                 foreach (var collider in hitColliders)
                 {
                     Creature creature = collider.GetComponent<Creature>();
@@ -37,10 +44,10 @@ public class MeleeAttackSingleTarget : MeleeAttack
                     }
                 }
             }
-        
 
             OnActivate();
         }
     }
+
 
 }

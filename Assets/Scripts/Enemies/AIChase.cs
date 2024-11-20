@@ -148,6 +148,16 @@ public class AIChase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (thisEnemy.canMove)
+        {
+            agent.isStopped = false;
+        }
+        else
+        {
+            agent.isStopped = true;
+            //return;
+        }
+
         setSpeed(thisEnemy.currentMovementSpeed); // set speed of the agent (mob)
 
 

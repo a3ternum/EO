@@ -71,14 +71,15 @@ public class Fireball : OffensiveSpell
         bool canActivate = CanActivate();
         if (canActivate)
         {
-            StartCoroutine(SpellCoroutine());
-            OnActivate();
-            LaunchProjectiles();
+            StartCoroutine(ActivateSkillCoroutine());
         }
     }
-
-
-    // upon collision with an enemy, the fireball will explode and deal damage to all enemies in the area of effect
+    private IEnumerator ActivateSkillCoroutine()
+    {
+        yield return StartCoroutine(SpellCoroutine());
+        OnActivate();
+        LaunchProjectiles();
+    }
 
 
 

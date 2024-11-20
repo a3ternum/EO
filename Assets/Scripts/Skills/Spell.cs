@@ -37,7 +37,9 @@ public class Spell : Skill
             animator.speed = playerCastSpeed; // Set the animation speed based on the player's cast speed and the cast time of the skill
             animator.SetTrigger("Attack"); // Play the spell animation
         }
+        user.canMove = false;
         yield return new WaitForSeconds(animationDuration);
+        user.canMove = true;
         if (animator != null)
         {
             animator.SetTrigger("AttackFinished"); // Finish the spell animation
@@ -48,7 +50,7 @@ public class Spell : Skill
     {
         // This method will calculate the duration of the spell animation based on the player's cast speed and the spell's cast speed.
         // to be implemented in child classes
-        return (1 / castSpeed) / playerCastSpeed;
+        return 1 / (castSpeed * playerCastSpeed);
     }
    
 }

@@ -260,7 +260,7 @@ MonoBehaviour:
   freezeDuration: 0
   shockEffect: 0
   damagedRecently: 0
-  activeSkill: {fileID: 2545563128425719031, guid: 891beae89cbcc384fac7b62ef6ffd7ad, type: 3}
+  activeSkill: {fileID: 2309715994748723447, guid: bf817d4769d162f4b8766faaacbd2380, type: 3}
   playerStats: {fileID: 11400000, guid: 90b90c15d87ec7e4a8bfddbc9dd928a0, type: 2}
   currentMaxMana: 0
   currentMana: 0

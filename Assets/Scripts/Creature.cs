@@ -45,8 +45,10 @@ public class Creature : MonoBehaviour
     public float freezeDuration;
     public float shockEffect;
 
-
     public bool damagedRecently = false;
+
+    public bool canMove = true; // can the creature move, this will be disabled while creature is attacking.
+    public bool canAttack = true; // can the creature attack            
 
     protected const int maxEntropy = 100;
     protected int entropyValue;

@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
     private bool lookingRight = true;
     private Animator animator;
     private GameManager gameManager;  // Reference to GameManager
-    private bool isBlocked = false;
 
     public int terrainLayer; // Layer of the terrain
 

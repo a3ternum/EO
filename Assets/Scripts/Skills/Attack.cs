@@ -63,7 +63,9 @@ public class Attack : Skill
             animator.speed = attackSpeed * playerAttackSpeed; // Set the animation speed based on the player's attack speed and the attack's attack speed
             animator.SetTrigger("Attack"); // Play the attack animation
         }
+        user.canMove = false;
         yield return new WaitForSeconds(animationDuration);
+        user.canMove = true;
         if (animator != null)
         {
             animator.SetTrigger("AttackFinished"); // Finish the attack animation
@@ -78,6 +80,6 @@ public class Attack : Skill
     {
         // This method will calculate the duration of the attack animation based on the player's attack speed and the attack's attack speed.
         // to be implemented in child classes
-        return playerAttackSpeed * attackSpeed;
+        return 1/ (playerAttackSpeed * attackSpeed);
     }
 }
