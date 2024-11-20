@@ -5,22 +5,23 @@ using UnityEditor.U2D.Aseprite;
 
 public class Projectile : MonoBehaviour
 {
-    private float projectileSpeed;
-    private float radius;
-    private float duration;
-    private float tickRate;
-    private int pierceCount;
+    protected float projectileSpeed;
+    protected float radius;
+    protected float duration;
+    protected float tickRate;
+    protected int pierceCount;
 
 
-    private float[] damage;
-    private Dictionary<Creature, float> lastHitTime;
-    private Vector2 direction;
+    protected float[] damage;
+    protected Dictionary<Creature, float> lastHitTime;
+    protected Vector2 direction;
 
-    private int enemyLayer;
-    private int terrainLayer;
-    private int playerLayer;
-    private Skill skill;
+    protected int enemyLayer;
+    protected int terrainLayer;
+    protected int playerLayer;
+    protected Skill skill;
 
+    protected float AoEIncrease;
     protected bool destroyOnHit = true;
     
     
@@ -36,7 +37,7 @@ public class Projectile : MonoBehaviour
         this.direction = direction;
         this.projectileSpeed = skill.projectileSpeed;
         this.radius = skill.radius * (1 + skill.user.creatureStats.areaOfEffectIncreases);
-
+        this.AoEIncrease = skill.user.creatureStats.areaOfEffectIncreases;
         this.duration = skill.duration;
         this.tickRate = skill.tickRate;
         this.pierceCount = skill.pierceCount;
@@ -51,19 +52,18 @@ public class Projectile : MonoBehaviour
             Collider2D collider = GetComponent<Collider2D>();
             if (collider is CircleCollider2D circleCollider)
             {
-                circleCollider.radius = radius;
+                circleCollider.radius = radius * (1+AoEIncrease);
             }
             else if (collider is BoxCollider2D boxCollider)
             {
-                boxCollider.size = new Vector2(radius, radius);
+                boxCollider.size = new Vector2(boxCollider.size.x * (1 + AoEIncrease), boxCollider.size.y * (1 + AoEIncrease));
             }
-            float radiusRescale = (radius / 0.5f) * (1 + skill.user.creatureStats.areaOfEffectIncreases);
-            transform.localScale = new Vector3(radiusRescale, radiusRescale, 1);
+            transform.localScale = new Vector3(1+AoEIncrease, 1+ AoEIncrease, 1);
         }
         StartCoroutine(MoveAndHandleCollisions());
     }
 
-    private IEnumerator MoveAndHandleCollisions()
+    protected virtual IEnumerator MoveAndHandleCollisions()
     {
         int currentPierceCount = pierceCount;
         float elapsedTime = 0f;
@@ -121,7 +121,7 @@ public class Projectile : MonoBehaviour
         }
         Destroy(gameObject);
     }
-    private Collider2D[] GetHitColliders()
+    protected Collider2D[] GetHitColliders()
     {
         Collider2D collider = GetComponent<Collider2D>();
         if (collider is CircleCollider2D circleCollider)
@@ -138,7 +138,7 @@ public class Projectile : MonoBehaviour
             return new Collider2D[0];
         }
     }
-    private bool IsTargetOnScreen(Creature target)
+    protected bool IsTargetOnScreen(Creature target)
     {
         Vector3 screenPoint = Camera.main.WorldToViewportPoint(target.transform.position);
         return screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;

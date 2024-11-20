@@ -14,6 +14,7 @@ public class PlayerExperience : MonoBehaviour
     private int availableSkillPoints;
     private int totalSkillPoints;
 
+    private PassiveSkillButton passiveSkillButton;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,12 +32,16 @@ public class PlayerExperience : MonoBehaviour
         player.experienceBarComponent.setMaxExperience(experienceToNextLevel);
         player.experienceBarComponent.setExperience(experience);
 
+        // find the passive skill button
+        passiveSkillButton = FindFirstObjectByType<PassiveSkillButton>();
     }
 
     public void LevelUp()
     {
         level++;
         availableSkillPoints++;
+        passiveSkillButton.AddSkillPoint();
+
     }
 
     public void UpdateLevel()

@@ -35,11 +35,9 @@ public class BasicArrowAttack : RangedAttack
         };
         basicArrowSkillData.manaCostPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
         basicArrowSkillData.attackSpeedPerLevel = new List<float> { 3f, 1.1f, 1.2f, 1.3f, 1.4f };
-        basicArrowSkillData.castTimePerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
         basicArrowSkillData.durationPerLevel = new List<float> { 3f, 4f, 5f, 6f, 7f };
         basicArrowSkillData.tickRatePerLevel = new List<float>() { 0.6f, 0.58f, 0.56f, 0.54f, 0.52f };
         basicArrowSkillData.projectileSpeedPerLevel = new List<float> { 5f, 5.2f, 5.4f, 5.6f, 5.8f };
-        basicArrowSkillData.radiusPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
         basicArrowSkillData.pierceCountPerLevel = new List<float> { 2f, 2f, 3f, 4f, 5f };
        
     }
@@ -57,7 +55,6 @@ public class BasicArrowAttack : RangedAttack
         damage = basicArrowSkillData.damagePerLevel[skillLevel];
         attackSpeed = basicArrowSkillData.attackSpeedPerLevel[skillLevel];
         manaCost = basicArrowSkillData.manaCostPerLevel[skillLevel];
-        castTime = basicArrowSkillData.castTimePerLevel[skillLevel];
         duration = basicArrowSkillData.durationPerLevel[skillLevel];
         tickRate = basicArrowSkillData.tickRatePerLevel[skillLevel];
         projectileSpeed = basicArrowSkillData.projectileSpeedPerLevel[skillLevel];

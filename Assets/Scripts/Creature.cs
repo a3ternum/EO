@@ -194,6 +194,7 @@ public class Creature : MonoBehaviour
         ComputeAilmentEffects(damageAfterDefenses, attacker, isCrit);
 
         float combinedDamage = damageAfterDefenses.Sum();
+        
         if (currentHealth > 0)
         {
             currentHealth -= combinedDamage;
@@ -240,9 +241,12 @@ public class Creature : MonoBehaviour
 
         // physical damage is mitigated by armor. Calculate this first
         // the formula is DR(A, Draw) = A / (A + 5 * Draw)
-        float DamageReduction = currentArmour / (currentArmour + 5 * damage[0]);
-        DamageReduction = DamageReduction + currentPhysicalDamageReduction;
-        finalDamageTaken[0] = damage[0] * (1 - DamageReduction);
+        if (damage[0] > 0)
+        {
+            float DamageReduction = currentArmour / (currentArmour + 5 * damage[0]);
+            DamageReduction = DamageReduction + currentPhysicalDamageReduction;
+            finalDamageTaken[0] = damage[0] * (1 - DamageReduction);
+        }
 
         // fire, ice, lightning, poison damage is mitigated by resistances. Calculate this next
 

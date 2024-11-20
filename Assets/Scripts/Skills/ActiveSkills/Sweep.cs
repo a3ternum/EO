@@ -24,7 +24,7 @@ public class Sweep : MeleeAttackArea
         sweepSkillData.manaCostPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
         sweepSkillData.attackSpeedPerLevel = new List<float> { 3f, 1.1f, 1.2f, 1.3f, 1.4f };
         sweepSkillData.radiusPerLevel = new List<float> { 0.5f, 0.5f, 0.5f, 0.5f, 0.5f };
-        sweepSkillData.castTimePerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
+        sweepSkillData.castSpeedPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
         sweepSkillData.durationPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
     }
 

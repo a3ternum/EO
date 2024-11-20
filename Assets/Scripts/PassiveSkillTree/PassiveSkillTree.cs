@@ -15,7 +15,10 @@ public class PassiveSkillTree : MonoBehaviour, IDragHandler, IBeginDragHandler
     private bool isSkillTreeVisible = false;
     private Vector3 lastMousePosition;
     private float dragSensitivity = 0.05f; // Higher values make the skill tree move faster
-    
+
+    [SerializeField]
+    private PassiveSkillButton passiveSkillButton;
+
     public RectTransform canvasBounds; // Define the bounds for the canvas movement
 
     private void Awake()
@@ -110,8 +113,31 @@ public class PassiveSkillTree : MonoBehaviour, IDragHandler, IBeginDragHandler
 
     private void SelectNode(Node node)
     {
+        if (node == startNode)
+        {
+            node.ApplyEffect(player);
+            // Mark node as selected (e.g., change button color)
+            var startButton = node.GetComponent<UnityEngine.UI.Button>();
+            startButton.interactable = false;
+            return;
+        }
+          
         // remove skill point
         player.playerStats.availableSkillPoints--;
+        // remove skill point from button
+        passiveSkillButton.RemoveSkillPoint();
+
+        // disable button if no skill points are available
+        if (passiveSkillButton.availableSkillPoints == 0)
+        {
+            passiveSkillButton.HideButton();
+        }
+        if (passiveSkillButton.availableSkillPoints < 0)
+        {
+            Debug.LogError("Available skill points cannot be negative. we now have: " + passiveSkillButton.availableSkillPoints + " skill points");
+        }
+
+        // add total skill point
         player.playerStats.totalSkillPoints++;
         // Apply node effect
         node.ApplyEffect(player);
@@ -120,7 +146,7 @@ public class PassiveSkillTree : MonoBehaviour, IDragHandler, IBeginDragHandler
         button.interactable = false;
     }
 
-    private void ToggleSkillTree()
+    public void ToggleSkillTree()
     {
         isSkillTreeVisible = !isSkillTreeVisible;
         SetSkillTreeVisibility(isSkillTreeVisible);

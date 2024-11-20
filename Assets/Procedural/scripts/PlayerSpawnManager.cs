@@ -12,6 +12,6 @@ public class PlayerSpawnManager : MonoBehaviour
     private void SpawnPlayer(Vector2Int startPosition)
     {
         // spawn player at the start position
-        Instantiate(playerPrefab, new Vector3(startPosition.x, startPosition.y, 0), Quaternion.identity);
+        Instantiate(playerPrefab, new Vector3(startPosition.x + 0.5f, startPosition.y + 0.5f, 0), Quaternion.identity);
     }
 }

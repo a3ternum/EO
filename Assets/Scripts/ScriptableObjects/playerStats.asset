@@ -90,7 +90,7 @@ MonoBehaviour:
   additionalProjectiles: 0
   projectileSpeedIncreases: 0
   projectileDamageIncreases: 0
-  areaOfEffectIncreases: 3
+  areaOfEffectIncreases: 0
   areaOfEffectDamageIncreases: 0
   experience: 0
   totalExperience: 0

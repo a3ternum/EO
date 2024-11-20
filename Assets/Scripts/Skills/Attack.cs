@@ -34,7 +34,24 @@ public class Attack : Skill
         }
 
     }
-  
+
+    public override void OnActivate()
+    // This method will handle common tasks performed upon activation, like setting the cooldown timer,
+    // updating the mana pool, and any general pre-activation setup.
+    {
+        if (user is Player)
+        {
+            Player player = user.GetComponent<Player>();
+            player.currentMana = Mathf.Max(player.currentMana - manaCost, 0);
+        }
+        if (user.currentAttackSpeed == 0 || attackSpeed == 0)
+        {
+            Debug.LogError("Attack speed is 0");
+        }
+        cooldownTimer = (1 / attackSpeed) / user.currentAttackSpeed;
+    }
+
+
     protected IEnumerator AttackCoroutine()
     {
         OnActivate();

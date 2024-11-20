@@ -6,8 +6,8 @@ using System.Collections.Generic;
 public class SkillData : ScriptableObject
 {
     public List<float[]> damagePerLevel; // damage of skill
-    public List<float> castTimePerLevel; // how long it takes to cast the skill
-    public List<float> attackSpeedPerLevel; // how fast the skill can be used
+    public List<float> castSpeedPerLevel; // base cast speed of skill
+    public List<float> attackSpeedPerLevel; // base attack speed of skill
     public List<float> durationPerLevel; // how long the skill lasts
     public List<float> tickRatePerLevel; // how often the skill deals damage
     public List<float> manaCostPerLevel; // mana cost of skill

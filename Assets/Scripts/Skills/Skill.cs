@@ -15,7 +15,7 @@ public class Skill : MonoBehaviour
     public int skillLevel { get; protected set; } // the level of the skill, 
     public string[] skillTags { get; protected set; } // the tags of the skill (e.g. "Fire", "Ice", "Melee")
     public float[] damage { get; protected set; } // the damage of the skill
-    public float castTime { get; protected set; } // the cast time of the skill
+    public float castSpeed { get; protected set; } // the cast time of the skill
     public float attackSpeed { get; protected set; } // the base attack speed of the skill
     public float duration { get; protected set; } // the duration of the skill
     public float tickRate { get; protected set; } // the tick rate of the skill
@@ -38,7 +38,7 @@ public class Skill : MonoBehaviour
     [SerializeField]
     private Sprite skillIcon; // the icon of the skill to display in UI.
     
-    private float cooldownTimer = 0; // the cooldown timer of the skill
+    protected float cooldownTimer = 0; // the cooldown timer of the skill
 
     protected virtual void Awake()
     {

@@ -23,7 +23,7 @@ public class HeavyStrike : MeleeAttackSingleTarget
         heavyStrikeSkillData.manaCostPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
         heavyStrikeSkillData.attackSpeedPerLevel = new List<float> { 3f, 1.1f, 1.2f, 1.3f, 1.4f };
         heavyStrikeSkillData.strikeRangePerLevel = new List<float>{1f, 1f, 1f, 1f, 1f};
-        heavyStrikeSkillData.castTimePerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
+        heavyStrikeSkillData.castSpeedPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
         heavyStrikeSkillData.durationPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
     }
    
