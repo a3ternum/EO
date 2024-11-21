@@ -138,6 +138,8 @@ public class Creature : MonoBehaviour
             System.Type skillType = activeSkill.GetType();
             activeSkill = (Skill)gameObject.AddComponent(skillType);
             activeSkill.user = this;
+            activeSkill.InitializeSkill(); // Ensure the skill is initialized
+
         }
         else
         {

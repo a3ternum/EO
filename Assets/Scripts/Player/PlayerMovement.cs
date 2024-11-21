@@ -5,8 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Transform playerTransform;
-    public float movespeed = 5f;
+    public Player player;
     private Vector2 movement;
     private Rigidbody2D rb;
     private bool lookingRight = true;
@@ -14,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private GameManager gameManager;  // Reference to GameManager
 
     public int terrainLayer; // Layer of the terrain
+
 
     private void Awake()
     {
@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
         public void setMovement()
     {
-        if (!enabled)
+        if (!enabled || !player.canMove)
         {
             movement.x = 0; movement.y = 0;
         }
@@ -56,13 +56,13 @@ public class PlayerMovement : MonoBehaviour
         if (movement.x < 0 && lookingRight)
         {
             // flip the sprite to the left
-            playerTransform.rotation = Quaternion.Euler(0, 180, 0);
+            player.transform.rotation = Quaternion.Euler(0, 180, 0);
             lookingRight = false;
         }
         if (movement.x > 0 && !lookingRight)
         {
             // flip the sprite to the right
-            playerTransform.rotation = Quaternion.Euler(0, 0, 0);
+            player.transform.rotation = Quaternion.Euler(0, 0, 0);
             lookingRight = true;
         }
 
@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(rb.position, direction, 0.2f, 1 << terrainLayer);
         if (hit.collider == null) // || hit.collider.gameObject.layer == terrainLayer
         {    //  move the character using rigidbody
-            rb.MovePosition(rb.position + movement * movespeed * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + movement * player.currentMovementSpeed * Time.fixedDeltaTime);
         }
     }
 

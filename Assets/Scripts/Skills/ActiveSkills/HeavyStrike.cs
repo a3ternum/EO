@@ -9,6 +9,17 @@ public class HeavyStrike : MeleeAttackSingleTarget
     protected override void Awake() // Initialize heavy strike skill data
     {
         base.Awake();
+        InitializeSkill();
+    }
+   
+
+    protected override void Start()
+    {
+        base.Start();  
+    }
+
+    public override void InitializeSkill()
+    {
         skillName = "Heavy Strike";
         heavyStrikeSkillData = ScriptableObject.CreateInstance<SkillData>();
 
@@ -22,15 +33,9 @@ public class HeavyStrike : MeleeAttackSingleTarget
         };
         heavyStrikeSkillData.manaCostPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
         heavyStrikeSkillData.attackSpeedPerLevel = new List<float> { 3f, 3.1f, 3.2f, 3.4f, 3.7f };
-        heavyStrikeSkillData.strikeRangePerLevel = new List<float>{2f, 2f, 2f, 2f, 2f};
+        heavyStrikeSkillData.strikeRangePerLevel = new List<float> { 2f, 2f, 2f, 2f, 2f };
         heavyStrikeSkillData.castSpeedPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
         heavyStrikeSkillData.durationPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
-    }
-   
-
-    protected override void Start()
-    {
-        base.Start();
 
 
         int skillLevel = 0;
@@ -42,9 +47,8 @@ public class HeavyStrike : MeleeAttackSingleTarget
         strikeRange = heavyStrikeSkillData.strikeRangePerLevel[skillLevel];
         attackSpeed = heavyStrikeSkillData.attackSpeedPerLevel[skillLevel];
         manaCost = heavyStrikeSkillData.manaCostPerLevel[skillLevel];
+
     }
-
-
 
 
 

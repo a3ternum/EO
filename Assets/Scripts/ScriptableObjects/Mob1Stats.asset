@@ -74,7 +74,7 @@ MonoBehaviour:
   criticalStrikeChanceBase: 0.05
   criticalStrikeChanceFlat: 0
   criticalStrikeChanceIncreases: 0
-  criticalStrikeMultiplierBase: 1
+  criticalStrikeMultiplierBase: 1.5
   criticalStrikeMultiplierFlat: 0
   criticalStrikeMultiplierIncreases: 0
   igniteChanceBase: 0
@@ -92,4 +92,4 @@ MonoBehaviour:
   projectileDamageIncreases: 0
   areaOfEffectIncreases: 0
   areaOfEffectDamageIncreases: 0
-  strikeRangeFlat: 2
+  strikeRangeFlat: 0

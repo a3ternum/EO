@@ -70,6 +70,8 @@ public class PlayerStats : CreatureStats
         manaFlat = 0;
         manaIncreases = 0;
         manaMoreMultipliers = 0;
+
+        movementSpeedBase = 5;
     }
 
     

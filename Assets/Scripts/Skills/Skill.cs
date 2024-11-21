@@ -56,6 +56,11 @@ public class Skill : MonoBehaviour
 
     }
 
+    public virtual void InitializeSkill() // child classes will use this method to initialize the skill
+    {
+        
+    }
+
     public virtual void ActivateSkill() // this method will be used to activate the skill
     {
         if (CanActivate())
@@ -97,6 +102,8 @@ public class Skill : MonoBehaviour
         }
         
     }
+
+
 
     public virtual void LevelUp() // this method will be used to level up the skill
     {

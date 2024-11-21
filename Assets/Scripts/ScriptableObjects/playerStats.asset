@@ -85,13 +85,14 @@ MonoBehaviour:
   freezeChanceFlat: 0
   shockChanceBase: 0
   shockChanceFlat: 0
-  movementSpeedBase: 1
+  movementSpeedBase: 3
   movementSpeedIncreases: 0
   additionalProjectiles: 0
   projectileSpeedIncreases: 0
   projectileDamageIncreases: 0
   areaOfEffectIncreases: 0
   areaOfEffectDamageIncreases: 0
+  strikeRangeFlat: 0
   experience: 0
   totalExperience: 0
   level: 0

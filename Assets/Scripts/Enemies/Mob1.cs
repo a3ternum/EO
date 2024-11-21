@@ -7,7 +7,6 @@ public class Mob1 : Enemy
         base.Start();
 
         experienceValue = 50f;
-        Debug.Log("setting attack range to " + activeSkill.strikeRange + " + " + creatureStats.strikeRangeFlat);
         attackRange = activeSkill.strikeRange + creatureStats.strikeRangeFlat;
     }
 
