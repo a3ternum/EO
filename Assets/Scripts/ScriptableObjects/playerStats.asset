@@ -50,7 +50,7 @@ MonoBehaviour:
   damageIncreases:
   - 0
   - 0
-  - 0
+  - 3
   - 0
   - 0
   damageMoreMultipliers:
@@ -85,7 +85,7 @@ MonoBehaviour:
   freezeChanceFlat: 0
   shockChanceBase: 0
   shockChanceFlat: 0
-  movementSpeedBase: 3
+  movementSpeedBase: 5
   movementSpeedIncreases: 0
   additionalProjectiles: 0
   projectileSpeedIncreases: 0

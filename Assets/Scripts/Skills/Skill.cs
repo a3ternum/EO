@@ -30,6 +30,8 @@ public class Skill : MonoBehaviour
     public int terrainLayer { get; protected set; } // the layer mask of the terrain
     public int playerLayer { get; protected set; } // the layer mask of the player
 
+    protected Vector2 targetPosition { get; set; } // the location where the skill is targeted
+
     protected float areaOfAttackIncrease;
 
     public HashSet<string> tags { get; protected set; } // the tags of the skill (e.g. "Fire", "Ice", "Melee")
@@ -236,4 +238,28 @@ public virtual void UpdateCooldown(float deltaTime) //A method to manage the coo
     {
         return tags.Contains(tag);
     }
+
+    protected virtual Vector2 DetermineTargetLocation()
+    {
+        if (user is Player)
+        {
+            targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
+        else if (user is Enemy)
+        {
+            GameObject player = GameObject.FindWithTag("Player");
+            if (player == null)
+            {
+                Debug.LogError("Player is null");
+                return Vector2.zero;
+            }
+            else
+            {
+                targetPosition = player.transform.position;
+            }
+        }
+        return targetPosition;
+    }
+    
+
 }

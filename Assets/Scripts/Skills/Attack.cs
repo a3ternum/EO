@@ -52,7 +52,7 @@ public class Attack : Skill
     }
 
 
-    protected IEnumerator AttackCoroutine()
+    protected virtual IEnumerator AttackCoroutine()
     {
         OnActivate();
         float playerAttackSpeed = user.currentAttackSpeed;
@@ -76,7 +76,7 @@ public class Attack : Skill
 
     }
 
-    private float CalculateAnimationDuration(float playerAttackSpeed, float attackSpeed)
+    protected float CalculateAnimationDuration(float playerAttackSpeed, float attackSpeed)
     {
         // This method will calculate the duration of the attack animation based on the player's attack speed and the attack's attack speed.
         // to be implemented in child classes

@@ -202,7 +202,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4255957249915089235}
-  movespeed: 5
   terrainLayer: 0
 --- !u!114 &4533507476208896540
 MonoBehaviour:
@@ -262,7 +261,7 @@ MonoBehaviour:
   damagedRecently: 0
   canMove: 1
   canAttack: 1
-  activeSkill: {fileID: 2309715994748723447, guid: bf817d4769d162f4b8766faaacbd2380, type: 3}
+  activeSkill: {fileID: 7478577056575427297, guid: db5dfbe08ce503f499667b69a74cec7d, type: 3}
   playerStats: {fileID: 11400000, guid: 90b90c15d87ec7e4a8bfddbc9dd928a0, type: 2}
   currentMaxMana: 0
   currentMana: 0

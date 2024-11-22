@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 public class Fireball : OffensiveSpell
 {
 
@@ -74,16 +75,16 @@ public class Fireball : OffensiveSpell
             StartCoroutine(ActivateSkillCoroutine());
         }
     }
-    private IEnumerator ActivateSkillCoroutine()
+    protected override IEnumerator ActivateSkillCoroutine()
     {
         yield return StartCoroutine(SpellCoroutine());
         OnActivate();
-        LaunchProjectiles();
+        LaunchProjectiles(DetermineTargetLocation());
     }
 
 
 
-
+    
 
 
 

@@ -13,6 +13,9 @@ public class Sweep : MeleeAttackArea
 
         sweepSkillData = ScriptableObject.CreateInstance<SkillData>();
 
+        tags = new HashSet<string> { "Area", "Physical", "Melee"};
+
+
         sweepSkillData.damagePerLevel = new List<float[]>
         {
             new float[] { 10f, 0f, 0f, 0f, 0f },

@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class OffensiveSpell : Spell
@@ -6,12 +8,22 @@ public class OffensiveSpell : Spell
 
     protected Projectile projectilePrefab;
 
-    protected virtual void LaunchProjectiles()
+
+    public override void ActivateSkill()
+    {
+        bool canActivate = CanActivate();
+        if (canActivate)
+        {
+            StartCoroutine(ActivateSkillCoroutine());
+        }
+    }
+
+    protected virtual void LaunchProjectiles(Vector2 targetPosition)
     {
         int totalProjectiles = 1 + additionalProjectiles + user.currentAdditionalProjectiles;
         float angleStep = 30f;
         float startAngle = -angleStep * (totalProjectiles - 1) / 2;
-        Vector2 directionToTarget = GetDirectionToTarget();
+        Vector2 directionToTarget = GetDirectionToTarget(targetPosition);
 
         for (int i = 0; i < totalProjectiles; i++)
         {
@@ -27,11 +39,11 @@ public class OffensiveSpell : Spell
         }
     }
 
-    private Vector2 GetDirectionToTarget()
+    protected Vector2 GetDirectionToTarget(Vector2 targetPosition)
     {
         if (user is Player)
         {
-            return ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)user.transform.position).normalized;
+            return (targetPosition - (Vector2)user.transform.position).normalized;
         }
         else if (user is Enemy)
         {
@@ -43,5 +55,43 @@ public class OffensiveSpell : Spell
         }
         return Vector2.right; // Default direction if no target is found
     }
+
+    protected virtual List<Creature> AoECollider(Vector2 position)
+    {
+        float increasedRadius = radius * (1 + areaOfAttackIncrease);
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(position, increasedRadius);
+        List<Creature> targetsList = new List<Creature>();
+
+
+        foreach (var collider in hitColliders)
+        {
+            if (collider.gameObject.layer == enemyLayer && user is Player)
+            {
+                Creature enemy = collider.GetComponent<Creature>();
+                if (enemy != null)
+                {
+                    targetsList.Add(enemy);
+                }
+            }
+            else if (collider.gameObject.layer == playerLayer && user is Enemy)
+            {
+                Creature player = collider.GetComponent<Creature>();
+                if (player != null)
+                {
+                    targetsList.Add(player);
+                }
+            }
+        }
+
+        return targetsList;
+    }
+
+    protected virtual IEnumerator ActivateSkillCoroutine()
+    {
+        yield return StartCoroutine(SpellCoroutine());
+        OnActivate();
+    }
+
+
 }
  
