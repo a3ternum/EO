@@ -15,5 +15,6 @@ public class SkillData : ScriptableObject
     public List<float> projectileSpeedPerLevel; // how fast the projectile moves
     public List<float> radiusPerLevel; // area of effect radius of skill
     public List<float> pierceCountPerLevel; // how many enemies the skill can pierce
+    public List<float> rangePerLevel; // how far the skill can be activated from
 
 }

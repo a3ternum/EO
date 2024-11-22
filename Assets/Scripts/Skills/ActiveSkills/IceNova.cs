@@ -32,6 +32,7 @@ public class IceNova : OffensiveSpell
         skillData.radiusPerLevel = new List<float> { 0.5f, 0.5f, 0.5f, 0.5f, 0.5f };
         skillData.castSpeedPerLevel = new List<float> { 1.5f, 1.46f, 1.42f, 1.38f, 1.34f };
         skillData.durationPerLevel = new List<float> { 1f, 0.5f, 0.5f, 0.5f, 0.5f };
+        skillData.rangePerLevel = new List<float> { 4f, 4f, 4f, 4f, 4f };
     }
 
 
@@ -49,6 +50,8 @@ public class IceNova : OffensiveSpell
         radius = skillData.radiusPerLevel[skillLevel];
         castSpeed = skillData.castSpeedPerLevel[skillLevel];
         manaCost = skillData.manaCostPerLevel[skillLevel];
+        duration = skillData.durationPerLevel[skillLevel];
+        range = skillData.rangePerLevel[skillLevel];
     }
 
     public override void ActivateSkill()
@@ -79,5 +82,39 @@ public class IceNova : OffensiveSpell
         ApplyDamageAndEffects(creaturesHit);
 
     }
+
+    protected override Vector2 DetermineTargetLocation()
+    {
+        if (user is Player)
+        {
+            targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            // make sure that we take into account the range of the skill
+            // if the target position is out of range we should set it to the maximum range
+            // use the range of the skill to determine the target position
+            Vector2 direction = targetPosition - (Vector2)user.transform.position;
+            if (direction.magnitude > range)
+            {
+                direction = direction.normalized * range;
+                targetPosition = (Vector2)user.transform.position + direction;
+            }
+
+
+        }
+        else if (user is Enemy)
+        {
+            GameObject player = GameObject.FindWithTag("Player");
+            if (player == null)
+            {
+                Debug.LogError("Player is null");
+                return Vector2.zero;
+            }
+            else
+            {
+                targetPosition = player.transform.position;
+            }
+        }
+        return targetPosition;
+    }
+
 
 }

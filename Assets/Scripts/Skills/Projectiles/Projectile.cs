@@ -36,8 +36,8 @@ public class Projectile : MonoBehaviour
 
         this.direction = direction;
         this.projectileSpeed = skill.projectileSpeed;
-        this.radius = skill.radius * (1 + skill.user.creatureStats.areaOfEffectIncreases);
         this.AoEIncrease = skill.user.creatureStats.areaOfEffectIncreases;
+        this.radius = skill.radius * (1 + AoEIncrease);
         this.duration = skill.duration;
         this.tickRate = skill.tickRate;
         this.pierceCount = skill.pierceCount;
@@ -50,15 +50,29 @@ public class Projectile : MonoBehaviour
         {
             // update scale of projectile object based on radius
             Collider2D collider = GetComponent<Collider2D>();
+            float baseRadius = 1;
+            float baseWidth = 0;
+            float baseHeight = 0;
+            float scale = 1;
             if (collider is CircleCollider2D circleCollider)
             {
-                circleCollider.radius = radius * (1+AoEIncrease);
+                baseRadius = circleCollider.radius;
+                circleCollider.radius = radius;
+                scale = radius / baseRadius;
+                transform.localScale = new Vector3(scale, scale, 1);
             }
             else if (collider is BoxCollider2D boxCollider)
             {
-                boxCollider.size = new Vector2(boxCollider.size.x * (1 + AoEIncrease), boxCollider.size.y * (1 + AoEIncrease));
+                boxCollider.size = new Vector2(boxCollider.size.x * radius, boxCollider.size.y * radius);
+
+                baseWidth = boxCollider.size.x;
+                baseHeight = boxCollider.size.y;
+
+                transform.localScale = new Vector3(baseWidth, baseHeight, 1);
             }
-            transform.localScale = new Vector3(1+AoEIncrease, 1+ AoEIncrease, 1);
+
+
+
         }
         StartCoroutine(MoveAndHandleCollisions());
     }

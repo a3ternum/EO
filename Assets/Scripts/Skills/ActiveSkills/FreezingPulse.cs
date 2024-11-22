@@ -1,16 +1,85 @@
+using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
-public class FreezingPulse : MonoBehaviour
+public class FreezingPulse : OffensiveSpell
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private SkillData skillData;
+
+
+
+    protected override void Awake() // Initialize heavy strike skill data
     {
-        
+        base.Awake();
+        skillName = "Freezing Pulse";
+
+        projectilePrefab = Resources.Load<Projectile>("FreezingPulseProjectile");
+
+        if (projectilePrefab == null)
+        {
+            Debug.LogError("freezing pulse prefab not found in Resources folder!");
+        }
+
+        skillData = ScriptableObject.CreateInstance<SkillData>();
+
+        tags = new HashSet<string> { "Area", "Cold", "Projectile" };
+
+        skillData.damagePerLevel = new List<float[]>
+        {
+            new float[] { 0f, 25f, 0f, 0f, 0f },
+            new float[] { 0f, 30f, 0f, 0f, 0f },
+            new float[] { 0f, 35f, 0f, 0f, 0f },
+            new float[] { 0f, 40f, 0f, 0f, 0f },
+            new float[] { 0f, 45f, 0f, 0f, 0f }
+        };
+        skillData.manaCostPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
+        skillData.radiusPerLevel = new List<float> { 1f, 1f, 1f, 1f, 1f };
+        skillData.castSpeedPerLevel = new List<float> { 1f, 1f, 1f, 1f, 1f };
+        skillData.durationPerLevel = new List<float> { 0.5f, 0.5f, 0.5f, 0.5f, 0.5f };
+        skillData.tickRatePerLevel = new List<float>() { 1f, 1f, 1f, 1f, 1f };
+        skillData.projectileSpeedPerLevel = new List<float> { 10f, 10f, 10f, 10f, 10f };
+
     }
 
-    // Update is called once per frame
-    void Update()
+
+    protected override void Start()
     {
-        
+        base.Start();
+
+
+        int skillLevel = 0;
+        if (skillData == null)
+        {
+            Debug.Log("Freezing pulse skill data is null");
+            return;
+        }
+        damage = skillData.damagePerLevel[skillLevel];
+        radius = skillData.radiusPerLevel[skillLevel];
+        manaCost = skillData.manaCostPerLevel[skillLevel];
+        castSpeed = skillData.castSpeedPerLevel[skillLevel];
+        duration = skillData.durationPerLevel[skillLevel];
+        tickRate = skillData.tickRatePerLevel[skillLevel];
+        projectileSpeed = skillData.projectileSpeedPerLevel[skillLevel];
     }
+
+
+
+    public override void ActivateSkill()
+    {
+        bool canActivate = CanActivate();
+        if (canActivate)
+        {
+            StartCoroutine(ActivateSkillCoroutine());
+        }
+    }
+    protected override IEnumerator ActivateSkillCoroutine()
+    {
+        yield return StartCoroutine(SpellCoroutine());
+        OnActivate();
+        LaunchProjectiles(DetermineTargetLocation());
+    }
+
+
+
+
 }

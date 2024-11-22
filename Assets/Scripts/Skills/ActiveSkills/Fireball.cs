@@ -34,7 +34,6 @@ public class Fireball : OffensiveSpell
             new float[] { 0f, 45f, 0f, 0f, 0f }
         };
         fireballSkillData.manaCostPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
-        fireballSkillData.attackSpeedPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
         fireballSkillData.radiusPerLevel = new List<float> { 0.18f, 0.18f, 0.18f, 0.18f, 0.18f };
         fireballSkillData.castSpeedPerLevel = new List<float> { 1f, 1f, 1f, 1f, 1f };
         fireballSkillData.durationPerLevel = new List<float> { 10f, 10, 10f, 10f, 10f };
@@ -52,7 +51,7 @@ public class Fireball : OffensiveSpell
         int skillLevel = 0;
         if (fireballSkillData == null)
         {
-            Debug.Log("rage vortex skill data is null");
+            Debug.Log("Fireball skill data is null");
             return;
         }
         damage = fireballSkillData.damagePerLevel[skillLevel];

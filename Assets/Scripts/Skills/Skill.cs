@@ -25,6 +25,7 @@ public class Skill : MonoBehaviour
     public float strikeRange { get; protected set; } // the strike Range of the skill
     public float projectileSpeed { get; protected set; } // the speed of the projectile
     public float radius { get; protected set; } // the radius of the skill
+    public float range { get; protected set; } // the range of the skill
     public int pierceCount { get; protected set; } // the number of enemies the skill can pierce
     public int enemyLayer { get; protected set; } // the layer mask of the enemy
     public int terrainLayer { get; protected set; } // the layer mask of the terrain
@@ -244,6 +245,11 @@ public virtual void UpdateCooldown(float deltaTime) //A method to manage the coo
         if (user is Player)
         {
             targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            // make sure that we take into account the range of the skill
+            // if the target position is out of range we should set it to the maximum range
+            // the range depends on the skill and the user
+
+
         }
         else if (user is Enemy)
         {
