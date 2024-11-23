@@ -55,7 +55,8 @@ public class Skill : MonoBehaviour
         terrainLayer = LayerMask.NameToLayer("Terrain");
         playerLayer = LayerMask.NameToLayer("Player");
 
-        areaOfAttackIncrease = user.currentAreaOfEffectIncrease;
+        if (user != null)
+            areaOfAttackIncrease = user.currentAreaOfEffectIncrease;
 
     }
 

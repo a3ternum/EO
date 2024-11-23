@@ -21,6 +21,8 @@ public class HeavyStrike : MeleeAttackSingleTarget
     public override void InitializeSkill()
     {
         skillName = "Heavy Strike";
+        tags = new HashSet<string> { "Melee", "Strike", "Physical"};
+
         heavyStrikeSkillData = ScriptableObject.CreateInstance<SkillData>();
 
         heavyStrikeSkillData.damagePerLevel = new List<float[]>
@@ -34,8 +36,6 @@ public class HeavyStrike : MeleeAttackSingleTarget
         heavyStrikeSkillData.manaCostPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
         heavyStrikeSkillData.attackSpeedPerLevel = new List<float> { 3f, 3.1f, 3.2f, 3.4f, 3.7f };
         heavyStrikeSkillData.strikeRangePerLevel = new List<float> { 2f, 2f, 2f, 2f, 2f };
-        heavyStrikeSkillData.castSpeedPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
-        heavyStrikeSkillData.durationPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
 
 
         int skillLevel = 0;

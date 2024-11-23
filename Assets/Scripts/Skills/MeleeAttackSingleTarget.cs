@@ -104,7 +104,7 @@ public class MeleeAttackSingleTarget : MeleeAttack
 
         foreach (var collider in hitColliders)
         {
-            if (collider.gameObject.layer == enemyLayer && user is Player || collider.gameObject.layer == playerLayer && user is Enemy)
+            if ((collider.gameObject.layer == enemyLayer && user is Player) || (collider.gameObject.layer == playerLayer && user is Enemy))
             {
                 Creature creature = collider.GetComponent<Creature>();
                 if (creature != null)

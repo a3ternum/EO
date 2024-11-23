@@ -15,15 +15,16 @@ public class MeleeAttackArea : MeleeAttack
         bool canActivate = CanActivate();
         if (canActivate)
         {
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             StartCoroutine(AttackCoroutine());
             OnActivate();
-            List<Creature> targetsList = AoECollider();
+            List<Creature> targetsList = AoECollider(mousePosition);
             ApplyDamageAndEffects(targetsList);
         }
 
     }
  
-    protected virtual List<Creature> AoECollider()
+    protected virtual List<Creature> AoECollider(Vector2 mousePosition)
     {
         radius = radius * (1 + areaOfAttackIncrease);
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(user.transform.position, radius);
