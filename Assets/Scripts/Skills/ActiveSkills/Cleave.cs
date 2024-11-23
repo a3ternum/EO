@@ -30,7 +30,7 @@ public class Cleave : MeleeAttackArea
 
         skillData.damagePerLevel = new List<float[]>
         {
-            new float[] { 15f, 0f, 0f, 0f, 0f },
+            new float[] { 100f, 0f, 0f, 0f, 0f },
             new float[] { 20f, 0f, 0f, 0f, 0f },
             new float[] { 25f, 0f, 0f, 0f, 0f },
             new float[] { 30f, 0f, 0f, 0f, 0f },

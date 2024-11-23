@@ -7,12 +7,9 @@ public class PlayerExperience : MonoBehaviour
     private Player player;
     private PlayerStats playerStats;
 
-    private float totalExperience;
-    private float experience;
+
     private float experienceToNextLevel;
-    private int level;
-    private int availableSkillPoints;
-    private int totalSkillPoints;
+
 
     private PassiveSkillButton passiveSkillButton;
 
@@ -22,15 +19,12 @@ public class PlayerExperience : MonoBehaviour
         player = GetComponent<Player>();
         playerStats = player.playerStats;
 
-        totalExperience = playerStats.totalExperience;
-        experience = playerStats.experience;
-        level = playerStats.level;
-        experienceToNextLevel = expTable.experienceRequirementsPerLevel[level];
-        availableSkillPoints = playerStats.availableSkillPoints;
-        totalSkillPoints = playerStats.totalSkillPoints;
+
+        experienceToNextLevel = expTable.experienceRequirementsPerLevel[player.playerStats.level];
+
 
         player.experienceBarComponent.setMaxExperience(experienceToNextLevel);
-        player.experienceBarComponent.setExperience(experience);
+        player.experienceBarComponent.setExperience(player.playerStats.experience);
 
         // find the passive skill button
         passiveSkillButton = FindFirstObjectByType<PassiveSkillButton>();
@@ -38,31 +32,31 @@ public class PlayerExperience : MonoBehaviour
 
     public void LevelUp()
     {
-        level++;
-        availableSkillPoints++;
+        player.playerStats.level++;
+        player.playerStats.availableSkillPoints++;
         passiveSkillButton.AddSkillPoint();
 
     }
 
     public void UpdateLevel()
     {
-        if (experience >= experienceToNextLevel)
+        if (player.playerStats.experience >= experienceToNextLevel)
         {
             LevelUp();
-            experience -= experienceToNextLevel;
-            experienceToNextLevel = expTable.experienceRequirementsPerLevel[level-1];
+            player.playerStats.experience -= experienceToNextLevel;
+            experienceToNextLevel = expTable.experienceRequirementsPerLevel[player.playerStats.level -1];
             player.experienceBarComponent.setMaxExperience(experienceToNextLevel);
-            player.experienceBarComponent.setExperience(experience);
+            player.experienceBarComponent.setExperience(player.playerStats.experience);
         }
     }
     
     public void gainExperience(float experienceGained)
     {
-        totalExperience += experienceGained;
-        experience += experienceGained;
+        player.playerStats.totalExperience += experienceGained;
+        player.playerStats.experience += experienceGained;
 
         // update the experience bar
-        player.experienceBarComponent.setExperience(experience);
+        player.experienceBarComponent.setExperience(player.playerStats.experience);
 
     }
     
@@ -70,11 +64,5 @@ public class PlayerExperience : MonoBehaviour
     public void Update()
     {
         UpdateLevel();
-        // update the playerStats scriptable object
-        player.playerStats.level = level;
-        player.playerStats.experience = experience;
-        player.playerStats.totalExperience = totalExperience;
-        player.playerStats.availableSkillPoints = availableSkillPoints;
-        player.playerStats.totalSkillPoints = totalSkillPoints;
     }
 }

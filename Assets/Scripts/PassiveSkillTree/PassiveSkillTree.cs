@@ -113,6 +113,7 @@ public class PassiveSkillTree : MonoBehaviour, IDragHandler, IBeginDragHandler
 
     private void SelectNode(Node node)
     {
+        Debug.Log(node == startNode);
         if (node == startNode)
         {
             node.ApplyEffect(player);
@@ -121,24 +122,24 @@ public class PassiveSkillTree : MonoBehaviour, IDragHandler, IBeginDragHandler
             startButton.interactable = false;
             return;
         }
-          
         // remove skill point
-        player.playerStats.availableSkillPoints--;
+        --player.playerStats.availableSkillPoints;
+        // add total skill point
+        ++player.playerStats.totalSkillPoints;
+
         // remove skill point from button
         passiveSkillButton.RemoveSkillPoint();
 
         // disable button if no skill points are available
-        if (passiveSkillButton.availableSkillPoints == 0)
+        if (player.playerStats.availableSkillPoints == 0)
         {
             passiveSkillButton.HideButton();
         }
-        if (passiveSkillButton.availableSkillPoints < 0)
+        if (player.playerStats.availableSkillPoints < 0)
         {
-            Debug.LogError("Available skill points cannot be negative. we now have: " + passiveSkillButton.availableSkillPoints + " skill points");
+            Debug.LogError("Available skill points cannot be negative. we now have: " + player.playerStats.availableSkillPoints + " skill points");
         }
 
-        // add total skill point
-        player.playerStats.totalSkillPoints++;
         // Apply node effect
         node.ApplyEffect(player);
         // Mark node as selected (e.g., change button color)

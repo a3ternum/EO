@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PassiveSkillButton : MonoBehaviour
 {
@@ -9,7 +10,6 @@ public class PassiveSkillButton : MonoBehaviour
     [SerializeField]
     private PassiveSkillTree passiveSkillTree;
     private TextMeshProUGUI text;
-    public int availableSkillPoints;
 
     private void Start()
     {
@@ -25,9 +25,8 @@ public class PassiveSkillButton : MonoBehaviour
         text = GetComponentInChildren<TextMeshProUGUI>();
 
         // initialize the button with the number of available skill points
-        availableSkillPoints = player.playerStats.availableSkillPoints;
-        text.text = "" + availableSkillPoints;
-        if (availableSkillPoints == 0)
+        text.text = "" + player.playerStats.availableSkillPoints;
+        if (player.playerStats.availableSkillPoints== 0)
         {
             HideButton();
         }
@@ -45,27 +44,35 @@ public class PassiveSkillButton : MonoBehaviour
 
     public void AddSkillPoint()
     {
-        availableSkillPoints++;
         UpdateText();
-        ShowButton();
+        UpdateSkillPoints();
 
     }
 
     public void RemoveSkillPoint()
     {
         // change the number of available skill points on the button
-        availableSkillPoints--;
-        if (availableSkillPoints == 0)
+        UpdateText();
+        UpdateSkillPoints();
+    }
+
+    public void UpdateSkillPoints()
+    {
+        if (player.playerStats.availableSkillPoints > 0)
         {
+            ShowButton();
+            UpdateText();
+        }
+        if (player.playerStats.availableSkillPoints == 0)
+        {
+            UpdateText();
             HideButton();
         }
-        UpdateText();
-
     }
 
     public void UpdateText()
     {
-        text.text = "" + availableSkillPoints;
+        text.text = "" + player.playerStats.availableSkillPoints;
     }
 
     public void OnButtonPress()
