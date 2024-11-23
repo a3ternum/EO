@@ -30,16 +30,16 @@ public class Cleave : MeleeAttackArea
 
         skillData.damagePerLevel = new List<float[]>
         {
-            new float[] { 100f, 0f, 0f, 0f, 0f },
+            new float[] { 15f, 0f, 0f, 0f, 0f },
             new float[] { 20f, 0f, 0f, 0f, 0f },
             new float[] { 25f, 0f, 0f, 0f, 0f },
             new float[] { 30f, 0f, 0f, 0f, 0f },
             new float[] { 35f, 0f, 0f, 0f, 0f }
         };
         skillData.manaCostPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
-        skillData.attackSpeedPerLevel = new List<float> { 3f, 1f, 1.1f, 1.2f, 1.3f };
+        skillData.attackSpeedPerLevel = new List<float> { 1f, 1f, 1.1f, 1.2f, 1.3f };
         skillData.durationPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
-        skillData.radiusPerLevel = new List<float> { 5f, 2.2f, 2.4f, 2.6f, 2.8f };
+        skillData.radiusPerLevel = new List<float> { 2, 2.2f, 2.4f, 2.6f, 2.8f };
 
         int skillLevel = 0;
         if (skillData == null)
