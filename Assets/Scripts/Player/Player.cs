@@ -108,7 +108,7 @@ public class Player : Creature
         currentDexterity = playerStats.dexterity * (1 + playerStats.dexterityIncreases) * (1 + playerStats.dexterityMoreMultipliers);
         currentMaxHealth = (playerStats.healthBase + playerStats.healthFlat +
             currentStrength / 10 * 2) * (1 + playerStats.healthIncreases) * (1 + playerStats.healthMoreMultipliers);
-        currentMaxMana = (playerStats.manaBase + playerStats.manaFlat) * playerStats.manaIncreases * playerStats.manaMoreMultipliers;
+        currentMaxMana = (playerStats.manaBase + playerStats.manaFlat) * (1 + playerStats.manaIncreases) * (1 + playerStats.manaMoreMultipliers);
 
 
     }

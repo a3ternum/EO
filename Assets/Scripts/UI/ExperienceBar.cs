@@ -7,6 +7,19 @@ public class ExperienceBar : MonoBehaviour
     public Image fill;
     public Player player;  // this is the parent player that the experience bar is attached to
 
+
+    private void Start()
+    {
+        Invoke("FindPlayerWithDelay", 0.1f);
+        // set object location to be at bottom of screen offset from player
+        transform.position = new Vector3(0, -5.2f, 0);
+    }
+
+    private void FindPlayerWithDelay()
+    {
+        player = FindFirstObjectByType<Player>();
+    }
+
     public void setParent(Player player)
     {
         this.player = player;
