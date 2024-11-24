@@ -13,7 +13,7 @@ public class ManaOrbUI : MonoBehaviour
     private void Start()
     {
         // Find the player in the scene
-        offset = new Vector3(7, -3.75f, 0);
+        offset = new Vector3(7.2f, -4.05f, 0);
 
         Invoke("FindPlayerWithDelay", 0.1f);
     }

@@ -12,7 +12,7 @@ public class ExperienceBar : MonoBehaviour
     {
         Invoke("FindPlayerWithDelay", 0.1f);
         // set object location to be at bottom of screen offset from player
-        transform.position = new Vector3(0, -5.2f, 0);
+        transform.position = new Vector3(0, -5.5f, 0);
     }
 
     private void FindPlayerWithDelay()

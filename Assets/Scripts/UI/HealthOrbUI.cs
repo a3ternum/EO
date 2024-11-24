@@ -13,7 +13,7 @@ public class HealthOrbUI : MonoBehaviour
     private void Start()
     {
         // Find the player in the scene
-        offset = new Vector3(11, -3.5f, 0);
+        offset = new Vector3(11, -3.8f, 0);
 
         Invoke("FindPlayerWithDelay", 0.1f);
         transform.position = offset;

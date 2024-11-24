@@ -97,7 +97,8 @@ public class Player : Creature
             Debug.LogError("RespawnMenu not found in the scene!");
         }
 
-        base.Die();
+        ourHealthBarObject.SetActive(false);
+        this.gameObject.SetActive(false);
     }
 
     protected override void UpdateStats()
