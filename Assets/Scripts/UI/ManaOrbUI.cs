@@ -13,41 +13,27 @@ public class ManaOrbUI : MonoBehaviour
     private void Start()
     {
         // Find the player in the scene
-        offset = new Vector3(7.2f, -4.05f, 0);
-
-        Invoke("FindPlayerWithDelay", 0.1f);
+        offset = new Vector3(8.0f, -3.9f, 0);
+        transform.position = offset;
     }
 
-    private void FindPlayerWithDelay()
+    public void SetParent(Player player)
     {
-        player = FindFirstObjectByType<Player>();
+        this.player = player;
     }
 
     void Update()
     {
         if (player == null)
         {
-            // Find the player in the scene
-            player = FindFirstObjectByType<Player>();
-            if (player == null)
-            {
-                return;
-            }
+            return;
         }
 
-
-        // Update the health orb's position to follow the player
-        if (player != null)
-        {
-            transform.position = player.transform.position + offset;
-        }
-
-        // Update the health display (this can be called when health changes in your actual game)
-
-        UpdateHealthOrb((int)player.currentMana, (int)player.currentMaxMana);
+        // Update the mana display (maybe this can be called when mana changes in the actual game and not in Update())
+        UpdateManaOrb((int)player.currentMana, (int)player.currentMaxMana);
     }
 
-    public void UpdateHealthOrb(int current, int max)
+    public void UpdateManaOrb(int current, int max)
     {
         // Update fill amount based on health percentage
         float manaPercent = (float)current / max;

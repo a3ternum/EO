@@ -13,34 +13,25 @@ public class HealthOrbUI : MonoBehaviour
     private void Start()
     {
         // Find the player in the scene
-        offset = new Vector3(11, -3.8f, 0);
-
-        Invoke("FindPlayerWithDelay", 0.1f);
+        offset = new Vector3(11.6f, -3.4f, 0);
         transform.position = offset;
     }
 
-    private void FindPlayerWithDelay()
+
+
+    public void SetParent(Player player)
     {
-        player = FindFirstObjectByType<Player>();
+        this.player = player;
     }
 
     void Update()
     {
+
         if (player == null)
         {
-            // Find the player in the scene
-            player = FindFirstObjectByType<Player>();
-            if (player == null)
-            {
-                return;
-            }
+            return;
         }
-
-
-    
-
-        // Update the health display (this can be called when health changes in your actual game)
-        
+        // Update the health display (maybe this can be called when health changes in the actual game instead of in Update())
         UpdateHealthOrb((int)player.currentHealth, (int)player.currentMaxHealth);
     }
 

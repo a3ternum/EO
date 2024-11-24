@@ -55,8 +55,6 @@ public class Creature : MonoBehaviour
 
     protected float nextAttackTime = 0f;
 
-    protected GameObject healthBarPrefab;
-    protected GameObject ourHealthBarObject;
     protected HealthBar healthBarComponent;
 
   
@@ -95,21 +93,20 @@ public class Creature : MonoBehaviour
         currentFreezeChance = creatureStats.freezeChanceBase + creatureStats.freezeChanceFlat;
         currentShockChance = creatureStats.shockChanceBase + creatureStats.shockChanceFlat;
     }
-    public void SetCanvas(Canvas canvas)
-    {
-        Debug.Log("setting canvas");
-        this.canvas = canvas;
-        if (ourHealthBarObject != null)
-        {
-            ourHealthBarObject.transform.SetParent(canvas.transform, false);
-        }
-    }
+ 
 
     protected virtual void InitializeHealthBar()
     {
-        // instantiate the health bar prefab
-        ourHealthBarObject = Instantiate(healthBarPrefab, transform.position, Quaternion.identity);
-        healthBarComponent = ourHealthBarObject.GetComponent<HealthBar>();
+        // Load the basic arrow prefab from the Resources folder
+        HealthBar healthBarPrefabTemp = Resources.Load<HealthBar>("HealthBar");
+        if (healthBarPrefabTemp == null)
+        {
+            Debug.LogError("HealthBar prefab not found in Resources folder!");
+        }
+        else
+        {
+            healthBarComponent = Instantiate(healthBarPrefabTemp, transform.position + new Vector3(0, 0.6f, 0), Quaternion.identity);
+        }
 
         // set the parent of the health bar to this creature
         healthBarComponent.setParent(this);
@@ -123,8 +120,7 @@ public class Creature : MonoBehaviour
             return;
         }
 
-        ourHealthBarObject.transform.SetParent(canvas.transform, false); // set the health bar object as a child of the canvas
-        ourHealthBarObject.transform.position += new Vector3(0, 0.6f, 0); // set the position of the health bar above the creature
+        healthBarComponent.transform.SetParent(canvas.transform, false); // set the health bar object as a child of the canvas
 
     }
 
@@ -146,12 +142,7 @@ public class Creature : MonoBehaviour
             Debug.LogError("active skill is not assigned");
         }
 
-        // Load the basic arrow prefab from the Resources folder
-        healthBarPrefab= Resources.Load<GameObject>("HealthBar");
-        if (healthBarPrefab == null)
-        {
-            Debug.LogError("HealthBar prefab not found in Resources folder!");
-        }
+       
 
         entropyValue = UnityEngine.Random.Range(0, maxEntropy);
 
@@ -173,13 +164,13 @@ public class Creature : MonoBehaviour
         if (healthBarComponent != null)
         {
             healthBarComponent.setHealth(currentHealth); // update health value
-            ourHealthBarObject.transform.position = transform.position + new Vector3(0, 0.6f, 0); // update health bar
+            healthBarComponent.transform.position = transform.position + new Vector3(0, 0.6f, 0); // update health bar
         }
     }
 
     protected virtual void Die()
     {
-        Destroy(ourHealthBarObject);
+        Destroy(healthBarComponent.gameObject);
         Destroy(gameObject);
     }
 

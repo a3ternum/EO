@@ -11,13 +11,16 @@ public class Player : Creature
 
     public float currentMaxMana;
     public float currentMana;
+    public float currentManaRegen;
+
     public float currentStrength;
     public float currentIntelligence;
     public float currentDexterity;
 
-    protected GameObject experienceBarPrefab;
-    protected GameObject ourExperienceBarObject;
     public ExperienceBar experienceBarComponent;
+    public HealthOrbUI healthOrbComponent;
+    public ManaOrbUI manaOrbComponent;
+
 
     protected override void Awake()
     {
@@ -34,22 +37,24 @@ public class Player : Creature
     {
         InitializeCreatureStats();
         currentMaxMana = (playerStats.manaBase + playerStats.manaFlat) * (1 + playerStats.manaIncreases) * (1 + playerStats.manaMoreMultipliers);
+        currentManaRegen = currentMaxMana * (playerStats.manaRegenIncreases) * (1 + playerStats.manaRegenMoreMultipliers)
+        + (playerStats.manaRegenBase + playerStats.manaRegenFlat) * (1 + playerStats.manaRegenIncreases) * (1 + playerStats.manaRegenMoreMultipliers);
+        currentMana = currentMaxMana;
 
     }
     protected virtual void InitializeExperienceBar()
     {
         // load experience bar from the resources folder
-        experienceBarPrefab = Resources.Load<GameObject>("ExperienceBar");
-        if (experienceBarPrefab == null)
+        ExperienceBar experienceBarComponentTemp = Resources.Load<ExperienceBar>("ExperienceBar");
+        if (experienceBarComponentTemp == null)
         {
             Debug.LogError("ExperienceBar prefab not found in Resources folder!");
         }
-
-       
-
-        ourExperienceBarObject = Instantiate(experienceBarPrefab, transform.position, Quaternion.identity);
-        experienceBarComponent = ourExperienceBarObject.GetComponent<ExperienceBar>();
-        experienceBarComponent.setParent(this);
+        else
+        {
+            experienceBarComponent = Instantiate(experienceBarComponentTemp, transform.position, Quaternion.identity);
+            experienceBarComponent.SetParent(this);
+        }
 
         Canvas canvas = FindFirstObjectByType<Canvas>();
         if (canvas == null || canvas.renderMode != RenderMode.WorldSpace)
@@ -58,9 +63,39 @@ public class Player : Creature
             return;
         }
 
-        ourExperienceBarObject.transform.SetParent(canvas.transform, false);
-        ourExperienceBarObject.transform.position += new Vector3(0, -4f, 0); // set the position of the health bar above the creature
+        experienceBarComponent.transform.SetParent(canvas.transform, false);
 
+    }
+
+    protected virtual void InitializeHealthAndManaOrb()
+    {
+        // load health orb from the resources folder
+        HealthOrbUI healthOrbComponentTemp = Resources.Load<HealthOrbUI>("HealthOrb");
+        if (healthOrbComponentTemp == null)
+        {
+            Debug.LogError("HealthOrb prefab not found in Resources folder!");
+        }
+        // load mana orb from the resources folder
+        ManaOrbUI manaOrbComponentTemp = Resources.Load<ManaOrbUI>("ManaOrb");
+        if (manaOrbComponentTemp == null)
+        {
+            Debug.LogError("ManaOrb prefab not found in Resources folder!");
+        }
+
+        healthOrbComponent = Instantiate(healthOrbComponentTemp, transform.position, Quaternion.identity);
+        healthOrbComponent.SetParent(this);
+
+        manaOrbComponent = Instantiate(manaOrbComponentTemp, transform.position, Quaternion.identity);
+        manaOrbComponent.SetParent(this);
+        Canvas canvas = FindFirstObjectByType<Canvas>();
+        if (canvas == null || canvas.renderMode != RenderMode.WorldSpace)
+        {
+            Debug.LogError("World Space Canvas not found. Make sure there's a canvas set to World Space.");
+            return;
+        }
+
+        healthOrbComponent.transform.SetParent(canvas.transform, false);
+        manaOrbComponent.transform.SetParent(canvas.transform, false);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -71,6 +106,7 @@ public class Player : Creature
 
         InitializeHealthBar(); // initialize health bar
         InitializeExperienceBar(); // initialize experience bar
+        InitializeHealthAndManaOrb(); // initialize health and mana orb
         playerCombat.SetActiveSkill(activeSkill);
     }
 
@@ -97,7 +133,7 @@ public class Player : Creature
             Debug.LogError("RespawnMenu not found in the scene!");
         }
 
-        ourHealthBarObject.SetActive(false);
+        healthBarComponent.gameObject.SetActive(false);
         this.gameObject.SetActive(false);
     }
 
@@ -113,30 +149,7 @@ public class Player : Creature
 
 
     }
-    // Update is called once per frame
-    protected override void Update()
-    {
-        base.Update();
-        playerMovement.Update();
 
-        if (playerCombat.attackInput() & Time.time >= nextAttackTime) // maybe this should be in the playerCombat script
-        {
-            playerCombat.playerAttack();
-            nextAttackTime = Time.time + 1f / currentAttackSpeed;
-        }
-
-        playerExperience.Update();
-        UpdateStats();
-
-        currentHealth += currentHealthRegen * Time.deltaTime;
-        currentMana = Math.Min(currentMana, currentMaxMana);
-
-    }
-
-    void FixedUpdate()
-    {
-        playerMovement.movePlayer();
-    }
     public void EnablePlayerActions(bool enable)
     {
         if (playerMovement != null)
@@ -153,6 +166,34 @@ public class Player : Creature
     {
         playerStats.resetPlayerData();
     }
+
+    // Update is called once per frame
+    protected override void Update()
+    {
+        base.Update();
+        playerMovement.Update();
+
+        if (playerCombat.attackInput() & Time.time >= nextAttackTime) // maybe this should be in the playerCombat script
+        {
+            playerCombat.playerAttack();
+            nextAttackTime = Time.time + 1f / currentAttackSpeed;
+        }
+
+        playerExperience.Update();
+        UpdateStats();
+
+        currentHealth += currentHealthRegen * Time.deltaTime;
+
+        currentMana += currentManaRegen * Time.deltaTime;
+        currentMana = Math.Min(currentMana, currentMaxMana);
+
+    }
+
+    void FixedUpdate()
+    {
+        playerMovement.movePlayer();
+    }
+   
 
     
     

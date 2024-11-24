@@ -20,7 +20,7 @@ public class ExperienceBar : MonoBehaviour
         player = FindFirstObjectByType<Player>();
     }
 
-    public void setParent(Player player)
+    public void SetParent(Player player)
     {
         this.player = player;
     }
