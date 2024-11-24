@@ -75,14 +75,16 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 direction = new Vector2(movement.x, movement.y);
         // Raycast to detect walls
-        RaycastHit2D hit = Physics2D.Raycast(rb.position, direction, 0.2f, 1 << terrainLayer);
-        if (hit.collider == null) // || hit.collider.gameObject.layer == terrainLayer
-        {    //  move the character using rigidbody
-            rb.MovePosition(rb.position + movement * player.currentMovementSpeed * Time.fixedDeltaTime);
-        }
+        //RaycastHit2D hit = Physics2D.Raycast(rb.position, direction, 0.2f, 1 << terrainLayer);
+        //if (hit.collider == null) // || hit.collider.gameObject.layer == terrainLayer
+        //{    //  move the character using rigidbody
+        //    rb.MovePosition(rb.position + movement * player.currentMovementSpeed * Time.fixedDeltaTime);
+        //}
+        rb.MovePosition(rb.position + movement * player.currentMovementSpeed * Time.fixedDeltaTime);
+
     }
 
-  
+
 
 
     public void Update()
