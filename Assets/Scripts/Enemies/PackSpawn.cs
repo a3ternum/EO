@@ -71,9 +71,11 @@ public class PackSpawn : MonoBehaviour
                 {
                     invalidSpawnPosition = false;
                     Instantiate(enemyToSpawn, spawnPosition, Quaternion.identity);
+                    Debug.Log("enemy rotation is " + enemyToSpawn.transform.rotation);
                 }
             }
             
         }
+        Destroy(gameObject);
     }
 }

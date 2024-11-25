@@ -47,5 +47,4 @@ MonoBehaviour:
   skillIcon: {fileID: 0}
   animator: {fileID: 0}
   animationDuration: 0
-  speed: 5
-  vortex: {fileID: 6001328287966464683, guid: f9fad97e41192f6458592cb124b89da1, type: 3}
+  vortex: {fileID: 3660996664562140266, guid: f9fad97e41192f6458592cb124b89da1, type: 3}

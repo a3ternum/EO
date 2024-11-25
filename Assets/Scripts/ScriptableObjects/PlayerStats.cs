@@ -42,7 +42,7 @@ public class PlayerStats : CreatureStats
 
     public void resetPlayerData() // reset player to base stats
     {
-        base.resetCreatureData();
+        base.ResetCreatureData();
         experience = 0;
         totalExperience = 0;
         level = 0;

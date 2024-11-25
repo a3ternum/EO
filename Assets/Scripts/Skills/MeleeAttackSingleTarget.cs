@@ -23,13 +23,7 @@ public class MeleeAttackSingleTarget : MeleeAttack
     {
         List<Creature> targets = FindTargetInRange();
         bool canActivate = CanActivate();
-
-        if (canActivate && ((targets == null) || targets.Count <= 0))
-        {
-            originalHitLocation = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            yield return StartCoroutine(AttackCoroutine());
-        }
-
+       
         if (canActivate && targets != null && targets.Count > 0)
         {
             originalHitLocation = targets[0].transform.position;
@@ -69,7 +63,7 @@ public class MeleeAttackSingleTarget : MeleeAttack
         animationDuration = CalculateAnimationDuration(playerAttackSpeed, attackSpeed);
 
         // spawn SingleTargetIndicatorCircle at the location of the target
-        SingleTargetIndicatorCircle = Instantiate(Resources.Load<GameObject>("SingleTargetIndicatorCircle"), originalHitLocation, Quaternion.identity).GetComponent<SingleTargetIndicatorCircle>();
+        SingleTargetIndicatorCircle = Instantiate(Resources.Load<SingleTargetIndicatorCircle>("SingleTargetIndicatorCircle"), originalHitLocation, Quaternion.identity);
         SingleTargetIndicatorCircle.animationDuration = animationDuration;
 
         if (animator != null) // play animation only if attack has an animation

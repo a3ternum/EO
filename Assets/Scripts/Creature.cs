@@ -473,7 +473,7 @@ public class Creature : MonoBehaviour
 
     protected virtual void OnApplicationQuit()
     {  
-       creatureStats.resetCreatureData();
+       creatureStats.ResetCreatureData();
     }
 
 

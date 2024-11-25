@@ -261,7 +261,7 @@ MonoBehaviour:
   damagedRecently: 0
   canMove: 1
   canAttack: 1
-  activeSkill: {fileID: 2180128471423636446, guid: 1e8786dec5a441f48b267d2700a4e2c8, type: 3}
+  activeSkill: {fileID: 6594220455102797157, guid: 9f29fc94852b3694fa082918aa7fbc14, type: 3}
   playerStats: {fileID: 11400000, guid: 90b90c15d87ec7e4a8bfddbc9dd928a0, type: 2}
   currentMaxMana: 0
   currentMana: 0

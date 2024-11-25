@@ -96,7 +96,6 @@ public class Enemy : Creature
 
     protected void checkAttackRange()
     {
-        Debug.Log("attack range: " + attackRange);
         if (Vector3.Distance(transform.position, player.transform.position) <= attackRange)
         {
             inAttackRange = true;

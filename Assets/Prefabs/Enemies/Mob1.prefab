@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bbd1dd0a57ecba4c9d6b94ce50a0595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creatureStats: {fileID: 11400000, guid: c66c72087fa715f479b4fd9f56239c48, type: 2}
+  creatureStats: {fileID: 11400000, guid: 972d79b2fdc355c42a2460264de924dc, type: 2}
   currentHealth: 0
   currentMaxHealth: 0
   currentHealthRegen: 0
@@ -184,11 +184,11 @@ MonoBehaviour:
   damagedRecently: 0
   canMove: 1
   canAttack: 1
-  activeSkill: {fileID: 5011057092126252598, guid: 0f4d69024e182994ca2654a27bb1e7b3, type: 3}
+  activeSkill: {fileID: 2545563128425719031, guid: 891beae89cbcc384fac7b62ef6ffd7ad, type: 3}
   AIState: 0
   packAggroRadius: 5
   attackRange: 10
-  chaseDistance: 0.1
+  chaseDistance: 6
   minimumDistance: 0
   chaseRange: 10
   chaseRangeIfDamagedRecently: 10

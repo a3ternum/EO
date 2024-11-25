@@ -56,7 +56,6 @@ public class Fireball : OffensiveSpell
         }
         damage = fireballSkillData.damagePerLevel[skillLevel];
         radius = fireballSkillData.radiusPerLevel[skillLevel];
-        attackSpeed = fireballSkillData.attackSpeedPerLevel[skillLevel];
         manaCost = fireballSkillData.manaCostPerLevel[skillLevel];
         castSpeed = fireballSkillData.castSpeedPerLevel[skillLevel];
         duration = fireballSkillData.durationPerLevel[skillLevel];

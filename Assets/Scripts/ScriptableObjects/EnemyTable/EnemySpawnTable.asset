@@ -16,6 +16,10 @@ MonoBehaviour:
   - enemyPrefab: {fileID: 3183713427737626133, guid: 12577d2e1336d34459b9e601ea9d2742, type: 3}
     weight: 100
   - enemyPrefab: {fileID: 2373218641220570280, guid: 21598b1cf8f865a4193c311e60144db3, type: 3}
-    weight: 200
+    weight: 150
   - enemyPrefab: {fileID: 8552843010064923946, guid: 465688a507b0c3b469c6de16b1a04840, type: 3}
+    weight: 50
+  - enemyPrefab: {fileID: 3248192175632432009, guid: a9b903aaa44f1fe47adad2f894bc94fc, type: 3}
+    weight: 50
+  - enemyPrefab: {fileID: 499395691322855489, guid: 76fccd9011b70e941a19f012fb3a7512, type: 3}
     weight: 50

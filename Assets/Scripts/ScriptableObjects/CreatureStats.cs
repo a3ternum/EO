@@ -92,7 +92,7 @@ public class CreatureStats : ScriptableObject
     public float areaOfEffectIncreases;
     public float areaOfEffectDamageIncreases;
 
-    public int strikeRangeFlat;
+    public int strikeRangeFlat; // flat increase to strike range (for ranged mobs this determines the distance they can attack from)
     public void Start()
     {
         if (damageFlat.Length == 0)
@@ -119,7 +119,7 @@ public class CreatureStats : ScriptableObject
         
 
     }
-    public void resetCreatureData() // reset player to base stats
+    public virtual void ResetCreatureData() // reset player to base stats
     {
         armourFlat = 0;
         evasionFlat = 0;
@@ -164,8 +164,8 @@ public class CreatureStats : ScriptableObject
 
         castSpeedBase = 1;
         castSpeedFlat = 0;
-        castSpeedIncreases = 1;
-        castSpeedMoreMultipliers = 1;
+        castSpeedIncreases = 0;
+        castSpeedMoreMultipliers = 0;
 
         criticalStrikeChanceBase = 0.05f;
         criticalStrikeChanceFlat = 0;

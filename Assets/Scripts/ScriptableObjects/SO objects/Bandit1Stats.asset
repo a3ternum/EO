@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25d3c395bfd65c8439664c72579036d0, type: 3}
-  m_Name: BanditStats
+  m_Script: {fileID: 11500000, guid: 938827192b573504884596c3ab163070, type: 3}
+  m_Name: Bandit1Stats
   m_EditorClassIdentifier: 
   armourFlat: 0
   evasionFlat: 0
@@ -23,17 +23,9 @@ MonoBehaviour:
   blockChanceBase: 0
   blockChanceFlat: 0
   blockChanceIncreases: 0
-  resistances:
-  - 0
-  - 0
-  - 0
-  - 0
-  maximumResistances:
-  - 0
-  - 0
-  - 0
-  - 0
-  healthBase: 100
+  resistances: []
+  maximumResistances: []
+  healthBase: 0
   healthFlat: 0
   healthIncreases: 0
   healthMoreMultipliers: 0
@@ -47,34 +39,24 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  damageIncreases:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  damageMoreMultipliers:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  accuracyBase: 50
+  damageIncreases: []
+  damageMoreMultipliers: []
+  accuracyBase: 0
   accuracyFlat: 0
   accuracyIncreases: 0
   accuracyMoreMultipliers: 0
-  attackSpeedBase: 1
+  attackSpeedBase: 0
   attackSpeedFlat: 0
   attackSpeedIncreases: 0
   attackSpeedMoreMultipliers: 0
-  castSpeedBase: 1
+  castSpeedBase: 0
   castSpeedFlat: 0
-  castSpeedIncreases: 1
-  castSpeedMoreMultipliers: 1
-  criticalStrikeChanceBase: 0.05
+  castSpeedIncreases: 0
+  castSpeedMoreMultipliers: 0
+  criticalStrikeChanceBase: 0
   criticalStrikeChanceFlat: 0
   criticalStrikeChanceIncreases: 0
-  criticalStrikeMultiplierBase: 1
+  criticalStrikeMultiplierBase: 0
   criticalStrikeMultiplierFlat: 0
   criticalStrikeMultiplierIncreases: 0
   igniteChanceBase: 0
@@ -85,11 +67,11 @@ MonoBehaviour:
   freezeChanceFlat: 0
   shockChanceBase: 0
   shockChanceFlat: 0
-  movementSpeedBase: 1
+  movementSpeedBase: 0
   movementSpeedIncreases: 0
   additionalProjectiles: 0
   projectileSpeedIncreases: 0
   projectileDamageIncreases: 0
   areaOfEffectIncreases: 0
   areaOfEffectDamageIncreases: 0
-  strikeRangeFlat: 8
+  strikeRangeFlat: 0

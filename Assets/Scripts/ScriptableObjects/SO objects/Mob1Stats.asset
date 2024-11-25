@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25d3c395bfd65c8439664c72579036d0, type: 3}
-  m_Name: Golem2Stats
+  m_Script: {fileID: 11500000, guid: 918018bbf57969b4fb9409de7cead0a4, type: 3}
+  m_Name: Mob1Stats
   m_EditorClassIdentifier: 
   armourFlat: 0
   evasionFlat: 0

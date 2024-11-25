@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25d3c395bfd65c8439664c72579036d0, type: 3}
-  m_Name: Golem1Stats
+  m_Script: {fileID: 11500000, guid: 3a35f44e7bbafc74b9aef4f2b92d69fe, type: 3}
+  m_Name: Golem2Stats
   m_EditorClassIdentifier: 
-  armourFlat: 50
+  armourFlat: 0
   evasionFlat: 0
   armourIncreases: 0
   evasionIncreases: 0
@@ -25,7 +25,7 @@ MonoBehaviour:
   blockChanceIncreases: 0
   resistances: []
   maximumResistances: []
-  healthBase: 200
+  healthBase: 0
   healthFlat: 0
   healthIncreases: 0
   healthMoreMultipliers: 0
@@ -34,18 +34,18 @@ MonoBehaviour:
   healthRegenIncreases: 0
   healthRegenMoreMultipliers: 0
   damageFlat:
-  - 15
+  - 0
   - 0
   - 0
   - 0
   - 0
   damageIncreases: []
   damageMoreMultipliers: []
-  accuracyBase: 100
+  accuracyBase: 0
   accuracyFlat: 0
   accuracyIncreases: 0
   accuracyMoreMultipliers: 0
-  attackSpeedBase: 0.7
+  attackSpeedBase: 0
   attackSpeedFlat: 0
   attackSpeedIncreases: 0
   attackSpeedMoreMultipliers: 0
@@ -53,7 +53,7 @@ MonoBehaviour:
   castSpeedFlat: 0
   castSpeedIncreases: 0
   castSpeedMoreMultipliers: 0
-  criticalStrikeChanceBase: 0.05
+  criticalStrikeChanceBase: 0
   criticalStrikeChanceFlat: 0
   criticalStrikeChanceIncreases: 0
   criticalStrikeMultiplierBase: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
   freezeChanceFlat: 0
   shockChanceBase: 0
   shockChanceFlat: 0
-  movementSpeedBase: 5
+  movementSpeedBase: 0
   movementSpeedIncreases: 0
   additionalProjectiles: 0
   projectileSpeedIncreases: 0
