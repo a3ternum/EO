@@ -113,7 +113,6 @@ public class PassiveSkillTree : MonoBehaviour, IDragHandler, IBeginDragHandler
 
     private void SelectNode(Node node)
     {
-        Debug.Log(node == startNode);
         if (node == startNode)
         {
             node.ApplyEffect(player);

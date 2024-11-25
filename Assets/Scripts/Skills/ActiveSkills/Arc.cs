@@ -8,6 +8,8 @@ public class Arc : OffensiveSpell
     private int[] baseChainCountList; // Number of times the arc can chain to other enemies
     private int baseChainCount;
     private float arcRange = 4f; // Maximum distance the arc can chain to other enemies
+    ArcEffect ArcEffect; // Arc effect prefab
+
     // Arc fires a chain of lightning that will chain to nearby enemies
 
     protected override void Awake() // Initialize arc skill data
@@ -22,9 +24,9 @@ public class Arc : OffensiveSpell
         base.InitializeSkill();
         skillName = "Arc";
 
-        projectilePrefab = Resources.Load<Projectile>("ArcProjectile");
+        ArcEffect = Resources.Load<ArcEffect>("ArcEffect");
 
-        if (projectilePrefab == null)
+        if (ArcEffect == null)
         {
             Debug.LogError("Arc prefab not found in Resources folder!");
         }

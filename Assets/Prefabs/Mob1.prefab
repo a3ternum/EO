@@ -181,7 +181,9 @@ MonoBehaviour:
   freezeDuration: 0
   shockEffect: 0
   damagedRecently: 0
-  activeSkill: {fileID: 2309715994748723447, guid: bf817d4769d162f4b8766faaacbd2380, type: 3}
+  canMove: 1
+  canAttack: 1
+  activeSkill: {fileID: 5011057092126252598, guid: 0f4d69024e182994ca2654a27bb1e7b3, type: 3}
   AIState: 0
   packAggroRadius: 5
   attackRange: 10

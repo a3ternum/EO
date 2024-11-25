@@ -1,33 +1,68 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 public class PackSpawn : MonoBehaviour
 {
     // ideally what we want to do is have a list of enemies that we can spawn, and then we can randomly select one of them to spawn
 
-    [SerializeField]
-    private Enemy[] enemies;
-    
+    public EnemySpawnTable enemySpawnTable;
+
 
     public int packSize;
     public float spawnRadius = 1.5f;
 
-    private void Start()
+    private int totalWeight;
+
+
+    private void Awake()
     {
         packSize = Random.Range(1, packSize);
-        spawnPack();
+
+        // calculate the total weight of all enemies
+        foreach (var enemy in enemySpawnTable.enemyWeights)
+        {
+            totalWeight += enemy.weight;
+        }
     }
 
-    public void spawnPack()
+    private void Start()
     {
+       
+    }
+
+    public void spawnPack(Vector3 position)
+    {
+        Debug.Log("spawning pack");
+        if (enemySpawnTable.enemyWeights.Count == 0)
+        {
+            Debug.LogWarning("No enemies to spawn.");
+            return;
+        }
+
+
         NavMeshHit hit;
         int attempts = 0;
 
         // choose an enemy type from the array of enemies
-        int enemyIndex = Random.Range(0, enemies.Length);
+        int randomValue = Random.Range(0, totalWeight);
+        int currentWeight = 0;
+        Debug.Log("random value: " + randomValue);
+        Enemy enemyToSpawn = null;
+
+        foreach (var enemyWeight in enemySpawnTable.enemyWeights)
+        {
+            currentWeight += enemyWeight.weight;
+            if (randomValue < currentWeight)
+            {
+                enemyToSpawn = enemyWeight.enemyPrefab;
+                Debug.Log("enemy to spawn: " + enemyToSpawn);
+                return;
+            }
+        }
+
         for (int i = 0; i < packSize; i++)
         {
-
             // spawn the enemy at a random position within the spawn radius
             // if spawn location is not valid, try again
             bool invalidSpawnPosition = true;
@@ -40,7 +75,7 @@ public class PackSpawn : MonoBehaviour
                 if ((Physics2D.OverlapCircle(spawnPosition, 0.1f) == null) && NavMesh.SamplePosition(spawnPosition, out hit, 1.0f, NavMesh.AllAreas))
                 {
                     invalidSpawnPosition = false;
-                    Instantiate(enemies[enemyIndex], spawnPosition, Quaternion.identity);
+                    Instantiate(enemyToSpawn, spawnPosition, Quaternion.identity);
                 }
             }
             

@@ -14,6 +14,7 @@ public class Enemy : Creature
     }
     public State AIState;
 
+    private EnemyAnimator enemyAnimator;
 
     public float packAggroRadius = 5f;
 
@@ -48,7 +49,8 @@ public class Enemy : Creature
 
     protected override void Start()
     {
-        
+     
+
 
         AIState = State.IDLE;
         base.Start();
@@ -57,6 +59,12 @@ public class Enemy : Creature
         chaseScript.setPlayer(FindFirstObjectByType<Player>());
         chaseScript.setSpeed(currentMovementSpeed);
 
+        // create enemy animator component
+        enemyAnimator = gameObject.AddComponent<EnemyAnimator>();
+        enemyAnimator.agent = chaseScript.agent;
+        enemyAnimator.animator = GetComponent<Animator>();
+
+        attackRange = activeSkill.strikeRange + creatureStats.strikeRangeFlat;
     }
 
     protected override void Die()

@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d3c395bfd65c8439664c72579036d0, type: 3}
+  m_Name: Golem2Stats
+  m_EditorClassIdentifier: 
+  armourFlat: 0
+  evasionFlat: 0
+  armourIncreases: 0
+  evasionIncreases: 0
+  physicalDamageReduction: 0
+  evadeChanceBase: 0
+  evadeChanceFlat: 0
+  evadeChanceIncreases: 0
+  blockChanceBase: 0
+  blockChanceFlat: 0
+  blockChanceIncreases: 0
+  resistances: []
+  maximumResistances: []
+  healthBase: 0
+  healthFlat: 0
+  healthIncreases: 0
+  healthMoreMultipliers: 0
+  healthRegenBase: 0
+  healthRegenFlat: 0
+  healthRegenIncreases: 0
+  healthRegenMoreMultipliers: 0
+  damageFlat:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  damageIncreases: []
+  damageMoreMultipliers: []
+  accuracyBase: 0
+  accuracyFlat: 0
+  accuracyIncreases: 0
+  accuracyMoreMultipliers: 0
+  attackSpeedBase: 0
+  attackSpeedFlat: 0
+  attackSpeedIncreases: 0
+  attackSpeedMoreMultipliers: 0
+  castSpeedBase: 0
+  castSpeedFlat: 0
+  castSpeedIncreases: 0
+  castSpeedMoreMultipliers: 0
+  criticalStrikeChanceBase: 0
+  criticalStrikeChanceFlat: 0
+  criticalStrikeChanceIncreases: 0
+  criticalStrikeMultiplierBase: 0
+  criticalStrikeMultiplierFlat: 0
+  criticalStrikeMultiplierIncreases: 0
+  igniteChanceBase: 0
+  igniteChanceFlat: 0
+  chillChanceBase: 0
+  chillChanceFlat: 0
+  freezeChanceBase: 0
+  freezeChanceFlat: 0
+  shockChanceBase: 0
+  shockChanceFlat: 0
+  movementSpeedBase: 0
+  movementSpeedIncreases: 0
+  additionalProjectiles: 0
+  projectileSpeedIncreases: 0
+  projectileDamageIncreases: 0
+  areaOfEffectIncreases: 0
+  areaOfEffectDamageIncreases: 0
+  strikeRangeFlat: 0

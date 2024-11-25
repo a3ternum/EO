@@ -7,7 +7,6 @@ public class Mob1 : Enemy
         base.Start();
 
         experienceValue = 50f;
-        attackRange = activeSkill.strikeRange + creatureStats.strikeRangeFlat;
     }
 
 }

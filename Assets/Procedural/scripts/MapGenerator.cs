@@ -29,6 +29,7 @@ public class MapGenerator : MonoBehaviour
     
     private void Start()
     {
+
         randomWalkMapGenerator = mapGenerators[0].GetComponent<SimpleRandomWalkMapGenerator>();
         corridorFirstMapGenerator = mapGenerators[1].GetComponent<CorridorFirstMapGenerator>();
         roomFirstMapGenerator = mapGenerators[2].GetComponent<RoomFirstMapGenerator>();

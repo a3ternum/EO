@@ -12,7 +12,7 @@ public class AIChase : MonoBehaviour
     private bool inChase;
 
     private Enemy thisEnemy;
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
     private Rigidbody2D rb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

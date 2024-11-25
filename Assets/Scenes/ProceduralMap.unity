@@ -268,7 +268,7 @@ MonoBehaviour:
   tileMapVisualizer: {fileID: 89709537}
   startPosition: {x: 0, y: 0}
   randomWalkParameters: {fileID: 11400000, guid: 871f301e82de7af46b17d3d30efba4eb, type: 2}
-  mapGenerator: {fileID: 0}
+  mapGenerator: {fileID: 236751469}
   corridorLength: 15
   corridorCount: 20
   roomPercent: 0.82
@@ -298,7 +298,6 @@ GameObject:
   m_Component:
   - component: {fileID: 89709538}
   - component: {fileID: 89709537}
-  - component: {fileID: 89709539}
   m_Layer: 0
   m_Name: TilemapVisualizer
   m_TagString: Untagged
@@ -348,24 +347,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &89709539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 89709536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 367ace7b9b88b11409410c3c77e481af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  packSpawn: {fileID: 0}
-  minSpawnDistance: 3
-  packDensity: 1
-  playerStartPosition: {x: 0, y: 0}
-  minPlayerDistance: 10
-  spawnProbability: 0.05
 --- !u!1 &100362721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,7 +1010,7 @@ MonoBehaviour:
   - {fileID: 78377343}
   - {fileID: 1993952153}
   playerSpawnManager: {fileID: 1693410073}
-  enemySpawnManager: {fileID: 359745472}
+  enemySpawnManager: {fileID: 1972285515}
   navMeshManager: {fileID: 2029140458}
 --- !u!4 &236751470
 Transform:
@@ -1736,17 +1717,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357311323}
   m_CullTransparentMesh: 1
---- !u!114 &359745472 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8511303479437022259, guid: a0029cc25e8881542a3aa10f8aa67472, type: 3}
-  m_PrefabInstance: {fileID: 330322660660627882}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 367ace7b9b88b11409410c3c77e481af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &380058426
 GameObject:
   m_ObjectHideFlags: 0
@@ -7095,6 +7065,17 @@ RectTransform:
   m_AnchoredPosition: {x: -5.2041, y: 3.6365}
   m_SizeDelta: {x: 0.3876, y: 0.4601}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1972285515 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2387590824291415261, guid: a0029cc25e8881542a3aa10f8aa67472, type: 3}
+  m_PrefabInstance: {fileID: 330322660660627882}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367ace7b9b88b11409410c3c77e481af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1978566522
 GameObject:
   m_ObjectHideFlags: 0
@@ -7265,7 +7246,7 @@ MonoBehaviour:
   tileMapVisualizer: {fileID: 89709537}
   startPosition: {x: 0, y: 0}
   randomWalkParameters: {fileID: 11400000, guid: 871f301e82de7af46b17d3d30efba4eb, type: 2}
-  mapGenerator: {fileID: 0}
+  mapGenerator: {fileID: 236751469}
   minRoomWidth: 8
   minRoomHeight: 8
   mapWidth: 80

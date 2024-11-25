@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HeavyStrike : MeleeAttackSingleTarget
 {
-    private SkillData heavyStrikeSkillData;
+    private SkillData skillData;
 
     protected override void Awake() // Initialize heavy strike skill data
     {
@@ -23,9 +23,9 @@ public class HeavyStrike : MeleeAttackSingleTarget
         skillName = "Heavy Strike";
         tags = new HashSet<string> { "Melee", "Strike", "Physical"};
 
-        heavyStrikeSkillData = ScriptableObject.CreateInstance<SkillData>();
+        skillData = ScriptableObject.CreateInstance<SkillData>();
 
-        heavyStrikeSkillData.damagePerLevel = new List<float[]>
+        skillData.damagePerLevel = new List<float[]>
         {
             new float[] { 10f, 0f, 0f, 0f, 0f },
             new float[] { 20f, 0f, 0f, 0f, 0f },
@@ -33,20 +33,20 @@ public class HeavyStrike : MeleeAttackSingleTarget
             new float[] { 40f, 0f, 0f, 0f, 0f },
             new float[] { 50f, 0f, 0f, 0f, 0f }
         };
-        heavyStrikeSkillData.manaCostPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
-        heavyStrikeSkillData.attackSpeedPerLevel = new List<float> { 3f, 3.1f, 3.2f, 3.4f, 3.7f };
-        heavyStrikeSkillData.strikeRangePerLevel = new List<float> { 2f, 2f, 2f, 2f, 2f };
+        skillData.manaCostPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
+        skillData.attackSpeedPerLevel = new List<float> { 1f, 1f, 1f, 1f, 1f };
+        skillData.strikeRangePerLevel = new List<float> { 1f, 1f, 1f, 1f, 1f };
 
 
         int skillLevel = 0;
-        if (heavyStrikeSkillData == null)
+        if (skillData == null)
         {
             return;
         }
-        damage = heavyStrikeSkillData.damagePerLevel[skillLevel];
-        strikeRange = heavyStrikeSkillData.strikeRangePerLevel[skillLevel];
-        attackSpeed = heavyStrikeSkillData.attackSpeedPerLevel[skillLevel];
-        manaCost = heavyStrikeSkillData.manaCostPerLevel[skillLevel];
+        damage = skillData.damagePerLevel[skillLevel];
+        strikeRange = skillData.strikeRangePerLevel[skillLevel];
+        attackSpeed = skillData.attackSpeedPerLevel[skillLevel];
+        manaCost = skillData.manaCostPerLevel[skillLevel];
 
     }
 
