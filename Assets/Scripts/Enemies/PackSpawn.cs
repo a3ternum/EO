@@ -9,36 +9,34 @@ public class PackSpawn : MonoBehaviour
     public EnemySpawnTable enemySpawnTable;
 
 
-    public int packSize;
     public float spawnRadius = 1.5f;
-
+    public int packSize = 1;
     private int totalWeight;
 
 
     private void Awake()
     {
-        packSize = Random.Range(1, packSize);
-
         // calculate the total weight of all enemies
-        foreach (var enemy in enemySpawnTable.enemyWeights)
+        foreach (var enemyWeight in enemySpawnTable.enemyWeights)
         {
-            totalWeight += enemy.weight;
+            totalWeight += enemyWeight.weight;
         }
     }
 
     private void Start()
     {
-       
+        spawnPack();
     }
 
-    public void spawnPack(Vector3 position)
+    public void spawnPack()
     {
-        Debug.Log("spawning pack");
         if (enemySpawnTable.enemyWeights.Count == 0)
         {
             Debug.LogWarning("No enemies to spawn.");
             return;
         }
+
+        packSize = Random.Range(1, packSize);
 
 
         NavMeshHit hit;
@@ -47,7 +45,6 @@ public class PackSpawn : MonoBehaviour
         // choose an enemy type from the array of enemies
         int randomValue = Random.Range(0, totalWeight);
         int currentWeight = 0;
-        Debug.Log("random value: " + randomValue);
         Enemy enemyToSpawn = null;
 
         foreach (var enemyWeight in enemySpawnTable.enemyWeights)
@@ -56,8 +53,7 @@ public class PackSpawn : MonoBehaviour
             if (randomValue < currentWeight)
             {
                 enemyToSpawn = enemyWeight.enemyPrefab;
-                Debug.Log("enemy to spawn: " + enemyToSpawn);
-                return;
+                break;
             }
         }
 
@@ -66,7 +62,6 @@ public class PackSpawn : MonoBehaviour
             // spawn the enemy at a random position within the spawn radius
             // if spawn location is not valid, try again
             bool invalidSpawnPosition = true;
-            
             while (invalidSpawnPosition && attempts<10)
             {
                 attempts += 1;

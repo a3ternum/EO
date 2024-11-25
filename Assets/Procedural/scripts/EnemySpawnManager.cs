@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection.Emit;
 using UnityEngine;
 using UnityEngine.AI;
 public class EnemySpawnManager : MonoBehaviour
@@ -8,6 +9,7 @@ public class EnemySpawnManager : MonoBehaviour
     public PackSpawn packSpawn;
     private int minSpawnDistance = 3;
     private int packDensity;
+    private int packSize;
     private Vector2Int playerStartPosition;
     [SerializeField]
     private float minPlayerDistance;
@@ -21,7 +23,7 @@ public class EnemySpawnManager : MonoBehaviour
         minPlayerDistance = 10f;
         spawnProbability = 0.05f;
         packDensity = 1;
-
+        packSize = 6;
         // set packSpawn parameters
         packSpawn.enemySpawnTable = enemySpawnTable;
         // this will later depend on things like map Quality, map density etc
@@ -41,7 +43,6 @@ public class EnemySpawnManager : MonoBehaviour
         switch (mapType)
         {
             case "RandomWalk":
-                Debug.Log("Spawning enemies randomly");
                 SpawnRandomlyOnFloor(floorPositions, playerStartPosition, minPlayerDistance, minSpawnDistance);
                 break;
             case "RoomsFirst":
@@ -64,12 +65,9 @@ public class EnemySpawnManager : MonoBehaviour
         {
             if (IsFarEnoughFromOthers(tile, spawnPoints, minSpawnDistance) && IsFarEnoughFromPosition(tile, StartPosition, minPlayerDistance))
             {
-                Debug.Log("spawnprob * packDensity: " + spawnProbability * packDensity);
-                Debug.Log("random value: " + Random.value);
                 if (Random.value < spawnProbability * packDensity)
                 {
                     spawnPoints.Add(tile);
-                    Debug.Log("spawning pack at " + tile);
                     SpawnEnemyPack(tile, packSpawn);
                 }
                 
@@ -123,7 +121,8 @@ public class EnemySpawnManager : MonoBehaviour
         NavMeshHit hit;
         if (NavMesh.SamplePosition(spawnPosition, out hit, 1.0f, NavMesh.AllAreas))
         {
-            packSpawn.spawnPack(new Vector3(position.x, position.y, 0));
+            PackSpawn pack = Instantiate(packSpawn, spawnPosition, Quaternion.identity);
+            pack.packSize = packSize;
         }
         else
         {

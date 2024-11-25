@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d3c395bfd65c8439664c72579036d0, type: 3}
   m_Name: BanditStats
   m_EditorClassIdentifier: 
-  armourBase: 0
-  evasionBase: 0
+  armourFlat: 0
+  evasionFlat: 0
   armourIncreases: 0
   evasionIncreases: 0
   physicalDamageReduction: 0
@@ -35,8 +35,8 @@ MonoBehaviour:
   - 0
   healthBase: 100
   healthFlat: 0
-  healthIncreases: 1
-  healthMoreMultipliers: 1
+  healthIncreases: 0
+  healthMoreMultipliers: 0
   healthRegenBase: 0
   healthRegenFlat: 0
   healthRegenIncreases: 0
@@ -61,22 +61,22 @@ MonoBehaviour:
   - 0
   accuracyBase: 50
   accuracyFlat: 0
-  accuracyIncreases: 1
-  accuracyMoreMultipliers: 1
+  accuracyIncreases: 0
+  accuracyMoreMultipliers: 0
   attackSpeedBase: 1
   attackSpeedFlat: 0
-  attackSpeedIncreases: 1
-  attackSpeedMoreMultipliers: 1
+  attackSpeedIncreases: 0
+  attackSpeedMoreMultipliers: 0
   castSpeedBase: 1
   castSpeedFlat: 0
   castSpeedIncreases: 1
   castSpeedMoreMultipliers: 1
   criticalStrikeChanceBase: 0.05
   criticalStrikeChanceFlat: 0
-  criticalStrikeChanceIncreases: 1
+  criticalStrikeChanceIncreases: 0
   criticalStrikeMultiplierBase: 1
   criticalStrikeMultiplierFlat: 0
-  criticalStrikeMultiplierIncreases: 1
+  criticalStrikeMultiplierIncreases: 0
   igniteChanceBase: 0
   igniteChanceFlat: 0
   chillChanceBase: 0
@@ -86,7 +86,10 @@ MonoBehaviour:
   shockChanceBase: 0
   shockChanceFlat: 0
   movementSpeedBase: 1
-  movementSpeedIncreases: 1
+  movementSpeedIncreases: 0
   additionalProjectiles: 0
-  projectileSpeedIncreases: 1
-  areaOfEffectIncreases: 1
+  projectileSpeedIncreases: 0
+  projectileDamageIncreases: 0
+  areaOfEffectIncreases: 0
+  areaOfEffectDamageIncreases: 0
+  strikeRangeFlat: 8

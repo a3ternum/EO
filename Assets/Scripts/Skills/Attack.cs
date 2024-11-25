@@ -12,26 +12,12 @@ public class Attack : Skill
     public Animator animator;
     public float animationDuration;
 
-    protected GameObject creatureWeapon;
     protected GameObject targets { get; set; }
     protected Vector2 originalHitLocation;
 
     protected override void Start()
     {
         base.Start();
-        creatureWeapon = transform.Find("firePoint/Weapon")?.gameObject;
-        if (creatureWeapon != null)
-        {
-            animator = creatureWeapon.GetComponent<Animator>();
-            if (animator == null)
-            {
-                Debug.LogWarning("Animator component not found on " + gameObject.name);
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Weapon object not found on " + gameObject.name);
-        }
 
     }
 
