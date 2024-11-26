@@ -16,7 +16,7 @@ jobs:
     steps:
       # Step 1: Checkout the repository
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       # Step 2: Set up Unity
       - name: Set up Unity
@@ -31,9 +31,11 @@ jobs:
         with:
           ulfContent: ${{ secrets.UNITY_LICENSE }}  # Use the secret where you've stored the .ulf content
 
+      # Test
+
       # Step 4: Build the project
       - name: Build project
-        uses: game-ci/unity-actions/builder@v2
+        uses: game-ci/unity-builder@v4
         with:
           targetPlatform: StandaloneWindows64  # Adjust for your platform
           buildName: MyGame
@@ -41,7 +43,7 @@ jobs:
 
       # Step 5: Upload Build Artifacts
       - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: GameBuild
           path: build/
