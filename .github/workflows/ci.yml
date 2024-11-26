@@ -59,6 +59,9 @@ jobs:
         with:
           targetPlatform: StandaloneWindows64
           allowDirtyBuild: true
+	  customParameters: |
+	    -batchmode
+            -nographics
 
       # Output
       - uses: actions/upload-artifact@v3
