@@ -3,11 +3,9 @@
     "rootNamespace": "",
     "references": [
         "GUID:fcdecbf14ed73234697431ded4cdac5f",
-        "GUID:7c764c105392fd942baf1c4eba025dda",
         "GUID:dc04f38471c3a459fb4d31124ee9127d",
         "GUID:ebbea1c70c20149eea64c53647a70872",
-        "UnityEngine",          
-        "UnityEngine.TestTools" 
+        "GUID:27619889b8ba8c24980f49ee34dbb44a"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
