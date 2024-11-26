@@ -1,4 +1,4 @@
-name: Unity CI/CD
+name: Unity CI/CD setup
 
 on: [push, pull_request]
 
