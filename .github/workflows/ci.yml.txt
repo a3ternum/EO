@@ -1,0 +1,56 @@
+name: Unity CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build Unity Project
+    runs-on: windows-latest  # Use a Windows runner
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Cache Unity files (optional, improves speed)
+      - name: Cache Unity files
+        uses: actions/cache@v3
+        with:
+          path: Library
+          key: ${{ runner.os }}-unity-library-${{ hashFiles('**/*') }}
+          restore-keys: |
+            ${{ runner.os }}-unity-library-
+
+      # Step 3: Set up Unity
+      - name: Set up Unity
+        uses: game-ci/unity-actions/setup@v3
+        with:
+          unityVersion: 6000.0.24f1  # Replace with your Unity version
+          modules: Windows
+
+      # Step 4: Activate Unity license
+      - name: Activate Unity license
+        uses: game-ci/unity-actions/activate@v3
+        with:
+          ulfContent: ${{ secrets.UNITY_LICENSE }} # Use the secret where we've stored the .ulf content
+
+      # Step 5: Build the project
+      - name: Build project
+        uses: game-ci/unity-actions/builder@v3
+        with:
+          targetPlatform: StandaloneWindows64  # Replace with your platform
+          buildName: MyGame  # Name your build
+          buildPath: build  # Output folder for the build
+
+      # Step 6: Upload build artifacts
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: GameBuild
+          path: build/
