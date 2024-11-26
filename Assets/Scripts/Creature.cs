@@ -55,7 +55,7 @@ public class Creature : MonoBehaviour
 
     protected float nextAttackTime = 0f;
 
-    protected HealthBar healthBarComponent;
+    public HealthBar healthBarComponent;
 
   
 
