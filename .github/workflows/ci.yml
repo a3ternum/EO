@@ -20,14 +20,14 @@ jobs:
 
       # Step 2: Set up Unity
       - name: Set up Unity
-        uses: game-ci/unity-actions/setup@v2
+        uses: game-ci/unity-actions/setup@v4
         with:
-          unityVersion: 2023.1.0f1  # Replace with your Unity version
+          unityVersion: 6000.0.24f1  # Replace with your Unity version
           modules: Windows
 
       # Step 3: Activate Unity license using the .ulf content from GitHub Secrets
       - name: Activate Unity license
-        uses: game-ci/unity-actions/activate@v2
+        uses: game-ci/unity-actions/activate@v4
         with:
           ulfContent: ${{ secrets.UNITY_LICENSE }}  # Use the secret where you've stored the .ulf content
 
