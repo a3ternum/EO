@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7934529971040060558}
   - component: {fileID: 4569632052120866580}
   - component: {fileID: 3540686764776846509}
+  - component: {fileID: 3614366632655365477}
   m_Layer: 0
   m_Name: FireballProjectile
   m_TagString: Untagged
@@ -137,3 +138,25 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.18, y: 0}
   m_Radius: 0.16
+--- !u!95 &3614366632655365477
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5866663247604314596}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1f1dc1481a0e4464d864b03d555c133c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

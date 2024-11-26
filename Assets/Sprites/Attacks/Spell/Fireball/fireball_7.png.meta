@@ -103,37 +103,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fireball_7_0
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 71
-        width: 17
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 79a81585fb19c23f0800000000000000
-      internalID: -924203572511274345
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: fireball_7_1
       rect:
         serializedVersion: 2
-        x: 9
+        x: 5
         y: 37
-        width: 90
+        width: 94
         height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -150,7 +128,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 83f95fb872cfc0b48923cd82772351f2
     internalID: 0
     vertices: []
     indices: 
@@ -159,7 +137,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fireball_7_1: 6531300455919027763
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

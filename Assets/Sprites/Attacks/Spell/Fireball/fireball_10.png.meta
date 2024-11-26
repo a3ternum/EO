@@ -133,59 +133,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fireball_10_0
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 71
-        width: 19
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 66525f52054a6f740800000000000000
-      internalID: 5185512685104866662
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fireball_10_1
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 69
-        width: 22
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1ea6922aab1577800800000000000000
-      internalID: 610046136558381793
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: fireball_10_2
       rect:
         serializedVersion: 2
-        x: 43
+        x: 5
         y: 38
-        width: 56
+        width: 94
         height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -198,209 +154,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: fireball_10_3
-      rect:
-        serializedVersion: 2
-        x: 56
-        y: 77
-        width: 9
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fd2f1742b17548860800000000000000
-      internalID: 7531240250957492959
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fireball_10_4
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 70
-        width: 11
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 35599d7b14fc36050800000000000000
-      internalID: 5792701426892903763
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fireball_10_5
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 66
-        width: 9
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ddea7402446ec7150800000000000000
-      internalID: 5871821194458017501
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fireball_10_6
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 65
-        width: 12
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2278b4fb480255cd0800000000000000
-      internalID: -2570112257827829982
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fireball_10_7
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 61
-        width: 19
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4f59f22d07c0edd70800000000000000
-      internalID: 9069700378272962036
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fireball_10_8
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 57
-        width: 16
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: edecd8a67f4ec46c0800000000000000
-      internalID: -4157696604674076962
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fireball_10_9
-      rect:
-        serializedVersion: 2
-        x: 21
-        y: 49
-        width: 23
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fb39137d33725fdf0800000000000000
-      internalID: -147168309212507201
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fireball_10_10
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 46
-        width: 21
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 56ea36b79ebae33c0800000000000000
-      internalID: -4377872768471683483
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fireball_10_11
-      rect:
-        serializedVersion: 2
-        x: 34
-        y: 41
-        width: 20
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d5b137f0c04eae760800000000000000
-      internalID: 7488048070906813277
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 465f909248440184dba308b78ea09dc1
     internalID: 0
     vertices: []
     indices: 
@@ -409,7 +167,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fireball_10_2: 4208610005743458577
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

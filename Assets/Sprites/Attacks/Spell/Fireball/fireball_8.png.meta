@@ -109,59 +109,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fireball_8_0
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 58
-        width: 17
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 002edf85df515b3c0800000000000000
-      internalID: -4344542087665032704
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fireball_8_1
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 49
-        width: 40
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d3388da583583cba0800000000000000
-      internalID: -6069861395676495043
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: fireball_8_2
       rect:
         serializedVersion: 2
-        x: 38
+        x: 8
         y: 37
-        width: 61
+        width: 91
         height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -174,33 +130,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: fireball_8_3
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 44
-        width: 28
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1414c6bd9cddc20f0800000000000000
-      internalID: -1140292746592108223
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: abe3b1e17e16214478dfc21f5a3d3805
     internalID: 0
     vertices: []
     indices: 
@@ -209,7 +143,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fireball_8_2: -7053821850621014970
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

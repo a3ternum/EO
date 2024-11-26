@@ -21,9 +21,9 @@ public class EnemySpawnManager : MonoBehaviour
     private void Awake()
     {
         minPlayerDistance = 10f;
-        spawnProbability = 0.05f;
+        spawnProbability = 0.01f;
         packDensity = 1;
-        packSize = 6;
+        packSize = 5;
         // set packSpawn parameters
         packSpawn.enemySpawnTable = enemySpawnTable;
         // this will later depend on things like map Quality, map density etc

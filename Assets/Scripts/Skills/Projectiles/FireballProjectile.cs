@@ -5,10 +5,21 @@ using static UnityEngine.GraphicsBuffer;
 
 public class FireballProjectile : Projectile
 {
+    private Animator animator;
     protected override void Awake()
     {
         base.Awake();
         destroyOnHit = true;
+        animator = GetComponent<Animator>();
+
+    }
+
+    protected void Start()
+    {
+        // trigger the spawn animator on the fireball object
+        animator.SetTrigger("Spawn");
+        Debug.Log("Initial Animator State: " + animator.GetCurrentAnimatorStateInfo(0).IsName("Spawned"));
+
     }
 
     protected override IEnumerator MoveAndHandleCollisions()
@@ -56,8 +67,12 @@ public class FireballProjectile : Projectile
                     {
                         skill.ApplyDamageAndEffects(targetsList);
                         FireballExplosion();
-
-
+                        // trigger the explosion animator on the fireball object
+                        Debug.Log("Fireball explosion triggered");
+                        animator.SetTrigger("Explode");
+                       
+                        // destroy the projectile after the explosion animation is done
+                        yield return new WaitForSeconds(0.5f);
                         Destroy(gameObject);
                         yield break; // Exit the coroutine as the projectile is destroyed
                     }
@@ -95,8 +110,8 @@ public class FireballProjectile : Projectile
         ApplyFireballDamage(targetsList);
     }
 
-    protected void ApplyFireballDamage(List<Creature> targets)
-    {
+    protected void ApplyFireballDamage(List<Creature> targets) // for now fireball explosion just does the same damage as the fireball itself
+    {   
         if (targets != null && targets.Count > 0)
         {
             foreach (var target in targets)
