@@ -14,13 +14,6 @@ public class FireballProjectile : Projectile
 
     }
 
-    protected void Start()
-    {
-        // trigger the spawn animator on the fireball object
-        animator.SetTrigger("Spawn");
-        Debug.Log("Initial Animator State: " + animator.GetCurrentAnimatorStateInfo(0).IsName("Spawned"));
-
-    }
 
     protected override IEnumerator MoveAndHandleCollisions()
     {
@@ -68,7 +61,6 @@ public class FireballProjectile : Projectile
                         skill.ApplyDamageAndEffects(targetsList);
                         FireballExplosion();
                         // trigger the explosion animator on the fireball object
-                        Debug.Log("Fireball explosion triggered");
                         animator.SetTrigger("Explode");
                        
                         // destroy the projectile after the explosion animation is done

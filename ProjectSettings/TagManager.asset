@@ -5,9 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Terrain
-  - EnemyProjectile
-  - PlayerProjectile
   - Enemy
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -17,8 +16,8 @@ TagManager:
   - UI
   - Player
   - Terrain
-  - EnemyProjectile
-  - PlayerProjectile
+  - Projectile
+  - 
   - 
   - 
   - 
