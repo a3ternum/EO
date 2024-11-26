@@ -11,14 +11,7 @@ public class MeleeAttackSingleTarget : MeleeAttack
     private float singleTargetRangeParameter = 0.2f; // tweak this value!!!!
     private SingleTargetIndicatorCircle SingleTargetIndicatorCircle;
 
-    
-
-    public override void ActivateSkill()
-    {
-        StartCoroutine(ActivateSkillCoroutine());
-    }
-
-    protected IEnumerator ActivateSkillCoroutine()
+    protected override IEnumerator ActivateSkillCoroutine()
     {
         List<Creature> targets = FindTargetInRange();
         bool canActivate = CanActivate();
@@ -26,7 +19,7 @@ public class MeleeAttackSingleTarget : MeleeAttack
         if (canActivate && targets != null && targets.Count > 0)
         {
             originalHitLocation = targets[0].transform.position;
-            yield return StartCoroutine(AttackCoroutine());
+            yield return StartCoroutine(SkillCoroutine());
         
             // check if our strike location still overlaps with the collider of the target
             Collider2D targetCollider = targets[0].GetComponent<Collider2D>();
@@ -51,13 +44,11 @@ public class MeleeAttackSingleTarget : MeleeAttack
                 }
             }
 
-            OnActivate(); // maybe move this to the start of the coroutine
         }
     }
 
-    protected override IEnumerator AttackCoroutine()
+    protected override IEnumerator SkillCoroutine()
     {
-        OnActivate();
         float playerAttackSpeed = user.currentAttackSpeed;
         animationDuration = CalculateAnimationDuration(playerAttackSpeed, attackSpeed);
 
@@ -76,13 +67,8 @@ public class MeleeAttackSingleTarget : MeleeAttack
         if (animator != null)
         {
             animator.SetTrigger("AttackFinished"); // Finish the attack animation
-
         }
-
-
-
     }
-
 
     protected virtual List<Creature> FindTargetInRange()
     {

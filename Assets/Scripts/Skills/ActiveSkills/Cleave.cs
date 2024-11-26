@@ -54,7 +54,7 @@ public class Cleave : MeleeAttackArea
 
 
 
-    protected override IEnumerator AttackCoroutine()
+    protected override IEnumerator SkillCoroutine()
     {
         OnActivate();
         float playerAttackSpeed = user.currentAttackSpeed;

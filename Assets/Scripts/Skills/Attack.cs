@@ -9,8 +9,6 @@ public class Attack : Skill
     // melee attacks will contain the following properties:
     // - damage: the amount of base damage the attack will deal
     // - range: the maximum distance the attack can reach
-    public Animator animator;
-    public float animationDuration;
 
     protected GameObject targets { get; set; }
     protected Vector2 originalHitLocation;
@@ -38,9 +36,8 @@ public class Attack : Skill
     }
 
 
-    protected virtual IEnumerator AttackCoroutine()
+    protected override IEnumerator SkillCoroutine()
     {
-        OnActivate();
         float playerAttackSpeed = user.currentAttackSpeed;
         animationDuration = CalculateAnimationDuration(playerAttackSpeed, attackSpeed);
         
@@ -62,7 +59,7 @@ public class Attack : Skill
 
     }
 
-    protected float CalculateAnimationDuration(float playerAttackSpeed, float attackSpeed)
+    protected override float CalculateAnimationDuration(float playerAttackSpeed, float attackSpeed)
     {
         // This method will calculate the duration of the attack animation based on the player's attack speed and the attack's attack speed.
         // to be implemented in child classes

@@ -86,12 +86,6 @@ public class OffensiveSpell : Spell
         return targetsList;
     }
 
-    protected virtual IEnumerator ActivateSkillCoroutine()
-    {
-        yield return StartCoroutine(SpellCoroutine());
-        OnActivate();
-    }
-
 
 }
  

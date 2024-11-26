@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections;
 public class RangedAttack : Attack
 { 
     
@@ -18,10 +18,10 @@ public class RangedAttack : Attack
         projectilePrefab = prefab;
     }
 
-    public override void ActivateSkill()
+
+    protected override IEnumerator ActivateSkillCoroutine()
     {
-        base.ActivateSkill();
-        StartCoroutine(AttackCoroutine());
+        yield return StartCoroutine(SkillCoroutine());
         LaunchProjectiles();
     }
 

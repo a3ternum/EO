@@ -54,19 +54,9 @@ public class IceNova : OffensiveSpell
         range = skillData.rangePerLevel[skillLevel];
     }
 
-    public override void ActivateSkill()
-    {
-        bool canActivate = CanActivate();
-        if (canActivate)
-        {
-            StartCoroutine(ActivateSkillCoroutine());
-        }
-    }
-
     protected override IEnumerator ActivateSkillCoroutine()
     {
-        yield return StartCoroutine(SpellCoroutine());
-        OnActivate();
+        yield return StartCoroutine(SkillCoroutine());
         SpawnIceNova(DetermineTargetLocation());
     }
 

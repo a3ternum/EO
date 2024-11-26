@@ -30,7 +30,9 @@ public class Skill : MonoBehaviour
     public int enemyLayer { get; protected set; } // the layer mask of the enemy
     public int terrainLayer { get; protected set; } // the layer mask of the terrain
     public int playerLayer { get; protected set; } // the layer mask of the player
+    public float animationDuration { get; protected set; } // the duration of the animation
 
+    public Animator animator { get; protected set; } // the animator of the skill
     protected Vector2 targetPosition { get; set; } // the location where the skill is targeted
 
     protected float areaOfAttackIncrease;
@@ -65,13 +67,46 @@ public class Skill : MonoBehaviour
         
     }
 
-    public virtual void ActivateSkill() // this method will be used to activate the skill
+    public virtual void ActivateSkill()
     {
-        if (CanActivate())
+        bool canActivate = CanActivate();
+        if (canActivate)
         {
             OnActivate();
+            StartCoroutine(ActivateSkillCoroutine());
         }
     }
+    protected virtual IEnumerator ActivateSkillCoroutine()
+    {
+        yield return StartCoroutine(SkillCoroutine());
+    }
+
+    protected virtual IEnumerator SkillCoroutine()
+    {
+        float creatureCastSpeed = user.currentCastSpeed;
+        animationDuration = CalculateAnimationDuration(creatureCastSpeed, castSpeed);
+
+        if (animator != null) // play animation only if spell has an animation
+        {
+            animator.speed = creatureCastSpeed; // Set the animation speed based on the player's cast speed and the cast time of the skill
+            animator.SetTrigger("Spell"); // Play the spell animation
+        }
+        user.canMove = false;
+        yield return new WaitForSeconds(animationDuration);
+        user.canMove = true;
+        if (animator != null)
+        {
+            animator.SetTrigger("SpellFinished"); // Finish the spell animation
+        }
+    }
+
+    protected virtual float CalculateAnimationDuration(float creatureCastSpeed, float castSpeed)
+    {
+        // This method will calculate the duration of the spell animation based on the player's cast speed and the spell's cast speed.
+        // to be implemented in child classes
+        return 1 / (castSpeed * creatureCastSpeed);
+    }
+
     public virtual bool CanActivate() // this method will be used to check if the skill can be used
     {
         if (user is Player)
@@ -128,6 +163,10 @@ public class Skill : MonoBehaviour
             Player player = user.GetComponent<Player>();
             player.currentMana = Mathf.Max(player.currentMana - manaCost, 0);
         }
+        if (user.currentAttackSpeed == 0)
+        {
+            Debug.LogError("Attack speed is 0");
+        }
         cooldownTimer = 1/attackSpeed;
     }
     public virtual float[] CalculateDamage()
@@ -163,12 +202,7 @@ public virtual void UpdateCooldown(float deltaTime) //A method to manage the coo
         cooldownTimer = 0;
     }
 
-    public virtual void Update()
-    {
-        // Update the cooldown timer
-        UpdateCooldown(Time.deltaTime);
-    }
-
+ 
     public virtual void ApplyDamageAndEffects(List<Creature> targets)
     {
         if (targets != null && targets.Count > 0)
@@ -267,6 +301,11 @@ public virtual void UpdateCooldown(float deltaTime) //A method to manage the coo
         }
         return targetPosition;
     }
-    
+
+    public virtual void Update()
+    {
+        // Update the cooldown timer
+        UpdateCooldown(Time.deltaTime);
+    }
 
 }

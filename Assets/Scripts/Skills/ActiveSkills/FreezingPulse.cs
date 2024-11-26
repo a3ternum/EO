@@ -64,18 +64,9 @@ public class FreezingPulse : OffensiveSpell
 
 
 
-    public override void ActivateSkill()
-    {
-        bool canActivate = CanActivate();
-        if (canActivate)
-        {
-            StartCoroutine(ActivateSkillCoroutine());
-        }
-    }
     protected override IEnumerator ActivateSkillCoroutine()
     {
-        yield return StartCoroutine(SpellCoroutine());
-        OnActivate();
+        yield return StartCoroutine(SkillCoroutine());
         LaunchProjectiles(DetermineTargetLocation());
     }
 

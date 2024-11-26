@@ -16,7 +16,7 @@ public class MeleeAttackArea : MeleeAttack
         if (canActivate)
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            StartCoroutine(AttackCoroutine());
+            StartCoroutine(SkillCoroutine());
             OnActivate();
             List<Creature> targetsList = AoECollider(mousePosition);
             ApplyDamageAndEffects(targetsList);
