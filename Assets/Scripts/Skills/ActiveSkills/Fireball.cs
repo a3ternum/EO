@@ -61,6 +61,7 @@ public class Fireball : OffensiveSpell
         duration = fireballSkillData.durationPerLevel[skillLevel];
         tickRate = fireballSkillData.tickRatePerLevel[skillLevel];
         projectileSpeed = fireballSkillData.projectileSpeedPerLevel[skillLevel];
+        Debug.Log("add useless debug statement to trigger new build");
     }
 
 
