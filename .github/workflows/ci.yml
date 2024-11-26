@@ -59,7 +59,7 @@ jobs:
         with:
           targetPlatform: StandaloneWindows64
           allowDirtyBuild: true
-	  customParameters: |
+	  customParameters:
             -batchmode
             -nographics
 
