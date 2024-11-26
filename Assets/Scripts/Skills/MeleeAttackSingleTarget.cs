@@ -5,7 +5,6 @@ using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
-using static UnityEditor.FilePathAttribute;
 
 public class MeleeAttackSingleTarget : MeleeAttack
 {
