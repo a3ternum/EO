@@ -1,7 +1,9 @@
+#if UNITY_EDITOR
 using UnityEditor.IMGUI.Controls;
 using UnityEditorInternal;
-using UnityEngine;
 using UnityEditor;
+#endif
+using UnityEngine;
 
 namespace NavMeshPlus.Components.Editors
 {

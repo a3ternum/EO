@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using System.IO;
+#if UNITY_EDITOR
 using UnityEditor.SceneManagement;
+using UnityEditor;
+#endif
 using UnityEngine.AI;
 using UnityEngine;
-using UnityEditor;
 
 namespace NavMeshPlus.Components.Editors
 {

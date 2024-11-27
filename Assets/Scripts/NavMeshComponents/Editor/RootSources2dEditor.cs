@@ -1,6 +1,7 @@
-﻿using UnityEditor;
+﻿#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using NavMeshPlus.Components;
-
 namespace NavMeshPlus.Extensions.Editors
 {
     [CanEditMultipleObjects]

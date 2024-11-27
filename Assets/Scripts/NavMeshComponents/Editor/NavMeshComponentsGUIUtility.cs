@@ -1,5 +1,7 @@
-using UnityEditor;
+#if UNITY_EDITOR
 using UnityEditor.AI;
+using UnityEditor;
+#endif
 using UnityEngine;
 using UnityEngine.AI;
 

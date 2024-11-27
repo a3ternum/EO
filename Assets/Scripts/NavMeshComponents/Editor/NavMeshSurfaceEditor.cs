@@ -1,12 +1,15 @@
 #define NAVMESHCOMPONENTS_SHOW_NAVMESHDATA_REF
 
 using System.Linq;
+#if UNITY_EDITOR
 using UnityEditor.IMGUI.Controls;
 using UnityEditorInternal;
-using UnityEngine.AI;
-using UnityEngine;
 using UnityEditor;
 using UnityEditor.AI;
+#endif
+using UnityEngine.AI;
+using UnityEngine;
+
 using System.Reflection;
 
 namespace NavMeshPlus.Components.Editors
