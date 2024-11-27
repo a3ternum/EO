@@ -44,7 +44,7 @@ public class Skill : MonoBehaviour
     private Sprite skillIcon; // the icon of the skill to display in UI.
     
     protected float cooldownTimer = 0; // the cooldown timer of the skill
-
+    protected bool isActivating = false; // boolean to indicate whether the skill is activating
     protected virtual void Awake()
     {
         lastHitTime = new Dictionary<Creature, float>();
@@ -69,6 +69,11 @@ public class Skill : MonoBehaviour
 
     public virtual void ActivateSkill()
     {
+        Debug.Log("isActiving" + isActivating);
+        if (isActivating) // prevent multiple activations of the same skill
+        {
+            return;
+        }
         bool canActivate = CanActivate();
         if (canActivate)
         {
@@ -78,13 +83,16 @@ public class Skill : MonoBehaviour
     }
     protected virtual IEnumerator ActivateSkillCoroutine()
     {
+        Debug.Log("setting isActivating to true inside skill");
+        isActivating = true;
         yield return StartCoroutine(SkillCoroutine());
+        Debug.Log("setting isActivating to false inside skill");
+        isActivating = false;
     }
 
     protected virtual IEnumerator SkillCoroutine()
     {
         float creatureCastSpeed = user.currentCastSpeed;
-        animationDuration = CalculateAnimationDuration(creatureCastSpeed, castSpeed);
 
         if (animator != null) // play animation only if spell has an animation
         {
@@ -114,6 +122,7 @@ public class Skill : MonoBehaviour
             Player player = user.GetComponent<Player>();
             if (player != null)
             {
+                Debug.Log("cooldown timer: " + cooldownTimer);
                 if ((player.currentMana >= manaCost) && (cooldownTimer <= 0))
                 {
                     return true;
@@ -163,11 +172,13 @@ public class Skill : MonoBehaviour
             Player player = user.GetComponent<Player>();
             player.currentMana = Mathf.Max(player.currentMana - manaCost, 0);
         }
-        if (user.currentAttackSpeed == 0)
+        if (user.currentCastSpeed == 0)
         {
-            Debug.LogError("Attack speed is 0");
+            Debug.LogError("Cast speed is 0");
         }
-        cooldownTimer = 1/attackSpeed;
+        cooldownTimer = (1 / castSpeed) / user.currentCastSpeed;
+        animationDuration = CalculateAnimationDuration(user.currentCastSpeed, castSpeed);
+
     }
     public virtual float[] CalculateDamage()
     {

@@ -67,7 +67,7 @@ public class Fireball : OffensiveSpell
 
     protected override IEnumerator ActivateSkillCoroutine()
     {
-        yield return StartCoroutine(SkillCoroutine());
+        yield return base.ActivateSkillCoroutine();
         LaunchProjectiles(DetermineTargetLocation());
     }
 

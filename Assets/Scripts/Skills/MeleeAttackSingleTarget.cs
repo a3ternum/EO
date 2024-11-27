@@ -14,13 +14,12 @@ public class MeleeAttackSingleTarget : MeleeAttack
     protected override IEnumerator ActivateSkillCoroutine()
     {
         List<Creature> targets = FindTargetInRange();
-        bool canActivate = CanActivate();
-       
-        if (canActivate && targets != null && targets.Count > 0)
+        if (targets != null && targets.Count > 0)
         {
             originalHitLocation = targets[0].transform.position;
+            isActivating = true;
             yield return StartCoroutine(SkillCoroutine());
-        
+            isActivating = false;
             // check if our strike location still overlaps with the collider of the target
             Collider2D targetCollider = targets[0].GetComponent<Collider2D>();
             if (targetCollider != null && targetCollider.OverlapPoint(originalHitLocation))
@@ -49,8 +48,8 @@ public class MeleeAttackSingleTarget : MeleeAttack
 
     protected override IEnumerator SkillCoroutine()
     {
+        Debug.Log("entering singletarget attack coroutine");
         float playerAttackSpeed = user.currentAttackSpeed;
-        animationDuration = CalculateAnimationDuration(playerAttackSpeed, attackSpeed);
 
         // spawn SingleTargetIndicatorCircle at the location of the target
         SingleTargetIndicatorCircle = Instantiate(Resources.Load<SingleTargetIndicatorCircle>("SingleTargetIndicatorCircle"), originalHitLocation, Quaternion.identity);

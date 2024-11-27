@@ -8,16 +8,6 @@ public class OffensiveSpell : Spell
 
     protected Projectile projectilePrefab;
 
-
-    public override void ActivateSkill()
-    {
-        bool canActivate = CanActivate();
-        if (canActivate)
-        {
-            StartCoroutine(ActivateSkillCoroutine());
-        }
-    }
-
     protected virtual void LaunchProjectiles(Vector2 targetPosition)
     {
         int totalProjectiles = 1 + additionalProjectiles + user.currentAdditionalProjectiles;

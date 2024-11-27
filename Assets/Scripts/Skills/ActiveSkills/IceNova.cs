@@ -31,7 +31,7 @@ public class IceNova : OffensiveSpell
         skillData.manaCostPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
         skillData.radiusPerLevel = new List<float> { 0.5f, 0.5f, 0.5f, 0.5f, 0.5f };
         skillData.castSpeedPerLevel = new List<float> { 1.5f, 1.46f, 1.42f, 1.38f, 1.34f };
-        skillData.durationPerLevel = new List<float> { 1f, 0.5f, 0.5f, 0.5f, 0.5f };
+        skillData.durationPerLevel = new List<float> { 1f, 1f, 1f, 1f, 1f };
         skillData.rangePerLevel = new List<float> { 4f, 4f, 4f, 4f, 4f };
     }
 
@@ -56,14 +56,13 @@ public class IceNova : OffensiveSpell
 
     protected override IEnumerator ActivateSkillCoroutine()
     {
-        yield return StartCoroutine(SkillCoroutine());
+        yield return base.ActivateSkillCoroutine();
         SpawnIceNova(DetermineTargetLocation());
     }
 
     protected void SpawnIceNova(Vector2 location)
     {
         // Spawn the ice nova at the location
-        Debug.Log("spawning ice nova object");
         IceNovaObject iceNova = Instantiate(iceNovaPrefab, location, Quaternion.identity);
         iceNova.radius = radius;
         iceNova.duration = duration;

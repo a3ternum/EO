@@ -13,11 +13,6 @@ public class Attack : Skill
     protected GameObject targets { get; set; }
     protected Vector2 originalHitLocation;
 
-    protected override void Start()
-    {
-        base.Start();
-
-    }
 
     public override void OnActivate()
     // This method will handle common tasks performed upon activation, like setting the cooldown timer,
@@ -33,13 +28,14 @@ public class Attack : Skill
             Debug.LogError("Attack speed is 0");
         }
         cooldownTimer = (1 / attackSpeed) / user.currentAttackSpeed;
+        animationDuration = CalculateAnimationDuration(user.currentAttackSpeed, attackSpeed);
     }
 
 
     protected override IEnumerator SkillCoroutine()
     {
+        Debug.Log("entering attack coroutine");
         float playerAttackSpeed = user.currentAttackSpeed;
-        animationDuration = CalculateAnimationDuration(playerAttackSpeed, attackSpeed);
         
         if (animator!= null) // play animation only if attack has an animation
         {

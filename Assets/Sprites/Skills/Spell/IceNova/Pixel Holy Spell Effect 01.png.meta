@@ -1,0 +1,2891 @@
+fileFormatVersion: 2
+guid: 4e7ceadaaa6ab834283744ba79250ef4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -761598201235380693
+    second: Pixel Holy Spell Effect 01_0
+  - first:
+      213: 819658200934241572
+    second: Pixel Holy Spell Effect 01_1
+  - first:
+      213: -5876618334067818234
+    second: Pixel Holy Spell Effect 01_2
+  - first:
+      213: 3945787860571180519
+    second: Pixel Holy Spell Effect 01_3
+  - first:
+      213: 2819037126120788767
+    second: Pixel Holy Spell Effect 01_4
+  - first:
+      213: -3837766783648998544
+    second: Pixel Holy Spell Effect 01_5
+  - first:
+      213: -7298509494599798352
+    second: Pixel Holy Spell Effect 01_6
+  - first:
+      213: -861681037605162239
+    second: Pixel Holy Spell Effect 01_7
+  - first:
+      213: 5806058645836331822
+    second: Pixel Holy Spell Effect 01_8
+  - first:
+      213: -7058583002247257126
+    second: Pixel Holy Spell Effect 01_9
+  - first:
+      213: 6763409554534076009
+    second: Pixel Holy Spell Effect 01_10
+  - first:
+      213: 1629674567297331643
+    second: Pixel Holy Spell Effect 01_11
+  - first:
+      213: -4844644324235628631
+    second: Pixel Holy Spell Effect 01_12
+  - first:
+      213: 6365284712562445123
+    second: Pixel Holy Spell Effect 01_13
+  - first:
+      213: 2664857089832218669
+    second: Pixel Holy Spell Effect 01_14
+  - first:
+      213: -3128329943005591086
+    second: Pixel Holy Spell Effect 01_15
+  - first:
+      213: 1134326807406291048
+    second: Pixel Holy Spell Effect 01_16
+  - first:
+      213: 2785679178222020325
+    second: Pixel Holy Spell Effect 01_17
+  - first:
+      213: -2494662024807930344
+    second: Pixel Holy Spell Effect 01_18
+  - first:
+      213: -3110463933554906739
+    second: Pixel Holy Spell Effect 01_19
+  - first:
+      213: 3191239770006405538
+    second: Pixel Holy Spell Effect 01_20
+  - first:
+      213: 2942048510626063186
+    second: Pixel Holy Spell Effect 01_21
+  - first:
+      213: 1238231325029698210
+    second: Pixel Holy Spell Effect 01_22
+  - first:
+      213: 5319626529600413747
+    second: Pixel Holy Spell Effect 01_23
+  - first:
+      213: 2025415277742760017
+    second: Pixel Holy Spell Effect 01_24
+  - first:
+      213: -5685073171555155070
+    second: Pixel Holy Spell Effect 01_25
+  - first:
+      213: -8150645632124340225
+    second: Pixel Holy Spell Effect 01_26
+  - first:
+      213: -4661611881523044803
+    second: Pixel Holy Spell Effect 01_27
+  - first:
+      213: -8124347242416530346
+    second: Pixel Holy Spell Effect 01_28
+  - first:
+      213: -199297194291474097
+    second: Pixel Holy Spell Effect 01_29
+  - first:
+      213: 1686719949286498191
+    second: Pixel Holy Spell Effect 01_30
+  - first:
+      213: -8090224533140606937
+    second: Pixel Holy Spell Effect 01_31
+  - first:
+      213: 5894678377352793909
+    second: Pixel Holy Spell Effect 01_32
+  - first:
+      213: -5744331619923905491
+    second: Pixel Holy Spell Effect 01_33
+  - first:
+      213: 7098382544509593554
+    second: Pixel Holy Spell Effect 01_34
+  - first:
+      213: 891612994946171210
+    second: Pixel Holy Spell Effect 01_35
+  - first:
+      213: 5284082377469812905
+    second: Pixel Holy Spell Effect 01_36
+  - first:
+      213: 8902373925954872799
+    second: Pixel Holy Spell Effect 01_37
+  - first:
+      213: -1071677833908650775
+    second: Pixel Holy Spell Effect 01_38
+  - first:
+      213: -3922951191165650000
+    second: Pixel Holy Spell Effect 01_39
+  - first:
+      213: -190472475611777575
+    second: Pixel Holy Spell Effect 01_40
+  - first:
+      213: 6166416917129843061
+    second: Pixel Holy Spell Effect 01_41
+  - first:
+      213: 7447047871263830580
+    second: Pixel Holy Spell Effect 01_42
+  - first:
+      213: 1923673758266222851
+    second: Pixel Holy Spell Effect 01_43
+  - first:
+      213: -8743325335197149561
+    second: Pixel Holy Spell Effect 01_44
+  - first:
+      213: 158282427814676825
+    second: Pixel Holy Spell Effect 01_45
+  - first:
+      213: -4289171619314502890
+    second: Pixel Holy Spell Effect 01_46
+  - first:
+      213: 3061284981571789123
+    second: Pixel Holy Spell Effect 01_47
+  - first:
+      213: 1836702241843316728
+    second: Pixel Holy Spell Effect 01_48
+  - first:
+      213: -3799416200573005275
+    second: Pixel Holy Spell Effect 01_49
+  - first:
+      213: 7159285203581754345
+    second: Pixel Holy Spell Effect 01_50
+  - first:
+      213: 8716161517593226596
+    second: Pixel Holy Spell Effect 01_51
+  - first:
+      213: 8755621866107515784
+    second: Pixel Holy Spell Effect 01_52
+  - first:
+      213: 6502860325952088859
+    second: Pixel Holy Spell Effect 01_53
+  - first:
+      213: 1891311606651185190
+    second: Pixel Holy Spell Effect 01_54
+  - first:
+      213: 5793556728626343074
+    second: Pixel Holy Spell Effect 01_55
+  - first:
+      213: -3272189666269230327
+    second: Pixel Holy Spell Effect 01_56
+  - first:
+      213: -1076605176534927948
+    second: Pixel Holy Spell Effect 01_57
+  - first:
+      213: 6572856630057791739
+    second: Pixel Holy Spell Effect 01_58
+  - first:
+      213: 3777268450150791661
+    second: Pixel Holy Spell Effect 01_59
+  - first:
+      213: 882113311381174958
+    second: Pixel Holy Spell Effect 01_60
+  - first:
+      213: -2005440768440481222
+    second: Pixel Holy Spell Effect 01_61
+  - first:
+      213: 339841115192530016
+    second: Pixel Holy Spell Effect 01_62
+  - first:
+      213: -9119478393070896750
+    second: Pixel Holy Spell Effect 01_63
+  - first:
+      213: -7360023345841664809
+    second: Pixel Holy Spell Effect 01_64
+  - first:
+      213: 5000232848902807822
+    second: Pixel Holy Spell Effect 01_65
+  - first:
+      213: -7931408715525166143
+    second: Pixel Holy Spell Effect 01_66
+  - first:
+      213: 7753822650545464547
+    second: Pixel Holy Spell Effect 01_67
+  - first:
+      213: -6811364187159673512
+    second: Pixel Holy Spell Effect 01_68
+  - first:
+      213: -5293757760697648567
+    second: Pixel Holy Spell Effect 01_69
+  - first:
+      213: 3593797252389641772
+    second: Pixel Holy Spell Effect 01_70
+  - first:
+      213: 7800684370493267935
+    second: Pixel Holy Spell Effect 01_71
+  - first:
+      213: -839155490479999210
+    second: Pixel Holy Spell Effect 01_72
+  - first:
+      213: 4204974329972832752
+    second: Pixel Holy Spell Effect 01_73
+  - first:
+      213: -3101596794527722276
+    second: Pixel Holy Spell Effect 01_74
+  - first:
+      213: 7125210063013602356
+    second: Pixel Holy Spell Effect 01_75
+  - first:
+      213: -345833251127698176
+    second: Pixel Holy Spell Effect 01_76
+  - first:
+      213: 9096863327435404274
+    second: Pixel Holy Spell Effect 01_77
+  - first:
+      213: 2974410960010067666
+    second: Pixel Holy Spell Effect 01_78
+  - first:
+      213: -6109514422103831036
+    second: Pixel Holy Spell Effect 01_79
+  - first:
+      213: -4249975061437007585
+    second: Pixel Holy Spell Effect 01_80
+  - first:
+      213: -7697344651497128823
+    second: Pixel Holy Spell Effect 01_81
+  - first:
+      213: -7248254774786135019
+    second: Pixel Holy Spell Effect 01_82
+  - first:
+      213: 756497345031506111
+    second: Pixel Holy Spell Effect 01_83
+  - first:
+      213: -4183357443566955875
+    second: Pixel Holy Spell Effect 01_84
+  - first:
+      213: -102330057832968386
+    second: Pixel Holy Spell Effect 01_85
+  - first:
+      213: 5804257390520510730
+    second: Pixel Holy Spell Effect 01_86
+  - first:
+      213: 8577416677198330544
+    second: Pixel Holy Spell Effect 01_87
+  - first:
+      213: 6315259428564024264
+    second: Pixel Holy Spell Effect 01_88
+  - first:
+      213: -1760489826375915587
+    second: Pixel Holy Spell Effect 01_89
+  - first:
+      213: 7569884761412978465
+    second: Pixel Holy Spell Effect 01_90
+  - first:
+      213: 4585583763339500165
+    second: Pixel Holy Spell Effect 01_91
+  - first:
+      213: -8148438902919004709
+    second: Pixel Holy Spell Effect 01_92
+  - first:
+      213: 8418490233720949495
+    second: Pixel Holy Spell Effect 01_93
+  - first:
+      213: -260427773463868064
+    second: Pixel Holy Spell Effect 01_94
+  - first:
+      213: -5727338223062511418
+    second: Pixel Holy Spell Effect 01_95
+  - first:
+      213: -2803864866202903992
+    second: Pixel Holy Spell Effect 01_96
+  - first:
+      213: 8962481670503314657
+    second: Pixel Holy Spell Effect 01_97
+  - first:
+      213: 858781504152504786
+    second: Pixel Holy Spell Effect 01_98
+  - first:
+      213: -124215896185426389
+    second: Pixel Holy Spell Effect 01_99
+  - first:
+      213: -2898327626645876782
+    second: Pixel Holy Spell Effect 01_100
+  - first:
+      213: -8651577000019612736
+    second: Pixel Holy Spell Effect 01_101
+  - first:
+      213: 5794009902332397076
+    second: Pixel Holy Spell Effect 01_102
+  - first:
+      213: -8506563462775715258
+    second: Pixel Holy Spell Effect 01_103
+  - first:
+      213: -7400743535594213220
+    second: Pixel Holy Spell Effect 01_104
+  - first:
+      213: 4380077655923474057
+    second: Pixel Holy Spell Effect 01_105
+  - first:
+      213: 3918255848690846338
+    second: Pixel Holy Spell Effect 01_106
+  - first:
+      213: -5335265608099968925
+    second: Pixel Holy Spell Effect 01_107
+  - first:
+      213: -1441618034379325082
+    second: Pixel Holy Spell Effect 01_108
+  - first:
+      213: -1147818986539017441
+    second: Pixel Holy Spell Effect 01_109
+  - first:
+      213: 7467775839427101628
+    second: Pixel Holy Spell Effect 01_110
+  - first:
+      213: 3708165288221448910
+    second: Pixel Holy Spell Effect 01_111
+  - first:
+      213: -9006348660663927764
+    second: Pixel Holy Spell Effect 01_112
+  - first:
+      213: 5929591169572807175
+    second: Pixel Holy Spell Effect 01_113
+  - first:
+      213: -7185628159618964290
+    second: Pixel Holy Spell Effect 01_114
+  - first:
+      213: -7499064817849165955
+    second: Pixel Holy Spell Effect 01_115
+  - first:
+      213: 1557630545923770914
+    second: Pixel Holy Spell Effect 01_116
+  - first:
+      213: 491035094889212750
+    second: Pixel Holy Spell Effect 01_117
+  - first:
+      213: 6669188162367611632
+    second: Pixel Holy Spell Effect 01_118
+  - first:
+      213: 7943883358151360889
+    second: Pixel Holy Spell Effect 01_119
+  - first:
+      213: -4190681062895243546
+    second: Pixel Holy Spell Effect 01_120
+  - first:
+      213: -6473409302731919886
+    second: Pixel Holy Spell Effect 01_121
+  - first:
+      213: 7657476753629532906
+    second: Pixel Holy Spell Effect 01_122
+  - first:
+      213: 5001221683741136266
+    second: Pixel Holy Spell Effect 01_123
+  - first:
+      213: 5252277273950022853
+    second: Pixel Holy Spell Effect 01_124
+  - first:
+      213: 1158205553949259688
+    second: Pixel Holy Spell Effect 01_125
+  - first:
+      213: 9021408500419025521
+    second: Pixel Holy Spell Effect 01_126
+  - first:
+      213: 5927603910456496218
+    second: Pixel Holy Spell Effect 01_127
+  - first:
+      213: -1768125485325992524
+    second: Pixel Holy Spell Effect 01_128
+  - first:
+      213: 7261141387717968877
+    second: Pixel Holy Spell Effect 01_129
+  - first:
+      213: -7709483890791917781
+    second: Pixel Holy Spell Effect 01_130
+  - first:
+      213: -889715260808647995
+    second: Pixel Holy Spell Effect 01_131
+  - first:
+      213: 2061913027072222219
+    second: Pixel Holy Spell Effect 01_132
+  - first:
+      213: -6620067433720606202
+    second: Pixel Holy Spell Effect 01_133
+  - first:
+      213: 8945024214647614459
+    second: Pixel Holy Spell Effect 01_134
+  - first:
+      213: 7200041327630844441
+    second: Pixel Holy Spell Effect 01_135
+  - first:
+      213: 2990690524627612322
+    second: Pixel Holy Spell Effect 01_136
+  - first:
+      213: 4346905021794375187
+    second: Pixel Holy Spell Effect 01_137
+  - first:
+      213: -5820867297952322386
+    second: Pixel Holy Spell Effect 01_138
+  - first:
+      213: 8763868089271552729
+    second: Pixel Holy Spell Effect 01_139
+  - first:
+      213: -5834503349255931402
+    second: Pixel Holy Spell Effect 01_140
+  - first:
+      213: -3952971893680738116
+    second: Pixel Holy Spell Effect 01_141
+  - first:
+      213: -2593584244545914126
+    second: Pixel Holy Spell Effect 01_142
+  - first:
+      213: 8732551454005694600
+    second: Pixel Holy Spell Effect 01_143
+  - first:
+      213: -6866780340493188383
+    second: Pixel Holy Spell Effect 01_144
+  - first:
+      213: 6501836548232889960
+    second: Pixel Holy Spell Effect 01_145
+  - first:
+      213: -7623512628527203089
+    second: Pixel Holy Spell Effect 01_146
+  - first:
+      213: 6732270203982312795
+    second: Pixel Holy Spell Effect 01_147
+  - first:
+      213: 9196609814543225579
+    second: Pixel Holy Spell Effect 01_148
+  - first:
+      213: 8681760907984558732
+    second: Pixel Holy Spell Effect 01_149
+  - first:
+      213: -7051329545419703351
+    second: Pixel Holy Spell Effect 01_150
+  - first:
+      213: -8625363975018158701
+    second: Pixel Holy Spell Effect 01_151
+  - first:
+      213: -6691559604677909680
+    second: Pixel Holy Spell Effect 01_152
+  - first:
+      213: 8778194709985180294
+    second: Pixel Holy Spell Effect 01_153
+  - first:
+      213: 1504455678788899893
+    second: Pixel Holy Spell Effect 01_154
+  - first:
+      213: -6114556442145947925
+    second: Pixel Holy Spell Effect 01_155
+  - first:
+      213: 8657200789429994046
+    second: Pixel Holy Spell Effect 01_156
+  - first:
+      213: 279102928812155547
+    second: Pixel Holy Spell Effect 01_157
+  - first:
+      213: 9177634796441615050
+    second: Pixel Holy Spell Effect 01_158
+  - first:
+      213: 6171464437805536172
+    second: Pixel Holy Spell Effect 01_159
+  - first:
+      213: -1626294973197865157
+    second: Pixel Holy Spell Effect 01_160
+  - first:
+      213: 830431737200852935
+    second: Pixel Holy Spell Effect 01_161
+  - first:
+      213: -8681530174796135157
+    second: Pixel Holy Spell Effect 01_162
+  - first:
+      213: -1656561457794858314
+    second: Pixel Holy Spell Effect 01_163
+  - first:
+      213: -9153192081560712107
+    second: Pixel Holy Spell Effect 01_164
+  - first:
+      213: -7793500018544166439
+    second: Pixel Holy Spell Effect 01_165
+  - first:
+      213: 2706517207341038759
+    second: Pixel Holy Spell Effect 01_166
+  - first:
+      213: 57170993467644526
+    second: Pixel Holy Spell Effect 01_167
+  - first:
+      213: 8304404627596749037
+    second: Pixel Holy Spell Effect 01_168
+  - first:
+      213: -5450677919112902868
+    second: Pixel Holy Spell Effect 01_169
+  - first:
+      213: 7848142282750729937
+    second: Pixel Holy Spell Effect 01_170
+  - first:
+      213: -4569869846037539128
+    second: Pixel Holy Spell Effect 01_171
+  - first:
+      213: -6225704343071442343
+    second: Pixel Holy Spell Effect 01_172
+  - first:
+      213: -6589538491919398535
+    second: Pixel Holy Spell Effect 01_173
+  - first:
+      213: -2149345202129757968
+    second: Pixel Holy Spell Effect 01_174
+  - first:
+      213: -8597293193422404496
+    second: Pixel Holy Spell Effect 01_175
+  - first:
+      213: 4472295582101031613
+    second: Pixel Holy Spell Effect 01_176
+  - first:
+      213: 9117437600907796396
+    second: Pixel Holy Spell Effect 01_177
+  - first:
+      213: 4313377778030029814
+    second: Pixel Holy Spell Effect 01_178
+  - first:
+      213: -6981413250191113220
+    second: Pixel Holy Spell Effect 01_179
+  - first:
+      213: -6372776234494758961
+    second: Pixel Holy Spell Effect 01_180
+  - first:
+      213: -3033808562719646057
+    second: Pixel Holy Spell Effect 01_181
+  - first:
+      213: -2908764510044603245
+    second: Pixel Holy Spell Effect 01_182
+  - first:
+      213: 3906572131755377497
+    second: Pixel Holy Spell Effect 01_183
+  - first:
+      213: -8424438641155997131
+    second: Pixel Holy Spell Effect 01_184
+  - first:
+      213: -6327682920200686414
+    second: Pixel Holy Spell Effect 01_185
+  - first:
+      213: 6841548815052088854
+    second: Pixel Holy Spell Effect 01_186
+  - first:
+      213: 6820364685964287896
+    second: Pixel Holy Spell Effect 01_187
+  - first:
+      213: 2705603991004695307
+    second: Pixel Holy Spell Effect 01_188
+  - first:
+      213: 2653640578916588024
+    second: Pixel Holy Spell Effect 01_189
+  - first:
+      213: 1091166015313926472
+    second: Pixel Holy Spell Effect 01_190
+  - first:
+      213: 7478743223191678944
+    second: Pixel Holy Spell Effect 01_191
+  - first:
+      213: 3891245327783914175
+    second: Pixel Holy Spell Effect 01_192
+  - first:
+      213: -4136398524824757026
+    second: Pixel Holy Spell Effect 01_193
+  - first:
+      213: -8062674804360538268
+    second: Pixel Holy Spell Effect 01_194
+  - first:
+      213: -7197190082174455112
+    second: Pixel Holy Spell Effect 01_195
+  - first:
+      213: 5913368286985620035
+    second: Pixel Holy Spell Effect 01_196
+  - first:
+      213: 1840618779820992712
+    second: Pixel Holy Spell Effect 01_197
+  - first:
+      213: 5919806532126452038
+    second: Pixel Holy Spell Effect 01_198
+  - first:
+      213: 6803537716633525230
+    second: Pixel Holy Spell Effect 01_199
+  - first:
+      213: 7066396297023018910
+    second: Pixel Holy Spell Effect 01_200
+  - first:
+      213: -1017327000663836635
+    second: Pixel Holy Spell Effect 01_201
+  - first:
+      213: 2602732056277396491
+    second: Pixel Holy Spell Effect 01_202
+  - first:
+      213: 6263429527804848716
+    second: Pixel Holy Spell Effect 01_203
+  - first:
+      213: 5568090560964255995
+    second: Pixel Holy Spell Effect 01_204
+  - first:
+      213: 8319668982235369882
+    second: Pixel Holy Spell Effect 01_205
+  - first:
+      213: 3884077343416223137
+    second: Pixel Holy Spell Effect 01_206
+  - first:
+      213: -2952478459547747723
+    second: Pixel Holy Spell Effect 01_207
+  - first:
+      213: 1483897303568045501
+    second: Pixel Holy Spell Effect 01_208
+  - first:
+      213: 1387409525980332154
+    second: Pixel Holy Spell Effect 01_209
+  - first:
+      213: -572494301517095045
+    second: Pixel Holy Spell Effect 01_210
+  - first:
+      213: -1889579500636986304
+    second: Pixel Holy Spell Effect 01_211
+  - first:
+      213: 4214635979941959475
+    second: Pixel Holy Spell Effect 01_212
+  - first:
+      213: -2516014186436783705
+    second: Pixel Holy Spell Effect 01_213
+  - first:
+      213: 4894637923412887177
+    second: Pixel Holy Spell Effect 01_214
+  - first:
+      213: 8359821000762996020
+    second: Pixel Holy Spell Effect 01_215
+  - first:
+      213: 7731328898829527900
+    second: Pixel Holy Spell Effect 01_216
+  - first:
+      213: -6676508841837738800
+    second: Pixel Holy Spell Effect 01_217
+  - first:
+      213: 9180418150365500129
+    second: Pixel Holy Spell Effect 01_218
+  - first:
+      213: 675124559734636462
+    second: Pixel Holy Spell Effect 01_219
+  - first:
+      213: -2497598928453570981
+    second: Pixel Holy Spell Effect 01_220
+  - first:
+      213: -1041110992631438689
+    second: Pixel Holy Spell Effect 01_221
+  - first:
+      213: 6768447111646612802
+    second: Pixel Holy Spell Effect 01_222
+  - first:
+      213: 2812444007844845750
+    second: Pixel Holy Spell Effect 01_223
+  - first:
+      213: 3765642998665922863
+    second: Pixel Holy Spell Effect 01_224
+  - first:
+      213: 1477138906158064442
+    second: Pixel Holy Spell Effect 01_225
+  - first:
+      213: 2662336555416921583
+    second: Pixel Holy Spell Effect 01_226
+  - first:
+      213: 8255608590202837699
+    second: Pixel Holy Spell Effect 01_227
+  - first:
+      213: 5272265119293271928
+    second: Pixel Holy Spell Effect 01_228
+  - first:
+      213: 4700397709037810162
+    second: Pixel Holy Spell Effect 01_229
+  - first:
+      213: -5154482832392661304
+    second: Pixel Holy Spell Effect 01_230
+  - first:
+      213: 487589857402963996
+    second: Pixel Holy Spell Effect 01_231
+  - first:
+      213: 8225159484484670114
+    second: Pixel Holy Spell Effect 01_232
+  - first:
+      213: 4856160671938886151
+    second: Pixel Holy Spell Effect 01_233
+  - first:
+      213: -1327291083327667541
+    second: Pixel Holy Spell Effect 01_234
+  - first:
+      213: 2240503199896365900
+    second: Pixel Holy Spell Effect 01_235
+  - first:
+      213: -3185138041238087759
+    second: Pixel Holy Spell Effect 01_236
+  - first:
+      213: 7646064444530860961
+    second: Pixel Holy Spell Effect 01_237
+  - first:
+      213: -4313669577466977485
+    second: Pixel Holy Spell Effect 01_238
+  - first:
+      213: -5774163843448036937
+    second: Pixel Holy Spell Effect 01_239
+  - first:
+      213: -904431084005463758
+    second: Pixel Holy Spell Effect 01_240
+  - first:
+      213: -8016463387691311336
+    second: Pixel Holy Spell Effect 01_241
+  - first:
+      213: -6307906038669910213
+    second: Pixel Holy Spell Effect 01_242
+  - first:
+      213: 287944628899583595
+    second: Pixel Holy Spell Effect 01_243
+  - first:
+      213: 7511857830881811790
+    second: Pixel Holy Spell Effect 01_244
+  - first:
+      213: 2910162387977075367
+    second: Pixel Holy Spell Effect 01_245
+  - first:
+      213: -6625893791039716946
+    second: Pixel Holy Spell Effect 01_246
+  - first:
+      213: -8749061179780002686
+    second: Pixel Holy Spell Effect 01_247
+  - first:
+      213: -1531656180418288442
+    second: Pixel Holy Spell Effect 01_248
+  - first:
+      213: 4791294825332339982
+    second: Pixel Holy Spell Effect 01_249
+  - first:
+      213: -968566096950993058
+    second: Pixel Holy Spell Effect 01_250
+  - first:
+      213: -7816580309954943349
+    second: Pixel Holy Spell Effect 01_251
+  - first:
+      213: 1896085071216428861
+    second: Pixel Holy Spell Effect 01_252
+  - first:
+      213: -1765678206982506449
+    second: Pixel Holy Spell Effect 01_253
+  - first:
+      213: 6955249422034908254
+    second: Pixel Holy Spell Effect 01_254
+  - first:
+      213: -5496881587083967224
+    second: Pixel Holy Spell Effect 01_255
+  - first:
+      213: -6710905573496702744
+    second: Pixel Holy Spell Effect 01_256
+  - first:
+      213: -6790130186148237522
+    second: Pixel Holy Spell Effect 01_257
+  - first:
+      213: -9126405710953458190
+    second: Pixel Holy Spell Effect 01_258
+  - first:
+      213: -6191747245586851687
+    second: Pixel Holy Spell Effect 01_259
+  - first:
+      213: -2245860572694511043
+    second: Pixel Holy Spell Effect 01_260
+  - first:
+      213: 973294172273921052
+    second: Pixel Holy Spell Effect 01_261
+  - first:
+      213: 7932741816955299934
+    second: Pixel Holy Spell Effect 01_262
+  - first:
+      213: -2477754015193601805
+    second: Pixel Holy Spell Effect 01_263
+  - first:
+      213: -1260966854748490439
+    second: Pixel Holy Spell Effect 01_264
+  - first:
+      213: -4997838330457568334
+    second: Pixel Holy Spell Effect 01_265
+  - first:
+      213: -6003543189211240067
+    second: Pixel Holy Spell Effect 01_266
+  - first:
+      213: 7633977034472941940
+    second: Pixel Holy Spell Effect 01_267
+  - first:
+      213: 8471745986758393255
+    second: Pixel Holy Spell Effect 01_268
+  - first:
+      213: -4101167854172399576
+    second: Pixel Holy Spell Effect 01_269
+  - first:
+      213: -3790664069086789838
+    second: Pixel Holy Spell Effect 01_270
+  - first:
+      213: -3881114303243493498
+    second: Pixel Holy Spell Effect 01_271
+  - first:
+      213: -423151386814787207
+    second: Pixel Holy Spell Effect 01_272
+  - first:
+      213: 836497708701523211
+    second: Pixel Holy Spell Effect 01_273
+  - first:
+      213: -2883091636490619805
+    second: Pixel Holy Spell Effect 01_274
+  - first:
+      213: 5549916072545894451
+    second: Pixel Holy Spell Effect 01_275
+  - first:
+      213: -4350647950292777229
+    second: Pixel Holy Spell Effect 01_276
+  - first:
+      213: -4505683686381650083
+    second: Pixel Holy Spell Effect 01_277
+  - first:
+      213: -6065375702442006323
+    second: Pixel Holy Spell Effect 01_278
+  - first:
+      213: -6145259596764547711
+    second: Pixel Holy Spell Effect 01_279
+  - first:
+      213: 3175570468579623432
+    second: Pixel Holy Spell Effect 01_280
+  - first:
+      213: -8600137380660670074
+    second: Pixel Holy Spell Effect 01_281
+  - first:
+      213: 5856466837740050684
+    second: Pixel Holy Spell Effect 01_282
+  - first:
+      213: 7446628944120771460
+    second: Pixel Holy Spell Effect 01_283
+  - first:
+      213: -7933264999329163831
+    second: Pixel Holy Spell Effect 01_284
+  - first:
+      213: -5116231690720737018
+    second: Pixel Holy Spell Effect 01_285
+  - first:
+      213: 8588125088284035699
+    second: Pixel Holy Spell Effect 01_286
+  - first:
+      213: -5970374587599318190
+    second: Pixel Holy Spell Effect 01_287
+  - first:
+      213: -1672488376267084201
+    second: Pixel Holy Spell Effect 01_288
+  - first:
+      213: 5953582607319237204
+    second: Pixel Holy Spell Effect 01_289
+  - first:
+      213: -3522800340848451024
+    second: Pixel Holy Spell Effect 01_290
+  - first:
+      213: 3797766340111618566
+    second: Pixel Holy Spell Effect 01_291
+  - first:
+      213: 4205187094364247478
+    second: Pixel Holy Spell Effect 01_292
+  - first:
+      213: 4651851394622226498
+    second: Pixel Holy Spell Effect 01_293
+  - first:
+      213: 5388746802923197342
+    second: Pixel Holy Spell Effect 01_294
+  - first:
+      213: -6245221249934640642
+    second: Pixel Holy Spell Effect 01_295
+  - first:
+      213: 7337287002540031743
+    second: Pixel Holy Spell Effect 01_296
+  - first:
+      213: 3046452568415949296
+    second: Pixel Holy Spell Effect 01_297
+  - first:
+      213: -1579001368650385945
+    second: Pixel Holy Spell Effect 01_298
+  - first:
+      213: -7580818975006756792
+    second: Pixel Holy Spell Effect 01_299
+  - first:
+      213: 3709829121815737327
+    second: Pixel Holy Spell Effect 01_300
+  - first:
+      213: 4925454571204362668
+    second: Pixel Holy Spell Effect 01_301
+  - first:
+      213: -916610914824670978
+    second: Pixel Holy Spell Effect 01_302
+  - first:
+      213: -5103123319156542278
+    second: Pixel Holy Spell Effect 01_303
+  - first:
+      213: -3776592418649873748
+    second: Pixel Holy Spell Effect 01_304
+  - first:
+      213: -8982768256093676556
+    second: Pixel Holy Spell Effect 01_305
+  - first:
+      213: -6656251522064649619
+    second: Pixel Holy Spell Effect 01_306
+  - first:
+      213: 1418478870308380697
+    second: Pixel Holy Spell Effect 01_307
+  - first:
+      213: 1598581710475438779
+    second: Pixel Holy Spell Effect 01_308
+  - first:
+      213: 5843238375797442999
+    second: Pixel Holy Spell Effect 01_309
+  - first:
+      213: 3698755119023423136
+    second: Pixel Holy Spell Effect 01_310
+  - first:
+      213: 1311891933553667334
+    second: Pixel Holy Spell Effect 01_311
+  - first:
+      213: 6829602522953087364
+    second: Pixel Holy Spell Effect 01_312
+  - first:
+      213: 7790035852455481028
+    second: Pixel Holy Spell Effect 01_313
+  - first:
+      213: 220732087383181813
+    second: Pixel Holy Spell Effect 01_314
+  - first:
+      213: 6437019340868921670
+    second: Pixel Holy Spell Effect 01_315
+  - first:
+      213: 2674763495888310273
+    second: Pixel Holy Spell Effect 01_316
+  - first:
+      213: 1304098297643435597
+    second: Pixel Holy Spell Effect 01_317
+  - first:
+      213: -9143160982415861094
+    second: Pixel Holy Spell Effect 01_318
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cd4e29e6e472274693481c4be32be34
+      internalID: 1456130803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9db3f0667fbad3e4d98fc3fe4fde0642
+      internalID: -1361936609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 569bdbc8b0f1220448517f609629596e
+      internalID: -808591225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b001c48d4072a9944964cb9bb8b87980
+      internalID: -882082092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d0dd4cd0c4534a4188389f5913f65e3
+      internalID: 1616260891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fd1369ee2c9a634db3310b75b3b2881
+      internalID: 800975264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 130bd29f5dec0f942842489e1e425577
+      internalID: -835272221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4414b6ac758a99419c3f2e31c810a1d
+      internalID: 1587373622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c8bfc76a653e2a4d895f62d90dbb655
+      internalID: 63256784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03f8fd0f36fe5c643a400a9aa44ad3eb
+      internalID: 157457294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_10
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1851d79f662329459ad8e6150d4eec9
+      internalID: -1607160433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_11
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12b4640849058df4cbea8509c89abe93
+      internalID: -1066069623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_12
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fb4fbf18c34ea54fbe7e1328e5ca7a6
+      internalID: -702424951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_13
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7836d8f9d0fd10445bb49fdfaf1e225d
+      internalID: -6915435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aaa0e23c4882c04ea453b18f642822b
+      internalID: 1566674173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_15
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe343f08b6cbbdb43864c5a7b7c6d394
+      internalID: 1251150420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d88673dc173b4c9459c828d5864cadd1
+      internalID: 120479841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_17
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ae7ab14bab7ab3429e5253ccff7fac1
+      internalID: 43082513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_18
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57784f9f6660ebc4081a2502f9da2d3e
+      internalID: -822014160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_19
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f8b7277e9bfa594a81614bc577f7dda
+      internalID: 841465130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_20
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39e2e598a489b25429bcd6b500b76c90
+      internalID: 1596188559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_21
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5679adf551f23c24ea6268613967614d
+      internalID: 149786001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 141d99eea0fb46b4dbfd00e862caefea
+      internalID: 424597448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_23
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fe0bc55e9954024b8e4ea80f1146fb8
+      internalID: 827159363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_24
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c8d0144b843f12498110f9cc0b3e2a0
+      internalID: 675507209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_25
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 080e6f27d70a52046b7ac71a51921a29
+      internalID: -1142028618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_26
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f9ebfd4d2522ed4e99f4aba1eb0fe17
+      internalID: -1125782625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_27
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 898044441f45155468bbbb16cc1370f7
+      internalID: -316206757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_28
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1b257793bda761418b29da8255dae9e
+      internalID: -1594013173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_29
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dfb5d10bb458bb4bb6b910f52da1a93
+      internalID: -1777407607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_30
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5bd6f12e6d6f0d4384201225a2cad28
+      internalID: -2073946966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40db5036610a2164d8593a179beff9ea
+      internalID: -1178246670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_32
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7573921338af6de43815b96f401318f4
+      internalID: 709359307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_33
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 548f4c30c112c504bb9838007616007b
+      internalID: -915478467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_34
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc005398e0fd4b242af337a0c6d63a7d
+      internalID: 1243849935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_35
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46946914b2d679e4a96cca8e3bdd6beb
+      internalID: -1831463386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_36
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2bd97ee50026464c9b8cdcfa3aafe58
+      internalID: -2013292260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_37
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53e8bd4d3371a2146adcf45b4e09b76e
+      internalID: -171847064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_38
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c41fb759f63fb72468025be6125015de
+      internalID: 281047420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_39
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b507f866093b6446bb6c15d2c89a7ad
+      internalID: -320211667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a626683cff0f9742b67f010088f8fde
+      internalID: 1293923852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_41
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58fea9543d57044499135296080bb413
+      internalID: -1114815657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_42
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bba8d5171318b164db97f6e187e2883b
+      internalID: -1667427145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_43
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13f61644d21b7fe4ebeacd7579c77152
+      internalID: -998491455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_44
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7292ce2ab16eb7546860ce7e75b2d20a
+      internalID: 1809516665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_45
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0498d134cf8f229419d70027f7c6d88e
+      internalID: 955956870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_46
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 903387e020e96d840aa8607f46435458
+      internalID: -583861173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_47
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bde3c9c5ed586547845c8ac9187affe
+      internalID: 682428226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_48
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ac2e3de8a6be5f46ba164cd51836c64
+      internalID: 840248653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a6f95649a359ea4bb81694280aa0d0a
+      internalID: -483366207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_50
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7d376b0ad5859b4a9fe13220e56bcf8
+      internalID: 1493457150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_51
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 009f335177d976e4886f0d72a1148ecd
+      internalID: 599847869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_52
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d3e562f3ce017a4f85a4ea24decb7ff
+      internalID: -1091128820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_53
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aebef42e21109be4f8b9a3992d302525
+      internalID: -1545522975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_54
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc7022fc1f8c59f4a9da176bdd206b71
+      internalID: -1581764121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_55
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 501e51f683f14544585e5e883170013e
+      internalID: 1090190131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_56
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 334d475cdd13b3444a0358ff972518bd
+      internalID: 529308119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_57
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27b90fe79c70df140b6e32b921408d7a
+      internalID: 292364729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_58
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cefb774ad0320f41a7d6c6a39b846ea
+      internalID: -1608124008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_59
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 555d66a634c22a844abb0367a8f8698c
+      internalID: 728040444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_60
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 180b25f1a71f99a4a9a91e2c3bc51fe4
+      internalID: -2087978514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_61
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5b90cdb0a834f346ba4ddcf744d7bd8
+      internalID: -1215389109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_62
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61283399606eaaf4cbe4fa6da65aaf5c
+      internalID: -1777969954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_63
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57c915769acf6084da572d9ed57f98e4
+      internalID: -944620916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_64
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 056c4e9ec3ca9e5488907349f64bc9ad
+      internalID: 408298059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_65
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8fb36b71d512e2498370722e2e6b1ea
+      internalID: 6325235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_66
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1151021c36c010b44b73c969ba655382
+      internalID: 607193281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_67
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3937c9bbf0db79547b930dcaecc55190
+      internalID: -329933267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_68
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74b4f7dcba34cf44cae49d4e85a89b60
+      internalID: -1875612428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_69
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 294be70b921356643955ae742ea5ac47
+      internalID: 73839622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_70
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8d91896b58722c448e62a842f41b569
+      internalID: 1481200894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_71
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecb768c34a4b7f14594f574a7ab8038c
+      internalID: 2055254804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_72
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c93aecbe9dd1ea24bb46e2c2bc440f2a
+      internalID: -465402423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_73
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbed47f64bf41fc449ea4ee49453f8f6
+      internalID: -2041748843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_74
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d88156f9216a7544d952668152be11ac
+      internalID: 1264229599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_75
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceb5396d2d7446d47b2f1661cc75639a
+      internalID: 346138401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_76
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d7d9296bc0152d4581565116ca0b1e3
+      internalID: 1102453164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_77
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 580a0f2a4c9a40b42beefb47cb385bc4
+      internalID: -1876373397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Holy Spell Effect 01_78
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfa7076fe70f4be43907fcb1477c2672
+      internalID: 1196317372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 92538d698f76c4645bdf12271be3b995
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Pixel Holy Spell Effect 01_0: 1456130803
+      Pixel Holy Spell Effect 01_1: -1361936609
+      Pixel Holy Spell Effect 01_10: -1607160433
+      Pixel Holy Spell Effect 01_11: -1066069623
+      Pixel Holy Spell Effect 01_12: -702424951
+      Pixel Holy Spell Effect 01_13: -6915435
+      Pixel Holy Spell Effect 01_14: 1566674173
+      Pixel Holy Spell Effect 01_15: 1251150420
+      Pixel Holy Spell Effect 01_16: 120479841
+      Pixel Holy Spell Effect 01_17: 43082513
+      Pixel Holy Spell Effect 01_18: -822014160
+      Pixel Holy Spell Effect 01_19: 841465130
+      Pixel Holy Spell Effect 01_2: -808591225
+      Pixel Holy Spell Effect 01_20: 1596188559
+      Pixel Holy Spell Effect 01_21: 149786001
+      Pixel Holy Spell Effect 01_22: 424597448
+      Pixel Holy Spell Effect 01_23: 827159363
+      Pixel Holy Spell Effect 01_24: 675507209
+      Pixel Holy Spell Effect 01_25: -1142028618
+      Pixel Holy Spell Effect 01_26: -1125782625
+      Pixel Holy Spell Effect 01_27: -316206757
+      Pixel Holy Spell Effect 01_28: -1594013173
+      Pixel Holy Spell Effect 01_29: -1777407607
+      Pixel Holy Spell Effect 01_3: -882082092
+      Pixel Holy Spell Effect 01_30: -2073946966
+      Pixel Holy Spell Effect 01_31: -1178246670
+      Pixel Holy Spell Effect 01_32: 709359307
+      Pixel Holy Spell Effect 01_33: -915478467
+      Pixel Holy Spell Effect 01_34: 1243849935
+      Pixel Holy Spell Effect 01_35: -1831463386
+      Pixel Holy Spell Effect 01_36: -2013292260
+      Pixel Holy Spell Effect 01_37: -171847064
+      Pixel Holy Spell Effect 01_38: 281047420
+      Pixel Holy Spell Effect 01_39: -320211667
+      Pixel Holy Spell Effect 01_4: 1616260891
+      Pixel Holy Spell Effect 01_40: 1293923852
+      Pixel Holy Spell Effect 01_41: -1114815657
+      Pixel Holy Spell Effect 01_42: -1667427145
+      Pixel Holy Spell Effect 01_43: -998491455
+      Pixel Holy Spell Effect 01_44: 1809516665
+      Pixel Holy Spell Effect 01_45: 955956870
+      Pixel Holy Spell Effect 01_46: -583861173
+      Pixel Holy Spell Effect 01_47: 682428226
+      Pixel Holy Spell Effect 01_48: 840248653
+      Pixel Holy Spell Effect 01_49: -483366207
+      Pixel Holy Spell Effect 01_5: 800975264
+      Pixel Holy Spell Effect 01_50: 1493457150
+      Pixel Holy Spell Effect 01_51: 599847869
+      Pixel Holy Spell Effect 01_52: -1091128820
+      Pixel Holy Spell Effect 01_53: -1545522975
+      Pixel Holy Spell Effect 01_54: -1581764121
+      Pixel Holy Spell Effect 01_55: 1090190131
+      Pixel Holy Spell Effect 01_56: 529308119
+      Pixel Holy Spell Effect 01_57: 292364729
+      Pixel Holy Spell Effect 01_58: -1608124008
+      Pixel Holy Spell Effect 01_59: 728040444
+      Pixel Holy Spell Effect 01_6: -835272221
+      Pixel Holy Spell Effect 01_60: -2087978514
+      Pixel Holy Spell Effect 01_61: -1215389109
+      Pixel Holy Spell Effect 01_62: -1777969954
+      Pixel Holy Spell Effect 01_63: -944620916
+      Pixel Holy Spell Effect 01_64: 408298059
+      Pixel Holy Spell Effect 01_65: 6325235
+      Pixel Holy Spell Effect 01_66: 607193281
+      Pixel Holy Spell Effect 01_67: -329933267
+      Pixel Holy Spell Effect 01_68: -1875612428
+      Pixel Holy Spell Effect 01_69: 73839622
+      Pixel Holy Spell Effect 01_7: 1587373622
+      Pixel Holy Spell Effect 01_70: 1481200894
+      Pixel Holy Spell Effect 01_71: 2055254804
+      Pixel Holy Spell Effect 01_72: -465402423
+      Pixel Holy Spell Effect 01_73: -2041748843
+      Pixel Holy Spell Effect 01_74: 1264229599
+      Pixel Holy Spell Effect 01_75: 346138401
+      Pixel Holy Spell Effect 01_76: 1102453164
+      Pixel Holy Spell Effect 01_77: -1876373397
+      Pixel Holy Spell Effect 01_78: 1196317372
+      Pixel Holy Spell Effect 01_8: 63256784
+      Pixel Holy Spell Effect 01_9: 157457294
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
