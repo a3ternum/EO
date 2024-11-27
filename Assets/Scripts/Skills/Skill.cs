@@ -69,7 +69,6 @@ public class Skill : MonoBehaviour
 
     public virtual void ActivateSkill()
     {
-        Debug.Log("isActiving" + isActivating);
         if (isActivating) // prevent multiple activations of the same skill
         {
             return;
@@ -83,10 +82,8 @@ public class Skill : MonoBehaviour
     }
     protected virtual IEnumerator ActivateSkillCoroutine()
     {
-        Debug.Log("setting isActivating to true inside skill");
         isActivating = true;
         yield return StartCoroutine(SkillCoroutine());
-        Debug.Log("setting isActivating to false inside skill");
         isActivating = false;
 
         AttackEffect();

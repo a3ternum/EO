@@ -34,7 +34,6 @@ public class Attack : Skill
 
     protected override IEnumerator SkillCoroutine()
     {
-        Debug.Log("entering attack coroutine");
         float playerAttackSpeed = user.currentAttackSpeed;
         
         if (animator!= null) // play animation only if attack has an animation

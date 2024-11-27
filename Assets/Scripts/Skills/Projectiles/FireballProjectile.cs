@@ -5,7 +5,6 @@ using static UnityEngine.GraphicsBuffer;
 
 public class FireballProjectile : Projectile
 {
-    private Animator animator;
     protected override void Awake()
     {
         base.Awake();

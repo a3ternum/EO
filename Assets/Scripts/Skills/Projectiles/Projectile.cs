@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class Projectile : MonoBehaviour
 {
+    protected Animator animator;
+
     protected float projectileSpeed;
     protected float radius;
     protected float duration;
