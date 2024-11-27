@@ -103,3 +103,6 @@ MonoBehaviour:
   radiusOuter: 1
   radiusInner: 0.8
   angle: 90
+  user: {fileID: 0}
+  skill: {fileID: 0}
+  meshMaterial: {fileID: 2100000, guid: 9ad530c43a699eb47ac57f9aa833a3e8, type: 2}

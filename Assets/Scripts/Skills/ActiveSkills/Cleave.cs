@@ -56,10 +56,7 @@ public class Cleave : MeleeAttackArea
 
     protected override IEnumerator SkillCoroutine()
     {
-        OnActivate();
         float playerAttackSpeed = user.currentAttackSpeed;
-        animationDuration = CalculateAnimationDuration(playerAttackSpeed, attackSpeed);
-
         if (animator != null) // play animation only if attack has an animation
         {
             animator.speed = attackSpeed * playerAttackSpeed; // Set the animation speed based on the player's attack speed and the attack's attack speed
@@ -82,9 +79,6 @@ public class Cleave : MeleeAttackArea
             animator.SetTrigger("AttackFinished"); // Finish the attack animation
 
         }
-
-
-
     }
 
     protected override List<Creature> AoECollider(Vector2 mousePosition)

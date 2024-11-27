@@ -10,12 +10,13 @@ public class CleaveCircleMesh : MonoBehaviour
     public Creature user;
     public Skill skill;
 
+    //public Material meshMaterial;
     void Start()
     {
         MeshFilter meshFilter = GetComponent<MeshFilter>();
-       
-
         MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+
+        //meshRenderer.material = meshMaterial;
         meshRenderer.sortingOrder = 3; // Set Order in Layer to 3
         meshRenderer.sortingLayerName = "Default"; // Optional: Set a specific sorting layer
 
