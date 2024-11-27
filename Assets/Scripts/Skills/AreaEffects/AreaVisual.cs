@@ -1,16 +1,19 @@
 using UnityEngine;
 
-public class IceNovaObject : MonoBehaviour
+public class AreaVisual : MonoBehaviour
 {
-    // This class handles with the ice nova effect that is spawned when the Ice Nova skill is activated
+    /// <summary>
+    /// This class handles circular area effects that are spawned when a skill is activated
+    /// </summary>
+
     public float duration; // how long it takes for ice nova object to disappear
-    public float radius; // radius of the ice nova effect
+    public float radius; // radius of the area effect
     private float elapsedTime = 0f;
 
     private Animator animator;
     private float originalClipLength;
 
-    private void Start()
+    protected void Start()
     {
         // base radius of skill is 1 so we need to scale it down to the desired radius
         transform.localScale = new Vector3(transform.localScale.x * radius, transform.localScale.y * radius, 1);
@@ -37,11 +40,11 @@ public class IceNovaObject : MonoBehaviour
         }
         
     }
-    void DisableAnimation()
+    protected void DisableAnimation()
     {
         animator.enabled = false; // Disable the Animator component to stop rendering the animation
     }
-    private void Update()
+    protected void Update()
     {
         if (elapsedTime < duration)
         {

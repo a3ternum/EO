@@ -6,7 +6,7 @@ public class IceNova : OffensiveSpell
     // Ice nova is a skill that casts a nova of ice around the player cursor position (up to a certain range)
 
     private SkillData skillData;
-    protected IceNovaObject iceNovaPrefab;
+    protected AreaVisual iceNovaPrefab;
 
 
     protected override void Awake() // Initialize Sweep skill data
@@ -14,7 +14,7 @@ public class IceNova : OffensiveSpell
         base.Awake();
         skillName = "Ice Nova";
 
-        iceNovaPrefab = Resources.Load<IceNovaObject>("IceNovaObject");
+        iceNovaPrefab = Resources.Load<AreaVisual>("IceNovaObject");
 
         skillData = ScriptableObject.CreateInstance<SkillData>();
 
@@ -54,16 +54,17 @@ public class IceNova : OffensiveSpell
         range = skillData.rangePerLevel[skillLevel];
     }
 
-    protected override IEnumerator ActivateSkillCoroutine()
+   
+
+    protected override void AttackEffect()
     {
-        yield return base.ActivateSkillCoroutine();
         SpawnIceNova(DetermineTargetLocation());
     }
 
     protected void SpawnIceNova(Vector2 location)
     {
         // Spawn the ice nova at the location
-        IceNovaObject iceNova = Instantiate(iceNovaPrefab, location, Quaternion.identity);
+        AreaVisual iceNova = Instantiate(iceNovaPrefab, location, Quaternion.identity);
         iceNova.radius = radius;
         iceNova.duration = duration;
 
@@ -91,7 +92,7 @@ public class IceNova : OffensiveSpell
         }
         else if (user is Enemy)
         {
-            GameObject player = GameObject.FindWithTag("Player");
+            Player player = FindFirstObjectByType<Player>();
             if (player == null)
             {
                 Debug.LogError("Player is null");

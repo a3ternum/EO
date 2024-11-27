@@ -1,18 +1,17 @@
 using UnityEngine;
 
-public class IceNovaObject : MonoBehaviour
+public class SweepVisual : MonoBehaviour
 {
     // This class handles with the ice nova effect that is spawned when the Ice Nova skill is activated
     public float duration; // how long it takes for ice nova object to disappear
-    public float radius; // radius of the ice nova effect
-    private float elapsedTime = 0f;
+    public float radius; // radius of the sweep effect
+    private float elapsedTime;
 
     private Animator animator;
     private float originalClipLength;
 
     private void Start()
     {
-        // base radius of skill is 1 so we need to scale it down to the desired radius
         transform.localScale = new Vector3(transform.localScale.x * radius, transform.localScale.y * radius, 1);
         elapsedTime = 0f;
         animator = GetComponent<Animator>();
@@ -35,7 +34,7 @@ public class IceNovaObject : MonoBehaviour
             // Schedule to stop after the animationDuration
             Invoke(nameof(DisableAnimation), duration);
         }
-        
+       
     }
     void DisableAnimation()
     {
@@ -52,6 +51,4 @@ public class IceNovaObject : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-
 }

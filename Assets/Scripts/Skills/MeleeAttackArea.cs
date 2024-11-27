@@ -9,25 +9,16 @@ using UnityEngine.SocialPlatforms;
 public class MeleeAttackArea : MeleeAttack
 {
  
-    public override void ActivateSkill()
+    protected virtual void DamageCreaturesInArea(Vector2 Position)
     {
-        areaOfAttackIncrease = user.creatureStats.areaOfEffectIncreases;
-        bool canActivate = CanActivate();
-        if (canActivate)
-        {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            StartCoroutine(SkillCoroutine());
-            OnActivate();
-            List<Creature> targetsList = AoECollider(mousePosition);
-            ApplyDamageAndEffects(targetsList);
-        }
-
+        List<Creature> creaturesHit = AoECollider(Position);
+        ApplyDamageAndEffects(creaturesHit);
     }
- 
+
     protected virtual List<Creature> AoECollider(Vector2 mousePosition)
     {
-        radius = radius * (1 + areaOfAttackIncrease);
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(user.transform.position, radius);
+        float tempRadius = radius * (1 + areaOfAttackIncrease);
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(user.transform.position, tempRadius);
         List<Creature> targetsList = new List<Creature>();
 
 

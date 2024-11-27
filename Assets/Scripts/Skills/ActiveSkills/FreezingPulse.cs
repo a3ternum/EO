@@ -63,13 +63,10 @@ public class FreezingPulse : OffensiveSpell
     }
 
 
-
-    protected override IEnumerator ActivateSkillCoroutine()
+    protected override void AttackEffect()
     {
-        yield return StartCoroutine(SkillCoroutine());
         LaunchProjectiles(DetermineTargetLocation());
     }
-
 
 
 

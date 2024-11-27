@@ -63,17 +63,12 @@ public class Fireball : OffensiveSpell
         projectileSpeed = fireballSkillData.projectileSpeedPerLevel[skillLevel];
     }
 
-
-
-    protected override IEnumerator ActivateSkillCoroutine()
+    protected override void AttackEffect()
     {
-        yield return base.ActivateSkillCoroutine();
         LaunchProjectiles(DetermineTargetLocation());
     }
 
 
-
-    
 
 
 

@@ -70,9 +70,9 @@ public class Arc : OffensiveSpell
         baseChainCount = baseChainCountList[skillLevel];
     }
 
-    protected override IEnumerator ActivateSkillCoroutine()
+
+    protected override void AttackEffect()
     {
-        yield return StartCoroutine(SkillCoroutine());
         StartCoroutine(ArcLoop());
     }
 

@@ -88,6 +88,13 @@ public class Skill : MonoBehaviour
         yield return StartCoroutine(SkillCoroutine());
         Debug.Log("setting isActivating to false inside skill");
         isActivating = false;
+
+        AttackEffect();
+    }
+
+    protected virtual void AttackEffect() // empty method to be overridden by child classes
+    {
+        Debug.Log("entering Attack effect inside skill class");
     }
 
     protected virtual IEnumerator SkillCoroutine()
@@ -122,7 +129,6 @@ public class Skill : MonoBehaviour
             Player player = user.GetComponent<Player>();
             if (player != null)
             {
-                Debug.Log("cooldown timer: " + cooldownTimer);
                 if ((player.currentMana >= manaCost) && (cooldownTimer <= 0))
                 {
                     return true;

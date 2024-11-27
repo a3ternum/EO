@@ -68,14 +68,9 @@ public class RageVortex : MeleeAttackArea
     }
 
 
-    public override void ActivateSkill()
+    protected override void AttackEffect()
     {
-        bool canActivate = CanActivate();
-        if (canActivate)
-        {
-            StartCoroutine(SkillCoroutine());
-            LaunchProjectile();
-        }
+        LaunchProjectile();
     }
 
     private void LaunchProjectile()
