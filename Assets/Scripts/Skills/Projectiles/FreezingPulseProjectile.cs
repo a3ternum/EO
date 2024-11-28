@@ -6,6 +6,7 @@ public class FreezingPulseProjectile : Projectile
     {
         base.Awake();
         destroyOnHit = false;
+        animator = GetComponent<Animator>();
     }
 
 }

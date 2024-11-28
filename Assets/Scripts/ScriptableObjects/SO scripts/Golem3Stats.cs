@@ -75,7 +75,7 @@ public class Golem3Stats : CreatureStats
 
         projectileDamageIncreases = 0;
 
-        areaOfEffectIncreases = 0.5f;
+        areaOfEffectIncreases = -0.5f;
         areaOfEffectDamageIncreases = 0;
 
         strikeRangeFlat = 2;
