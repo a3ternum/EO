@@ -60,13 +60,19 @@ public class Projectile : MonoBehaviour
                 baseRadius = circleCollider.radius;
                 scale = radius / baseRadius;
                 transform.localScale = new Vector3(scale, scale, 1);
+
+                // also change the radius of the collider
+                circleCollider.radius = radius;
             }
             else if (collider is BoxCollider2D boxCollider)
             {
                 // if box collider we treat radius as an increase in width and height
 
-                scale = radius ;
+                scale = radius;
                 transform.localScale = new Vector3(boxCollider.size.x * scale, boxCollider.size.y * scale, 1);
+
+                // also change the size of the collider
+                boxCollider.size = new Vector2(boxCollider.size.x * scale, boxCollider.size.y * scale);
             }
 
 
