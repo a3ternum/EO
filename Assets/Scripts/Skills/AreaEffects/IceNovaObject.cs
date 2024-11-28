@@ -13,7 +13,7 @@ public class IceNovaObject : MonoBehaviour
     private void Start()
     {
         // base radius of skill is 1 so we need to scale it down to the desired radius
-        transform.localScale = new Vector3(transform.localScale.x * radius, transform.localScale.y * radius, 1);
+        transform.localScale = new Vector3(radius * 2, radius * 2, 1);
         elapsedTime = 0f;
         animator = GetComponent<Animator>();
 

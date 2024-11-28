@@ -38,7 +38,7 @@ public class Projectile : MonoBehaviour
         this.direction = direction;
         this.projectileSpeed = skill.projectileSpeed;
         this.AoEIncrease = skill.user.creatureStats.areaOfEffectIncreases;
-        this.radius = skill.radius * (1 + AoEIncrease);
+        this.radius = skill.radius * (1 + AoEIncrease); // this might be double
         this.duration = skill.duration;
         this.tickRate = skill.tickRate;
         this.pierceCount = skill.pierceCount;
@@ -51,25 +51,22 @@ public class Projectile : MonoBehaviour
         {
             // update scale of projectile object based on radius
             Collider2D collider = GetComponent<Collider2D>();
-            float baseRadius = 1;
-            float baseWidth = 0;
-            float baseHeight = 0;
+            float baseRadius;
             float scale = 1;
+
+
             if (collider is CircleCollider2D circleCollider)
             {
                 baseRadius = circleCollider.radius;
-                circleCollider.radius = radius;
                 scale = radius / baseRadius;
                 transform.localScale = new Vector3(scale, scale, 1);
             }
             else if (collider is BoxCollider2D boxCollider)
             {
-                boxCollider.size = new Vector2(boxCollider.size.x * radius, boxCollider.size.y * radius);
+                // if box collider we treat radius as an increase in width and height
 
-                baseWidth = boxCollider.size.x;
-                baseHeight = boxCollider.size.y;
-
-                transform.localScale = new Vector3(baseWidth, baseHeight, 1);
+                scale = radius ;
+                transform.localScale = new Vector3(boxCollider.size.x * scale, boxCollider.size.y * scale, 1);
             }
 
 

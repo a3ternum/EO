@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class RageVortexProjectile : Projectile
 {
+
     protected override void Awake()
     {
         base.Awake();
         destroyOnHit = false;
+        animator = GetComponent<Animator>();
     }
 
 
