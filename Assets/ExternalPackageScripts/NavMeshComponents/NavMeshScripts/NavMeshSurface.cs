@@ -2,10 +2,6 @@ using NavMeshPlus.Extensions;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-#if UNITY_EDITOR
-using UnityEditor;
-using UnityEditor.SceneManagement;
-#endif
 
 namespace NavMeshPlus.Components
 {
@@ -20,7 +16,7 @@ namespace NavMeshPlus.Components
     [DefaultExecutionOrder(-102)]
     [AddComponentMenu("Navigation/Navigation Surface", 30)]
     [HelpURL("https://github.com/Unity-Technologies/NavMeshComponents#documentation-draft")]
-    public class NavMeshSurface : MonoBehaviour
+    public partial class NavMeshSurface : MonoBehaviour
     {
         [SerializeField, NavMeshAgent]
         int m_AgentTypeID;
@@ -115,16 +111,6 @@ namespace NavMeshPlus.Components
 
         public void AddData()
         {
-#if UNITY_EDITOR
-            var isInPreviewScene = EditorSceneManager.IsPreviewSceneObject(this);
-            var isPrefab = isInPreviewScene || EditorUtility.IsPersistent(this);
-            if (isPrefab)
-            {
-                //Debug.LogFormat("NavMeshData from {0}.{1} will not be added to the NavMesh world because the gameObject is a prefab.",
-                //    gameObject.name, name);
-                return;
-            }
-#endif
             if (m_NavMeshDataInstance.valid)
                 return;
 
@@ -239,16 +225,6 @@ namespace NavMeshPlus.Components
 
         static void Register(NavMeshSurface surface)
         {
-#if UNITY_EDITOR
-            var isInPreviewScene = EditorSceneManager.IsPreviewSceneObject(surface);
-            var isPrefab = isInPreviewScene || EditorUtility.IsPersistent(surface);
-            if (isPrefab)
-            {
-                //Debug.LogFormat("NavMeshData from {0}.{1} will not be added to the NavMesh world because the gameObject is a prefab.",
-                //    surface.gameObject.name, surface.name);
-                return;
-            }
-#endif
             if (s_NavMeshSurfaces.Count == 0)
                 NavMesh.onPreUpdate += UpdateActive;
 
@@ -272,11 +248,6 @@ namespace NavMeshPlus.Components
 
         void AppendModifierVolumes(ref List<NavMeshBuildSource> sources)
         {
-#if UNITY_EDITOR
-            var myStage = StageUtility.GetStageHandle(gameObject);
-            if (!myStage.IsValid())
-                return;
-#endif
             // Modifiers
             List<NavMeshModifierVolume> modifiers;
             if (m_CollectObjects == CollectObjects.Children)
@@ -295,10 +266,6 @@ namespace NavMeshPlus.Components
                     continue;
                 if (!m.AffectsAgentType(m_AgentTypeID))
                     continue;
-#if UNITY_EDITOR
-                if (!myStage.Contains(m.gameObject))
-                    continue;
-#endif
                 var mcenter = m.transform.TransformPoint(m.center);
                 var scale = m.transform.lossyScale;
                 var msize = new Vector3(m.size.x * Mathf.Abs(scale.x), m.size.y * Mathf.Abs(scale.y), m.size.z * Mathf.Abs(scale.z));
@@ -342,53 +309,23 @@ namespace NavMeshPlus.Components
                 markups.Add(markup);
             }
 
-#if UNITY_EDITOR
-            if (!EditorApplication.isPlaying)
+            if (m_CollectObjects == CollectObjects.All)
             {
-                if (m_CollectObjects == CollectObjects.All)
-                {
-                    UnityEditor.AI.NavMeshEditorHelpers.CollectSourcesInStage(
-                        null, m_LayerMask, m_UseGeometry, m_DefaultArea, markups, gameObject.scene, sources);
-                }
-                else if (m_CollectObjects == CollectObjects.Children)
-                {
-                    UnityEditor.AI.NavMeshEditorHelpers.CollectSourcesInStage(
-                        transform, m_LayerMask, m_UseGeometry, m_DefaultArea, markups, gameObject.scene, sources);
-                }
-                else if (m_CollectObjects == CollectObjects.Volume)
-                {
-                    Matrix4x4 localToWorld = Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one);
-                    var worldBounds = GetWorldBounds(localToWorld, new Bounds(m_Center, m_Size));
-
-                    UnityEditor.AI.NavMeshEditorHelpers.CollectSourcesInStage(
-                        worldBounds, m_LayerMask, m_UseGeometry, m_DefaultArea, markups, gameObject.scene, sources);
-                }
-                for (int i = 0; i < NevMeshExtensions.Count; ++i)
-                {
-                    NevMeshExtensions[i].CollectSources(this, sources, builderState);
-                }
+                NavMeshBuilder.CollectSources(null, m_LayerMask, m_UseGeometry, m_DefaultArea, markups, sources);
             }
-            else
-#endif
+            else if (m_CollectObjects == CollectObjects.Children)
             {
-                if (m_CollectObjects == CollectObjects.All)
-                {
-                    NavMeshBuilder.CollectSources(null, m_LayerMask, m_UseGeometry, m_DefaultArea, markups, sources);
-                }
-                else if (m_CollectObjects == CollectObjects.Children)
-                {
-                    NavMeshBuilder.CollectSources(transform, m_LayerMask, m_UseGeometry, m_DefaultArea, markups, sources);
-                }
-                else if (m_CollectObjects == CollectObjects.Volume)
-                {
-                    Matrix4x4 localToWorld = Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one);
-                    var worldBounds = GetWorldBounds(localToWorld, new Bounds(m_Center, m_Size));
-                    NavMeshBuilder.CollectSources(worldBounds, m_LayerMask, m_UseGeometry, m_DefaultArea, markups, sources);
-                }
-                for (int i = 0; i < NevMeshExtensions.Count; ++i)
-                {
-                    NevMeshExtensions[i].CollectSources(this, sources, builderState);
-                }
+                NavMeshBuilder.CollectSources(transform, m_LayerMask, m_UseGeometry, m_DefaultArea, markups, sources);
+            }
+            else if (m_CollectObjects == CollectObjects.Volume)
+            {
+                Matrix4x4 localToWorld = Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one);
+                var worldBounds = GetWorldBounds(localToWorld, new Bounds(m_Center, m_Size));
+                NavMeshBuilder.CollectSources(worldBounds, m_LayerMask, m_UseGeometry, m_DefaultArea, markups, sources);
+            }
+            for (int i = 0; i < NevMeshExtensions.Count; ++i)
+            {
+                NevMeshExtensions[i].CollectSources(this, sources, builderState);
             }
 
             if (m_IgnoreNavMeshAgent)
@@ -435,20 +372,18 @@ namespace NavMeshPlus.Components
                 switch (src.shape)
                 {
                     case NavMeshBuildSourceShape.Mesh:
-                    {
-                        var m = src.sourceObject as Mesh;
-                        result.Encapsulate(GetWorldBounds(worldToLocal * src.transform, m.bounds));
-                        break;
-                    }
+                        {
+                            var m = src.sourceObject as Mesh;
+                            result.Encapsulate(GetWorldBounds(worldToLocal * src.transform, m.bounds));
+                            break;
+                        }
                     case NavMeshBuildSourceShape.Terrain:
-                    {
-#if IS_TERRAIN_USED
-                        // Terrain pivot is lower/left corner - shift bounds accordingly
-                        var t = src.sourceObject as TerrainData;
-                        result.Encapsulate(GetWorldBounds(worldToLocal * src.transform, new Bounds(0.5f * t.size, t.size)));
-#endif
-                        break;
-                    }
+                        {
+                            // Terrain pivot is lower/left corner - shift bounds accordingly
+                            var t = src.sourceObject as TerrainData;
+                            result.Encapsulate(GetWorldBounds(worldToLocal * src.transform, new Bounds(0.5f * t.size, t.size)));
+                            break;
+                        }
                     case NavMeshBuildSourceShape.Box:
                     case NavMeshBuildSourceShape.Sphere:
                     case NavMeshBuildSourceShape.Capsule:
@@ -477,69 +412,5 @@ namespace NavMeshPlus.Components
                 AddData();
             }
         }
-
-#if UNITY_EDITOR
-        bool UnshareNavMeshAsset()
-        {
-            // Nothing to unshare
-            if (m_NavMeshData == null)
-                return false;
-
-            // Prefab parent owns the asset reference
-            var isInPreviewScene = EditorSceneManager.IsPreviewSceneObject(this);
-            var isPersistentObject = EditorUtility.IsPersistent(this);
-            if (isInPreviewScene || isPersistentObject)
-                return false;
-
-            // An instance can share asset reference only with its prefab parent
-            var prefab = UnityEditor.PrefabUtility.GetCorrespondingObjectFromSource(this) as NavMeshSurface;
-            if (prefab != null && prefab.navMeshData == navMeshData)
-                return false;
-
-            // Don't allow referencing an asset that's assigned to another surface
-            for (var i = 0; i < s_NavMeshSurfaces.Count; ++i)
-            {
-                var surface = s_NavMeshSurfaces[i];
-                if (surface != this && surface.m_NavMeshData == m_NavMeshData)
-                    return true;
-            }
-
-            // Asset is not referenced by known surfaces
-            return false;
-        }
-
-        void OnValidate()
-        {
-            if (UnshareNavMeshAsset())
-            {
-                if (!m_HideEditorLogs) Debug.LogWarning("Duplicating NavMeshSurface does not duplicate the referenced navmesh data", this);
-                m_NavMeshData = null;
-            }
-
-            var settings = NavMesh.GetSettingsByID(m_AgentTypeID);
-            if (settings.agentTypeID != -1)
-            {
-                // When unchecking the override control, revert to automatic value.
-                const float kMinVoxelSize = 0.01f;
-                if (!m_OverrideVoxelSize)
-                    m_VoxelSize = settings.agentRadius / 3.0f;
-                if (m_VoxelSize < kMinVoxelSize)
-                    m_VoxelSize = kMinVoxelSize;
-
-                // When unchecking the override control, revert to default value.
-                const int kMinTileSize = 16;
-                const int kMaxTileSize = 1024;
-                const int kDefaultTileSize = 256;
-
-                if (!m_OverrideTileSize)
-                    m_TileSize = kDefaultTileSize;
-                // Make sure tilesize is in sane range.
-                if (m_TileSize < kMinTileSize)
-                    m_TileSize = kMinTileSize;
-                if (m_TileSize > kMaxTileSize)
-                    m_TileSize = kMaxTileSize;
-            }
-        }
-#endif
     }
 }

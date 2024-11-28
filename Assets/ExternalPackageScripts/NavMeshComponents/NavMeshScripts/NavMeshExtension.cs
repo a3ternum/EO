@@ -27,22 +27,13 @@ namespace NavMeshPlus.Extensions
         {
             ConnectToVcam(true);
         }
-#if UNITY_EDITOR
-        [UnityEditor.Callbacks.DidReloadScripts]
-        static void OnScriptReload()
-        {
-            var extensions = Resources.FindObjectsOfTypeAll(
-                typeof(NavMeshExtension)) as NavMeshExtension[];
-            foreach (var e in extensions)
-                e.ConnectToVcam(true);
-        }
-#endif
+
         protected virtual void OnEnable() { }
         protected virtual void OnDestroy()
         {
             ConnectToVcam(false);
         }
-        protected virtual void ConnectToVcam(bool connect)
+        public virtual void ConnectToVcam(bool connect)
         {
             if (connect && NavMeshSurfaceOwner == null)
                 Debug.LogError("NevMeshExtension requires a NavMeshSurface component");
