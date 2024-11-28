@@ -32,17 +32,18 @@ public class HealthOrbUI : MonoBehaviour
             return;
         }
         // Update the health display (maybe this can be called when health changes in the actual game instead of in Update())
-        UpdateHealthOrb((int)player.currentHealth, (int)player.currentMaxHealth);
+        UpdateHealthOrb(player.currentHealth, player.currentMaxHealth);
     }
 
-    public void UpdateHealthOrb(int current, int max)
+    public void UpdateHealthOrb(float current, float max)
     {
         // Update fill amount based on health percentage
-        float healthPercent = (float)current / max;
-        healthOrbImage.fillAmount = healthPercent;
+        float healthPercent = current / max;
 
+        healthOrbImage.fillAmount = healthPercent;
+        Debug.Log("health percent is " + healthPercent);
         // Update the text to show current health and max health
-        healthText.text = $"{current} / {max}";
+        healthText.text = $"{(int)current} / {(int)max}";
     }
 
 

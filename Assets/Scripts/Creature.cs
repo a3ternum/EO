@@ -78,6 +78,7 @@ public class Creature : MonoBehaviour
         currentArmour = creatureStats.armourFlat * (1 + creatureStats.armourIncreases);
         currentEvasion = creatureStats.evasionFlat * (1 + creatureStats.evasionIncreases);
         currentPhysicalDamageReduction = creatureStats.physicalDamageReduction;
+        
         currentAttackSpeed = (creatureStats.attackSpeedBase + creatureStats.attackSpeedFlat) * (1 + creatureStats.attackSpeedIncreases) * (1 + creatureStats.attackSpeedMoreMultipliers);
         currentCastSpeed = (creatureStats.castSpeedBase + creatureStats.castSpeedFlat) * (1 + creatureStats.castSpeedIncreases) * (1 + creatureStats.castSpeedMoreMultipliers);
         currentMovementSpeed = creatureStats.movementSpeedBase * (1 + creatureStats.movementSpeedIncreases);
@@ -89,6 +90,7 @@ public class Creature : MonoBehaviour
         currentBlockChance = (creatureStats.blockChanceBase + creatureStats.blockChanceFlat) * (1 + creatureStats.blockChanceIncreases);
         currentCriticalStrikeChance = (creatureStats.criticalStrikeChanceBase + creatureStats.criticalStrikeChanceFlat) * (1 + creatureStats.criticalStrikeChanceIncreases);
         currentCriticalStrikeMultiplier = (creatureStats.criticalStrikeMultiplierBase + creatureStats.criticalStrikeMultiplierFlat) * (1 + creatureStats.criticalStrikeMultiplierIncreases);
+        
         currentAreaOfEffectIncrease = creatureStats.areaOfEffectIncreases;
         currentAreaOfEffectDamageIncrease = creatureStats.areaOfEffectDamageIncreases;
 
@@ -96,6 +98,7 @@ public class Creature : MonoBehaviour
         currentChillChance = creatureStats.chillChanceBase + creatureStats.chillChanceFlat;
         currentFreezeChance = creatureStats.freezeChanceBase + creatureStats.freezeChanceFlat;
         currentShockChance = creatureStats.shockChanceBase + creatureStats.shockChanceFlat;
+
 
     }
  
@@ -308,29 +311,11 @@ public class Creature : MonoBehaviour
 
     protected virtual void UpdateStats()
     {
-        InitializeCreatureStats(); // check to see if rest of code is redundant
-        //currentMaxHealth = (creatureStats.healthBase + creatureStats.healthFlat) * (1+creatureStats.healthIncreases) * (1 + creatureStats.healthMoreMultipliers);
-        //currentHealthRegen = (creatureStats.healthRegenBase + creatureStats.healthRegenFlat) + currentMaxHealth * (creatureStats.healthRegenIncreases) * (creatureStats.healthRegenMoreMultipliers);
-        //currentArmour = creatureStats.armourFlat * (1 + creatureStats.armourIncreases);
-        //currentEvasion = creatureStats.evasionFlat * (1 + creatureStats.evasionIncreases);
-        //currentPhysicalDamageReduction = creatureStats.physicalDamageReduction;
-        //currentAttackSpeed = (creatureStats.attackSpeedBase + creatureStats.attackSpeedFlat) * (1 + creatureStats.attackSpeedIncreases) * (1 + creatureStats.attackSpeedMoreMultipliers);
-        //currentCastSpeed = (creatureStats.castSpeedBase + creatureStats.castSpeedFlat) * (1 + creatureStats.castSpeedIncreases) * (1 + creatureStats.castSpeedMoreMultipliers);
-        //currentMovementSpeed = creatureStats.movementSpeedBase * (1 + creatureStats.movementSpeedIncreases);
-        //currentAdditionalProjectiles = creatureStats.additionalProjectiles;
-        //currentResistances = creatureStats.resistances;
-        //currentEvadeChance = (creatureStats.evadeChanceBase + creatureStats.evadeChanceFlat) * (1 + creatureStats.evadeChanceIncreases);
-        //currentBlockChance = (creatureStats.blockChanceBase + creatureStats.blockChanceFlat) * (1 + creatureStats.blockChanceIncreases);
-        //currentCriticalStrikeChance = (creatureStats.criticalStrikeChanceBase + creatureStats.criticalStrikeChanceFlat) * (1 + creatureStats.criticalStrikeChanceIncreases);
-        //currentCriticalStrikeMultiplier = (creatureStats.criticalStrikeMultiplierBase + creatureStats.criticalStrikeMultiplierFlat) * (1 + creatureStats.criticalStrikeMultiplierIncreases);
-
-        //currentIgniteChance = creatureStats.igniteChanceBase + creatureStats.igniteChanceFlat;
-        //currentChillChance = creatureStats.chillChanceBase + creatureStats.chillChanceFlat;
-        //currentFreezeChance = creatureStats.freezeChanceBase + creatureStats.freezeChanceFlat;
-        //currentShockChance = creatureStats.shockChanceBase + creatureStats.shockChanceFlat;
+        InitializeCreatureStats(); 
 
         ApplyChillEffect();
         ApplyFreezeEffect();
+        
     }
 
 

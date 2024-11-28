@@ -15,6 +15,16 @@ public class ManaOrbUI : MonoBehaviour
         // Find the player in the scene
         offset = new Vector3(8.0f, -3.9f, 0);
         transform.position = offset;
+
+        // make sure manaOrbImage is not null
+        if (manaOrbImage == null)
+        {
+            Debug.LogError("ManaOrbUI: manaOrbImage is null");
+        }
+        else
+        {
+            Debug.Log("ManaOrbUI: manaOrbImage is " + manaOrbImage);
+        }
     }
 
     public void SetParent(Player player)
@@ -30,17 +40,21 @@ public class ManaOrbUI : MonoBehaviour
         }
 
         // Update the mana display (maybe this can be called when mana changes in the actual game and not in Update())
-        UpdateManaOrb((int)player.currentMana, (int)player.currentMaxMana);
+        Debug.Log("ManaOrbUI Update() called");
+        Debug.Log("Player current mana: " + player.currentMana);
+        UpdateManaOrb(player.currentMana, player.currentMaxMana);
     }
 
-    public void UpdateManaOrb(int current, int max)
+    public void UpdateManaOrb(float current, float max)
     {
         // Update fill amount based on health percentage
-        float manaPercent = (float)current / max;
-        manaOrbImage.fillAmount = manaPercent;
+        float manaPercent = current / max;
+        Debug.Log("mana percent is " + manaPercent);
 
+        manaOrbImage.fillAmount = manaPercent;
+        
         // Update the text to show current health and max health
-        manaText.text = $"{current} / {max}";
+        manaText.text = $"{(int)current} / {(int)max}";
     }
 
 

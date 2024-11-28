@@ -103,7 +103,7 @@ public class Player : Creature
     {
         InitializePlayerStats();
         currentHealth = currentMaxHealth;
-
+        currentMana = currentMaxMana;
         InitializeHealthBar(); // initialize health bar
         InitializeExperienceBar(); // initialize experience bar
         InitializeHealthAndManaOrb(); // initialize health and mana orb

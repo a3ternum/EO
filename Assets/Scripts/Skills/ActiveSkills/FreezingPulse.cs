@@ -26,13 +26,13 @@ public class FreezingPulse : OffensiveSpell
 
         skillData.damagePerLevel = new List<float[]>
         {
-            new float[] { 0f, 25f, 0f, 0f, 0f },
-            new float[] { 0f, 30f, 0f, 0f, 0f },
-            new float[] { 0f, 35f, 0f, 0f, 0f },
-            new float[] { 0f, 40f, 0f, 0f, 0f },
-            new float[] { 0f, 45f, 0f, 0f, 0f }
+            new float[] { 0f, 0f, 25f, 0f, 0f },
+            new float[] { 0f, 0f, 30f, 0f, 0f },
+            new float[] { 0f, 0f, 35f, 0f, 0f },
+            new float[] { 0f, 0f, 40f, 0f, 0f },
+            new float[] { 0f, 0f, 45f, 0f, 0f }
         };
-        skillData.manaCostPerLevel = new List<float> { 0f, 0f, 0f, 0f, 0f };
+        skillData.manaCostPerLevel = new List<float> { 15f, 20f, 23f, 27f, 32f };
         skillData.radiusPerLevel = new List<float> { 1f, 1f, 1f, 1f, 1f };
         skillData.castSpeedPerLevel = new List<float> { 1f, 1f, 1f, 1f, 1f };
         skillData.durationPerLevel = new List<float> { 0.5f, 0.5f, 0.5f, 0.5f, 0.5f };
