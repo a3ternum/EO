@@ -71,13 +71,11 @@ namespace NavMeshPlus.Components
 
         static void AddTracking(NavMeshLink link)
         {
-#if UNITY_EDITOR
             if (s_Tracked.Contains(link))
             {
                 Debug.LogError("Link is already tracked: " + link);
                 return;
             }
-#endif
 
             if (s_Tracked.Count == 0)
                 NavMesh.onPreUpdate += UpdateTrackedInstances;
@@ -106,7 +104,6 @@ namespace NavMeshPlus.Components
 
         void AddLink()
         {
-#if UNITY_EDITOR
             if (NavMesh.IsLinkValid(m_LinkInstance))
             {
                 Debug.LogError("Link is already added: " + this);
@@ -168,6 +165,6 @@ namespace NavMeshPlus.Components
                 AddTracking(this);
             }
         }
-#endif
     }
 }
+
