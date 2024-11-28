@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class ArcEffect : MonoBehaviour
 {
+    private Animator animator;
+
     public Vector2 startLocation;
     public Vector2 targetLocation;
     private float duration = 0.3f; // duration of the arc
@@ -13,6 +15,7 @@ public class ArcEffect : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     private void Start()
