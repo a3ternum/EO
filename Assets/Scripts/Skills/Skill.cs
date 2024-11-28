@@ -316,6 +316,16 @@ public virtual void UpdateCooldown(float deltaTime) //A method to manage the coo
         return targetPosition;
     }
 
+    public float CalculateEffectiveRadius()
+    {
+        return radius * (1 + user.currentAreaOfEffectIncrease);
+    }
+    
+    public float CalculateEffectiveProjectileSpeed()
+    {
+        return projectileSpeed * (1 + user.currentProjectileSpeedIncreases);
+    }
+
     public virtual void Update()
     {
         // Update the cooldown timer

@@ -36,9 +36,9 @@ public class Projectile : MonoBehaviour
         this.skill = skillThatFiredProjectile;
 
         this.direction = direction;
-        this.projectileSpeed = skill.projectileSpeed;
+        this.projectileSpeed = skill.CalculateEffectiveProjectileSpeed();
         this.AoEIncrease = skill.user.creatureStats.areaOfEffectIncreases;
-        this.radius = skill.radius * (1 + AoEIncrease); // this might be double
+        this.radius = skill.CalculateEffectiveRadius(); // this might be double
         this.duration = skill.duration;
         this.tickRate = skill.tickRate;
         this.pierceCount = skill.pierceCount;

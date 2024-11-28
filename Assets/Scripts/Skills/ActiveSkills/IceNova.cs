@@ -52,6 +52,8 @@ public class IceNova : OffensiveSpell
         manaCost = skillData.manaCostPerLevel[skillLevel];
         duration = skillData.durationPerLevel[skillLevel];
         range = skillData.rangePerLevel[skillLevel];
+
+
     }
 
    
@@ -65,7 +67,7 @@ public class IceNova : OffensiveSpell
     {
         // Spawn the ice nova at the location
         AreaVisual iceNova = Instantiate(iceNovaPrefab, location, Quaternion.identity);
-        iceNova.radius = radius;
+        iceNova.radius = CalculateEffectiveRadius();
         iceNova.duration = duration;
 
         List<Creature> creaturesHit = AoECollider(location);

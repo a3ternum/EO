@@ -15,8 +15,14 @@ public class AreaVisual : MonoBehaviour
 
     protected void Start()
     {
-        // base radius of skill is 1 so we need to scale it down to the desired radius
-        transform.localScale = new Vector3(transform.localScale.x * radius, transform.localScale.y * radius, 1);
+        // get base radius of the area effect through its circle collider
+        CircleCollider2D circleCollider = GetComponent<CircleCollider2D>();
+        float baseRadius = circleCollider.radius;
+
+        float scale = radius / baseRadius;
+
+        Debug.Log("scale is " + radius + " divided by " +  baseRadius + " which is " + radius/baseRadius);
+        transform.localScale = new Vector3(scale, scale, 1);
         elapsedTime = 0f;
         animator = GetComponent<Animator>();
 

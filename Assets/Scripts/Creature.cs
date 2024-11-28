@@ -20,6 +20,8 @@ public class Creature : MonoBehaviour
     public float currentCastSpeed;
     public float currentMovementSpeed;
     public int currentAdditionalProjectiles;
+    public float currentProjectileSpeedIncreases;
+
     public float[] currentResistances;
     public float currentEvadeChance;
     public float currentBlockChance;
@@ -80,6 +82,8 @@ public class Creature : MonoBehaviour
         currentCastSpeed = (creatureStats.castSpeedBase + creatureStats.castSpeedFlat) * (1 + creatureStats.castSpeedIncreases) * (1 + creatureStats.castSpeedMoreMultipliers);
         currentMovementSpeed = creatureStats.movementSpeedBase * (1 + creatureStats.movementSpeedIncreases);
         currentAdditionalProjectiles = creatureStats.additionalProjectiles;
+        currentProjectileSpeedIncreases = creatureStats.projectileSpeedIncreases;
+
         currentResistances = creatureStats.resistances;
         currentEvadeChance = (creatureStats.evadeChanceBase + creatureStats.evadeChanceFlat) * (1 + creatureStats.evadeChanceIncreases);
         currentBlockChance = (creatureStats.blockChanceBase + creatureStats.blockChanceFlat) * (1 + creatureStats.blockChanceIncreases);
@@ -92,6 +96,7 @@ public class Creature : MonoBehaviour
         currentChillChance = creatureStats.chillChanceBase + creatureStats.chillChanceFlat;
         currentFreezeChance = creatureStats.freezeChanceBase + creatureStats.freezeChanceFlat;
         currentShockChance = creatureStats.shockChanceBase + creatureStats.shockChanceFlat;
+
     }
  
 

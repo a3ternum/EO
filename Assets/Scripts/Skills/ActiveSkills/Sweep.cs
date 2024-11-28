@@ -62,7 +62,7 @@ public class Sweep : MeleeAttackArea
     {
         // Spawn the ice nova at the location
         AreaVisual sweepEffect = Instantiate(sweepVisual, user.transform.position, Quaternion.identity);
-        sweepEffect.radius = radius;
+        sweepEffect.radius = radius * (1 + areaOfAttackIncrease);
         sweepEffect.duration = duration;
 
         DamageCreaturesInArea(user.transform.position);
