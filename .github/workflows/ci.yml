@@ -13,13 +13,16 @@ jobs:
         with:
           lfs: true
 
-      # Cache
-      - uses: actions/cache@v3
+      # Cache Unity Dependencies
+      - name: Cache Unity Dependencies
+        uses: actions/cache@v3
         with:
-          path: Library
-          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          path: |
+            Library
+            ~/.cache/unity3d
+          key: UnityCache-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**', 'Packages/manifest.json') }}
           restore-keys: |
-            Library-
+            UnityCache-
 
       # Test
       - name: Run tests
@@ -39,13 +42,16 @@ jobs:
         with:
           lfs: true
 
-      # Cache
-      - uses: actions/cache@v3
+      # Cache Unity Dependencies
+      - name: Cache Unity Dependencies
+        uses: actions/cache@v3
         with:
-          path: Library
-          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          path: |
+            Library
+            ~/.cache/unity3d
+          key: UnityCache-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**', 'Packages/manifest.json') }}
           restore-keys: |
-            Library-
+            UnityCache-
 
       # Build
       - name: Build project
