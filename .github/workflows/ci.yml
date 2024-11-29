@@ -50,9 +50,10 @@ jobs:
         with:
           lfs: true
 
-      # Debug Cache Key
       - name: Debug Cache Key
-        run: echo "Cache Key: UnityCache-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**', 'Packages/manifest.json') }}"
+        env:
+          CACHE_KEY: ${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**', 'Packages/manifest.json') }}
+        run: echo "Cache Key: UnityCache-${CACHE_KEY}"
 
       # Cache Unity Dependencies
       - name: Cache Unity Dependencies
