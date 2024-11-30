@@ -46,7 +46,6 @@ public class MeleeAttackSingleTarget : MeleeAttack
 
     protected override IEnumerator SkillCoroutine()
     {
-        Debug.Log("entering singletarget attack coroutine");
         float playerAttackSpeed = user.currentAttackSpeed;
 
         // spawn SingleTargetIndicatorCircle at the location of the target

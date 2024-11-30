@@ -144,7 +144,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -909,7 +909,39 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Golem2_Walk_full_0: 8290161506454447747
+      Golem2_Walk_full_1: 2203415036512349029
+      Golem2_Walk_full_10: 2844721469926223601
+      Golem2_Walk_full_11: -7413135030339805511
+      Golem2_Walk_full_12: 6874332056697742303
+      Golem2_Walk_full_13: 3468894289521618981
+      Golem2_Walk_full_14: 4371912007865276684
+      Golem2_Walk_full_15: 2390915822134136473
+      Golem2_Walk_full_16: 7156802536529473500
+      Golem2_Walk_full_17: 1512435122622649523
+      Golem2_Walk_full_18: 430221980043187286
+      Golem2_Walk_full_19: 4386830778658009277
+      Golem2_Walk_full_2: -3187072655123444101
+      Golem2_Walk_full_20: -3761621133284936493
+      Golem2_Walk_full_21: 4413914437930263238
+      Golem2_Walk_full_22: -5156324911547452849
+      Golem2_Walk_full_23: 4788059512769208717
+      Golem2_Walk_full_24: 801393598807551793
+      Golem2_Walk_full_25: 2949667242939478581
+      Golem2_Walk_full_26: -8435918064962267436
+      Golem2_Walk_full_27: -8791186463027826892
+      Golem2_Walk_full_28: -2990058135319278008
+      Golem2_Walk_full_29: 6818631158799226781
+      Golem2_Walk_full_3: 3122872901710159536
+      Golem2_Walk_full_30: -1517203538461667643
+      Golem2_Walk_full_31: 1254666801463401824
+      Golem2_Walk_full_4: 2419030941010222121
+      Golem2_Walk_full_5: 6360268441067549359
+      Golem2_Walk_full_6: 8189268826645690173
+      Golem2_Walk_full_7: 5879824885213842170
+      Golem2_Walk_full_8: -7847036456841893881
+      Golem2_Walk_full_9: 8120124954249435380
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

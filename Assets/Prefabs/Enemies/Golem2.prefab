@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -136,7 +136,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.48, y: 0.44}
+  m_Size: {x: 1.44, y: 1.32}
   m_EdgeRadius: 0
 --- !u!50 &7470471688024950641
 Rigidbody2D:
@@ -211,6 +211,7 @@ MonoBehaviour:
   currentCastSpeed: 0
   currentMovementSpeed: 0
   currentAdditionalProjectiles: 0
+  currentProjectileSpeedIncreases: 0
   currentResistances: []
   currentEvadeChance: 0
   currentBlockChance: 0
@@ -233,6 +234,7 @@ MonoBehaviour:
   damagedRecently: 0
   canMove: 1
   canAttack: 1
+  healthBarComponent: {fileID: 0}
   activeSkill: {fileID: 5011057092126252598, guid: 0f4d69024e182994ca2654a27bb1e7b3, type: 3}
   AIState: 0
   packAggroRadius: 5

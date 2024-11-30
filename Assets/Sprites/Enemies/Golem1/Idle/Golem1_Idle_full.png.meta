@@ -96,7 +96,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -509,7 +509,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Golem1_Idle_full_0: -4265314439861950225
+      Golem1_Idle_full_1: 59728709525112653
+      Golem1_Idle_full_10: 803631933916946899
+      Golem1_Idle_full_11: 305769000283141306
+      Golem1_Idle_full_12: -1427304048803297374
+      Golem1_Idle_full_13: -6462201051953223594
+      Golem1_Idle_full_14: -6813533966663086626
+      Golem1_Idle_full_15: 6831306104564491096
+      Golem1_Idle_full_2: -7531504778832570475
+      Golem1_Idle_full_3: -7718800089075921921
+      Golem1_Idle_full_4: 7554429171586399434
+      Golem1_Idle_full_5: -239004086218888883
+      Golem1_Idle_full_6: -4841017814190025887
+      Golem1_Idle_full_7: 2146324841866670448
+      Golem1_Idle_full_8: 70545526993345906
+      Golem1_Idle_full_9: -4058205132645162690
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

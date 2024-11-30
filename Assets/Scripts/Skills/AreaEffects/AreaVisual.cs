@@ -21,7 +21,6 @@ public class AreaVisual : MonoBehaviour
 
         float scale = radius / baseRadius;
 
-        Debug.Log("scale is " + radius + " divided by " +  baseRadius + " which is " + radius/baseRadius);
         transform.localScale = new Vector3(scale, scale, 1);
         elapsedTime = 0f;
         animator = GetComponent<Animator>();

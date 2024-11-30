@@ -41,7 +41,6 @@ public class HealthOrbUI : MonoBehaviour
         float healthPercent = current / max;
 
         healthOrbImage.fillAmount = healthPercent;
-        Debug.Log("health percent is " + healthPercent);
         // Update the text to show current health and max health
         healthText.text = $"{(int)current} / {(int)max}";
     }

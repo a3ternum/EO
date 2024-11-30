@@ -21,10 +21,6 @@ public class ManaOrbUI : MonoBehaviour
         {
             Debug.LogError("ManaOrbUI: manaOrbImage is null");
         }
-        else
-        {
-            Debug.Log("ManaOrbUI: manaOrbImage is " + manaOrbImage);
-        }
     }
 
     public void SetParent(Player player)
@@ -40,8 +36,6 @@ public class ManaOrbUI : MonoBehaviour
         }
 
         // Update the mana display (maybe this can be called when mana changes in the actual game and not in Update())
-        Debug.Log("ManaOrbUI Update() called");
-        Debug.Log("Player current mana: " + player.currentMana);
         UpdateManaOrb(player.currentMana, player.currentMaxMana);
     }
 
@@ -49,8 +43,6 @@ public class ManaOrbUI : MonoBehaviour
     {
         // Update fill amount based on health percentage
         float manaPercent = current / max;
-        Debug.Log("mana percent is " + manaPercent);
-
         manaOrbImage.fillAmount = manaPercent;
         
         // Update the text to show current health and max health
