@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 9171997757052765552}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.043, y: 0.446, z: -0.020704148}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -105,4 +105,3 @@ MonoBehaviour:
   angle: 90
   user: {fileID: 0}
   skill: {fileID: 0}
-  meshMaterial: {fileID: 2100000, guid: 9ad530c43a699eb47ac57f9aa833a3e8, type: 2}

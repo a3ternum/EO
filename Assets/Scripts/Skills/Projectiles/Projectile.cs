@@ -126,9 +126,14 @@ public class Projectile : MonoBehaviour
                 }
                 else if (hitCollider.gameObject.layer == terrainLayer)
                 {
-                    // Destroy the projectile if it hits terrain
-                    Destroy(gameObject);
-                    yield break; // Exit the coroutine as the projectile is destroyed
+                    // Check if the center of the projectile is colliding with terrain
+                    RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero, 0f, 1 << terrainLayer);
+                    if (hit.collider != null)
+                    {
+                        // Destroy the projectile if the center collides with terrain
+                        Destroy(gameObject);
+                        yield break; // Exit the coroutine as the projectile is destroyed
+                    }
                 }
             }
 
