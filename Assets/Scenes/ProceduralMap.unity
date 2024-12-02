@@ -7742,6 +7742,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2387590824291415261, guid: a0029cc25e8881542a3aa10f8aa67472, type: 3}
+      propertyPath: spawnProbability
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387590824291415261, guid: a0029cc25e8881542a3aa10f8aa67472, type: 3}
+      propertyPath: minPlayerDistance
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8369683638071364496, guid: a0029cc25e8881542a3aa10f8aa67472, type: 3}
       propertyPath: m_Name
       value: EnemySpawnManager

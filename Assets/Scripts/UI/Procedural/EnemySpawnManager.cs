@@ -7,35 +7,27 @@ public class EnemySpawnManager : MonoBehaviour
 {
     public EnemySpawnTable enemySpawnTable;
     public PackSpawn packSpawn;
-    private int minSpawnDistance = 3;
-    private int packDensity;
-    private int packSize;
+
+    public float spawnProbability = 0.01f;
+
+    private int minSpawnDistance = 2; // minimum distance between two spawn points
+    public int packDensity = 1;
+    public int packSize = 5;
     private Vector2Int playerStartPosition;
     [SerializeField]
     private float minPlayerDistance;
-    private float spawnProbability;
 
     private HashSet<Vector2Int> floorPositions;
 
 
     private void Awake()
     {
-        minPlayerDistance = 10f;
-        spawnProbability = 0.01f;
-        packDensity = 1;
-        packSize = 5;
         // set packSpawn parameters
         packSpawn.enemySpawnTable = enemySpawnTable;
         // this will later depend on things like map Quality, map density etc
-    }
-
-    private void Start()
-    {
-        
-     
-
 
     }
+
 
     public void GenerateSpawns(HashSet<Vector2Int> floorTiles, List<Vector2Int> roomCenters, List<Vector2Int> corridorTiles, string mapType)
     {

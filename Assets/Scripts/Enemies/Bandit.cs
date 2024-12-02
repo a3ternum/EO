@@ -6,7 +6,7 @@ public class Bandit : Enemy
     protected override void Start()
     {
         base.Start();
-        
+        chaseDistance = 6f;
         experienceValue = 100f;
 
         chaseScript.setSpeed(currentMovementSpeed);

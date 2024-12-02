@@ -19,10 +19,10 @@ public class Enemy : Creature
     public float packAggroRadius = 5f;
 
     public float attackRange; // attack range of the enemy
-    public float chaseDistance = 8f; // enemy will chase until this distance is reached.
-    public float minimumDistance = 0f; // enemy will keep this distance from the player
-    public float chaseRange = 12f; // chase range of the enemy (from where the enemy will start chasing the player)
-    public float chaseRangeIfDamagedRecently = 30f; // chase range of the enemy if he is attacked (from where the enemy will start chasing the player)
+    public float chaseDistance = 0f; // enemy will chase until this distance is reached.
+    public float minimumDistance = 1f; // enemy will keep this distance from the player
+    public float chaseRange = 5f; // chase range of the enemy (from where the enemy will start chasing the player)
+    public float chaseRangeIfDamagedRecently = 15f; // chase range of the enemy if he is attacked (from where the enemy will start chasing the player)
     public float timeInChase = 0f; // how long the enemy has been chasing the player in seconds
     public bool hasLOS; // has line of sight to the player
 
