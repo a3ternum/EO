@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         Instantiate(player, new Vector3(0, 0, 0), Quaternion.identity);
     }
 
-    public void EnterMap()
+    public void EnterMap(Map map)
     {
 
         isInMap = true;

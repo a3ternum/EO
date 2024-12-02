@@ -1,79 +1,79 @@
-name: Unity CI/CD
+# name: Unity CI/CD
 
-on: [push, pull_request]
+# on: [push, pull_request]
 
-jobs:
-  test:
-    name: Test my project 🧪
-    runs-on: windows-latest
-    steps:
-      # Checkout
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          lfs: true
+# jobs:
+#   test:
+#     name: Test my project 🧪
+#     runs-on: windows-latest
+#     steps:
+#       # Checkout
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
+#         with:
+#           lfs: true
 
-      # Cache Unity Dependencies
-      - name: Cache Unity Dependencies
-        uses: actions/cache@v3
-        with:
-          path: |
-            Library
-            ~/.cache/unity3d
-          key: UnityCache-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**', 'Packages/manifest.json') }}
-          restore-keys: |
-            UnityCache-
+#       # Cache Unity Dependencies
+#       - name: Cache Unity Dependencies
+#         uses: actions/cache@v3
+#         with:
+#           path: |
+#             Library
+#             ~/.cache/unity3d
+#           key: UnityCache-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**', 'Packages/manifest.json') }}
+#           restore-keys: |
+#             UnityCache-
 
-      # Check Library Folder Size
-      - name: Check Library Folder Size
-        run: du -sh Library || echo "Library folder not found"
+#       # Check Library Folder Size
+#       - name: Check Library Folder Size
+#         run: du -sh Library || echo "Library folder not found"
 
-      # Test
-      - name: Run tests
-        uses: game-ci/unity-test-runner@v4
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+#       # Test
+#       - name: Run tests
+#         uses: game-ci/unity-test-runner@v4
+#         env:
+#           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+#           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+#           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
 
-  build:
-    name: Build my project ✨
-    runs-on: windows-latest
-    steps:
-      # Checkout
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          lfs: true
+#   build:
+#     name: Build my project ✨
+#     runs-on: windows-latest
+#     steps:
+#       # Checkout
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
+#         with:
+#           lfs: true
 
-      # Cache Unity Dependencies
-      - name: Cache Unity Dependencies
-        uses: actions/cache@v3
-        with:
-          path: |
-            Library
-            ~/.cache/unity3d
-          key: UnityCache-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**', 'Packages/manifest.json') }}
-          restore-keys: |
-            UnityCache-
+#       # Cache Unity Dependencies
+#       - name: Cache Unity Dependencies
+#         uses: actions/cache@v3
+#         with:
+#           path: |
+#             Library
+#             ~/.cache/unity3d
+#           key: UnityCache-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**', 'Packages/manifest.json') }}
+#           restore-keys: |
+#             UnityCache-
 
-      # Check Library Folder Size
-      - name: Check Library Folder Size
-        run: du -sh Library || echo "Library folder not found"
+#       # Check Library Folder Size
+#       - name: Check Library Folder Size
+#         run: du -sh Library || echo "Library folder not found"
 
-      # Build
-      - name: Build project
-        uses: game-ci/unity-builder@v4
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-        with:
-          targetPlatform: StandaloneWindows64
-          allowDirtyBuild: true
+#       # Build
+#       - name: Build project
+#         uses: game-ci/unity-builder@v4
+#         env:
+#           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+#           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+#           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+#         with:
+#           targetPlatform: StandaloneWindows64
+#           allowDirtyBuild: true
 
-      # Output
-      - uses: actions/upload-artifact@v4
-        with:
-          name: Build
-          path: build
+#       # Output
+#       - uses: actions/upload-artifact@v4
+#         with:
+#           name: Build
+#           path: build

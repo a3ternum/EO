@@ -1,4 +1,6 @@
 using UnityEngine;
+using YourNamespace.Maps;
+using YourNamespace.Items;
 /// <summary>
 /// Map class is a container for all data related to a map instance that can be spawned by the player.
 /// It contains information such as:
@@ -25,28 +27,22 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {
+    public GenerationType generationType;
+    public Rarity rarity;
 
-    private string mapType;
-    private float packDensity;
-    private float packSize;
-    private float spawnProbability;
+    public EnemySpawnTable enemySpawnTable;
 
-    private EnemySpawnTable enemySpawnTable;
+    public float packDensity;
+    public float packSize;
+    public float spawnProbability;
 
-    // add more map modifiers here
-
-    private void Start()
-    {
-        
-    }
+    // map modifiers
 
     private void OnUse()
     {
         // generate the map
-
-
     }
 
-
+    // Below here will be methods used to alter the map such as chaos orbs, alchemy orbs, etc...
 
 }
