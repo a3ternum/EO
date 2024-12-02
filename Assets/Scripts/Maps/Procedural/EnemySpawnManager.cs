@@ -5,18 +5,20 @@ using UnityEngine;
 using UnityEngine.AI;
 public class EnemySpawnManager : MonoBehaviour
 {
+    public PackSpawn packSpawn; // maybe turn this into a resource? 
+
     public EnemySpawnTable enemySpawnTable;
-    public PackSpawn packSpawn;
 
-    public float spawnProbability = 0.01f;
 
-    private int minSpawnDistance = 2; // minimum distance between two spawn points
-    public int packDensity = 1;
-    public int packSize = 5;
+
+    public float packDensity = 1;
+    public float packSize = 5;
     private Vector2Int playerStartPosition;
     [SerializeField]
     private float minPlayerDistance;
 
+    private float minSpawnDistance = 2; // minimum distance between two spawn points
+    private float spawnProbability = 0.01f; // fixed value that determines the probability of a pack spawning at a given point
     private HashSet<Vector2Int> floorPositions;
 
 

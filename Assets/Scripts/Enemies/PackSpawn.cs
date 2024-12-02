@@ -10,7 +10,7 @@ public class PackSpawn : MonoBehaviour
 
 
     public float spawnRadius = 1.5f;
-    public int packSize = 1;
+    public float packSize;
     private int totalWeight;
 
 

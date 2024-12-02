@@ -34,7 +34,6 @@ public class Map : MonoBehaviour
 
     public float packDensity;
     public float packSize;
-    public float spawnProbability;
 
     // map modifiers
 

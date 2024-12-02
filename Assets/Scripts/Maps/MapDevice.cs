@@ -12,27 +12,27 @@ public class MapDevice : MonoBehaviour
         Instance = GameManager.Instance;
     }
 
-    private void OpenMapDevice()
+    private void OpenMapDevice() // This method will be called when the player interacts with the map device
     {
-
+        // Open the map device UI
     }
 
-    private void CloseMapDevice()
+    private void CloseMapDevice() // This method will be called when the player closes the map device UI
     {
-
-    }
-  
-    private void InsertMap()
-    {
-
+        // Close the map device UI
     }
 
-    private void RemoveMap()
+    private void InsertMap(Map newMap) // This method will be called when the player inserts a map into the map device
     {
-
+        map = newMap;
     }
 
-    private void ActivateMapDevice()
+    private void RemoveMap() // This method will be called when the player removes a map from the map device
+    {
+        map = null;
+    }
+
+    private void ActivateMapDevice() // This method will be called when the player activates the map device
     {
         if (map == null)
         {

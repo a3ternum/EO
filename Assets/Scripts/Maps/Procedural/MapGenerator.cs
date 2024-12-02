@@ -1,16 +1,9 @@
 using UnityEngine;
+using YourNamespace.Maps;
 
 public class MapGenerator : MonoBehaviour
 {
-    enum GenerationType
-    {
-        RandomWalk,
-        CorridorFirst,
-        RoomFirst
-    }
-
-    [SerializeField]
-    private GenerationType generationType;
+    public GenerationType generationType;
 
     [SerializeField]
     private AbstractMapGenerator[] mapGenerators;
@@ -30,11 +23,17 @@ public class MapGenerator : MonoBehaviour
     private void Start()
     {
 
+      
+
+    }
+
+    public void GenerateMap()
+    {
         randomWalkMapGenerator = mapGenerators[0].GetComponent<SimpleRandomWalkMapGenerator>();
         corridorFirstMapGenerator = mapGenerators[1].GetComponent<CorridorFirstMapGenerator>();
         roomFirstMapGenerator = mapGenerators[2].GetComponent<RoomFirstMapGenerator>();
 
-   
+
 
         // Generate the map based on the selected generation type
         switch (generationType)
@@ -49,7 +48,6 @@ public class MapGenerator : MonoBehaviour
                 roomFirstMapGenerator.RunProceduralGeneration();
                 break;
         }
-
     }
 
 }

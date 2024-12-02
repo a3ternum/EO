@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private PlayerSpawnManager playerSpawnManager;
 
+    [SerializeField]
+    private EnemySpawnManager enemySpawnManager;
 
     public bool isInMap = false;
 
@@ -43,7 +45,22 @@ public class GameManager : MonoBehaviour
         isInMap = true;
         SceneManager.LoadScene("ProceduralMap"); // Load the map scene
         // destroy the player object
-        Destroy(GameObject.FindGameObjectWithTag("Player"));
+        //Destroy(GameObject.FindGameObjectWithTag("Player"));
+
+        // Get the required components from the new scene
+        MapGenerator mapGenerator = FindFirstObjectByType<MapGenerator>();
+        EnemySpawnManager enemySpawnManager = FindFirstObjectByType<EnemySpawnManager>();
+
+        // set the properties of the map generator
+        mapGenerator.generationType = map.generationType;
+
+        // set the properties of the enemy spawn manager
+        enemySpawnManager.packSize = map.packSize;
+        enemySpawnManager.packDensity = map.packDensity;
+        enemySpawnManager.enemySpawnTable = map.enemySpawnTable;
+
+        // Generate the map
+        mapGenerator.GenerateMap();
 
 
     }
@@ -79,4 +96,5 @@ public class GameManager : MonoBehaviour
     {
         // Save player data (experience, stats, inventory, etc.) to ScriptableObject or Save System
     }
+
 }
