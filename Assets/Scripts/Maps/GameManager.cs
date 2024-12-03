@@ -49,7 +49,6 @@ public class GameManager : MonoBehaviour
 
     public void EnterMap(Map mapToEnter)
     {
-
         isInMap = true;
         map = mapToEnter;
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -102,7 +101,7 @@ public class GameManager : MonoBehaviour
     public void ReturnToHideout()
     {
         isInMap = false;
-        SceneManager.LoadScene("HideoutScene"); // Load the hideout scene
+        SceneManager.LoadScene("Hideout"); // Load the hideout scene
 
         // Call method to move the player after the scene has loaded
         SpawnPlayerInHideout();
@@ -113,7 +112,7 @@ public class GameManager : MonoBehaviour
         // Wait until the new scene is loaded
         SceneManager.sceneLoaded += (scene, mode) =>
         {
-            if (scene.name == "HideoutScene" && player != null)
+            if (scene.name == "Hideout" && player != null)
             {
                 // Set the player's position to (0, 0, 0)
                 Instantiate(player, new Vector3(0, 0, 0), Quaternion.identity);

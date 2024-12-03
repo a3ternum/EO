@@ -5,7 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        Debug.Log("loading scene 0");
-        SceneManager.LoadScene(0); 
+        Debug.Log("Loading Hideout");
+        SceneManager.LoadScene("Hideout"); 
     }
 }

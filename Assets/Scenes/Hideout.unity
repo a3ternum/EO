@@ -1938,9 +1938,6 @@ MonoBehaviour:
   player: {fileID: 4255957249915089235, guid: 4708c2209a32e8e4097c80320534d957, type: 3}
   playerStats: {fileID: 11400000, guid: 90b90c15d87ec7e4a8bfddbc9dd928a0, type: 2}
   playerSpawnManager: {fileID: 4058866425551163455, guid: c91d25d8e077b7146aa5be034a26bd5e, type: 3}
-  enemySpawnManager: {fileID: 2387590824291415261, guid: a0029cc25e8881542a3aa10f8aa67472, type: 3}
-  mapGenerator: {fileID: 1984226226627690338, guid: 506e42f248827da479466750f58551d0, type: 3}
-  navMeshManager: {fileID: 3506670071075965218, guid: 97a12655c041eb44bb22657c555dc788, type: 3}
   isInMap: 0
 --- !u!4 &518840174
 Transform:

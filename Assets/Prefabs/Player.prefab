@@ -263,7 +263,7 @@ MonoBehaviour:
   canMove: 1
   canAttack: 1
   healthBarComponent: {fileID: 0}
-  activeSkill: {fileID: 3435654015179584728, guid: 348275947e068ee4b905cc1badb1f9be, type: 3}
+  activeSkill: {fileID: 4744319070768860609, guid: 1bfddef3a1ca2884590f7d614b1ed409, type: 3}
   playerStats: {fileID: 11400000, guid: 90b90c15d87ec7e4a8bfddbc9dd928a0, type: 2}
   currentMaxMana: 0
   currentMana: 0

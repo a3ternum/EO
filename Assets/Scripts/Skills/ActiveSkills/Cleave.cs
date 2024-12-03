@@ -63,22 +63,27 @@ public class Cleave : MeleeAttackArea
             animator.SetTrigger("Attack"); // Play the attack animation
         }
         user.canMove = false;
-        // spawn cleave visual
-        CleaveCircleMesh cleave = Instantiate(cleaveVisual, user.transform.position, Quaternion.identity);
+        
 
         // change rotation to fit mouse position relative to user
         Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - user.transform.position).normalized;
+
+        
+        yield return new WaitForSeconds(animationDuration);
+        // spawn cleave visual
+        CleaveCircleMesh cleave = Instantiate(cleaveVisual, user.transform.position, Quaternion.identity);
         cleave.user = user;
         cleave.skill = this;
         cleave.UpdatePositionAndRotation(user.transform.position, direction);
-        yield return new WaitForSeconds(animationDuration);
-        Destroy(cleave.gameObject);
         user.canMove = true;
         if (animator != null)
         {
             animator.SetTrigger("AttackFinished"); // Finish the attack animation
 
         }
+        yield return new WaitForSeconds(animationDuration/2);
+        Destroy(cleave.gameObject);
+
     }
 
     protected override List<Creature> AoECollider(Vector2 mousePosition)

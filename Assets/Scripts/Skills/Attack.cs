@@ -26,6 +26,7 @@ public class Attack : Skill
         if (user.currentAttackSpeed == 0 || attackSpeed == 0)
         {
             Debug.LogError("Attack speed is 0");
+            Debug.LogError("user using this skill is " + user);
         }
         cooldownTimer = (1 / attackSpeed) / user.currentAttackSpeed;
         animationDuration = CalculateAnimationDuration(user.currentAttackSpeed, attackSpeed);

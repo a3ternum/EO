@@ -91,7 +91,7 @@ public class Skill : MonoBehaviour
 
     protected virtual void AttackEffect() // empty method to be overridden by child classes
     {
-        Debug.Log("entering Attack effect inside skill class");
+        
     }
 
     protected virtual IEnumerator SkillCoroutine()
@@ -305,7 +305,7 @@ public virtual void UpdateCooldown(float deltaTime) //A method to manage the coo
             GameObject player = GameObject.FindWithTag("Player");
             if (player == null)
             {
-                Debug.LogError("Player is null");
+                Debug.LogWarning("Player is null");
                 return Vector2.zero;
             }
             else
