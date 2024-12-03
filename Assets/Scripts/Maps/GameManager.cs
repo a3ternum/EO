@@ -1,3 +1,4 @@
+using Codice.Client.BaseCommands;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,16 +15,15 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private PlayerSpawnManager playerSpawnManager;
 
-    [SerializeField]
     private EnemySpawnManager enemySpawnManager;
 
-    [SerializeField]
     private MapGenerator mapGenerator;
 
-    [SerializeField]
     private NavMeshManager navMeshManager;
 
     public bool isInMap = false;
+
+    private Map map;
 
     // Singleton
     private void Awake()
@@ -43,32 +43,62 @@ public class GameManager : MonoBehaviour
     {
         playerStats.resetPlayerData();
         Instantiate(player, new Vector3(0, 0, 0), Quaternion.identity);
+
+        
     }
 
-    public void EnterMap(Map map)
+    public void EnterMap(Map mapToEnter)
     {
 
         isInMap = true;
+        map = mapToEnter;
+        SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.LoadScene("ProceduralMap"); // Load the map scene
-        // destroy the player object
-        //Destroy(GameObject.FindGameObjectWithTag("Player"));
-
-
-        // set the properties of the map generator
-        Debug.Log("map generation type is " + map.generationType);
-        Debug.Log("mapgeneration generation type is " + mapGenerator.generationType);
-        mapGenerator.generationType = map.generationType;
-
-        // set the properties of the enemy spawn manager
-        enemySpawnManager.packSize = map.packSize;
-        enemySpawnManager.packDensity = map.packDensity;
-        enemySpawnManager.enemySpawnTable = map.enemySpawnTable;
-
-        // Generate the map
-        mapGenerator.GenerateMap();
-
-
+                                                 // destroy the player object
     }
+      private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "ProceduralMap")
+        {
+            // Unsubscribe from the event
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+
+            // Initialize spawn managers and other components
+            enemySpawnManager = FindFirstObjectByType<EnemySpawnManager>();
+            if (enemySpawnManager == null)
+            {
+                Debug.LogError("enemySpawnManager is null");
+            }
+            playerSpawnManager = FindFirstObjectByType<PlayerSpawnManager>();
+            if (playerSpawnManager == null)
+            {
+                Debug.LogError("playerSpawnManager is null");
+            }
+            mapGenerator = FindFirstObjectByType<MapGenerator>();
+            if (mapGenerator == null)
+            {
+                Debug.LogError("mapGenerator is null");
+            }
+            navMeshManager = FindFirstObjectByType<NavMeshManager>();
+            if (navMeshManager == null)
+            {
+                Debug.LogError("navMeshManager is null");
+            }
+
+            // Set the properties of the map generator
+            mapGenerator.generationType = map.generationType;
+
+            // Set the properties of the enemy spawn manager
+            enemySpawnManager.packSize = map.packSize;
+            enemySpawnManager.packDensity = map.packDensity;
+            enemySpawnManager.enemySpawnTable = map.enemySpawnTable;
+
+            // Generate the map
+            mapGenerator.GenerateMap();
+        }
+ 
+
+}
     public void ReturnToHideout()
     {
         isInMap = false;

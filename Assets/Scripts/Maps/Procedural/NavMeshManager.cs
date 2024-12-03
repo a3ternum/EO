@@ -10,21 +10,15 @@ public class NavMeshManager : MonoBehaviour
 
     private NavMeshSurface navMeshSurface;
 
-    private void Start()
+
+    public void GenerateSurface()
     {
         navMeshSurface = navMeshSurfaceObject.GetComponent<NavMeshSurface>();
         if (navMeshSurface == null)
         {
             Debug.LogError("NavMeshSurface not found");
+            return;
         }
-        else
-        {
-
-        }
-    }
-
-    public void GenerateSurface()
-    {
         navMeshSurface.BuildNavMesh();
     }
 

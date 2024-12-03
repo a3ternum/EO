@@ -108,8 +108,6 @@ public class MapDevice : MonoBehaviour
             Debug.Log("No map inserted");
             return;
         }
-        Debug.Log("entering map");
-        Debug.Log("map is " + map);
         // enter the mapGenerator method but with the correct parameters
         Instance.EnterMap(map);
     }
