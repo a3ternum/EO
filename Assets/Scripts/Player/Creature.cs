@@ -161,6 +161,7 @@ public class Creature : MonoBehaviour
 
     protected virtual void Start()
     {
+        creatureStats.ResetCreatureData();
         InitializeCreatureStats(); // initializeCreature stats
         currentHealth = currentMaxHealth;
         InitializeHealthBar(); // initialize health bar

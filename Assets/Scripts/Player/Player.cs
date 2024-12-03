@@ -102,6 +102,7 @@ public class Player : Creature
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
     {
+        playerStats.resetPlayerData();
         InitializePlayerStats();
         currentHealth = currentMaxHealth;
         currentMana = currentMaxMana;
