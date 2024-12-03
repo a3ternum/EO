@@ -7,6 +7,9 @@ TagManager:
   - Terrain
   - Enemy
   - Projectile
+  - enemy
+  - MainCanvas
+  - MapDeviceCanvas
   layers:
   - Default
   - TransparentFX

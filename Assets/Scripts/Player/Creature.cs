@@ -121,10 +121,11 @@ public class Creature : MonoBehaviour
 
         healthBarComponent.setMaxHealth(currentHealth);
 
-        canvas = FindFirstObjectByType<Canvas>();
+        // instead of using find object by type, we will use find object by tag with the tag MainCanvas
+        canvas = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<Canvas>();
         if (canvas == null || canvas.renderMode != RenderMode.WorldSpace)
         {
-            Debug.LogError("World Space Canvas not found. Make sure there's a canvas set to World Space.");
+            Debug.LogError("World Space MainCanvas not found. Make sure there's a main canvas set to World Space.");
             return;
         }
 

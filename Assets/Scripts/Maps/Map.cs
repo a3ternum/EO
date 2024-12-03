@@ -35,6 +35,7 @@ public class Map : MonoBehaviour
     public float packDensity;
     public float packSize;
 
+    public Sprite mapImage;
     // map modifiers
 
     private void OnUse()

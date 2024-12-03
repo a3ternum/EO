@@ -56,7 +56,7 @@ public class Player : Creature
             experienceBarComponent.SetParent(this);
         }
 
-        Canvas canvas = FindFirstObjectByType<Canvas>();
+        Canvas canvas = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<Canvas>();
         if (canvas == null || canvas.renderMode != RenderMode.WorldSpace)
         {
             Debug.LogError("World Space Canvas not found. Make sure there's a canvas set to World Space.");
@@ -87,7 +87,8 @@ public class Player : Creature
 
         manaOrbComponent = Instantiate(manaOrbComponentTemp, transform.position, Quaternion.identity);
         manaOrbComponent.SetParent(this);
-        Canvas canvas = FindFirstObjectByType<Canvas>();
+
+        Canvas canvas = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<Canvas>();
         if (canvas == null || canvas.renderMode != RenderMode.WorldSpace)
         {
             Debug.LogError("World Space Canvas not found. Make sure there's a canvas set to World Space.");

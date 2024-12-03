@@ -17,6 +17,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private EnemySpawnManager enemySpawnManager;
 
+    [SerializeField]
+    private MapGenerator mapGenerator;
+
+    [SerializeField]
+    private NavMeshManager navMeshManager;
+
     public bool isInMap = false;
 
     // Singleton
@@ -47,11 +53,10 @@ public class GameManager : MonoBehaviour
         // destroy the player object
         //Destroy(GameObject.FindGameObjectWithTag("Player"));
 
-        // Get the required components from the new scene
-        MapGenerator mapGenerator = FindFirstObjectByType<MapGenerator>();
-        EnemySpawnManager enemySpawnManager = FindFirstObjectByType<EnemySpawnManager>();
 
         // set the properties of the map generator
+        Debug.Log("map generation type is " + map.generationType);
+        Debug.Log("mapgeneration generation type is " + mapGenerator.generationType);
         mapGenerator.generationType = map.generationType;
 
         // set the properties of the enemy spawn manager
