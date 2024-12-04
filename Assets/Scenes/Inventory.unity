@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryPage: {fileID: 73966214}
-  inventorySize: 50
+  inventorySize: 54
 --- !u!4 &296591848
 Transform:
   m_ObjectHideFlags: 0
@@ -829,6 +829,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7567669181245437091, guid: 1cb63321d399e654bac33e3b2e6ab5a7, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8633768114993837428, guid: 1cb63321d399e654bac33e3b2e6ab5a7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -872,6 +876,10 @@ PrefabInstance:
     - target: {fileID: 9014694732411469058, guid: 1cb63321d399e654bac33e3b2e6ab5a7, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 256.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014694732411469058, guid: 1cb63321d399e654bac33e3b2e6ab5a7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9135763364608509050, guid: 1cb63321d399e654bac33e3b2e6ab5a7, type: 3}
       propertyPath: m_AnchorMax.y

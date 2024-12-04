@@ -785,8 +785,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2665367947199518998}
   m_HandleRect: {fileID: 7567669181245437091}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -827,7 +827,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 256.5, y: 0}
+  m_AnchoredPosition: {x: 256.5, y: 37.5}
   m_SizeDelta: {x: 513, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &7432301467253503738
@@ -883,7 +883,7 @@ GameObject:
   - component: {fileID: 7014958631890123309}
   - component: {fileID: 6969811704336965770}
   m_Layer: 5
-  m_Name: TitleText
+  m_Name: ItemName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -936,7 +936,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Siege Axe
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: abac68442b0fc1e4d8d507df915a20a1, type: 2}
   m_sharedMaterial: {fileID: -225594860199470958, guid: abac68442b0fc1e4d8d507df915a20a1, type: 2}
@@ -1146,6 +1146,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 55345647557642797, guid: 54fc0f6ae9b6b024fac713aaab660e66, type: 3}
   contentPanel: {fileID: 9135763364608509050}
+  itemDescription: {fileID: 6140902792820558578}
+  sprite: {fileID: 7680820834086852892, guid: 7d54aae7248dd32419839f6110d4149b, type: 3}
+  quantity: 1
+  title: Siege Axe
+  description: this is a siege axe
 --- !u!1 &4628453471930961628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,8 +1271,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7836865682434072524}
   m_HandleRect: {fileID: 7053866510629128293}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.8571822
+  m_Value: 0.5
+  m_Size: 0
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1457,6 +1462,7 @@ GameObject:
   - component: {fileID: 1771832887544287408}
   - component: {fileID: 7325013125437871882}
   - component: {fileID: 7705787760879637466}
+  - component: {fileID: 6140902792820558578}
   m_Layer: 5
   m_Name: InventoryDescription
   m_TagString: Untagged
@@ -1569,6 +1575,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &6140902792820558578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5896901361494911414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e8ccb238b3836f4ab47f838067eabe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemImage: {fileID: 4654138592919033076}
+  itemName: {fileID: 7014958631890123309}
+  itemDescription: {fileID: 7637197826201841596}
 --- !u!1 &7048972272383595992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1951,17 +1972,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100% increased physical damage and accuracy 100% increased physical damage
-    and accuracy 100% increased physical damage and accuracy 100% increased physical
-    damage and accuracy100% increased physical damage and accuracy100% increased
-    physical damage and accuracy100% increased physical damage and accuracy100% increased
-    physical damage and accuracy100% increased physical damage and accuracy100% increased
-    physical damage and accuracy100% increased physical damage and accuracy100% increased
-    physical damage and accuracy100% increased physical damage and accuracy100% increased
-    physical damage and accuracy100% increased physical damage and accuracy100% increased
-    physical damage and accuracy100% increased physical damage and accuracy100% increased
-    physical damage and accuracy100% increased physical damage and accuracy100% increased
-    physical damage and accuracy
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: abac68442b0fc1e4d8d507df915a20a1, type: 2}
   m_sharedMaterial: {fileID: -225594860199470958, guid: abac68442b0fc1e4d8d507df915a20a1, type: 2}
