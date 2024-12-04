@@ -19,8 +19,39 @@ public class InventoryPage : MonoBehaviour
             InventoryItem item = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
             item.transform.SetParent(contentPanel);
             listOfItems.Add(item);
+
+            item.OnItemClicked += HandleItemSelection;
+            item.OnItemBeginDrag += HandleBeginDrag;
+            item.OnItemDropped += HandleSwap;
+            item.OnItemEndDrag += HandleEndDrag;
+            item.OnLeftMouseBtnClick += HandleShowItemActions;
         }
     }
+
+    private void HandleBeginDrag(InventoryItem obj)
+    {
+
+    }
+
+    private void HandleSwap(InventoryItem obj)
+    {
+
+    }
+
+    private void HandleEndDrag(InventoryItem obj)
+    {
+    }
+
+    private void HandleItemSelection(InventoryItem obj)
+    {
+        Debug.Log(obj.name);
+    }
+
+    private void HandleShowItemActions(InventoryItem obj)
+    {
+        Debug.Log("Show item actions");
+    }
+
 
     public void Show()
     {
