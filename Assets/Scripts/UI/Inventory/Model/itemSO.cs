@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Item", menuName = "Inventory/Item")]
-public class itemSO : ScriptableObject
+public class ItemSO : ScriptableObject
 {
     [field: SerializeField]
     public bool IsStackable { get; set; }
