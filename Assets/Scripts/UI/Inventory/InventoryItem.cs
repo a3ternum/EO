@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using TMPro;
 using System;
 using UnityEngine.EventSystems;
-public class InventoryItem : MonoBehaviour
+public class InventoryItem : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDropHandler, IEndDragHandler, IDragHandler
 {
     [SerializeField]
     private Image itemImage;
@@ -49,28 +49,10 @@ public class InventoryItem : MonoBehaviour
         borderImage.enabled = true;
     }
 
-    public void OnBeginDrag()
+  
+    public void OnPointerClick(PointerEventData eventData)
     {
-        if (!empty)
-        {
-            OnItemBeginDrag?.Invoke(this);
-        }
-    }
-
-    public void OnDrop()
-    {
-        OnItemDropped?.Invoke(this);
-    }
-
-    public void OnEndDrag()
-    {
-        OnItemEndDrag?.Invoke(this);
-    }
-
-    public void OnPointerClick(BaseEventData data)
-    {
-        PointerEventData pointerdata = (PointerEventData)data;
-        if (pointerdata.button == PointerEventData.InputButton.Left)
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
             OnLeftMouseBtnClick?.Invoke(this);
         }
@@ -78,6 +60,29 @@ public class InventoryItem : MonoBehaviour
         {
             OnItemClicked?.Invoke(this);
         }
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        if (empty)
+        {
+            return;
+        }
+        OnItemBeginDrag?.Invoke(this);
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        OnItemDropped?.Invoke(this);
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        OnItemEndDrag?.Invoke(this);
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
 
     }
 }
