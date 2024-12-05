@@ -785,8 +785,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2665367947199518998}
   m_HandleRect: {fileID: 7567669181245437091}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0
+  m_Value: 0
+  m_Size: 0.5675676
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -827,7 +827,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 256.5, y: 37.5}
+  m_AnchoredPosition: {x: 256.5, y: 0}
   m_SizeDelta: {x: 513, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &7432301467253503738
@@ -1147,6 +1147,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 55345647557642797, guid: 54fc0f6ae9b6b024fac713aaab660e66, type: 3}
   contentPanel: {fileID: 9135763364608509050}
   itemDescription: {fileID: 6140902792820558578}
+  mouseFollower: {fileID: 0}
   sprite: {fileID: 7680820834086852892, guid: 7d54aae7248dd32419839f6110d4149b, type: 3}
   quantity: 1
   title: Siege Axe
@@ -1271,8 +1272,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7836865682434072524}
   m_HandleRect: {fileID: 7053866510629128293}
   m_Direction: 2
-  m_Value: 0.5
-  m_Size: 0
+  m_Value: 0
+  m_Size: 0.77848345
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
