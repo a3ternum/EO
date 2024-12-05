@@ -1144,8 +1144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ce1bd8af722b6f4fb7f77a937c51ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 0}
-  contentPanel: {fileID: 5516452493767108595}
+  itemPrefab: {fileID: 8312515339153292135, guid: 54fc0f6ae9b6b024fac713aaab660e66, type: 3}
+  contentPanel: {fileID: 9135763364608509050}
   itemDescription: {fileID: 5110797278178688600}
   mouseFollower: {fileID: 0}
   actionPanel: {fileID: 0}
