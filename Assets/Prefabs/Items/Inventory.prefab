@@ -785,8 +785,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2665367947199518998}
   m_HandleRect: {fileID: 7567669181245437091}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -827,7 +827,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 256.5, y: 37.5}
+  m_AnchoredPosition: {x: 256.5, y: 0}
   m_SizeDelta: {x: 513, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &7432301467253503738
@@ -1039,7 +1039,7 @@ GameObject:
   - component: {fileID: 2507715681235894005}
   - component: {fileID: 1589374237255343039}
   - component: {fileID: 7013337127921938556}
-  - component: {fileID: 4368288582600339586}
+  - component: {fileID: 927873975490256106}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -1132,7 +1132,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &4368288582600339586
+--- !u!114 &927873975490256106
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1141,18 +1141,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4538047982610045871}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87bd3f7dde7ea354191d30e212b18775, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ce1bd8af722b6f4fb7f77a937c51ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 55345647557642797, guid: 54fc0f6ae9b6b024fac713aaab660e66, type: 3}
-  contentPanel: {fileID: 9135763364608509050}
-  itemDescription: {fileID: 6140902792820558578}
+  itemPrefab: {fileID: 0}
+  contentPanel: {fileID: 5516452493767108595}
+  itemDescription: {fileID: 5110797278178688600}
   mouseFollower: {fileID: 0}
-  sprite: {fileID: 7680820834086852892, guid: 7d54aae7248dd32419839f6110d4149b, type: 3}
-  sprite2: {fileID: 0}
-  quantity: 1
-  title: Siege Axe
-  description: this is a siege axe
+  actionPanel: {fileID: 0}
 --- !u!1 &4628453471930961628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1273,8 +1269,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7836865682434072524}
   m_HandleRect: {fileID: 7053866510629128293}
   m_Direction: 2
-  m_Value: 0.5
-  m_Size: 0
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1464,7 +1460,7 @@ GameObject:
   - component: {fileID: 1771832887544287408}
   - component: {fileID: 7325013125437871882}
   - component: {fileID: 7705787760879637466}
-  - component: {fileID: 6140902792820558578}
+  - component: {fileID: 5110797278178688600}
   m_Layer: 5
   m_Name: InventoryDescription
   m_TagString: Untagged
@@ -1577,7 +1573,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &6140902792820558578
+--- !u!114 &5110797278178688600
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1586,12 +1582,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5896901361494911414}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e8ccb238b3836f4ab47f838067eabe2, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dbc2a6131352d94199b31c257a3ebe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemImage: {fileID: 4654138592919033076}
-  itemName: {fileID: 7014958631890123309}
-  itemDescription: {fileID: 7637197826201841596}
+  title: {fileID: 7014958631890123309}
+  description: {fileID: 7637197826201841596}
 --- !u!1 &7048972272383595992
 GameObject:
   m_ObjectHideFlags: 0
