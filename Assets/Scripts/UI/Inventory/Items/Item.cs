@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Codice.Client.BaseCommands.Merge.Xml;
 using UnityEngine.InputSystem;
+using Codice.Client.Common.GameUI;
 
 [CreateAssetMenu(fileName = "Scriptable object/Item")]
 public class Item : ScriptableObject
@@ -10,7 +11,6 @@ public class Item : ScriptableObject
 
 
     [Header("Only gameplay")]
-
     public ItemType type;
     public ActionType actionType;
     public Vector2Int range = new Vector2Int(5, 4);
@@ -20,7 +20,18 @@ public class Item : ScriptableObject
 
     [Header("Both")]
     public Sprite image;
+    public void UseItem()
+    {
+        if (type == ItemType.Consumable)
+        {
+            Debug.Log("Consumable used");
+        }
+        else
+        {
+            Debug.Log("Item is not consumable");
+        }
 
+    }
 }
 
 public enum ItemType
@@ -34,3 +45,4 @@ public enum ActionType
 {
     ApplyConsumable
 }
+

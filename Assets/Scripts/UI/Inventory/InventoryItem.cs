@@ -17,6 +17,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     [HideInInspector] public int count = 1;
     [HideInInspector] public Transform parentAfterDrag;
 
+
     public void InitializeItem(Item newItem)
     {
         item = newItem;
@@ -31,13 +32,27 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         countText.gameObject.SetActive(textActive);
     }
 
+
+
     public void OnBeginDrag(PointerEventData eventData)
     {
-        parentAfterDrag = transform.parent;
-        transform.SetParent(transform.parent.parent);
-        transform.SetAsLastSibling();
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            parentAfterDrag = transform.parent;
+            transform.SetParent(transform.parent.parent);
+            transform.SetAsLastSibling();
 
-        image.raycastTarget = false;
+            image.raycastTarget = false;
+        }
+        else if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            parentAfterDrag = transform.parent;
+            transform.SetParent(transform.parent.parent);
+            transform.SetAsLastSibling();
+
+            image.raycastTarget = false;
+        }
+       
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -47,7 +62,39 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        transform.SetParent(parentAfterDrag);
-        image.raycastTarget = true;
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            transform.SetParent(parentAfterDrag);
+            image.raycastTarget = true;
+        }
+        else if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            // perform logic to check if item is consumable
+            if (CanConsumeItem())
+            {
+                item.UseItem();
+                count--;
+                if (count <= 0)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    refreshCount();
+                }
+            }
+            else // item is not consumable return to original position
+            {
+                transform.SetParent(parentAfterDrag);
+                image.raycastTarget = true;
+            }
+        }
+
     }
+
+    private bool CanConsumeItem()
+    {
+        return item.type == ItemType.Consumable;
+    }
+
 }
