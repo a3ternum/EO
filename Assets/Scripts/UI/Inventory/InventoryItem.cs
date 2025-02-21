@@ -7,7 +7,8 @@ using TMPro;
 
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-
+    private bool isDraggable = false;
+    private bool RMBdragging = false;
     [Header("UI")]
     public Image image;
     public TextMeshProUGUI countText;
@@ -38,6 +39,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
+            isDraggable = true;
             parentAfterDrag = transform.parent;
             transform.SetParent(transform.parent.parent);
             transform.SetAsLastSibling();
@@ -46,22 +48,42 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
         else if (eventData.button == PointerEventData.InputButton.Right)
         {
-            parentAfterDrag = transform.parent;
-            transform.SetParent(transform.parent.parent);
-            transform.SetAsLastSibling();
+            if (CanConsumeItem())
+            {
+                isDraggable = true;
+                RMBdragging = true;
 
-            image.raycastTarget = false;
+
+                parentAfterDrag = transform.parent;
+                transform.SetParent(transform.parent.parent);
+                transform.SetAsLastSibling();
+
+                image.raycastTarget = false;
+            }
+            else
+            {
+                isDraggable = false;
+            }
         }
        
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (!isDraggable)
+        {
+            return;
+        }
         transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (!isDraggable)
+        {
+            return;
+        }
+
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             transform.SetParent(parentAfterDrag);
@@ -69,25 +91,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
         else if (eventData.button == PointerEventData.InputButton.Right)
         {
-            // perform logic to check if item is consumable
-            if (CanConsumeItem())
-            {
-                item.UseItem();
-                count--;
-                if (count <= 0)
-                {
-                    Destroy(gameObject);
-                }
-                else
-                {
-                    refreshCount();
-                }
-            }
-            else // item is not consumable return to original position
-            {
-                transform.SetParent(parentAfterDrag);
-                image.raycastTarget = true;
-            }
+            transform.SetParent(parentAfterDrag);
+            image.raycastTarget = true;
         }
 
     }
@@ -95,6 +100,11 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private bool CanConsumeItem()
     {
         return item.type == ItemType.Consumable;
+    }
+
+    public bool IsRightMouseDragging()
+    {
+        return RMBdragging;
     }
 
 }

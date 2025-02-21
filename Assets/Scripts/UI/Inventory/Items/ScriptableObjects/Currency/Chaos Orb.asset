@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b1509dcf20cdf445824d659f8272027, type: 3}
-  m_Name: Karui Axe
+  m_Name: Chaos Orb
   m_EditorClassIdentifier: 
-  type: 0
+  type: 2
   actionType: 0
   range: {x: 5, y: 4}
-  stackable: 0
-  consumableCompatible: 1
-  image: {fileID: 21300000, guid: 4683e64797a364ad1adde74cc69b1ec9, type: 3}
+  stackable: 1
+  image: {fileID: -855298285791758126, guid: 34ddfc01b57e4d141a960b02fa76dc0c, type: 3}

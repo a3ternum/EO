@@ -17,10 +17,10 @@ public class Item : ScriptableObject
 
     [Header("Only UI")]
     public bool stackable = false;
-
+    public bool consumableCompatible = false;
     [Header("Both")]
     public Sprite image;
-    public void UseItem()
+    public void UseItem(Item targetItem)
     {
         if (type == ItemType.Consumable)
         {
