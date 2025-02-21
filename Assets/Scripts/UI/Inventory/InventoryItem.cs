@@ -107,4 +107,9 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         return RMBdragging;
     }
 
+    public bool IsDraggableItem()
+    {
+        return isDraggable;
+    }
+
 }

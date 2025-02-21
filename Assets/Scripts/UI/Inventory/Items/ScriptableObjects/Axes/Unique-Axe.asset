@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b1509dcf20cdf445824d659f8272027, type: 3}
-  m_Name: RandomTest
+  m_Name: Unique-Axe
   m_EditorClassIdentifier: 
-  type: 2
+  type: 0
   actionType: 0
   range: {x: 5, y: 4}
-  stackable: 1
-  image: {fileID: 6937817954938267909, guid: 2783254018c031f4d955435c0b69ef62, type: 3}
+  stackable: 0
+  consumableCompatible: 0
+  image: {fileID: -855298285791758126, guid: de8704d250f25454fac06e6175aadef4, type: 3}

@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System.Threading;
+using JetBrains.Annotations;
 
 public class InventorySlot : MonoBehaviour, IDropHandler
 {
@@ -29,6 +30,10 @@ public class InventorySlot : MonoBehaviour, IDropHandler
         InventoryItem inventoryItem = dropped.GetComponent<InventoryItem>();
 
         // implement the logic for consumable items
+        if (inventoryItem.IsDraggableItem() == false) // item was never draggable so immediately return
+        {
+            return;
+        }
 
         if (CanConsumeItem(inventoryItem) == false) // item is not consumable
         {
@@ -50,17 +55,13 @@ public class InventorySlot : MonoBehaviour, IDropHandler
         }
         else // item is consumable
         {
-            // implement the logic for consumable items
-            // consumable items should check if the item under them is compatible
-            // if it is, they should consume it
-
             if (transform.childCount == 0) // inventory slot is empty
             {
                 if (inventoryItem.IsRightMouseDragging()) // return consumable to original position
                 {
                     inventoryItem.transform.SetParent(inventoryItem.parentAfterDrag);
                 }
-                else
+                else // user was left-mouse-dragging. Place the consumable in the slot
                 {
                     inventoryItem.parentAfterDrag = transform;
                 }
@@ -68,33 +69,51 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             }
             else // consumable is dropped onto another item
             {
-                // check if the item under the consumable is compatible
-                Transform currentItem = transform.GetChild(0);
-                InventoryItem currentItemComponent = currentItem.GetComponent<InventoryItem>();
-
-                if (currentItemComponent.item.consumableCompatible == true) // item is compatible with consumables
+                // check if the user was right mouse dragging
+                if (inventoryItem.IsRightMouseDragging())
                 {
-                    // consume the item
-                    inventoryItem.item.UseItem(currentItemComponent.item);
 
-                    // update the count of the consumable item
-                    --inventoryItem.count;
-                    Debug.Log("item used");
-                    if (inventoryItem.count <= 0) // stack of consumable items is used up
+                    // check if the item under the consumable is compatible
+                    Transform currentItem = transform.GetChild(0);
+                    InventoryItem currentItemComponent = currentItem.GetComponent<InventoryItem>();
+
+                    if (currentItemComponent.item.consumableCompatible == true) // item is compatible with consumables
                     {
-                        inventoryItem.image.raycastTarget = false;
-                        inventoryItem.transform.SetParent(null);
-                        Destroy(inventoryItem.gameObject);
+                        // consume the item
+                        inventoryItem.item.UseItem(currentItemComponent.item);
+
+                        // update the count of the consumable item
+                        --inventoryItem.count;
+                        Debug.Log("item used");
+                        if (inventoryItem.count <= 0) // stack of consumable items is used up
+                        {
+                            inventoryItem.image.raycastTarget = false;
+                            inventoryItem.transform.SetParent(null);
+                            Destroy(inventoryItem.gameObject);
+                        }
+                        else // stack of consumables still has items
+                        {
+                            inventoryItem.refreshCount();
+                        }
                     }
-                    else // stack of consumables still has items
+                    else // item in inventorySlot is not compatible with consumables
                     {
-                        inventoryItem.refreshCount();
+                        // return the item to original position
+                        inventoryItem.transform.SetParent(inventoryItem.parentAfterDrag);
                     }
                 }
-                else // item in inventorySlot is not compatible with consumables
+                else // user was leftMouseDragging
                 {
-                    // return the item to original position
-                    inventoryItem.transform.SetParent(inventoryItem.parentAfterDrag);
+                    // swap the items
+                    Transform currentItem = transform.GetChild(0);
+                    InventoryItem currentItemComponent = currentItem.GetComponent<InventoryItem>();
+                    
+                    currentItem.SetParent(inventoryItem.parentAfterDrag);
+                    currentItemComponent.parentAfterDrag = inventoryItem.parentAfterDrag;
+                    inventoryItem.parentAfterDrag = transform;
+                }
+                {
+                    
                 }
             }   
 
