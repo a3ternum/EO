@@ -15,6 +15,10 @@ MonoBehaviour:
   type: 0
   actionType: 0
   range: {x: 5, y: 4}
+  onFloor: 0
+  button: {fileID: 0}
   stackable: 0
   consumableCompatible: 0
   image: {fileID: -855298285791758126, guid: de8704d250f25454fac06e6175aadef4, type: 3}
+  itemName: Unique Axe
+  itemDescription: this is a fucking unique axe

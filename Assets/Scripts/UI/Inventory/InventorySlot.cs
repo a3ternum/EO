@@ -112,16 +112,9 @@ public class InventorySlot : MonoBehaviour, IDropHandler
                     currentItemComponent.parentAfterDrag = inventoryItem.parentAfterDrag;
                     inventoryItem.parentAfterDrag = transform;
                 }
-                {
-                    
-                }
             }   
 
         }
-
-
-
-
     }
 
     private bool CanConsumeItem(InventoryItem inventoryItem)

@@ -1,13 +1,41 @@
+using System.ComponentModel;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
+    public static InventoryManager Instance { get; private set; }
+
+
     public int maxStackedItems = 4;
     public InventorySlot[] inventorySlots;
     public GameObject InventoryItemPrefab;
 
 
-    public bool AddItem(Item item)
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
+    private void OnEnable()
+    {
+        ItemClickEvent.OnItemClicked += AddItem;
+    }
+
+    private void OnDisable()
+    {
+        ItemClickEvent.OnItemClicked -= AddItem;
+    }
+
+
+    public void AddItem(Item item)
     {
         if (item.stackable)
         {
@@ -18,9 +46,10 @@ public class InventoryManager : MonoBehaviour
 
                 if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count < maxStackedItems)
                 {
-                    itemInSlot.count++;
-                    itemInSlot.refreshCount();
-                    return true;
+                    itemInSlot.count++; // increase the count of the items in the slot
+                    item.onFloor = false; // item is now in inventory
+                    itemInSlot.refreshCount(); // refresh the count of the item in the UI
+                    return;
                 }
 
             }
@@ -35,12 +64,12 @@ public class InventoryManager : MonoBehaviour
                 if (itemInSlot == null)
                 {
                     SpawnNewItem(item, slot);
-                    return true;
+                    return;
                 }  
             }
         }
 
-        return false;
+        return; // item not picked up, could implement certain logic after this point.
     }
 
     void SpawnNewItem(Item item, InventorySlot slot)

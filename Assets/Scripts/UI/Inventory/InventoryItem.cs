@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -86,6 +87,18 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
         if (eventData.button == PointerEventData.InputButton.Left)
         {
+            if (eventData.pointerEnter == null || !eventData.pointerEnter.GetComponent<InventorySlot>())
+            {
+                // item is dropped outside of inventory
+                DropItem(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            }
+            else
+            {
+                transform.SetParent(parentAfterDrag);
+                transform.localPosition = Vector3.zero;
+                image.raycastTarget = true;
+                return;
+            } 
             transform.SetParent(parentAfterDrag);
             image.raycastTarget = true;
         }
@@ -110,6 +123,21 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public bool IsDraggableItem()
     {
         return isDraggable;
+    }
+
+    private void DropItem(Vector3 dropLocation)
+    {
+        item.onFloor = true;
+
+        dropLocation.z = 0; // make sure the item is dropped on the ground
+        // instantiate a groundItem with the same item
+        GameObject groundItemGo = new GameObject("GroundItem");
+        groundItemGo.transform.position = dropLocation;
+        GroundItem groundItem = groundItemGo.AddComponent<GroundItem>();
+        groundItem.InitializeItem(item);
+
+        // remove the item from the inventory
+        Destroy(gameObject);
     }
 
 }

@@ -7,15 +7,7 @@ public class DemoScript : MonoBehaviour
 
     public void PickupItem(int id)
     {
-        bool result = inventoryManager.AddItem(itemsToPickup[id]);
-        if (result == true)
-        {
-            
-        }
-        else
-        {
-           
-        }
+        inventoryManager.AddItem(itemsToPickup[id]);  
     }
 
 }
