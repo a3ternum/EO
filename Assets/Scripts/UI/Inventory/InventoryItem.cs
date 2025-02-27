@@ -101,11 +101,15 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             } 
             transform.SetParent(parentAfterDrag);
             image.raycastTarget = true;
+            isDraggable = false;
+            RMBdragging = false;
         }
         else if (eventData.button == PointerEventData.InputButton.Right)
         {
             transform.SetParent(parentAfterDrag);
             image.raycastTarget = true;
+            isDraggable = false;
+            RMBdragging = false;
         }
 
     }
