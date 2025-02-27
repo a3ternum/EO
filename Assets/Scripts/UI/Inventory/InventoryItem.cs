@@ -16,7 +16,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
 
     public Item item;
-    [HideInInspector] public int count = 1;
+    [HideInInspector] public int count;
     [HideInInspector] public Transform parentAfterDrag;
 
 
@@ -87,7 +87,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            if (eventData.pointerEnter == null || !eventData.pointerEnter.GetComponent<InventorySlot>())
+            if (eventData.pointerEnter == null || (!eventData.pointerEnter.GetComponent<InventorySlot>() && !eventData.pointerEnter.GetComponent<InventoryItem>())  )
             {
                 // item is dropped outside of inventory
                 DropItem(Camera.main.ScreenToWorldPoint(Input.mousePosition));
@@ -134,7 +134,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         GameObject groundItemGo = new GameObject("GroundItem");
         groundItemGo.transform.position = dropLocation;
         GroundItem groundItem = groundItemGo.AddComponent<GroundItem>();
-        groundItem.InitializeItem(item);
+        groundItem.InitializeItem(item, count);
 
         // remove the item from the inventory
         Destroy(gameObject);

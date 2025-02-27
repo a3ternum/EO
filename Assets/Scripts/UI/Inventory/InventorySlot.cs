@@ -37,20 +37,14 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 
         if (CanConsumeItem(inventoryItem) == false) // item is not consumable
         {
-            if (transform.childCount == 0)
+            if (transform.childCount == 0) // empty slot so change the parent of the item
             {
                 inventoryItem.parentAfterDrag = transform;
             }
             else // slot is already occupied so we swap the items
             {
-                Transform currentItem = transform.GetChild(0);
-                InventoryItem currentItemComponent = currentItem.GetComponent<InventoryItem>();
-
-                // Swap the items
-                currentItem.SetParent(inventoryItem.parentAfterDrag);
-                currentItemComponent.parentAfterDrag = inventoryItem.parentAfterDrag;
-
-                inventoryItem.parentAfterDrag = transform;
+                // check if the item under the dragged item is the same type and stackable
+                StackItems(inventoryItem);
             }
         }
         else // item is consumable
@@ -70,7 +64,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             else // consumable is dropped onto another item
             {
                 // check if the user was right mouse dragging
-                if (inventoryItem.IsRightMouseDragging())
+                if (inventoryItem.IsRightMouseDragging()) // try to use the item
                 {
 
                     // check if the item under the consumable is compatible
@@ -104,13 +98,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
                 }
                 else // user was leftMouseDragging
                 {
-                    // swap the items
-                    Transform currentItem = transform.GetChild(0);
-                    InventoryItem currentItemComponent = currentItem.GetComponent<InventoryItem>();
-                    
-                    currentItem.SetParent(inventoryItem.parentAfterDrag);
-                    currentItemComponent.parentAfterDrag = inventoryItem.parentAfterDrag;
-                    inventoryItem.parentAfterDrag = transform;
+                    StackItems(inventoryItem);
                 }
             }   
 
@@ -122,4 +110,51 @@ public class InventorySlot : MonoBehaviour, IDropHandler
         return inventoryItem.item.type == ItemType.Consumable;
     }
 
+    private void StackItems(InventoryItem inventoryItem)
+    {
+        // check if the item under the dragged item is the same type and stackable
+        bool canStack = transform.GetChild(0).GetComponent<InventoryItem>().item == inventoryItem.item && inventoryItem.item.stackable;
+
+
+        if (!canStack)
+        {
+            Transform currentItem = transform.GetChild(0);
+            InventoryItem currentItemComponent = currentItem.GetComponent<InventoryItem>();
+
+            // Swap the items
+            currentItem.SetParent(inventoryItem.parentAfterDrag);
+            currentItemComponent.parentAfterDrag = inventoryItem.parentAfterDrag;
+
+            inventoryItem.parentAfterDrag = transform;
+        }
+        else
+        {
+            // stack the items
+            InventoryItem currentItemComponent = transform.GetChild(0).GetComponent<InventoryItem>();
+            int totalItems = currentItemComponent.count + inventoryItem.count;
+            if (totalItems <= currentItemComponent.item.maxStackSize)
+            {
+                currentItemComponent.count = totalItems;
+                currentItemComponent.refreshCount();
+                inventoryItem.image.raycastTarget = false;
+                inventoryItem.transform.SetParent(null);
+                Destroy(inventoryItem.gameObject);
+            }
+            else
+            {
+                int itemsToMove = currentItemComponent.item.maxStackSize - currentItemComponent.count;
+                currentItemComponent.count = currentItemComponent.item.maxStackSize;
+                currentItemComponent.refreshCount();
+                inventoryItem.count -= itemsToMove;
+                inventoryItem.refreshCount();
+
+                // return the remaining stack to the original position
+                inventoryItem.transform.SetParent(inventoryItem.parentAfterDrag);
+                inventoryItem.transform.localPosition = Vector3.zero;
+
+
+            }
+
+        }
+    }
 }

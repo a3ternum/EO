@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
+using System.Threading;
 
 public class GroundItem : MonoBehaviour
 {
@@ -11,12 +12,11 @@ public class GroundItem : MonoBehaviour
     private TextMeshPro descriptionText;
 
     public Item item;
-    [HideInInspector] public int count = 1;
+    public int stackSize;
 
-    public void InitializeItem(Item newItem)
+    public void InitializeItem(Item newItem, int count)
     {
         item = newItem;
-        Debug.Log("item description is: " + item.itemDescription);
 
         if (descriptionText == null)
         {
@@ -26,7 +26,7 @@ public class GroundItem : MonoBehaviour
         }
 
         descriptionText.text = item.itemDescription;
-
+        stackSize = count;
         Canvas.ForceUpdateCanvases(); // update the canvas to get the correct bounds of the text
 
         // add a collider to the description text to make it clickable
@@ -34,10 +34,10 @@ public class GroundItem : MonoBehaviour
         collider.size = new Vector2(descriptionText.bounds.size.x, descriptionText.bounds.size.y);
     }
 
+   
 
     private void OnMouseDown()
     {
-        Debug.Log("entering onmousedown");
         // check if the click is on the description text
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
@@ -50,7 +50,7 @@ public class GroundItem : MonoBehaviour
 
     private void OnItemClick()
     {
-        InventoryManager.Instance.AddItem(item); // on button click, pick up the item and add it to the inventory
+        InventoryManager.Instance.AddItem(item, stackSize); // on button click, pick up the item and add it to the inventory
         Destroy(gameObject); // destroy the gameobject after picking it up
     }
 

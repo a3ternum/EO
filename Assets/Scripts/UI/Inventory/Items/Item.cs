@@ -14,11 +14,11 @@ public class Item : ScriptableObject
     public ActionType actionType;
     public Vector2Int range = new Vector2Int(5, 4);
 
-
     public bool onFloor;
 
     [Header("Only UI")]
     public bool stackable = false;
+    public int maxStackSize = 4;
     public bool consumableCompatible = false;
     [Header("Both")]
     public Sprite image;

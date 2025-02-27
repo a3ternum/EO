@@ -15,5 +15,10 @@ MonoBehaviour:
   type: 2
   actionType: 0
   range: {x: 5, y: 4}
+  onFloor: 0
   stackable: 1
+  maxStackSize: 4
+  consumableCompatible: 0
   image: {fileID: -855298285791758126, guid: 34ddfc01b57e4d141a960b02fa76dc0c, type: 3}
+  itemName: 
+  itemDescription: Chaos Orb
