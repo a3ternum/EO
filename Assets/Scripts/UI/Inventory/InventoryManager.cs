@@ -10,7 +10,7 @@ public class InventoryManager : MonoBehaviour
 
     public InventorySlot[] inventorySlots;
     public GameObject InventoryItemPrefab;
-
+    public GameObject InventoryUI;
 
     private void Awake()
     {
@@ -125,6 +125,21 @@ public class InventoryManager : MonoBehaviour
 
         InventoryItem inventoryItem = newItemGo.GetComponent<InventoryItem>();
         inventoryItem.InitializeItem(item);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (InventoryUI != null)
+            {
+                InventoryUI.SetActive(!InventoryUI.activeSelf);
+            }
+            else
+            {
+                Debug.LogError("InventoryUI is not set in the InventoryManager");
+            }
+        }
     }
 
 }
