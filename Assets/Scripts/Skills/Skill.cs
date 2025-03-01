@@ -123,8 +123,7 @@ public class Skill : MonoBehaviour
     {
         if (user is Player)
         {
-            Player player = user.GetComponent<Player>();
-            if (player != null)
+            if (user.TryGetComponent(out Player player))
             {
                 if ((player.currentMana >= manaCost) && (cooldownTimer <= 0))
                 {

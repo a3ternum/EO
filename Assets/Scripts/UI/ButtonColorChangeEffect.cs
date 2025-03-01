@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI; // If using standard UI Text
 using TMPro; // If using TextMesh Pro
 using UnityEngine.EventSystems;
+using System.Collections;
 
 public class ButtonColorChangeEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
@@ -39,7 +40,15 @@ public class ButtonColorChangeEffect : MonoBehaviour, IPointerEnterHandler, IPoi
     {
         textComponent.color = clickColor; // Change text color when clicked
         animator.SetTrigger("Click");  // Trigger the click animation (if needed, or just visual feedback)
-        Invoke("ResetTextColor", 1f); // Optionally, reset after a short delay
+        StartCoroutine(WaitWithDelay(1f)); // Optionally, wait for a short delay
+    }
+
+    
+
+    private IEnumerator WaitWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        ResetTextColor(); // Reset color after a short delay
     }
 
     // Optionally reset color after a short delay (like a flash)

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
+using System.Collections;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.InputSystem;
 
@@ -48,9 +49,17 @@ public class PassiveSkillTree : MonoBehaviour, IDragHandler, IBeginDragHandler
 
     private void FindPlayerWithDelay()
     {
-        Invoke("FindPlayerAndInitializeTree", 0.1f);
-        
+      StartCoroutine(InvokeWithDelay(0.3f));
+
     }
+
+    private IEnumerator InvokeWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        FindPlayerAndInitializeTree();
+    }
+
+
     private void FindPlayerAndInitializeTree()
     {
         player = FindFirstObjectByType<Player>();

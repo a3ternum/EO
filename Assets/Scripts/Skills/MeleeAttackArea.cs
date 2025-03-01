@@ -25,16 +25,14 @@ public class MeleeAttackArea : MeleeAttack
         {
             if (collider.gameObject.layer == enemyLayer && user is Player)
             {
-                Creature enemy = collider.GetComponent<Creature>();
-                if (enemy != null)
+                if (collider.TryGetComponent(out Creature enemy))
                 {
                     targetsList.Add(enemy);
                 }
             }
             else if (collider.gameObject.layer == playerLayer && user is Enemy)
             {
-                Creature player = collider.GetComponent<Creature>();
-                if (player != null)
+                if (collider.TryGetComponent(out Creature player))
                 {
                     targetsList.Add(player);
                 }

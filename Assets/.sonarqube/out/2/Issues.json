@@ -1,0 +1,189 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Microsoft (R) Visual C# Compiler",
+        "version": "4.13.0.0",
+        "fileVersion": "4.13.0-3.25072.11 (40a6eabe)",
+        "semanticVersion": "4.13.0",
+        "language": "en-US"
+      },
+      "results": [
+        {
+          "ruleId": "UNT0001",
+          "level": "note",
+          "message": "The Unity message 'OnEnable' is empty.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/ExternalPackageScripts/NavMeshComponents/Editor/AgentOverride2dEditor.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 14,
+                  "endLine": 15,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0022",
+          "level": "note",
+          "message": "Assigning position and rotation sequentially could be optimized.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/ExternalPackageScripts/NavMeshComponents/Editor/NavMeshLinkEditor.cs",
+                "region": {
+                  "startLine": 65,
+                  "startColumn": 13,
+                  "endLine": 65,
+                  "endColumn": 71
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0008",
+          "level": "note",
+          "message": "Unity objects should not use null propagation.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/ExternalPackageScripts/NavMeshComponents/Editor/NavMeshModifierTilemapEditor.cs",
+                "region": {
+                  "startLine": 128,
+                  "startColumn": 25,
+                  "endLine": 128,
+                  "endColumn": 83
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0008",
+          "level": "note",
+          "message": "Unity objects should not use null propagation.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/ExternalPackageScripts/NavMeshComponents/Editor/NavMeshModifierTilemapEditor.cs",
+                "region": {
+                  "startLine": 129,
+                  "startColumn": 41,
+                  "endLine": 129,
+                  "endColumn": 65
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0024",
+          "level": "note",
+          "message": "Re-order operands for better performance.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/ExternalPackageScripts/NavMeshComponents/Editor/NavMeshLinkEditor.cs",
+                "region": {
+                  "startLine": 252,
+                  "startColumn": 42,
+                  "endLine": 252,
+                  "endColumn": 70
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0024",
+          "level": "note",
+          "message": "Re-order operands for better performance.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/ExternalPackageScripts/NavMeshComponents/Editor/NavMeshLinkEditor.cs",
+                "region": {
+                  "startLine": 260,
+                  "startColumn": 42,
+                  "endLine": 260,
+                  "endColumn": 70
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        }
+      ],
+      "rules": {
+        "UNT0001": {
+          "id": "UNT0001",
+          "shortDescription": "Empty Unity message",
+          "fullDescription": "Unity messages are called by the runtime even if they're empty. Remove them to avoid unnecessary processing.",
+          "defaultLevel": "note",
+          "helpUri": "https://github.com/microsoft/Microsoft.Unity.Analyzers/blob/main/doc/UNT0001.md",
+          "properties": {
+            "category": "Performance",
+            "isEnabledByDefault": true
+          }
+        },
+        "UNT0008": {
+          "id": "UNT0008",
+          "shortDescription": "Null propagation on Unity objects",
+          "fullDescription": "Unity overrides the null comparison operator for Unity objects, which is incompatible with null propagation.",
+          "defaultLevel": "note",
+          "helpUri": "https://github.com/microsoft/Microsoft.Unity.Analyzers/blob/main/doc/UNT0008.md",
+          "properties": {
+            "category": "Correctness",
+            "isEnabledByDefault": true
+          }
+        },
+        "UNT0022": {
+          "id": "UNT0022",
+          "shortDescription": "Inefficient position/rotation assignment",
+          "fullDescription": "Prefer using SetPositionAndRotation() method.",
+          "defaultLevel": "note",
+          "helpUri": "https://github.com/microsoft/Microsoft.Unity.Analyzers/blob/main/doc/UNT0022.md",
+          "properties": {
+            "category": "Performance",
+            "isEnabledByDefault": true
+          }
+        },
+        "UNT0024": {
+          "id": "UNT0024",
+          "shortDescription": "Give priority to scalar calculations over vector calculations",
+          "fullDescription": "Scalar calculations are faster than vector calculations.",
+          "defaultLevel": "note",
+          "helpUri": "https://github.com/microsoft/Microsoft.Unity.Analyzers/blob/main/doc/UNT0024.md",
+          "properties": {
+            "category": "Performance",
+            "isEnabledByDefault": true
+          }
+        }
+      }
+    }
+  ]
+}

@@ -31,8 +31,7 @@ public class MeleeAttackSingleTarget : MeleeAttack
                 {
                     if (collider.gameObject.layer == enemyLayer && user is Player || collider.gameObject.layer == playerLayer && user is Enemy)
                     {
-                        Creature creature = collider.GetComponent<Creature>();
-                        if (creature != null)
+                        if (collider.TryGetComponent(out Creature creature))
                         {
                             ApplyDamageAndEffects(new List<Creature> { creature });
                             break;
@@ -81,8 +80,7 @@ public class MeleeAttackSingleTarget : MeleeAttack
         {
             if ((collider.gameObject.layer == enemyLayer && user is Player) || (collider.gameObject.layer == playerLayer && user is Enemy))
             {
-                Creature creature = collider.GetComponent<Creature>();
-                if (creature != null)
+                if (collider.TryGetComponent(out Creature creature))
                 {
                     float distanceToTarget = Vector2.Distance(targetPosition, creature.transform.position);
                     if (distanceToTarget < closestDistance)

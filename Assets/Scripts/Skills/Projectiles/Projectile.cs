@@ -87,15 +87,14 @@ public class Projectile : MonoBehaviour
         float elapsedTime = 0f;
         while (elapsedTime < duration)
         {
-            transform.position += (Vector3)direction.normalized * projectileSpeed * Time.deltaTime;
+            transform.position +=  Time.deltaTime * projectileSpeed * (Vector3)direction.normalized;
 
             Collider2D[] hitColliders = GetHitColliders();
             List<Creature> targetsList = new List<Creature>();
 
             foreach (var hitCollider in hitColliders)
             {
-                Creature creature = hitCollider.GetComponent<Creature>();
-                if (creature != null)
+                if (hitCollider.TryGetComponent(out Creature creature))
                 {
                     bool isEnemyTarget = (hitCollider.gameObject.layer == enemyLayer && skill.user is Player);
                     bool isPlayerTarget = (hitCollider.gameObject.layer == playerLayer && skill.user is Enemy);

@@ -1,0 +1,1 @@
+[ (2csXJhr3Assets/Scripts/Skills/ActiveSkills/FreezingPulse.cs

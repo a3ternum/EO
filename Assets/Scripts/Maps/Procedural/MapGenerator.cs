@@ -8,24 +8,14 @@ public class MapGenerator : MonoBehaviour
     [SerializeField]
     private AbstractMapGenerator[] mapGenerators;
 
-    [SerializeField]
     public PlayerSpawnManager playerSpawnManager;
-    [SerializeField]
     public EnemySpawnManager enemySpawnManager;
-    [SerializeField]
     public NavMeshManager navMeshManager;
 
     private SimpleRandomWalkMapGenerator randomWalkMapGenerator;
     private CorridorFirstMapGenerator corridorFirstMapGenerator;
     private RoomFirstMapGenerator roomFirstMapGenerator;
 
-    
-    private void Start()
-    {
-
-      
-
-    }
 
     public void GenerateMap()
     {

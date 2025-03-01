@@ -1,0 +1,1171 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Microsoft (R) Visual C# Compiler",
+        "version": "4.13.0.0",
+        "fileVersion": "4.13.0-3.25072.11 (40a6eabe)",
+        "semanticVersion": "4.13.0",
+        "language": "en-US"
+      },
+      "results": [
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'TilemapVisualizer.voidTile' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/Procedural/TilemapVisualizer.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 9,
+                  "endLine": 14,
+                  "endColumn": 17
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'TilemapVisualizer.floorTile' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/Procedural/TilemapVisualizer.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 22,
+                  "endLine": 11,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'NavMeshManager.navMeshSurfaceObject' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/Procedural/NavMeshManager.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 24,
+                  "endLine": 9,
+                  "endColumn": 44
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'TilemapVisualizer.wallTop' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/Procedural/TilemapVisualizer.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 33,
+                  "endLine": 11,
+                  "endColumn": 40
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'TilemapVisualizer.wallDiagonalCornerDownRight' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/Procedural/TilemapVisualizer.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 37,
+                  "endLine": 13,
+                  "endColumn": 64
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'RespawnMenu.respawnMenu' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/UI/RespawnMenu.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 24,
+                  "endLine": 8,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'TilemapVisualizer.floorTilemap' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/Procedural/TilemapVisualizer.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 21,
+                  "endLine": 8,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'MapDeviceUI.mapDeviceUIPanel' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/UI/MapDeviceUI.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 24,
+                  "endLine": 7,
+                  "endColumn": 40
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'MapGenerator.mapGenerators' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/Procedural/MapGenerator.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 36,
+                  "endLine": 9,
+                  "endColumn": 49
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'PlayerSpawnManager.playerPrefab' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/Procedural/PlayerSpawnManager.cs",
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 24,
+                  "endLine": 6,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'TilemapVisualizer.wallSideRight' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/Procedural/TilemapVisualizer.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 42,
+                  "endLine": 11,
+                  "endColumn": 55
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'TilemapVisualizer.wallDiagonalCornerDownLeft' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/Procedural/TilemapVisualizer.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 9,
+                  "endLine": 13,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'PassiveSkillButton.passiveSkillTree' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/PassiveSkillTree/PassiveSkillButton.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 30,
+                  "endLine": 10,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'TilemapVisualizer.wallInnerCornerDownLeft' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/Procedural/TilemapVisualizer.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 9,
+                  "endLine": 12,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'GameManager.player' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/GameManager.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 20,
+                  "endLine": 10,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'PassiveSkillTree.passiveSkillButton' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/PassiveSkillTree/PassiveSkillTree.cs",
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 32,
+                  "endLine": 20,
+                  "endColumn": 50
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'TilemapVisualizer.wallInnerCornerDownRight' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/Procedural/TilemapVisualizer.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 34,
+                  "endLine": 12,
+                  "endColumn": 58
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'EnemySpawnManager.minPlayerDistance' is never assigned to, and will always have its default value 0",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/Procedural/EnemySpawnManager.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 19,
+                  "endLine": 18,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'TilemapVisualizer.wallDiagonalCornerUpRight' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/Procedural/TilemapVisualizer.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 92,
+                  "endLine": 13,
+                  "endColumn": 117
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'GameManager.playerStats' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/GameManager.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 25,
+                  "endLine": 13,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'TilemapVisualizer.wallSideLeft' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/Procedural/TilemapVisualizer.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 57,
+                  "endLine": 11,
+                  "endColumn": 69
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'EnemySpawnManager.playerStartPosition' is never assigned to, and will always have its default value ",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/Procedural/EnemySpawnManager.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 24,
+                  "endLine": 16,
+                  "endColumn": 43
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'TilemapVisualizer.wallTilemap' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/Procedural/TilemapVisualizer.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 35,
+                  "endLine": 8,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'TilemapVisualizer.wallSideBottom' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/Procedural/TilemapVisualizer.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 71,
+                  "endLine": 11,
+                  "endColumn": 85
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'TilemapVisualizer.wallDiagonalCornerUpLeft' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/Procedural/TilemapVisualizer.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 66,
+                  "endLine": 13,
+                  "endColumn": 90
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'TilemapVisualizer.wallFull' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/Procedural/TilemapVisualizer.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 87,
+                  "endLine": 11,
+                  "endColumn": 95
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "UNT0013",
+          "level": "note",
+          "message": "SerializeField attribute is invalid or redundant for property or field: 'navMeshManager'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/Procedural/MapGenerator.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 5,
+                  "endLine": 16,
+                  "endColumn": 42
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0013",
+          "level": "note",
+          "message": "SerializeField attribute is invalid or redundant for property or field: 'enemySpawnManager'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/Procedural/MapGenerator.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 5,
+                  "endLine": 14,
+                  "endColumn": 48
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0013",
+          "level": "note",
+          "message": "SerializeField attribute is invalid or redundant for property or field: 'playerSpawnManager'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/Procedural/MapGenerator.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 5,
+                  "endLine": 12,
+                  "endColumn": 50
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0024",
+          "level": "note",
+          "message": "Re-order operands for better performance.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Skills/Projectiles/FireballProjectile.cs",
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 35,
+                  "endLine": 23,
+                  "endColumn": 99
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0026",
+          "level": "note",
+          "message": "GetComponent allocates even if no component is found.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Skills/Projectiles/FireballProjectile.cs",
+                "region": {
+                  "startLine": 95,
+                  "startColumn": 33,
+                  "endLine": 95,
+                  "endColumn": 66
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0016",
+          "level": "note",
+          "message": "Method 'FindPlayer' is invoked using a string literal.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/MapDevice.cs",
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 9,
+                  "endLine": 20,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0001",
+          "level": "note",
+          "message": "The Unity message 'Start' is empty.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Maps/Procedural/MapGenerator.cs",
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 18,
+                  "endLine": 23,
+                  "endColumn": 23
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0026",
+          "level": "note",
+          "message": "GetComponent allocates even if no component is found.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Skills/MeleeAttackSingleTarget.cs",
+                "region": {
+                  "startLine": 34,
+                  "startColumn": 45,
+                  "endLine": 34,
+                  "endColumn": 78
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0026",
+          "level": "note",
+          "message": "GetComponent allocates even if no component is found.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Skills/Skill.cs",
+                "region": {
+                  "startLine": 126,
+                  "startColumn": 29,
+                  "endLine": 126,
+                  "endColumn": 56
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0026",
+          "level": "note",
+          "message": "GetComponent allocates even if no component is found.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Skills/MeleeAttackSingleTarget.cs",
+                "region": {
+                  "startLine": 84,
+                  "startColumn": 37,
+                  "endLine": 84,
+                  "endColumn": 70
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0016",
+          "level": "note",
+          "message": "Method 'EnableAnimator' is invoked using a string literal.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/AnimatorStartupFix.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 9,
+                  "endLine": 11,
+                  "endColumn": 37
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0016",
+          "level": "note",
+          "message": "Method 'FindPlayerAndInitializeSkillPoints' is invoked using a string literal.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/PassiveSkillTree/PassiveSkillButton.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 9,
+                  "endLine": 16,
+                  "endColumn": 59
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0026",
+          "level": "note",
+          "message": "GetComponent allocates even if no component is found.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Skills/OffensiveSpell.cs",
+                "region": {
+                  "startLine": 60,
+                  "startColumn": 34,
+                  "endLine": 60,
+                  "endColumn": 67
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0026",
+          "level": "note",
+          "message": "GetComponent allocates even if no component is found.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Skills/OffensiveSpell.cs",
+                "region": {
+                  "startLine": 68,
+                  "startColumn": 35,
+                  "endLine": 68,
+                  "endColumn": 68
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0016",
+          "level": "note",
+          "message": "Method 'ResetTextColor' is invoked using a string literal.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/UI/ButtonColorChangeEffect.cs",
+                "region": {
+                  "startLine": 42,
+                  "startColumn": 9,
+                  "endLine": 42,
+                  "endColumn": 37
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0016",
+          "level": "note",
+          "message": "Method 'FindPlayerAndInitializeTree' is invoked using a string literal.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/PassiveSkillTree/PassiveSkillTree.cs",
+                "region": {
+                  "startLine": 51,
+                  "startColumn": 9,
+                  "endLine": 51,
+                  "endColumn": 52
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0024",
+          "level": "note",
+          "message": "Re-order operands for better performance.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Player/PlayerMovement.cs",
+                "region": {
+                  "startLine": 83,
+                  "startColumn": 39,
+                  "endLine": 83,
+                  "endColumn": 99
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0026",
+          "level": "note",
+          "message": "GetComponent allocates even if no component is found.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Skills/MeleeAttackArea.cs",
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 34,
+                  "endLine": 28,
+                  "endColumn": 67
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0026",
+          "level": "note",
+          "message": "GetComponent allocates even if no component is found.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Skills/MeleeAttackArea.cs",
+                "region": {
+                  "startLine": 36,
+                  "startColumn": 35,
+                  "endLine": 36,
+                  "endColumn": 68
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0016",
+          "level": "note",
+          "message": "Method 'FindPlayerWithDelay' is invoked using a string literal.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/UI/ExperienceBar.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 9,
+                  "endLine": 13,
+                  "endColumn": 44
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0026",
+          "level": "note",
+          "message": "GetComponent allocates even if no component is found.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Skills/Projectiles/Projectile.cs",
+                "region": {
+                  "startLine": 97,
+                  "startColumn": 37,
+                  "endLine": 97,
+                  "endColumn": 73
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0024",
+          "level": "note",
+          "message": "Re-order operands for better performance.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/Scripts/Skills/Projectiles/Projectile.cs",
+                "region": {
+                  "startLine": 90,
+                  "startColumn": 35,
+                  "endLine": 90,
+                  "endColumn": 99
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        }
+      ],
+      "rules": {
+        "CS0649": {
+          "id": "CS0649",
+          "shortDescription": "Field is never assigned to, and will always have its default value",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS0649)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
+        "UNT0001": {
+          "id": "UNT0001",
+          "shortDescription": "Empty Unity message",
+          "fullDescription": "Unity messages are called by the runtime even if they're empty. Remove them to avoid unnecessary processing.",
+          "defaultLevel": "note",
+          "helpUri": "https://github.com/microsoft/Microsoft.Unity.Analyzers/blob/main/doc/UNT0001.md",
+          "properties": {
+            "category": "Performance",
+            "isEnabledByDefault": true
+          }
+        },
+        "UNT0013": {
+          "id": "UNT0013",
+          "shortDescription": "Remove invalid SerializeField attribute",
+          "fullDescription": "SerializeField attribute does not work on properties, and are unnecessary for public fields.",
+          "defaultLevel": "note",
+          "helpUri": "https://github.com/microsoft/Microsoft.Unity.Analyzers/blob/main/doc/UNT0013.md",
+          "properties": {
+            "category": "Correctness",
+            "isEnabledByDefault": true
+          }
+        },
+        "UNT0016": {
+          "id": "UNT0016",
+          "shortDescription": "Unsafe way to get the method name",
+          "fullDescription": "Usage of nameof or direct call is preferred for type safety.",
+          "defaultLevel": "note",
+          "helpUri": "https://github.com/microsoft/Microsoft.Unity.Analyzers/blob/main/doc/UNT0016.md",
+          "properties": {
+            "category": "TypeSafety",
+            "isEnabledByDefault": true
+          }
+        },
+        "UNT0024": {
+          "id": "UNT0024",
+          "shortDescription": "Give priority to scalar calculations over vector calculations",
+          "fullDescription": "Scalar calculations are faster than vector calculations.",
+          "defaultLevel": "note",
+          "helpUri": "https://github.com/microsoft/Microsoft.Unity.Analyzers/blob/main/doc/UNT0024.md",
+          "properties": {
+            "category": "Performance",
+            "isEnabledByDefault": true
+          }
+        },
+        "UNT0026": {
+          "id": "UNT0026",
+          "shortDescription": "GetComponent always allocates",
+          "fullDescription": "TryGetComponent will not allocate memory in case it fails.",
+          "defaultLevel": "note",
+          "helpUri": "https://github.com/microsoft/Microsoft.Unity.Analyzers/blob/main/doc/UNT0026.md",
+          "properties": {
+            "category": "Performance",
+            "isEnabledByDefault": true
+          }
+        }
+      }
+    }
+  ]
+}

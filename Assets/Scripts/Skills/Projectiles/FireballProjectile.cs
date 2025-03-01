@@ -20,7 +20,7 @@ public class FireballProjectile : Projectile
         float elapsedTime = 0f;
         while (elapsedTime < duration)
         {
-            transform.position += (Vector3)direction.normalized * projectileSpeed * Time.deltaTime;
+            transform.position += Time.deltaTime * projectileSpeed * (Vector3)direction.normalized;
 
             Collider2D[] hitColliders = GetHitColliders();
             List<Creature> targetsList = new List<Creature>();
@@ -92,8 +92,7 @@ public class FireballProjectile : Projectile
             if (!isEnemyTarget && !isPlayerTarget)
                 continue;
 
-            Creature creature = collider.GetComponent<Creature>();
-            if (creature == null)
+            if (!collider.TryGetComponent(out Creature creature))
                 continue;
             targetsList.Add(creature);
         }

@@ -1,0 +1,6 @@
+projectKey=a3ternum_EO_b92e2d24-4fe0-44d7-9b44-e39e4702a04d
+serverUrl=https://0945-185-38-152-81.ngrok-free.app
+serverVersion=25.2.0.102705
+dashboardUrl=https://0945-185-38-152-81.ngrok-free.app/dashboard?id=a3ternum_EO_b92e2d24-4fe0-44d7-9b44-e39e4702a04d
+ceTaskId=fb7b31ca-c464-4ff7-b422-6224c221b9be
+ceTaskUrl=https://0945-185-38-152-81.ngrok-free.app/api/ce/task?id=fb7b31ca-c464-4ff7-b422-6224c221b9be

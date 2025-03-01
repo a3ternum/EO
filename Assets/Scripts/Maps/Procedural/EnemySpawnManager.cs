@@ -13,7 +13,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     public float packDensity = 1;
     public float packSize = 5;
-    private Vector2Int playerStartPosition;
+    public Vector2Int playerStartPosition;
     [SerializeField]
     private float minPlayerDistance;
 

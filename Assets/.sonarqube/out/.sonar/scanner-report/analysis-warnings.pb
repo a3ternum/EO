@@ -1,0 +1,3 @@
+†
+üYour project contains only TEST-code for language C# and no MAIN-code for any language, so only TEST-code related results are imported. Many of our rules (e.g. vulnerabilities) are raised only on MAIN-code. Read more about how the SonarScanner for .NET detects test projects: https://github.com/SonarSource/sonar-scanner-msbuild/wiki/Analysis-of-product-projects-vs.-test-projects¨‘ã’Õ2Õ
+ËMulti-Language analysis is enabled. If this was not intended and you have issues such as hitting your LOC limit or analyzing unwanted files, please set "/d:sonar.scanner.scanAll=false" in the begin step.š™ã’Õ2

@@ -1,0 +1,1 @@
+— (2csXhrFAssets/Scripts/PassiveSkillTree/NodeEffectScripts/IntelligenceSmall.cs

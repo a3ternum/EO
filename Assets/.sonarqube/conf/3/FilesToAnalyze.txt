@@ -1,0 +1,2 @@
+﻿C:\Users\senao\UnityProjects\EO\Assets\Tests\CreatureTests.cs
+C:\Users\senao\UnityProjects\EO\Assets\Tests\TestAssembly.asmdef

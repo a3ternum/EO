@@ -1,0 +1,261 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Microsoft (R) Visual C# Compiler",
+        "version": "4.13.0.0",
+        "fileVersion": "4.13.0-3.25072.11 (40a6eabe)",
+        "semanticVersion": "4.13.0",
+        "language": "en-US"
+      },
+      "results": [
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'CollectTilemapSourcesCache2d._tilemap' is never assigned to, and will always have its default value null",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/ExternalPackageScripts/NavMeshComponents/NavMeshScripts/CollectTilemapSourcesCache2d.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 42,
+                  "endLine": 13,
+                  "endColumn": 50
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "CS0649",
+          "level": "warning",
+          "message": "Field 'AgentRotateSmooth2d.angularSpeed' is never assigned to, and will always have its default value 0",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/ExternalPackageScripts/NavMeshComponents/NavMeshScripts/AgentRotateSmooth2d.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 22,
+                  "endLine": 7,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 4
+          }
+        },
+        {
+          "ruleId": "UNT0023",
+          "level": "note",
+          "message": "Unity objects should not use coalescing assignment.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/ExternalPackageScripts/NavMeshComponents/NavMeshScripts/CollectTilemapSourcesCache2d.cs",
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 13,
+                  "endLine": 23,
+                  "endColumn": 67
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0023",
+          "level": "note",
+          "message": "Unity objects should not use coalescing assignment.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/ExternalPackageScripts/NavMeshComponents/NavMeshScripts/CollectTilemapSourcesCache2d.cs",
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 13,
+                  "endLine": 24,
+                  "endColumn": 81
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0026",
+          "level": "note",
+          "message": "GetComponent allocates even if no component is found.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/ExternalPackageScripts/NavMeshComponents/NavMeshScripts/NavMeshBuilder2d.cs",
+                "region": {
+                  "startLine": 216,
+                  "startColumn": 27,
+                  "endLine": 216,
+                  "endColumn": 59
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0026",
+          "level": "note",
+          "message": "GetComponent allocates even if no component is found.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/ExternalPackageScripts/NavMeshComponents/NavMeshScripts/NavMeshBuilder2d.cs",
+                "region": {
+                  "startLine": 193,
+                  "startColumn": 32,
+                  "endLine": 193,
+                  "endColumn": 67
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0026",
+          "level": "note",
+          "message": "GetComponent allocates even if no component is found.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/ExternalPackageScripts/NavMeshComponents/NavMeshScripts/NavMeshBuilder2d.cs",
+                "region": {
+                  "startLine": 201,
+                  "startColumn": 31,
+                  "endLine": 201,
+                  "endColumn": 63
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0026",
+          "level": "note",
+          "message": "GetComponent allocates even if no component is found.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/ExternalPackageScripts/NavMeshComponents/NavMeshScripts/NavMeshBuilder2d.cs",
+                "region": {
+                  "startLine": 206,
+                  "startColumn": 30,
+                  "endLine": 206,
+                  "endColumn": 69
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "UNT0008",
+          "level": "note",
+          "message": "Unity objects should not use null propagation.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/senao/UnityProjects/EO/Assets/ExternalPackageScripts/NavMeshComponents/NavMeshScripts/CollectSources2d.cs",
+                "region": {
+                  "startLine": 40,
+                  "startColumn": 28,
+                  "endLine": 40,
+                  "endColumn": 68
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        }
+      ],
+      "rules": {
+        "CS0649": {
+          "id": "CS0649",
+          "shortDescription": "Field is never assigned to, and will always have its default value",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS0649)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
+        "UNT0008": {
+          "id": "UNT0008",
+          "shortDescription": "Null propagation on Unity objects",
+          "fullDescription": "Unity overrides the null comparison operator for Unity objects, which is incompatible with null propagation.",
+          "defaultLevel": "note",
+          "helpUri": "https://github.com/microsoft/Microsoft.Unity.Analyzers/blob/main/doc/UNT0008.md",
+          "properties": {
+            "category": "Correctness",
+            "isEnabledByDefault": true
+          }
+        },
+        "UNT0023": {
+          "id": "UNT0023",
+          "shortDescription": "Coalescing assignment on Unity objects",
+          "fullDescription": "Unity overrides the null comparison operator for Unity objects, which is incompatible with coalescing assignment.",
+          "defaultLevel": "note",
+          "helpUri": "https://github.com/microsoft/Microsoft.Unity.Analyzers/blob/main/doc/UNT0023.md",
+          "properties": {
+            "category": "Correctness",
+            "isEnabledByDefault": true
+          }
+        },
+        "UNT0026": {
+          "id": "UNT0026",
+          "shortDescription": "GetComponent always allocates",
+          "fullDescription": "TryGetComponent will not allocate memory in case it fails.",
+          "defaultLevel": "note",
+          "helpUri": "https://github.com/microsoft/Microsoft.Unity.Analyzers/blob/main/doc/UNT0026.md",
+          "properties": {
+            "category": "Performance",
+            "isEnabledByDefault": true
+          }
+        }
+      }
+    }
+  ]
+}

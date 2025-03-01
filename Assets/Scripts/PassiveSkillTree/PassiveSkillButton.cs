@@ -1,4 +1,6 @@
 using TMPro;
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,10 +14,19 @@ public class PassiveSkillButton : MonoBehaviour
 
     private void Start()
     {
-        // find the player object with a delay
-        Invoke("FindPlayerAndInitializeSkillPoints", 0.3f);
+        // Start a coroutine to invoke the method with a delay
+        StartCoroutine(InvokeWithDelay(0.3f));
     }
 
+
+    private IEnumerator InvokeWithDelay(float delay)
+    {
+        // Wait for the specified delay
+        yield return new WaitForSeconds(delay);
+
+        // Call the method after the delay
+        FindPlayerAndInitializeSkillPoints();
+    }
 
     private void FindPlayerAndInitializeSkillPoints()
     {

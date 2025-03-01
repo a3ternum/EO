@@ -1,0 +1,1 @@
+g (2csXhr$Assets/Scripts/AnimatorStartupFix.cs

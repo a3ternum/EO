@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 public class ExperienceBar : MonoBehaviour
 {
     public Slider slider;
@@ -10,9 +11,15 @@ public class ExperienceBar : MonoBehaviour
 
     private void Start()
     {
-        Invoke("FindPlayerWithDelay", 0.1f);
+        StartCoroutine(InvokeWithDelay(0.1f));
         // set object location to be at bottom of screen offset from player
         transform.position = new Vector3(0, -5.5f, 0);
+    }
+
+    private IEnumerator InvokeWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        FindPlayerWithDelay();
     }
 
     private void FindPlayerWithDelay()

@@ -1,0 +1,1 @@
+  (2csXhr\Assets/ExternalPackageScripts/NavMeshComponents/Editor/NavMeshAreaAttributePropertyDrawer.cs

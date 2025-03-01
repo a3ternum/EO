@@ -1,0 +1,1 @@
+c (2csX’hr/Assets/Scripts/UI/Inventory/InventoryManager.cs

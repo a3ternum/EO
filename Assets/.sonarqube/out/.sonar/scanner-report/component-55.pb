@@ -1,0 +1,1 @@
+7 (2csXhr+Assets/Scripts/UI/Inventory/Items/Weapon.cs

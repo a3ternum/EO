@@ -1,0 +1,1 @@
+ (2csX:hr[Assets/ExternalPackageScripts/NavMeshComponents/NavMeshScripts/NavMeshExtensionsProvider.cs
