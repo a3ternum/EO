@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnumComparer : MonoBehaviour
+public static class EnumComparer
 {
     private static readonly Dictionary<Item.ItemType, EquipmentSlot.EquipmentType> armourToItemMapping = new Dictionary<Item.ItemType, EquipmentSlot.EquipmentType>
     {
@@ -14,7 +14,7 @@ public class EnumComparer : MonoBehaviour
         { Item.ItemType.Weapon, EquipmentSlot.EquipmentType.Weapon},
     };
 
-    public bool AreEnumValuesEqual(Item.ItemType itemType, EquipmentSlot.EquipmentType equipmentType)
+    public static bool AreEnumValuesEqual(Item.ItemType itemType, EquipmentSlot.EquipmentType equipmentType)
     {
         return armourToItemMapping.TryGetValue(itemType, out var mappedItem) && mappedItem == equipmentType;
     }

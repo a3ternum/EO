@@ -87,7 +87,15 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            if (eventData.pointerEnter == null || (!eventData.pointerEnter.GetComponent<InventorySlot>() && !eventData.pointerEnter.GetComponent<InventoryItem>())  )
+
+
+
+            if (eventData.pointerEnter == null // no object under the mouse
+                || (!eventData.pointerEnter.GetComponent<InventorySlot>() // object is not an inventory slot
+                && !eventData.pointerEnter.GetComponent<InventoryItem>())  // object is not an inventory item
+                && !eventData.pointerEnter.GetComponent<EquipmentSlot>() // object is not an equipment slot
+                && !eventData.pointerEnter.GetComponent<InventoryBackground>() // object is not the inventory background
+                )
             {
                 // item is dropped outside of inventory
                 DropItem(Camera.main.ScreenToWorldPoint(Input.mousePosition));
@@ -116,7 +124,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     private bool CanConsumeItem()
     {
-        return item.type == ItemType.Consumable;
+        return item.type == Item.ItemType.Consumable;
     }
 
     public bool IsRightMouseDragging()

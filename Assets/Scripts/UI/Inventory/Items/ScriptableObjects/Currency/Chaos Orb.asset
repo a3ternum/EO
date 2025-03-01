@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b1509dcf20cdf445824d659f8272027, type: 3}
   m_Name: Chaos Orb
   m_EditorClassIdentifier: 
-  type: 2
+  type: 8
   actionType: 0
   range: {x: 5, y: 4}
   onFloor: 0
