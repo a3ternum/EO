@@ -38,17 +38,25 @@ public class Item : ScriptableObject
         }
 
     }
+    public enum ItemType
+    {
+        Weapon,
+        BodyArmour,
+        Gloves,
+        Helmet,
+        Boots,
+        Ring,
+        Amulet,
+        Belt,
+        Consumable
+    }
+
+    public enum ActionType
+    {
+        ApplyConsumable
+    }
+
+
 }
 
-public enum ItemType
-{
-    Weapon,
-    Armor,
-    Consumable
-}
-
-public enum ActionType
-{
-    ApplyConsumable
-}
 

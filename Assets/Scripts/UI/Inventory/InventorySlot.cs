@@ -107,7 +107,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 
     private bool CanConsumeItem(InventoryItem inventoryItem)
     {
-        return inventoryItem.item.type == ItemType.Consumable;
+        return inventoryItem.item.type == Item.ItemType.Consumable;
     }
 
     private void StackItems(InventoryItem inventoryItem)
