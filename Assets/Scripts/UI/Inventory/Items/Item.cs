@@ -24,8 +24,9 @@ public class Item : ScriptableObject
     public Sprite image;
     public string itemName;
     public string itemDescription;
+    public string itemStats; // itemStats should be reworked to be a list of affixes
 
-   
+
     public void UseItem(Item targetItem)
     {
         if (type == ItemType.Consumable)

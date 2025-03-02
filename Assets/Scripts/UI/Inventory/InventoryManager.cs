@@ -95,6 +95,7 @@ public class InventoryManager : MonoBehaviour
                         {
                             SpawnNewItem(item, slot);
                             slot.GetComponentInChildren<InventoryItem>().count = stackSize; // change the stackSize of the item
+                            slot.GetComponentInChildren<InventoryItem>().refreshCount(); // refresh the count of the item in the UI
                             return;
                         }
                     }

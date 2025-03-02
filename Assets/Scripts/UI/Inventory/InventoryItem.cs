@@ -6,9 +6,10 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
 
-public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
     private bool isDraggable = false;
+    private bool isDragging = false;
     private bool RMBdragging = false;
     [Header("UI")]
     public Image image;
@@ -34,10 +35,18 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         countText.gameObject.SetActive(textActive);
     }
 
+    
+
+
+
+
 
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        isDragging = true;
+
+
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             isDraggable = true;
@@ -85,7 +94,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             return;
         }
 
-        if (eventData.button == PointerEventData.InputButton.Left)
+        if (eventData.button == PointerEventData.InputButton.Left) // left mouse button drag
         {
 
 
@@ -100,24 +109,30 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 // item is dropped outside of inventory
                 DropItem(Camera.main.ScreenToWorldPoint(Input.mousePosition));
             }
-            else
+            else // item is dropped on inventorySlot, equipmentSlot, inventoryBackground or another inventoryItem
             {
                 transform.SetParent(parentAfterDrag);
                 transform.localPosition = Vector3.zero;
                 image.raycastTarget = true;
+                isDragging = false;
+                isDraggable = false;
                 return;
             } 
             transform.SetParent(parentAfterDrag);
             image.raycastTarget = true;
             isDraggable = false;
             RMBdragging = false;
+            isDragging = false;
+
         }
-        else if (eventData.button == PointerEventData.InputButton.Right)
+        else if (eventData.button == PointerEventData.InputButton.Right) // right mouse button drag end
         {
             transform.SetParent(parentAfterDrag);
             image.raycastTarget = true;
             isDraggable = false;
             RMBdragging = false;
+            isDragging = false;
+
         }
 
     }
@@ -148,8 +163,33 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         GroundItem groundItem = groundItemGo.AddComponent<GroundItem>();
         groundItem.InitializeItem(item, count);
 
+        isDragging = false;
         // remove the item from the inventory
         Destroy(gameObject);
+    }
+
+    // New methods to handle pointer hover events.
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        Debug.Log("Pointer entered");
+        if (item != null && ItemDescriptionUI.Instance != null)
+        {
+            Debug.Log("Showing description");
+            ItemDescriptionUI.Instance.ShowDescription(item);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (isDragging)
+        {
+            return;
+        }
+        if (ItemDescriptionUI.Instance != null)
+        {
+            ItemDescriptionUI.Instance.HideDescription();
+        }
     }
 
 }
